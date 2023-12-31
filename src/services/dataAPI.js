@@ -306,15 +306,15 @@ export async function getArtistData(id) {
     "image": [
       {
         "quality": "50x50",
-        "link": "https://raw.githubusercontent.com/Adhil-B/music/main/src/assets/channels4_profile.jpg"
+        "link": "https://raw.githubusercontent.com/Adhil-B/music-plus/main/src/assets/channels4_profile.jpg?token=GHSAT0AAAAAACKO7VK4PWG2VTYC4KDCGWKWZMRUGYQ"
       },
       {
         "quality": "150x150",
-        "link": "https://raw.githubusercontent.com/Adhil-B/music/main/src/assets/channels4_profile.jpg"
+        "link": "https://raw.githubusercontent.com/Adhil-B/music-plus/main/src/assets/channels4_profile.jpg?token=GHSAT0AAAAAACKO7VK4PWG2VTYC4KDCGWKWZMRUGYQ"
       },
       {
         "quality": "500x500",
-        "link": "https://raw.githubusercontent.com/Adhil-B/music/main/src/assets/channels4_profile.jpg"
+        "link": "https://raw.githubusercontent.com/Adhil-B/music-plus/main/src/assets/channels4_profile.jpg?token=GHSAT0AAAAAACKO7VK4PWG2VTYC4KDCGWKWZMRUGYQ"
       }
     ],
     "followerCount": "71752",
