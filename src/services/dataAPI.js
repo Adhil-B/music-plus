@@ -191,11 +191,11 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
-    const response = await fetch(`https://bb.vern.cc/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
+    const response = await fetch(`https://podz-music.vercel.app/api/search/?query=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
-    const x = data22["videoDetails"];
-      x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
+    const x = data22[0];
+      x["primaryArtists"] = x["author"];
       x["image"] = [{
             "quality": "50x50",
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
@@ -209,9 +209,9 @@ function transformList(list) {
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           }];
       x["name"] = x["title"];
-      x["id"] = `yt-${x["videoId"]}`;
+      x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = x["channelId"];
+      x["primaryArtistsId"] = x["author"];
       x["language"] = "YouTube";
       x["album"] = {
         "id": "13615087",
