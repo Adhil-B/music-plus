@@ -195,7 +195,7 @@ function transformList(list) {
     const data22 = await response.json();
     const data2 = [];
     const x = data22["videoDetails"];
-      x["primaryArtists"] = x["channelId"];
+      x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
