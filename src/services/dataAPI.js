@@ -195,7 +195,7 @@ function transformList(list) {
     const data22 = await response.json();
     const data2 = [];
     const x = data22[0];
-      x["primaryArtists"] = x["author"];
+      x["primaryArtists"] = x["channelId"];
       x["image"] = [{
             "quality": "50x50",
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
@@ -209,9 +209,9 @@ function transformList(list) {
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           }];
       x["name"] = x["title"];
-      x["id"] = `yt-${x["id"]}`;
+      x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = x["author"];
+      x["primaryArtistsId"] = x["channelId"];
       x["language"] = "YouTube";
       x["album"] = {
         "id": "13615087",
