@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 import { getRecommendedSongs, getSongData } from '@/services/dataAPI';
+import { Innertube } from 'youtubei.js';
+const youtube = await Innertube.create(/* options */);
+
 
 export async function PUT(request) {
     const list = await request.json();
