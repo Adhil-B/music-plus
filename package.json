@@ -33,6 +33,7 @@
     "redux": "^4.2.1",
     "swiper": "^10.0.4",
     "tailwindcss": "3.3.3",
-    "browser-file-storage":"1.0.7"
+    "browser-file-storage":"1.0.7",
+    "youtubei.js" : "8.1.0"
   }
 }
