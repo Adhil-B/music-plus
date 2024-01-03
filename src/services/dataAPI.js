@@ -191,7 +191,7 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
-    const response = await fetch(`https://beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
+    const response = await fetch(`https://bb.vern.cc/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
     const x = data22["videoDetails"];
