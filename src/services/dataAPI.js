@@ -191,10 +191,11 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
+    //const response = await fetch(`https://podz-music.vercel.app/api/search/?query=${id.toString().replace("yt-","")}`);
     const response = await fetch(`https://api.allorigins.win/raw?url=https%3A//beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
-    const x = data22[0];
+    const x = data22["videoDetails"];
       x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
