@@ -191,27 +191,27 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
-    const response = await fetch(`https://podz-music.vercel.app/api/search/?query=${id.toString().replace("yt-","")}`);
+    const response = await fetch(`https://beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
-    const x = data22[0];
-      x["primaryArtists"] = x["author"];
+    const x = data22["videoDetails"];
+      x["primaryArtists"] = x["channelId"];
       x["image"] = [{
             "quality": "50x50",
-            "link": x["image"]
+            "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           },
           {
             "quality": "150x150",
-            "link": x["image"]
+            "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           },
           {
             "quality": "500x500",
-            "link": x["image"]
+            "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           }];
       x["name"] = x["title"];
-      x["id"] = `yt-${x["id"]}`;
+      x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = x["author"];
+      x["primaryArtistsId"] = x["channelId"];
       x["language"] = "YouTube";
       x["album"] = {
         "id": "13615087",
@@ -221,23 +221,23 @@ function transformList(list) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}}`
+          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}}`
+          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}}`
+          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}}`
+          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}}`
+          "link": `https://youtubeforever.vercel.app/audio/${id.toString().replace("yt-","")}`
         }
       ];
       result.push(x);
