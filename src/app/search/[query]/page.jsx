@@ -1,7 +1,7 @@
 'use client'
 import SwiperLayout from '@/components/Homepage/Swiper';
 import SongCard from '@/components/Homepage/SongCard';
-import { getRecommendedSongs, getSearchedData, getSongData } from '@/services/dataAPI';
+import { getRecommendedSongs, getSearchedData, getSearchedArtist, getSongData } from '@/services/dataAPI';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -20,6 +20,7 @@ const page = ({params}) => {
     const dispatch = useDispatch();
     const [query, setQuery] = useState(params.query);
     const [searchedData, setSearchedData] = useState(null);
+    const [searchedArtist, setSearchedArtist] = useState(null);
     const [loading, setLoading] = useState(true);
     const {currentSongs, autoAdd, activeSong, isPlaying} = useSelector(state => state.player);
    
@@ -27,8 +28,9 @@ const page = ({params}) => {
     useEffect(() => {
         const fetchData = async () => {
            dispatch(setProgress(70))
-            const response = await getSearchedData(query);
+            const [response,response2] = await Promise.all([getSearchedData(query),getSearchedArtist(query)]);
             setSearchedData(response);
+            setSearchedArtist(response2);
             setLoading(false);
             dispatch(setProgress(100))
         }
@@ -125,8 +127,8 @@ const page = ({params}) => {
          
         <div className="mt-10 text-gray-200">
         <SwiperLayout title={"Artists"}>
-       { searchedData && searchedData?.artists?.results?.length > 0 &&
-        searchedData?.artists?.results?.map(
+       { searchedArtist && searchedArtist?.results?.length > 0 &&
+        searchedArtist?.results?.map(
             (artist) =>
                 (
                 <SwiperSlide key={artist?.id}>
