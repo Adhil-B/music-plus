@@ -111,7 +111,7 @@ const page = ({params}) => {
         }
       </div>
 
-        <div className="mt-10 text-gray-200">
+        <div className={`mt-10 text-gray-200 ${searchedData && searchedData?.albums?.results?.length > 0 ? '' : 'hidden'}`}>
         <SwiperLayout title={"Albums"}>
         { searchedData && searchedData?.albums?.results?.length > 0 &&
         searchedData?.albums?.results?.map(
@@ -125,7 +125,7 @@ const page = ({params}) => {
           </SwiperLayout>
         </div>
          
-        <div className="mt-10 text-gray-200">
+        <div className={`mt-10 text-gray-200 ${searchedArtist && searchedArtist?.results?.length > 0 ? '' : 'hidden'}`}>
         <SwiperLayout title={"Artists"}>
        { searchedArtist && searchedArtist?.results?.length > 0 &&
         searchedArtist?.results?.map(
@@ -151,7 +151,7 @@ const page = ({params}) => {
           </SwiperLayout>
         </div>
             
-        <div className="mt-10 text-gray-200">
+        <div className={`mt-10 text-gray-200 ${searchedData && searchedData?.albums?.results?.length > 0 ? "" : 'hidden'}`}>
         <SwiperLayout title={"Playlists"}>
         { searchedData && searchedData?.albums?.results?.length > 0 &&
         searchedData?.playlists?.results?.map(
