@@ -413,7 +413,8 @@ export async function getSearchedData(query) {
             "quality": "500x500",
             "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
           }];
-      x["name"] = x["title"].split(" -")[0].split(" |")[0];
+      x["title"] = x["title"].split("-")[0].split("|")[0];
+      x["name"] = x["title"];
       x["album"] = {
         "id": "13615087",
         "name": "Thunderclouds",
