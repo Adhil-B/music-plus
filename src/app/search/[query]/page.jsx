@@ -135,11 +135,11 @@ const page = ({params}) => {
                   <Link href={`/artist/${artist?.id}`}>
                   <div className=' flex flex-col justify-center items-center'>
                     <Image src={artist?.image?.[2]?.link} alt={artist?.name} width={200} height={200} className="rounded-full" />
-                    <p className="lg:text-base lg:w-44 w-24 text-center text-xs font-semibold mt-3 truncate">{artist?.title?.replace("&amp;","&")}</p>
+                    <p className="lg:text-base lg:w-44 w-24 text-center text-xs font-semibold mt-3 truncate">{artist?.name?.replace("&amp;","&")}</p>
                     <div>
-                      {artist?.description && (
+                      {artist?.role && (
                         <p className="text-gray-400 truncate text-[8px] lg:text-xs">
-                          {artist?.description}   
+                          {artist?.role}   
                     </p>
                       )}
                     </div>
