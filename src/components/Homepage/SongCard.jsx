@@ -39,16 +39,16 @@ const SongCard = ({ song, isPlaying, activeSong }) => {
       setLoading(false);
     }
   };
-//lg:w-[205px] lg:[220px]
-  //lg:h-[178px]
+//
+  //
   return (
-    <div key={song?.id} className="flex flex-col p-2 bg-white/5 bg-opacity-80 backdrop-blur-sm rounded-lg cursor-pointer">
+    <div key={song?.id} className="lg:max-w-[205px] lg:[220px] flex flex-col p-2 bg-white/5 bg-opacity-80 backdrop-blur-sm rounded-lg cursor-pointer">
       <Link onClick={(e) => {
         if (song?.type == 'song' || song?.type == "") {
           e.preventDefault()
         }
       }} href={song?.type === 'album' ? `/album/${song?.id}` : song?.type === 'playlist' ? `/playlist/${song?.id}` : ''} >
-        <div className="relative w-full   group">
+        <div className="relative w-full lg:max-h-[178px] group">
           <div className={`absolute inset-0 p-2 justify-center items-center bg-black bg-opacity-0 group-hover:flex ${activeSong?.id === song?.id ? 'hover:flex hover:bg-black hover:bg-opacity-70' : 'hidden'}`}>
             <PlayPause
               isPlaying={isPlaying}
