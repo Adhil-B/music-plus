@@ -434,7 +434,7 @@ export async function getSearchedData(query) {
       x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = x["author"];
-      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60)){
+      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         data2.push(x);
       }
       
@@ -576,7 +576,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         }
       ];
       x["primaryArtistsId"] = "9876541";
-      if ((!x["title"].includes("Official Trailer")) && (!x["title"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60)){
+      if ((!x["title"].includes("Official Trailer")) && (!x["title"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         if (sondId.includes("Saregama")){
           if (x["author"].includes(sondId.split("%20")[1].replace(" new-songs",""))){
            data2.push(x);
