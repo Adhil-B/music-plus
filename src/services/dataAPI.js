@@ -403,15 +403,15 @@ export async function getSearchedData(query) {
       x["primaryArtists"] = x["author"];
       x["image"] = [{
             "quality": "50x50",
-            "link": x["image"]
+            "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
           },
           {
             "quality": "150x150",
-            "link": x["image"]
+            "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
           },
           {
             "quality": "500x500",
-            "link": x["image"]
+            "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
           }];
       x["name"] = x["title"].split(" -")[0].split(" |")[0];
       x["album"] = {
