@@ -58,7 +58,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       dispatch(setProgress(70))
-      setSongR(songHistory);
+      //setSongR(songHistory);
       const res = await homePageData(languages);
       setData(res);
       dispatch(setProgress(100))
