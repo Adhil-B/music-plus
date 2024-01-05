@@ -16,6 +16,8 @@ const page = ({ params }) => {
     const dispatch = useDispatch();
     const [artistDetails, setArtistDetails] = useState({});
     const [artistSongs, setArtistSongs] = useState([]);
+    const [songsPage, setSongsPage] = useState(1);
+    const [lastPage, setLastPage] = useState(false);
     const [loading, setLoading] = useState(true);
     const [artistAlbums, setArtistAlbums] = useState([]);
 
@@ -26,16 +28,28 @@ const page = ({ params }) => {
             console.log('details', details);
             dispatch(setProgress(60));
             setArtistDetails(details);
-            const songs = await getArtistSongs(params.artistId, 1);
+            const songs = await getArtistSongs(params.artistId, songsPage);
             dispatch(setProgress(90));
             setArtistSongs(songs);
+            setLastPage(songs["lastPage"]);
             const albums = await getArtistAlbums(params.artistId, 1);
             dispatch(setProgress(100));
             setArtistAlbums(albums);
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [songsPage]);
+
+    const songNext = () => {
+        if (!lastPage){
+            setSongsPage = songsPage + 1;
+        }
+    };
+    const songPrv = () => {
+        if (songsPage !== 1){
+            setSongsPage = songsPage - 1;
+        }
+    };
 
 //<div className="absolute lg:w-[400px] w-[300px] inset-0 bg-gradient-to-t from-black via-transparent"></div>
     return (
@@ -72,6 +86,17 @@ const page = ({ params }) => {
             </div>
 
             <div className="mt-10 text-gray-200">
+                <div className=" flex justify-between">
+      <h2 className=" text-white mt-4 text-2xl lg:text-3xl font-semibold mb-4 ">Songs</h2>
+        <div className=" hidden md:flex gap-1">
+        <div onClick={songPrv} className=" m-4 mb-5 border border-white rounded-full cursor-pointer">
+      <MdNavigateBefore size={35}  className="text-white text-xl" />
+      </div>
+      <div onClick={songNext} className=" m-4 mb-5 border border-white rounded-full cursor-pointer">
+      <MdNavigateNext size={35}  className="text-white text-xl" />
+      </div>
+      </div>
+      </div>
                 <h1 className="text-3xl font-bold">Songs</h1>
                 {
                     loading ? (
