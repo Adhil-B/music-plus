@@ -42,12 +42,12 @@ const page = ({ params }) => {
 
     const songNext = () => {
         if (!lastPage){
-            setSongsPage = songsPage + 1;
+            setSongsPage(songsPage + 1);
         }
     };
     const songPrv = () => {
         if (songsPage !== 1){
-            setSongsPage = songsPage - 1;
+            setSongsPage(songsPage - 1);
         }
     };
 
