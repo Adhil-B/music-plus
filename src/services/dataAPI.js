@@ -254,7 +254,7 @@ function transformList(list) {
     const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
       for (let song of data?.data) {
-        song["name"] = song["name"].replaceAll('&quot;','"');
+        song["name"] = song["name"].replaceAll('&quot;','"').replaceAll('&#039;',"'");
         result.push(song);
       }
      
