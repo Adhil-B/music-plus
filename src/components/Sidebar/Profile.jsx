@@ -23,7 +23,7 @@ const Profile = ({setShowNav}) => {
         fetchUser();
     }, [status]);
   return (
-    <div className='dside text-white'>
+    <div className={`dside text-white border-[#ffffff3d] ${status === 'unauthenticated' ? '' : 'border'}`}>
         {
         status === 'loading' ? <div className=' ml-16'> <span className="loading"></span> </div> :
             <div>
