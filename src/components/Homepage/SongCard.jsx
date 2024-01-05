@@ -42,7 +42,7 @@ const SongCard = ({ song, isPlaying, activeSong }) => {
 //lg:w-[205px] lg:[220px]
   //lg:h-[178px]
   return (
-    <div key={song?.id} className=" flex flex-col p-2 bg-white/5 bg-opacity-80 backdrop-blur-sm rounded-lg cursor-pointer">
+    <div key={song?.id} className=" flex flex-col p-2.5 bg-white/5 bg-opacity-80 backdrop-blur-sm rounded-lg cursor-pointer">
       <Link onClick={(e) => {
         if (song?.type == 'song' || song?.type == "") {
           e.preventDefault()
