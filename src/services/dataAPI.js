@@ -215,7 +215,7 @@ function transformList(list) {
             "quality": "500x500",
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           }];
-      x["name"] = x["title"];
+      x["name"] = x["title"].split(" -")[0].split(" |")[0];
       x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = x["author"];
@@ -413,7 +413,7 @@ export async function getSearchedData(query) {
             "quality": "500x500",
             "link": x["image"]
           }];
-      x["name"] = x["title"];
+      x["name"] = x["title"].split(" -")[0].split(" |")[0];
       x["album"] = {
         "id": "13615087",
         "name": "Thunderclouds",
@@ -422,7 +422,7 @@ export async function getSearchedData(query) {
       x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = "9876541";
-      if ((!x["name"].includes("Official Trailer")) && (x["author"].includes("Saregama")) && (x["duration"] > 60)){
+      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60)){
         data2.push(x);
       }
       
@@ -538,7 +538,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      x["name"] = x["title"];
+      x["name"] = x["title"].split(" -")[0].split(" |")[0];
       x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
       x["downloadUrl"] = [
@@ -564,7 +564,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         }
       ];
       x["primaryArtistsId"] = "9876541";
-      if ((!x["name"].includes("Official Trailer")) && (x["author"].includes("Saregama")) && (x["duration"] > 60)){
+      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60)){
         if (sondId.includes("Saregama")){
           if (x["author"].includes(sondId.split("%20")[1].replace(" new-songs",""))){
            data2.push(x);
