@@ -126,7 +126,48 @@ const Home = () => {
       </SwiperLayout>
 )}
   
+      {/* New Releases */}
+      {  selectedHomeCategories.includes("releases") && (
+      <SwiperLayout title={"New Releases"}>
+        {
+          loading ? (
+            <SongCardSkeleton />
+          ) : (
+            data?.albums?.map(
+              (song) =>
+              (
+                <SwiperSlide key={song?.id}>
+                  <SongCard song={song} activeSong={activeSong} isPlaying={isPlaying} />
+                </SwiperSlide>
+              )
+            )
+          )
+        }
+      </SwiperLayout>
+)}
       
+      {/* top charts */}
+      {  selectedHomeCategories.includes("charts") && (
+      <div className="my-4 lg:mt-14">
+        <h2 className=" text-white mt-4 text-2xl lg:text-3xl font-semibold mb-4 ">Top Charts</h2>
+        <div className="grid lg:grid-cols-2 gap-x-10 max-h-96 lg:max-h-full lg:overflow-y-auto overflow-y-scroll">
+          {
+            loading ? (
+              <div className=" w-[90vw] overflow-x-hidden">
+                <SongCardSkeleton />
+              </div>
+            ) : (
+              data?.charts?.slice(0, 10)?.map(
+                (playlist, index) =>
+                (
+                  <SongBar key={playlist?.id} playlist={playlist} i={index} />
+                ))
+            )
+          }
+        </div>
+      </div>
+)}
+
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
       <SwiperLayout title={"Trending"} >
@@ -157,46 +198,7 @@ const Home = () => {
         }
       </SwiperLayout>
   )}
-      {/* top charts */}
-      {  selectedHomeCategories.includes("charts") && (
-      <div className="my-4 lg:mt-14">
-        <h2 className=" text-white mt-4 text-2xl lg:text-3xl font-semibold mb-4 ">Top Charts</h2>
-        <div className="grid lg:grid-cols-2 gap-x-10 max-h-96 lg:max-h-full lg:overflow-y-auto overflow-y-scroll">
-          {
-            loading ? (
-              <div className=" w-[90vw] overflow-x-hidden">
-                <SongCardSkeleton />
-              </div>
-            ) : (
-              data?.charts?.slice(0, 10)?.map(
-                (playlist, index) =>
-                (
-                  <SongBar key={playlist?.id} playlist={playlist} i={index} />
-                ))
-            )
-          }
-        </div>
-      </div>
-)}
-      {/* New Releases */}
-      {  selectedHomeCategories.includes("releases") && (
-      <SwiperLayout title={"New Releases"}>
-        {
-          loading ? (
-            <SongCardSkeleton />
-          ) : (
-            data?.albums?.map(
-              (song) =>
-              (
-                <SwiperSlide key={song?.id}>
-                  <SongCard song={song} activeSong={activeSong} isPlaying={isPlaying} />
-                </SwiperSlide>
-              )
-            )
-          )
-        }
-      </SwiperLayout>
-)}
+      
       {/* featured playlists */}
       {  selectedHomeCategories.includes("featured") && (
       <SwiperLayout title={"Featured Playlists"}>
