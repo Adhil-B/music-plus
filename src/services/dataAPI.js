@@ -409,7 +409,7 @@ export async function getSearchedData(query) {
     const response1 = await fetch(`https://podz-music.vercel.app/api/search/?query=${query}`);
     const data1 = await response1.json();
     const data2 = [];
-    if (data1[0]["author"].includes("Saregama")){
+    if (data1[0]["author"].includes("Saregama") || data1[1]["author"].includes("Saregama")){
     for (let x of data1) {
       x["primaryArtists"] = x["author"];
       x["image"] = [{
