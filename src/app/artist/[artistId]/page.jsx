@@ -87,7 +87,7 @@ const page = ({ params }) => {
 
             <div className="mt-10 text-gray-200">
                 <div className=" flex justify-between">
-      <h2 className=" text-white mt-4 text-2xl lg:text-3xl font-semibold mb-4 ">Songs</h2>
+      <h1 className=" text-3xl font-bold ">Songs</h1>
         <div className=" hidden md:flex gap-1">
         <div onClick={songPrv} className=" m-4 mb-5 border border-white rounded-full cursor-pointer">
       <MdNavigateBefore size={35}  className="text-white text-xl" />
