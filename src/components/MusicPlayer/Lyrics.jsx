@@ -17,6 +17,7 @@ const Lyrics = ({ activeSong }) => {
 
 
     useEffect(() => {
+        if (activeTab === 'lyrics'){
         const fetchData = async () => {
             setLoading(true);
             const res = await getlyricsData(activeSong?.id);
@@ -25,7 +26,8 @@ const Lyrics = ({ activeSong }) => {
         };
         if (activeSong?.id)
         fetchData();
-    }, [activeSong?.id]);
+        }
+    }, [activeSong?.id, activeTab]);
 
     const handleAutoAdd = (checked) => {
         console.log(autoAdd);
