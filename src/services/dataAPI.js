@@ -389,6 +389,17 @@ export async function getArtistAlbums(id, page) {
   }
 }
 
+//get search artist
+export async function getSearchedArtist(query) {
+  try {
+    const response = await fetch(`https://saavn.me/search/artists?query=${query}`);
+    const data = await response.json();
+    return data?.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // get search data
 export async function getSearchedData(query) {
   try {
