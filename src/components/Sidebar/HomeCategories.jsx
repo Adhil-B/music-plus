@@ -21,9 +21,9 @@ const HomeCategories = () => {
         { id: 'listen', label: 'Listen Again' },
         { id: 'picks', label: 'Quick Picks For You' },
         { id: 'recommendations', label: 'Recommendations' },
-        { id: 'trending', label: 'Trending' },
-        { id: 'charts', label: 'Top Charts' },
         { id: 'releases', label: 'New Releases' },
+        { id: 'charts', label: 'Top Charts' },
+        { id: 'trending', label: 'Trending' },
         { id: 'featured', label: 'Featured Playlists'},
         // Add more homeCategories as needed
       ];
