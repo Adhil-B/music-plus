@@ -11,6 +11,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { SwiperSlide } from 'swiper/react';
+import { MdNavigateNext } from "react-icons/md";
+import { MdNavigateBefore } from "react-icons/md";
 
 const page = ({ params }) => {
     const dispatch = useDispatch();
@@ -88,7 +90,7 @@ const page = ({ params }) => {
             <div className="mt-10 text-gray-200">
                 <div className=" flex justify-between">
       <h1 className=" text-3xl font-bold ">Songs</h1>
-        <div className=" hidden md:flex gap-1">
+        <div className=" flex gap-1">
         <div onClick={songPrv} className=" m-4 mb-5 border border-white rounded-full cursor-pointer">
       <MdNavigateBefore size={35}  className="text-white text-xl" />
       </div>
