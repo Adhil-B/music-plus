@@ -86,7 +86,7 @@ const Home = () => {
 
 {/* Quick Picks */}
       {
-        data3?.recommendations !== [] && selectedHomeCategories.includes("picks") && (
+        songR?.length > 0 && selectedHomeCategories.includes("picks") && (
       <SwiperLayout title={"Quick Picks For You"}>
         {
           loading2 ? (
