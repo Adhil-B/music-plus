@@ -72,7 +72,7 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
 
   setInterval(function(){
 
- 	if (!ref.current. || ref.current.paused){return;}
+ 	if (!ref.current || ref.current.paused){return;}
 
 	if (!navigator.mediaSession) {return;}
 
