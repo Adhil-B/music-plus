@@ -46,7 +46,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
     <div className=' text-white max-w-[220px] '>
         <details open className='text-white detailanimatation'>
      
-            <summary className=' flex cursor-pointer gap-3 items-baseline mx-2'>
+            <summary className='icon3 flex cursor-pointer gap-3 items-baseline mx-2 mb-[10px]'>
             <FaChevronDown className='arrow '/>
             <div>
                 <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<IoIosAddCircleOutline size={25} onClick={(e)=> {e.stopPropagation(); e.preventDefault(); setShow(true)}} className={`${playlists?.length > 0 ? 'icon2 hidden' : 'hidden'} flex hover:text-[#00e6e6]`}/><BiSolidPlaylist size={25} className={`${playlists?.length > 0 ? 'hidden' : 'icon2 hidden'}`}/><BiSolidPlaylist size={25} className='icon'/></p>
