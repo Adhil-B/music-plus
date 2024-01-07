@@ -49,10 +49,10 @@ const Playlists = ({setShowNav}) => {
                 <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<BiSolidPlaylist size={25}/></p>
             </div>
                 </summary>
-                <div className='flex flex-col max-h-60 overflow-y-scroll overflow-x-hidden'>
+                <div className='flex flex-col max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
                     {
                         playlists?.map((playlist, index) => (
-                            <div key={index} className='flex gap-3 hover:underline justify-between items-center px-3 w-full border-white mx-3 cursor-pointer mb-2'>
+                            <div key={index} className='flex gap-3 hover:border-[#00e6e6] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full border-white mx-3 cursor-pointer '>
                                  <Link href={`/myPlaylists/${playlist._id}`}>
                                 <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center'>
                                 <MdPlaylistPlay size={20}/>
@@ -74,7 +74,7 @@ const Playlists = ({setShowNav}) => {
                         ))
                     }
                 <div className='flex justify-center items-center mt-3'>
-                <button onClick={() => setShow(true)} className='text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-white rounded-lg px-2 items-center py-2'><FaPlus className=' group-hover:text-[#00e6e6]'/>Create</button>
+                <button onClick={() => setShow(true)} className='text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff12] rounded-lg px-2 items-center py-2'><FaPlus className=' group-hover:text-[#00e6e6]'/>Create</button>
                 </div>
                 </div>
         </details>       
