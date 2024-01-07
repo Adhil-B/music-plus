@@ -15,9 +15,9 @@ import Link from 'next/link'
 import { setSettings } from '@/redux/features/settingsSlice'
 import { IoIosAddCircleOutline } from "react-icons/io";
 
-const Playlists = ({setShowNav}) => {
+const Playlists = ({setShowNav, show, setShow}) => {
     const dispatch = useDispatch();
-    const [show, setShow] = useState(false);
+    //const [show, setShow] = useState(false);
     const [playlists, setPlaylists] = useState([]);
     const [showMenu, setShowMenu] = useState(false);
 
@@ -39,11 +39,7 @@ const Playlists = ({setShowNav}) => {
             setPlaylists(playlists.filter((playlist) => playlist._id !== id))
         }
     }
-    const createplaylist = (event) => {
-       event.stopPropagation();
-       setShow(true);
-       
-    }
+    
 //BiSolidPlaylist
   return (
     <>
