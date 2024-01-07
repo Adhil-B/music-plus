@@ -30,7 +30,7 @@ const VolumeBar = ({ value, min, max, onChange, setVolume, activeSong, data }) =
   }
   return (
     <>
-    <div className="hidden lg:flex flex-1 items-center justify-end w-[50%] mr-[8vw]">
+    <div className="hidden lg:flex flex-1 items-center justify-end w-[50%] pr-[6%]">
       <div className=' relative'>
         <BiAddToQueue onClick={(e) => {e.stopPropagation(); setShowMenu(!showMenu);}} title='Add to Playlist' size={25} color={'white'} className={`${!true ? 'hidden sm:block' : ' m-3'} cursor-pointer`} />
         {
