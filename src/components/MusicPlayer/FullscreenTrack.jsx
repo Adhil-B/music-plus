@@ -19,8 +19,8 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
 
 
   return (
-    <div className={`${fullScreen ? 'block' : 'hidden'} w-[100%] h-[77vh] flex lg:flex-row lg:w-[1000px] mx-auto flex-col  lg:justify-between mt-10`}>
-      <div className="flex flex-col items-center lg:w-96">
+    <div className={`${fullScreen ? 'block' : 'hidden'} w-[100%] h-[77vh] flex lg:flex-row lg:w-[100vw] mx-auto flex-col  lg:justify-between mt-10`}>
+      <div className="flex flex-col items-center lg:w-[50%]">
         <div
           {...handlers}
          className=" h-80 w-80 lg:h-[60vh] lg:w-[60vh] sm:mt-5 mt-28 ">
@@ -48,7 +48,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
           </p>
         </div>
       </div>
-      <div onClick={(e) => e.stopPropagation()} className=" ml-60  flex-col items-center lg:flex hidden">
+      <div onClick={(e) => e.stopPropagation()} className=" ml-60 w-[50%] flex-col items-center lg:flex hidden">
         <Lyrics activeSong={activeSong} />
       </div>
     </div>
