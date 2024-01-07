@@ -180,9 +180,9 @@ const MusicPlayer = () => {
       <div className=' flex items-center justify-between pt-2 w-[100vw]'>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
         <div className="flex-1 flex flex-col items-center justify-center w-[50%]">
-          <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4`}>
+          <div className={`${fullScreen ? '' : 'hidden'}  md:hidden flex items-center justify-center gap-4`}>
             <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4"} />
-            <div className={`mb-3 sm:hidden flex items-center justify-center`}>
+            <div className={`mb-3 md:hidden flex items-center justify-center`}>
               <Downloader activeSong={activeSong} fullScreen={fullScreen} />
             </div>
           </div>
