@@ -13,6 +13,7 @@ import {PiDotsThreeVerticalBold} from 'react-icons/pi'
 import { MdOutlineDeleteOutline } from 'react-icons/md'
 import Link from 'next/link'
 import { setSettings } from '@/redux/features/settingsSlice'
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const Playlists = ({setShowNav}) => {
     const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const Playlists = ({setShowNav}) => {
             <summary className=' flex cursor-pointer gap-3 items-baseline mx-2'>
             <FaChevronDown className='arrow '/>
             <div>
-                <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<BiSolidPlaylist size={25}/></p>
+                <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<IoIosAddCircleOutline size={25} className="group-hover:text-[#00e6e6]" onClick={() => setShow(true)}/></p>
             </div>
                 </summary>
                 <div className='flex flex-col max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
