@@ -48,7 +48,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
           </p>
         </div>
       </div>
-      <div onClick={(e) => e.stopPropagation()} className=" ml-60 w-[50%] flex-col items-center lg:flex hidden">
+      <div onClick={(e) => e.stopPropagation()} className=" w-[50%] flex-col items-center lg:flex hidden">
         <Lyrics activeSong={activeSong} />
       </div>
     </div>
