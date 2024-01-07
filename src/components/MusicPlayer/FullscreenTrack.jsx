@@ -19,7 +19,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
 
 
   return (
-    <div className={`${fullScreen ? 'block' : 'hidden'} w-[100%] h-[600px] flex lg:flex-row lg:w-[1000px] mx-auto flex-col  lg:justify-between mt-10`}>
+    <div className={`${fullScreen ? 'block' : 'hidden'} w-[100%] h-[77vh] flex lg:flex-row lg:w-[1000px] mx-auto flex-col  lg:justify-between mt-10`}>
       <div className="flex flex-col items-center lg:w-96">
         <div
           {...handlers}
