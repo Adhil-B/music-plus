@@ -84,7 +84,7 @@ const Sidebar = ({showNav, setShowNav}) => {
             
           </div>
         </div>  
-    <div className={`${showNav ? '':'translate-x-[-100%]' } transition-all duration-200 aside  h-screen lg:w-[300px] md:w-[250px] w-[65vw] fixed top-0 left-0 z-40 bg-[#020813a1] flex flex-col justify-between`}>
+    <div className={`${showNav ? '':'translate-x-[-100%]' } transition-all duration-200 aside  h-screen lg:w-[300px] md:w-[250px] w-[250px] fixed top-0 left-0 z-40 bg-[#020813a1] flex flex-col justify-between`}>
     <div>
     <div className=' flex mt-[20px]'>
       <MdOutlineMenu onClick={()=>setShowNav(false)} className=' mx-4 text-2xl lg:text-3xl my-auto text-white cursor-pointer' />
