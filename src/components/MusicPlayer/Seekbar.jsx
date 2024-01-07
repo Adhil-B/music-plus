@@ -6,7 +6,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, fullScreen })
   const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;
 
   return (
-    <div className={` ${!fullScreen ? 'hidden sm:flex':' flex mt-5'}   flex-row items-center`}>
+    <div className={` ${!fullScreen ? 'hidden md:flex':' flex mt-5'}   flex-row items-center`}>
       <button type="button" onClick={(e) =>{e.stopPropagation(); setSeekTime(appTime - 5)}} className="hidden lg:mr-4 lg:block text-white">
         <GiFastBackwardButton size={20} className=' text-gray-300' />
       </button>
