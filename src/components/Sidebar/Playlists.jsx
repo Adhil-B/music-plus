@@ -69,14 +69,12 @@ const Playlists = ({setShowNav, show, setShow}) => {
                                 {
                                     showMenu === playlist._id &&
                                     <div
-                                    onClick={() => {setShowMenu(false); handleDelete(playlist._id)}}
+                                    onBlur={() => setShowMenu(false)} onClick={() => {setShowMenu(false); handleDelete(playlist._id)}}
                                      className='absolute top-[-4px] right-0 bg-gray-900 z-50 hover:bg-gray-800 rounded-lg p-2'>
                                         <p className='text-xs font-semibold flex gap-1 items-center'>Delete <MdOutlineDeleteOutline size={15}/></p>
                                     </div>
                                 }
-                                {
-                showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full z-30'></div>
-         }
+                                
                                 </div>
                             </div>
                         ))
