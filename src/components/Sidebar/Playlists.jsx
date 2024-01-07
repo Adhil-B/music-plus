@@ -70,7 +70,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                                     showMenu === playlist._id &&
                                     <div
                                     onClick={() => {setShowMenu(false); handleDelete(playlist._id)}}
-                                     className='absolute top-0 right-0 bg-gray-900 z-50 hover:bg-gray-800 rounded-lg p-2'>
+                                     className='absolute top-[-4px] right-0 bg-gray-900 z-50 hover:bg-gray-800 rounded-lg p-2'>
                                         <p className='text-xs font-semibold flex gap-1 items-center'>Delete <MdOutlineDeleteOutline size={15}/></p>
                                     </div>
                                 }
