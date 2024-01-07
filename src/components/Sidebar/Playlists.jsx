@@ -52,9 +52,9 @@ const Playlists = ({setShowNav}) => {
                 <div className='flex flex-col max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
                     {
                         playlists?.map((playlist, index) => (
-                            <div key={index} className='flex gap-3 hover:border-[#00e6e6] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full border-white mx-3 cursor-pointer '>
+                            <div key={index} className='flex gap-3 hover:border-[#00e6e6] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer '>
                                  <Link href={`/myPlaylists/${playlist._id}`}>
-                                <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center'>
+                                <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center ml-[-10px]'>
                                 <MdPlaylistPlay size={20}/>
                                 <p className='text-xl font-semibold truncate w-32'>{playlist.name}</p>
                                 </div>
