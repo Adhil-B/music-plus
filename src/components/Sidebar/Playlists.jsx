@@ -80,7 +80,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                         ))
                     }
                 <div className='flex justify-center items-center '>
-                <button onClick={() => setShow(true)} className={`${playlists?.length > 0 ? 'hidden' : ''} p-[12px] text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff1f] rounded-lg px-2 items-center py-2`}><FaPlus className=' group-hover:text-[#00e6e6]'/>New Playlist</button>
+                <button onClick={() => setShow(true)} className={`${playlists?.length > 0 ? 'hidden' : ''} p-[12px] text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff1f] rounded-lg items-center`}><FaPlus className=' group-hover:text-[#00e6e6]'/>New Playlist</button>
                 </div>
                 </div>
              {
