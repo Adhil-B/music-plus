@@ -75,7 +75,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                                     </div>
                                 }
                                 {
-                showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full z-30'></div>
+                showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-[-500%] left-0 w-[100vw] h-[100vh] z-30'></div>
          }
                                 
                                 </div>
