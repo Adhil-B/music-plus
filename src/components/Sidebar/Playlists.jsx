@@ -46,7 +46,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
     <div className=' text-white max-w-[220px] '>
         <details open className='text-white detailanimatation'>
      
-            <summary className='icon3 flex cursor-pointer gap-3 items-baseline mx-2 mb-[10px]'>
+            <summary className=' flex cursor-pointer gap-3 items-baseline mx-2 mb-[10px]'>
             <FaChevronDown className='arrow '/>
             <div>
                 <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<IoIosAddCircleOutline size={25} onClick={(e)=> {e.stopPropagation(); e.preventDefault(); setShow(true)}} className={`${playlists?.length > 0 ? 'icon2 hidden' : 'hidden'} flex hover:text-[#00e6e6]`}/><BiSolidPlaylist size={25} className={`${playlists?.length > 0 ? 'hidden' : 'icon2 hidden'}`}/><BiSolidPlaylist size={25} className='icon'/></p>
@@ -54,7 +54,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                 </summary>
                 
          
-                <div className='flex flex-col max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
+                <div className='flex flex-col mt-[-10px] max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
                     {
                         playlists?.map((playlist, index) => (
                             <div key={index} className={`${index > 0 ? "mt-[-10px]" : ""} flex gap-3 hover:text-[#00e6e6] mb-[20px] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer `}>
