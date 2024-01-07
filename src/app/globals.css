@@ -252,6 +252,14 @@ details[open] summary .arrow {
   transition: all 0.1s linear;
 }
 
+details[open] summary .icon {
+  display: none !important;
+}
+
+details[open] summary .icon2 {
+  display: block !important;
+}
+
 
 /* scrollBar */
 ::-webkit-scrollbar {
