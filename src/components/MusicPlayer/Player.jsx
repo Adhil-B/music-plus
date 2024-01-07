@@ -70,17 +70,6 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
     ref.current.currentTime = seekTime;
   }, [seekTime]);
 
-  setInterval(function(){
-
- 	if (!ref.current){return;}
-
-	if (!navigator.mediaSession) {return;}
-
-	if (ref.current.duration > 0 === false){return;}
-
-	navigator.mediaSession.setPositionState({duration: parseInt(ref.current.duration), playbackRate: ref.current.playbackRate, position: parseInt(ref.current.currentTime) });
-
-}, 300);
   
   return (
     <>
