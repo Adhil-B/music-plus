@@ -72,7 +72,7 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
 
   setInterval(function(){
 
- 	if (!ref.current || ref.current.paused){return;}
+ 	if (!ref.current){return;}
 
 	if (!navigator.mediaSession) {return;}
 
@@ -80,7 +80,7 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
 
 	navigator.mediaSession.setPositionState({duration: parseInt(ref.current.duration), playbackRate: ref.current.playbackRate, position: parseInt(ref.current.currentTime) });
 
-}, 300);
+}, 500);
   
   return (
     <>
