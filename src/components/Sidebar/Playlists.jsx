@@ -57,7 +57,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                 <div className='flex flex-col max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
                     {
                         playlists?.map((playlist, index) => (
-                            <div key={index} className='flex gap-3 hover:text-[#00e6e6] mb-[10px] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer '>
+                            <div key={index} className={`${index > 0 ? "mt-[-10px]" : ""} flex gap-3 hover:text-[#00e6e6] mb-[20px] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer `}>
                                  <Link onClick={(e)=> { showMenu ? '' : e.preventDefault() }} href={`/myPlaylists/${playlist._id}`}>
                                 <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center '>
                                 <MdPlaylistPlay size={20}/>
@@ -82,10 +82,11 @@ const Playlists = ({setShowNav, show, setShow}) => {
                 <div className='flex justify-center items-center '>
                 <button onClick={() => setShow(true)} className={`${playlists?.length > 0 ? 'hidden' : ''} p-[12px] text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff1f] rounded-lg items-center`}><FaPlus className=' group-hover:text-[#00e6e6]'/>New Playlist</button>
                 </div>
-                </div>
-             {
+                    {
                 showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full z-30'></div>
          }
+                </div>
+             
         </details>       
 
     </div>
