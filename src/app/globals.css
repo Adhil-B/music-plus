@@ -260,6 +260,10 @@ details[open] summary .icon2 {
   display: block !important;
 }
 
+details[open] summary .icon3 {
+  margin-bottom: -10px !important;
+}
+
 
 /* scrollBar */
 ::-webkit-scrollbar {
