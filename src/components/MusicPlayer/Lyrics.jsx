@@ -50,11 +50,11 @@ const Lyrics = ({ activeSong }) => {
             <div>
                 {activeTab === 'lyrics' ? (
                     lyrics?.status === 'SUCCESS' ? (
-                        <div className="text-white text-sm sm:text-base p-4 sm:p-0 mt-5 md:w-[35vw] md:h-[66.4vh] overflow-y-scroll hideScrollBar">
+                        <div className="text-white text-sm sm:text-base p-4 sm:p-0 mt-5 md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar">
                             {lyrics?.data?.lyrics}
                         </div>
                     ) : (
-                        <div className="text-white text-lg p-4 sm:p-0 mt-5 md:w-[35vw] md:h-[66.4vh] overflow-y-scroll hideScrollBar text-center">
+                        <div className="text-white text-lg p-4 sm:p-0 mt-5 md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar text-center">
                             No Lyrics Found
                         </div>
                     )) : (
@@ -77,11 +77,11 @@ const Lyrics = ({ activeSong }) => {
                         </div>
                         {
                             currentSongs?.length > 0 ? (
-                                <div className=" text-white p- mt- md:w-[35vw] md:h-[66.4vh] overflow-y-scroll hideScrollBar ">
+                                <div className=" text-white p- mt- md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar ">
                                     <SongsList SongData={currentSongs} loading={false} hidePlays={true} activeSong={activeSong} />
                                 </div>
                             ) : (
-                                <div className="text-white text-lg p-4 sm:p-0 mt-5 md:w-[35vw] md:h-[66.4vh] overflow-y-scroll hideScrollBar text-center">
+                                <div className="text-white text-lg p-4 sm:p-0 mt-5 md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar text-center">
                                     No Songs
                                 </div>
                             )}
