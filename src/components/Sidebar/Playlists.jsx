@@ -94,7 +94,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
     </div>
        {/* overlay */}
        {
-                showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full'></div>
+                showMenu && false && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full'></div>
          }
     </>
   )
