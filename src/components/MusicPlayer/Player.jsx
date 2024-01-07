@@ -80,7 +80,7 @@ const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate
 
 	navigator.mediaSession.setPositionState({duration: parseInt(ref.current.duration), playbackRate: ref.current.playbackRate, position: parseInt(ref.current.currentTime) });
 
-}, 500);
+}, 300);
   
   return (
     <>
