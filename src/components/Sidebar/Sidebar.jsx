@@ -102,7 +102,7 @@ const Sidebar = ({showNav, setShowNav}) => {
 
      <Favourites setShowNav={setShowNav} />
      <div className='cside mt-7 border-b border-gray-400 w-[95%]'>
-      <Playlists setShowNav={setShowNav}/>
+      <Playlists setShowNav={setShowNav} show={show} setShow={setShow}/>
       </div>
 
     <div className='cside mt-7 border-b border-gray-400 w-[95%]' onClick={handleSet}>
