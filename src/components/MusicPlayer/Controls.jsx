@@ -9,7 +9,7 @@ import FavouriteButton from './FavouriteButton';
 
 const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongs, handlePlayPause, handlePrevSong, handleNextSong, activeSong, fullScreen, handleAddToFavourite, favouriteSongs, loading }) => {
   return (
-    <div className="flex items-center justify-around md:w-80 text-lg lg:w-80 2xl:w-80 gap-4 ">
+    <div className="flex items-center justify-around md:w-80 text-lg lg:w-80 2xl:w-80 gap-4 sm:gap-0">
       <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={" md:block hidden"} />
       {
         !repeat ? (
