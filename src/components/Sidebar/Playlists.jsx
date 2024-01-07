@@ -64,7 +64,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                                 <p className='text-xl font-semibold truncate w-32'>{playlist.name}</p>
                                 </div>
                                 </Link>
-                                <div className='flex gap-2 items-center relative ml-[-10px]'>
+                                <div className='flex gap-2 items-center relative ml-[-20px]'>
                                 <PiDotsThreeVerticalBold onClick={()=>setShowMenu(playlist?._id)} size={25} className=' text-gray-300'/>
                                 {
                                     showMenu === playlist._id &&
