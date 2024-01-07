@@ -74,12 +74,15 @@ const Playlists = ({setShowNav, show, setShow}) => {
                                         <p className='text-xs font-semibold flex gap-1 items-center'>Delete <MdOutlineDeleteOutline size={15}/></p>
                                     </div>
                                 }
+                                {
+                showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full z-30'></div>
+         }
                                 </div>
                             </div>
                         ))
                     }
                 <div className='flex justify-center items-center mt-3'>
-                <button onClick={() => setShow(true)} className={`${playlists?.length > 0 ? 'hidden' : ''} text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff12] rounded-lg px-2 items-center py-2`}><FaPlus className=' group-hover:text-[#00e6e6]'/>Create</button>
+                <button onClick={() => setShow(true)} className={`${playlists?.length > 0 ? 'hidden' : ''} text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff1f] rounded-lg px-2 items-center py-2`}><FaPlus className=' group-hover:text-[#00e6e6]'/>New Playlist</button>
                 </div>
                 </div>
         </details>       
