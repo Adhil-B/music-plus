@@ -39,7 +39,7 @@ const Playlists = ({setShowNav}) => {
             setPlaylists(playlists.filter((playlist) => playlist._id !== id))
         }
     }
-
+//BiSolidPlaylist
   return (
     <>
     <div className=' text-white max-w-[220px] '>
@@ -47,13 +47,13 @@ const Playlists = ({setShowNav}) => {
             <summary className=' flex cursor-pointer gap-3 items-baseline mx-2'>
             <FaChevronDown className='arrow '/>
             <div>
-                <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<IoIosAddCircleOutline size={25} className="group-hover:text-[#00e6e6]" onClick={() => setShow(true)}/></p>
+                <p className=' font-semibold text-lg mb-4 flex gap-2 items-center'>Playlists<IoIosAddCircleOutline size={25} className=`{${playlists?.length > 0 '' : 'hidden'} hover:text-[#00e6e6]}` onClick={() => setShow(true)}/><BiSolidPlaylist size={25} className=`{${playlists?.length > 0 'hidden' : ''}}`/></p>
             </div>
                 </summary>
                 <div className='flex flex-col max-h-60 pr-[20px] overflow-y-scroll overflow-x-hidden'>
                     {
                         playlists?.map((playlist, index) => (
-                            <div key={index} className='flex gap-3 group-hover:text-[#00e6e6] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer '>
+                            <div key={index} className='flex gap-3 hover:text-[#00e6e6] mb-[10px] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer '>
                                  <Link href={`/myPlaylists/${playlist._id}`}>
                                 <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center '>
                                 <MdPlaylistPlay size={20}/>
@@ -75,7 +75,7 @@ const Playlists = ({setShowNav}) => {
                         ))
                     }
                 <div className='flex justify-center items-center mt-3'>
-                <button onClick={() => setShow(true)} className='text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff12] rounded-lg px-2 items-center py-2'><FaPlus className=' group-hover:text-[#00e6e6]'/>Create</button>
+                <button onClick={() => setShow(true)} className={`${playlists?.length > 0 'hidden' : ''} text-xs group font-semibold mb-7 flex gap-2 border-[1.5px] border-[#ffffff12] rounded-lg px-2 items-center py-2'><FaPlus className=' group-hover:text-[#00e6e6]`}/>Create</button>
                 </div>
                 </div>
         </details>       
