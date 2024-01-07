@@ -58,7 +58,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                     {
                         playlists?.map((playlist, index) => (
                             <div key={index} className='flex gap-3 hover:text-[#00e6e6] mb-[10px] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer '>
-                                 <Link href={`/myPlaylists/${playlist._id}`}>
+                                 <Link onClick={(e)=> { showMenu ? '' : e.preventDefault() }} href={`/myPlaylists/${playlist._id}`}>
                                 <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center '>
                                 <MdPlaylistPlay size={20}/>
                                 <p className='text-xl font-semibold truncate w-32'>{playlist.name}</p>
@@ -87,7 +87,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
     </div>
        {/* overlay */}
        {
-                showMenu && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full z-30'></div>
+                showMenu && false && <div onClick={() => setShowMenu(false)} className='fixed top-0 left-0 w-full h-full z-30'></div>
          }
     </>
   )
