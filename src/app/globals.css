@@ -78,7 +78,9 @@ padding: 14px 17px 0px 0px;
 border-radius: 40px;
 backdrop-filter: blur(4px);
 }
-
+.swiper-slide{
+  min-width: 130px;
+}
 .download-button {
   position: relative;
 }
