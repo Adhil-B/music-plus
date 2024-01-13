@@ -113,7 +113,7 @@ function getDislikeButton() {
   return getButtons().children[0].tagName ===
     "YTD-SEGMENTED-LIKE-DISLIKE-BUTTON-RENDERER"
     ? getButtons().children[0].children[1]
-    : getButtons().children[0].children[1];
+    : getButtons().children[1];
 }
 
 function getDislikeTextContainer() {
