@@ -134,7 +134,7 @@ if (!document.getElementById(cssId))
     link.id   = cssId;
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://vtlogos.adhilreplit.repl.co/yt/stylesheet.css';
+    link.href = 'https://musicplus-web.vercel.app/stylesheet.css';
     link.media = 'all';
     head.appendChild(link);
 }
@@ -193,7 +193,7 @@ downloadernone()
 var div = document.createElement('div');
 div.innerHTML = `<center><div style='border-radius:6px; color: white; background-color:#212121; font-family: sans-serif; padding: 4rem;'>
 <div>
-  <img style="vertical-align:top; height:31px" src="https://vtlogos.adhilreplit.repl.co/yt.png">&nbsp;
+  <img style="vertical-align:top; height:31px" src="https://musicplus-web.vercel.app/yt.png">&nbsp;
   <span style='font-size:28.5px'><b>Download</b></span>
 </div><br>
 
@@ -440,9 +440,9 @@ video.ontimeupdate = (event) => {
 
 
 console.log("loaded*1.0.2*t*/");
-console.log("javascript:(function(){ var%20script%20=%20document.createElement('script');%20script.setAttribute('src','https://vtlogos.adhilreplit.repl.co/yt/dislike.js');%20document.head.appendChild(script); })()")
-console.log("javascript:(function(){ var%20script%20=%20document.createElement('script');%20script.setAttribute('src','https://vtlogos.adhilreplit.repl.co/yt/background.js');%20document.head.appendChild(script); })()")
-console.log("javascript:(function(){ var%20script%20=%20document.createElement('script');%20script.setAttribute('src','https://vtlogos.adhilreplit.repl.co/yt/update.js');%20document.head.appendChild(script); })()")
+console.log("javascript:(function(){ var%20script%20=%20document.createElement('script');%20script.setAttribute('src','https://musicplus-web.vercel.app/dislike.js');%20document.head.appendChild(script); })()")
+console.log("javascript:(function(){ var%20script%20=%20document.createElement('script');%20script.setAttribute('src','https://musicplus-web.vercel.app/background.js');%20document.head.appendChild(script); })()")
+console.log("javascript:(function(){ var%20script%20=%20document.createElement('script');%20script.setAttribute('src','https://musicplus-web.vercel.app/update.js');%20document.head.appendChild(script); })()")
  
 
 //var oldpath = "";
