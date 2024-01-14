@@ -5,7 +5,7 @@ import useDownloader from 'react-use-downloader';
 import {MdDownloadForOffline} from 'react-icons/md'
 import { ID3Writer } from 'browser-id3-writer';
 
-const Downloader = ({activeSong, icon}) => {
+const Downloader = async ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
     const songUrl = activeSong?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
@@ -16,8 +16,13 @@ if (!request.ok) {
   // handle error
   console.error(`Unable to fetch ${songUrl}`);
 }
+const request1 = await fetch(activeSong?.image[1].link);
+if (!request.ok) {
+  // handle error
+  console.error(`Unable to fetch ${songUrl}`);
+}
 const arrayBuffer = await request.arrayBuffer();
-const coverBuffer = readFileSync(activeSong?.image[1].link);
+const coverBuffer = await request1;
 const writer = new ID3Writer(arrayBuffer);
 writer
   .setFrame('TIT2', 'Home')
