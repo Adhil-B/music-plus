@@ -42,7 +42,7 @@ writer
   .setFrame('TKEY', 'Fbm')
   .setFrame('APIC', {
     type: 3,
-    data: coverArrayBuffer,
+    data: coverBuffer,
     description: 'Super picture',
   });
 writer.addTag();
