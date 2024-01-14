@@ -22,7 +22,7 @@ if (!request.ok) {
   console.error(`Unable to fetch ${songUrl}`);
 }
 const arrayBuffer = await request.arrayBuffer();
-const coverBuffer = await request1;
+const coverBuffer = await request1.arrayBuffer();
 const writer = new ID3Writer(arrayBuffer);
 writer
   .setFrame('TIT2', 'Home')
