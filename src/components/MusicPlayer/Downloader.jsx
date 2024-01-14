@@ -11,23 +11,12 @@ const Downloader = ({activeSong, icon}) => {
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.featuredArtists;
 
-const xhr = new XMLHttpRequest();
-xhr.open('GET', songUrl, true);
-xhr.responseType = 'arraybuffer';
-xhr.onload = function () {
-  if (xhr.status === 200) {
-    const arrayBuffer = xhr.response;
-    // go next
-  } else {
-    // handle error
-    console.error(xhr.statusText + ' (' + xhr.status + ')');
-  }
-};
-xhr.onerror = function () {
+const request = await fetch(songUrl);
+if (!request.ok) {
   // handle error
-  console.error('Network error');
-};
-xhr.send();
+  console.error(`Unable to fetch ${songUrl}`);
+}
+const arrayBuffer = await request.arrayBuffer();
 const coverBuffer = readFileSync(activeSong?.image[1].link);
 const writer = new ID3Writer(arrayBuffer);
 writer
