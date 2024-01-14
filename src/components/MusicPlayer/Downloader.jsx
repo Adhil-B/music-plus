@@ -3,15 +3,56 @@ import React, { useEffect } from "react";
 import { MdOutlineFileDownload } from 'react-icons/md';
 import useDownloader from 'react-use-downloader';
 import {MdDownloadForOffline} from 'react-icons/md'
+import { ID3Writer } from 'browser-id3-writer';
 
 const Downloader = ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
     const songUrl = activeSong?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.featuredArtists;
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', songUrl, true);
+xhr.responseType = 'arraybuffer';
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    const arrayBuffer = xhr.response;
+    // go next
+  } else {
+    // handle error
+    console.error(xhr.statusText + ' (' + xhr.status + ')');
+  }
+};
+xhr.onerror = function () {
+  // handle error
+  console.error('Network error');
+};
+xhr.send();
+const coverBuffer = readFileSync(activeSong?.image[1].link);
+const writer = new ID3Writer(arrayBuffer);
+writer
+  .setFrame('TIT2', 'Home')
+  .setFrame('TPE1', ['Eminem', '50 Cent'])
+  .setFrame('TALB', 'Friday Night Lights')
+  .setFrame('TYER', 2004)
+  .setFrame('TRCK', '6/8')
+  .setFrame('TCON', ['Soundtrack'])
+  .setFrame('TBPM', 128)
+  .setFrame('WPAY', 'https://google.com')
+  .setFrame('TKEY', 'Fbm')
+  .setFrame('APIC', {
+    type: 3,
+    data: coverArrayBuffer,
+    description: 'Super picture',
+  });
+writer.addTag();
+const taggedSongBuffer = writer.arrayBuffer;
+const blob = writer.getBlob();
+const url = writer.getURL();
+    
   return (
     <div onClick={(e)=>{e.stopPropagation();
-        download(songUrl, filename);
+        download(url, filename);
        /* document.getElementById("xhr1").classList.add('download-button','flex', 'justify-center', 'items-center');              
         browserFileStorage.init('downloads').then((status) => {
         if(status.initial) {}
