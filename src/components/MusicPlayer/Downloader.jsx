@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { MdOutlineFileDownload } from 'react-icons/md';
 import useDownloader from 'react-use-downloader';
 import {MdDownloadForOffline} from 'react-icons/md'
-import { ID3Writer } from 'browser-id3-writer';
 
 const Downloader = async ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
