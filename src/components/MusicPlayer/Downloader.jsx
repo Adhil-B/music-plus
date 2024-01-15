@@ -11,42 +11,11 @@ const Downloader = async ({activeSong, icon}) => {
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.featuredArtists;
 
-const request = await fetch(songUrl);
-if (!request.ok) {
-  // handle error
-  console.error(`Unable to fetch ${songUrl}`);
-}
-const request1 = await fetch(activeSong?.image[1].link);
-if (!request.ok) {
-  // handle error
-  console.error(`Unable to fetch ${songUrl}`);
-}
-const arrayBuffer = await request.arrayBuffer();
-const coverBuffer = await request1.arrayBuffer();
-const writer = new ID3Writer(arrayBuffer);
-writer
-  .setFrame('TIT2', 'Home')
-  .setFrame('TPE1', ['Eminem', '50 Cent'])
-  .setFrame('TALB', 'Friday Night Lights')
-  .setFrame('TYER', 2004)
-  .setFrame('TRCK', '6/8')
-  .setFrame('TCON', ['Soundtrack'])
-  .setFrame('TBPM', 128)
-  .setFrame('WPAY', 'https://google.com')
-  .setFrame('TKEY', 'Fbm')
-  .setFrame('APIC', {
-    type: 3,
-    data: coverBuffer,
-    description: 'Super picture',
-  });
-writer.addTag();
-const taggedSongBuffer = writer.arrayBuffer;
-const blob = writer.getBlob();
-const url = writer.getURL();
+
     
   return (
     <div onClick={(e)=>{e.stopPropagation();
-        download(url, filename);
+        download(songUrl, filename);
        /* document.getElementById("xhr1").classList.add('download-button','flex', 'justify-center', 'items-center');              
         browserFileStorage.init('downloads').then((status) => {
         if(status.initial) {}
