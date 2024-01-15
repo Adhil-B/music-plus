@@ -1,7 +1,7 @@
 {
   "colors": {
     "light": {
-      "primary": "#40a245",
+      "primary": "#121212",
       "anchor": "#64ab68",
       "accent": "#66b56a",
       "info": "#2196f3",
@@ -10,7 +10,7 @@
       "error": "#ff5252"
     },
     "dark": {
-      "primary": "#40a245",
+      "primary": "#121212",
       "anchor": "#64ab68",
       "accent": "#66b56a",
       "info": "#2196f3",
