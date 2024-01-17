@@ -4,14 +4,11 @@ import { MdOutlineFileDownload } from 'react-icons/md';
 import useDownloader from 'react-use-downloader';
 import {MdDownloadForOffline} from 'react-icons/md'
 
-const Downloader = async ({activeSong, icon}) => {
+const Downloader = ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
     const songUrl = activeSong?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.featuredArtists;
-
-
-    
   return (
     <div onClick={(e)=>{e.stopPropagation();
         download(songUrl, filename);
