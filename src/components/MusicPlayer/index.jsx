@@ -181,8 +181,8 @@ const MusicPlayer = () => {
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
         <div className="flex-1 flex flex-col items-center justify-center w-[50%]">
           <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4`}>
-            <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4"} />
-            <div className={`mb-3 sm:hidden flex items-center justify-center`}>
+            <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4 left-[25px] ml-3 absolute sm:ml-[0px] sm:static"} />
+            <div className={`mb-3 sm:hidden flex items-center justify-center right-[25px] mr-3 absolute sm:mr-[0px] sm:static`}>
               <Downloader activeSong={activeSong} fullScreen={fullScreen} />
             </div>
           </div>
