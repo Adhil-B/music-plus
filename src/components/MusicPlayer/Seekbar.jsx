@@ -1,12 +1,12 @@
 import React from 'react';
 import { GiFastBackwardButton, GiFastForwardButton } from 'react-icons/gi';
 
-const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, fullScreen }) => {
+const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, fullScreen, style }) => {
   // converts the time to format 0:00
   const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;
 
   return (
-    <div className={` ${!fullScreen ? 'hidden md:flex':' flex mt-5'}   flex-row items-center`}>
+    <div className={` ${!fullScreen ? 'hidden md:flex':' flex mt-5'}   flex-row items-center ${style}`}>
       <button type="button" onClick={(e) =>{e.stopPropagation(); setSeekTime(appTime - 5)}} className="hidden lg:mr-4 lg:block text-white">
         <GiFastBackwardButton size={20} className=' text-gray-300' />
       </button>
