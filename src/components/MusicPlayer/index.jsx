@@ -219,7 +219,7 @@ const MusicPlayer = () => {
           />
           <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4 mt-[50px]`}>
             <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4"} divstyle={"left-[25px] ml-3 absolute sm:ml-[0px] sm:static"}/>
-            <div className={`bottom-[20px] sm:hidden flex items-center justify-center absolute sm:mr-[0px] sm:static border-[3px] w-[60px] border-[#ffffff7a] rounded-[40px]`}>
+            <div className={`bottom-[30px] sm:hidden flex items-center justify-center absolute sm:mr-[0px] sm:static border-[0px] w-[20vw] h-[4.5px] bg-[#ffffff7a] rounded-[40px]`}>
               
             </div>
             <div className={`mb-3 sm:hidden flex items-center justify-center right-[25px] mr-3 absolute sm:mr-[0px] sm:static`}>
