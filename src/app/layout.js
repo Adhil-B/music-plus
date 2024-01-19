@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 
       <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
       
-      <body className={poppins.className}>
+      <body className={`${poppins.className} overscroll-y-contain`}>
         <PassiveListner />
         <Providers>
           <AuthProvider>
