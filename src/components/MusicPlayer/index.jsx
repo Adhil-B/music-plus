@@ -215,7 +215,7 @@ const MusicPlayer = () => {
             onInput={(event) => setSeekTime(event.target.value)}
             setSeekTime={setSeekTime}
             appTime={appTime}
-            style={"hidden sm:block"}
+            style={"hidden sm:flex"}
           />
           <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4 mt-[50px]`}>
             <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4"} divstyle={"left-[25px] ml-3 absolute sm:ml-[0px] sm:static"}/>
