@@ -180,7 +180,16 @@ const MusicPlayer = () => {
       <div className=' flex items-center justify-between pt-2 w-[100vw]'>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
         <div className="flex-1 flex flex-col items-center justify-center w-[50%]">
-          
+          <Seekbar
+            value={appTime}
+            min="0"
+            max={duration}
+            fullScreen={fullScreen}
+            onInput={(event) => setSeekTime(event.target.value)}
+            setSeekTime={setSeekTime}
+            appTime={appTime}
+            style={"block sm:hidden"}
+          />
           <Controls
             isPlaying={isPlaying}
             isActive={isActive}
@@ -206,6 +215,7 @@ const MusicPlayer = () => {
             onInput={(event) => setSeekTime(event.target.value)}
             setSeekTime={setSeekTime}
             appTime={appTime}
+            style={"hidden sm:block"}
           />
           <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4 mt-[50px]`}>
             <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4"} divstyle={"left-[25px] ml-3 absolute sm:ml-[0px] sm:static"}/>
