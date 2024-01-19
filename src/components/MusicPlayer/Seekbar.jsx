@@ -22,8 +22,8 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime, fullScreen, s
       />
       <p className="text-white text-xs sm:text-base hidden sm:block">{max === 0 ? '0:00' : getTime(max)}</p>
       <div className="sm:hidden flex flex-row">
-        <p className="text-white left-[25px] ml-3 text-xs sm:text-base w-5 mr-[10px]">{value === 0 ? '0:00' : getTime(value)}</p>
-        <p className="text-white right-[25px] mr-3 text-xs sm:text-base ">{max === 0 ? '0:00' : getTime(max)}</p>
+        <p className="text-white absolute left-[25px] ml-3 text-xs sm:text-base w-5 mr-[10px]">{value === 0 ? '0:00' : getTime(value)}</p>
+        <p className="text-white absolute right-[25px] mr-3 text-xs sm:text-base ">{max === 0 ? '0:00' : getTime(max)}</p>
       </div>
       <button type="button" onClick={(e) =>{e.stopPropagation(); setSeekTime(appTime + 5)}} className="hidden lg:ml-4 lg:block text-white">
         <GiFastForwardButton size={20} className=' text-gray-300 ' />
