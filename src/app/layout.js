@@ -32,20 +32,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id="
-      ></Script>
-      <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
-      <Script>
-        {`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', '');
-  `}
-      </Script>
+      <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
+      
       <body className={poppins.className}>
         <PassiveListner />
         <Providers>
