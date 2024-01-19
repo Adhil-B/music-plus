@@ -188,7 +188,7 @@ const MusicPlayer = () => {
             onInput={(event) => setSeekTime(event.target.value)}
             setSeekTime={setSeekTime}
             appTime={appTime}
-            style={"block sm:hidden"}
+            style={"mb-[20px] block sm:hidden"}
           />
           <Controls
             isPlaying={isPlaying}
