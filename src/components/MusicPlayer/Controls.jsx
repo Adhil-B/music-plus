@@ -3,8 +3,8 @@ import React from 'react';
 import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { BsFillPauseFill, BsFillPlayFill } from 'react-icons/bs';
 import { TbRepeat, TbRepeatOnce, TbArrowsShuffle } from 'react-icons/tb';
-import { FaRegPlayCircle } from "react-icons/fa";
-import { FaRegPauseCircle } from "react-icons/fa";
+import { FaCirclePause } from "react-icons/fa6";
+import { FaCirclePlay } from "react-icons/fa6";
 import Downloader from './Downloader';
 import FavouriteButton from './FavouriteButton';
 
@@ -21,13 +21,13 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
 
       }
 
-      {<MdSkipPrevious title='Previous' size={45} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handlePrevSong} />}
+      {<MdSkipPrevious title='Previous' size={fullScreen ? 45 : 35} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handlePrevSong} />}
       {isPlaying ? (
-        <FaRegPauseCircle size={55} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
+        <FaCirclePause size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
       ) : (
-        <FaRegPlayCircle size={55} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
+        <FaCirclePlay size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
       )}
-      {<MdSkipNext title='Next' size={45} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handleNextSong} />}
+      {<MdSkipNext title='Next' size={fullScreen ? 45 : 35} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handleNextSong} />}
       <TbArrowsShuffle title='Shuffle' size={25} color={shuffle ? '#00e6e6' : 'white'} onClick={(e) => { e.stopPropagation(); setShuffle((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : 'm-3'} cursor-pointer`} />
       {activeSong?.downloadUrl?.[4]?.link &&
         <div className=' hidden sm:block mt-1 '>
