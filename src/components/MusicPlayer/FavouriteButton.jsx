@@ -4,7 +4,7 @@ import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai';
 
 const FavouriteButton = ({favouriteSongs, activeSong, loading, handleAddToFavourite, style}) => {
   return (
-    <div onClick={(e)=>e.stopPropagation()} className=' mt-2'>
+    <div onClick={(e)=>e.stopPropagation()} className={`mt-2 ${divstyle}`}>
     { favouriteSongs?.length>0 && favouriteSongs?.includes(activeSong.id) ?
         <button disabled={loading} onClick={(e)=>{
          handleAddToFavourite(activeSong)}} className={`cursor-pointer`}>
