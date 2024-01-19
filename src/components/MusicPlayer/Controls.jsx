@@ -23,15 +23,23 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
 
       {<MdSkipPrevious title='Previous' size={fullScreen ? 40 : 35} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handlePrevSong} />}
       {isPlaying ? (
-      {fullScreen ? (
-        <FaCirclePause size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
-        ) : (<BsFillPauseFill size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
-        )}
+      
+      
+       fullScreen ? (
+        <FaCirclePause size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />) : (
+        <BsFillPauseFill size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
+        )
+      
+      
       ) : (
-      {fullScreen ? (
-        <FaCirclePlay size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
-        ) : (<BsFillPlayFill size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
-        )}
+      
+      
+        fullScreen ? (
+        <FaCirclePlay size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />) : (
+        <BsFillPlayFill size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer" />
+        )
+      
+      
       )}
       {<MdSkipNext title='Next' size={fullScreen ? 40 : 35} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handleNextSong} />}
       <TbArrowsShuffle title='Shuffle' size={25} color={shuffle ? '#00e6e6' : 'white'} onClick={(e) => { e.stopPropagation(); setShuffle((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : 'm-3'} cursor-pointer`} />
