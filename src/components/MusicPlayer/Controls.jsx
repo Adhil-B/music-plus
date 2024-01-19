@@ -15,8 +15,8 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
       <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={" sm:block hidden"} />
       {
         !repeat ? (
-          <TbRepeat title='Repeat' size={25} color={'white'} onClick={(e) => { e.stopPropagation(); setRepeat((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : ' m-3'} cursor-pointer`} />) : (
-          <TbRepeatOnce title='Repeat Once' size={25} color={repeat ? '#00e6e6' : 'white'} onClick={(e) => { e.stopPropagation(); setRepeat((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : ' m-3'} cursor-pointer`} />
+          <TbRepeat title='Repeat' size={25} color={'white'} onClick={(e) => { e.stopPropagation(); setRepeat((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : ' m-3'} cursor-pointer absolute left-[25px] sm:static`} />) : (
+          <TbRepeatOnce title='Repeat Once' size={25} color={repeat ? '#00e6e6' : 'white'} onClick={(e) => { e.stopPropagation(); setRepeat((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : ' m-3'} cursor-pointer absolute left-[25px] sm:static`} />
         )
 
       }
@@ -50,7 +50,7 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
       
       )}
       {<MdSkipNext title='Next' size={fullScreen ? 40 : 35} color={currentSongs?.length ? '#ffff' : '#b3b3b3'} className="cursor-pointer" onClick={handleNextSong} />}
-      <TbArrowsShuffle title='Shuffle' size={25} color={shuffle ? '#00e6e6' : 'white'} onClick={(e) => { e.stopPropagation(); setShuffle((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : 'm-3'} cursor-pointer`} />
+      <TbArrowsShuffle title='Shuffle' size={25} color={shuffle ? '#00e6e6' : 'white'} onClick={(e) => { e.stopPropagation(); setShuffle((prev) => !prev) }} className={`${!fullScreen ? 'hidden md:block' : 'm-3'} cursor-pointer absolute right-[25px] sm:static`} />
       {activeSong?.downloadUrl?.[4]?.link &&
         <div className=' hidden sm:block mt-1 '>
           <Downloader activeSong={activeSong} fullScreen={fullScreen} />
