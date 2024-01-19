@@ -2,7 +2,7 @@ import React from 'react'
 import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai';
 
 
-const FavouriteButton = ({favouriteSongs, activeSong, loading, handleAddToFavourite, style}) => {
+const FavouriteButton = ({favouriteSongs, activeSong, loading, handleAddToFavourite, style, divstyle}) => {
   return (
     <div onClick={(e)=>e.stopPropagation()} className={`mt-2 ${divstyle}`}>
     { favouriteSongs?.length>0 && favouriteSongs?.includes(activeSong.id) ?
