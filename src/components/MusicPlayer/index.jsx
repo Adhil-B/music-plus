@@ -207,10 +207,10 @@ const MusicPlayer = () => {
             setSeekTime={setSeekTime}
             appTime={appTime}
           />
-          <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4 mt-[15px]`}>
-            <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4 left-[25px] ml-3 absolute sm:ml-[0px] sm:static"} />
-            <div className={`mb-3 sm:hidden flex items-center justify-center `}>
-              <Downloader activeSong={activeSong} fullScreen={fullScreen} style={"right-[25px] mr-3 absolute sm:mr-[0px] sm:static"} />
+          <div className={`${fullScreen ? '' : 'hidden'}  sm:hidden flex items-center justify-center gap-4 mt-[50px]`}>
+            <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} style={"mb-4"} divstyle={"left-[25px] ml-3 absolute sm:ml-[0px] sm:static"}/>
+            <div className={`mb-3 sm:hidden flex items-center justify-center right-[25px] mr-3 absolute sm:mr-[0px] sm:static`}>
+              <Downloader activeSong={activeSong} fullScreen={fullScreen} />
             </div>
           </div>
           <Player
