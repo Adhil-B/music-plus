@@ -175,7 +175,7 @@ const MusicPlayer = () => {
           e.stopPropagation();
           dispatch(setFullScreen(!fullScreen));
         }
-      } className={` absolute top-16 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
+      } className={` absolute top-10 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
       <FullscreenTrack handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} />
       <div className=' flex items-center justify-between pt-2 w-[100vw]'>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
