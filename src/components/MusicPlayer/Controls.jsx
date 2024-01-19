@@ -27,11 +27,11 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
       
        fullScreen ? (
         <>
-        <FaCirclePause size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer block sm:hidden" />
-        <BsFillPauseFill size={fullScreen ? 50 : 45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block " />
+        <FaCirclePause size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer block sm:hidden" />
+        <BsFillPauseFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block " />
         </>
         ) : (
-        <BsFillPauseFill size={fullScreen ? 50 : 45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer" />
+        <BsFillPauseFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer" />
         )
       
       
@@ -40,11 +40,11 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
       
         fullScreen ? (
         <>
-        <FaCirclePlay size={fullScreen ? 50 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer block sm:hidden" />
-        <BsFillPlayFill size={fullScreen ? 50 : 45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block" />
+        <FaCirclePlay size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer block sm:hidden" />
+        <BsFillPlayFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block" />
         </>
         ) : (
-        <BsFillPlayFill size={fullScreen ? 50 : 45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer" />
+        <BsFillPlayFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer" />
         )
       
       
