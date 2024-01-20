@@ -195,7 +195,7 @@ const scrollableDivRef = useRef(null);
           dispatch(setFullScreen(!fullScreen));
         }
       } className={` absolute top-10 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
-      <FullscreenTrack handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef}/>
+      <FullscreenTrack handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs}/>
       <div className=' flex items-center justify-between pt-2 w-[100vw]'>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
         <div className={`flex-1 flex flex-col items-center justify-center w-[50%] ${fullScreen ? 'h-[25vh] mb-[5vh]' : ''} sm:h-auto sm:mb-auto`}>
