@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { setFullScreen } from '@/redux/features/playerSlice'
 import { useSwipeable } from 'react-swipeable'
 
-const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong }) => {
+const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef }) => {
   const dispatch = useDispatch();
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNextSong(),
@@ -49,7 +49,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
         </div>
       </div>
       <div onClick={(e) => e.stopPropagation()} className="h-[77vh] w-[50%] flex-col items-center lg:flex hidden">
-        <Lyrics activeSong={activeSong} />
+        <Lyrics activeSong={activeSong} scrollableDivRef={scrollableDivRef} />
       </div>
     </div>
   )
