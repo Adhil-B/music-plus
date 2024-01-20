@@ -246,7 +246,7 @@ const MusicPlayer = () => {
       {
         fullScreen &&
         <div className=' lg:hidden'>
-          <Lyrics activeSong={activeSong} currentSongs={currentSongs} />
+          <Lyrics activeSong={activeSong} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs} />
         </div>
       }
     </div>
