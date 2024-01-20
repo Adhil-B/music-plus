@@ -118,11 +118,14 @@ const scrollableDivRef = useRef(null);
       
     } else {
       if (played.length == 0){
-        played = Array.from({length:currentSongs.length},(v,k)=>k+1);
+        let shuffled = currentSongs
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+        played.concat(shuffled);
       }
-      let randomnum = Math.floor(Math.random() * (played.length-1));
-      dispatch(nextSong(played[randomnum]-1));
-      played.splice(randomnum, 1)
+      dispatch(nextSong(currentSongs.indexOf(played[-1])));
+      played.pop()
       
     }
   };
