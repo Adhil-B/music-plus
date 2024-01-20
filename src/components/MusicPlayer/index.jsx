@@ -118,10 +118,8 @@ const scrollableDivRef = useRef(null);
       
     } else {
       if (played.length == 0){
-        let shuffled = currentSongs
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value)
+        let shuffled = currentSongs;
+
         played.concat(shuffled);
       }
       dispatch(nextSong(currentSongs.indexOf(played[-1])));
