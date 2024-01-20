@@ -598,6 +598,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
     const data1 = [];
     for (let x of data?.data) {
       x["primaryArtists"] = x?.artist_map?.primary_artists?.map((artist) => artist?.name).join(', ')
+      x["downloadUrl"] = x["download_url"];
       data1.push(x);
     }
     
