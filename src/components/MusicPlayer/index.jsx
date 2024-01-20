@@ -29,6 +29,7 @@ const MusicPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [played, setPlayed] = useState([]);
   const dispatch = useDispatch();
   const { status } = useSession();
   const router = useRouter();
@@ -95,7 +96,7 @@ const scrollableDivRef = useRef(null);
       dispatch(playPause(true));
     }
   };
-  var played = [];
+  
   const handleNextSong = async (e) => {
     e?.stopPropagation();
     dispatch(playPause(false));
@@ -125,10 +126,12 @@ const scrollableDivRef = useRef(null);
         const j = Math.floor(Math.random() * (i + 1));
         [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
         }
-        played.concat(indexes);
+        setPlayed(indexes);
       }
       dispatch(nextSong(played[-1]));
-      played.pop();
+      const temp = played;
+      temp.pop()
+      setPlayed(temp);
       
     }
   };
