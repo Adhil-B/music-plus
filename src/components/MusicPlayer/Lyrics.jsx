@@ -8,9 +8,9 @@ import { useDispatch } from 'react-redux';
 import {setAutoAdd } from '@/redux/features/playerSlice';
 
 
-const Lyrics = ({ activeSong, scrollableDivRef }) => {
+const Lyrics = ({ activeSong, scrollableDivRef, currentSongs }) => {
     const dispatch = useDispatch();
-    const { currentSongs, autoAdd } = useSelector(state => state.player);
+    const { autoAdd } = useSelector(state => state.player);
     const [lyrics, setLyrics] = useState(null);
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState('queue');
