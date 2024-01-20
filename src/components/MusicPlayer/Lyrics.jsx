@@ -52,8 +52,8 @@ const Lyrics = ({ activeSong }) => {
     return (
         <div onClick={(e) => { e.stopPropagation(); }} >
             <div className='flex justify-center items-center w-full mt-[-8.5vh] sm:mt-[15px]'>
-                <button onClick={() => { executeScroll; setActiveTab('queue') }} className={`${activeTab === 'queue' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0 font-medium `}>Queue</button>
-                <button onClick={() => { executeScroll; setActiveTab('lyrics') }} className={`${activeTab === 'lyrics' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0  font-medium`}>Lyrics</button>
+                <button onClick={() => { handleScrollToTarget; setActiveTab('queue') }} className={`${activeTab === 'queue' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0 font-medium `}>Queue</button>
+                <button onClick={() => { handleScrollToTarget; setActiveTab('lyrics') }} className={`${activeTab === 'lyrics' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0  font-medium`}>Lyrics</button>
             </div>
             <div ref={targetRef} className="target-div">
                 {activeTab === 'lyrics' ? (
