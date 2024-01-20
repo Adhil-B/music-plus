@@ -101,7 +101,7 @@ const scrollableDivRef = useRef(null);
     dispatch(playPause(false));
 
     if (!shuffle) {
-      if (currentIndex === (currentSongs.length - 1) && !repeat){
+      if (currentIndex === (currentSongs.length - 1) && !repeat && autoAdd){
         const songData = activeSong;
         const recommendedSongs = await getRecommendedSongs(songData?.primaryArtistsId?.split(",")[0], songData?.id, songData?.language);
       // remove duplicate songs in recommendedSongs array and currentSongs array
