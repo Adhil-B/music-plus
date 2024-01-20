@@ -95,7 +95,7 @@ const scrollableDivRef = useRef(null);
       dispatch(playPause(true));
     }
   };
-  const played = [];
+  let played = [];
   const handleNextSong = async (e) => {
     e?.stopPropagation();
     dispatch(playPause(false));
@@ -118,10 +118,10 @@ const scrollableDivRef = useRef(null);
       
     } else {
       if (played.length == 0){
-        played.concat(currentSongs)
+        played = Array.from({length:currentSongs.length},(v,k)=>k+1);
       }else if (player.length == 1){
         let last = played.pop();
-        played.concat(currentSongs);
+        played = Array.from({length:currentSongs.length},(v,k)=>k+1);
         played.push(last);
       }
       let randomnum = Math.floor(Math.random() * (played.length-1));
