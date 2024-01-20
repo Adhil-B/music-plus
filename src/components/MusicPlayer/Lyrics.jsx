@@ -17,7 +17,7 @@ const Lyrics = ({ activeSong, scrollableDivRef }) => {
  
   const [num, setNum] = useState(0);
   const targetRef = useRef(null);
-  const scrollableDivRef = useRef(null); // Reference to the scrollable div
+   // Reference to the scrollable div
 
   useEffect(() => {
     const handleScrollToTarget = () => {
