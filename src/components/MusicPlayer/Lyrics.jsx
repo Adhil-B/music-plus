@@ -16,7 +16,7 @@ const Lyrics = ({ activeSong }) => {
     const [activeTab, setActiveTab] = useState('queue');
 
     const myRef = useRef(null)
-    const executeScroll = () => myRef.current.scrollIntoView() 
+    const executeScroll = () => myRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }) 
     
     useEffect(() => {
         if (activeTab === 'lyrics'){
