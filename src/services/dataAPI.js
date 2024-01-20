@@ -592,7 +592,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       return data2.slice(1);
     }else{
     const response = await fetch(
-      `https://saavn.me/artists/${artistId}/recommendations/${sondId}?language=${language}`
+      `https://jiosaavn-api-ts.vercel.app/song/recommend?id=${sondId}`
     );
     const data = await response.json();
     return data?.data;
