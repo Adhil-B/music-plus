@@ -119,10 +119,6 @@ const scrollableDivRef = useRef(null);
     } else {
       if (played.length == 0){
         played = Array.from({length:currentSongs.length},(v,k)=>k+1);
-      }else if (player.length == 1){
-        let last = played.pop();
-        played = Array.from({length:currentSongs.length},(v,k)=>k+1);
-        played.push(last);
       }
       let randomnum = Math.floor(Math.random() * (played.length-1));
       dispatch(nextSong(played[randomnum]-1));
