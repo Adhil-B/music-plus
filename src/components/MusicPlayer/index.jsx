@@ -179,7 +179,7 @@ const MusicPlayer = () => {
       <FullscreenTrack handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} />
       <div className=' flex items-center justify-between pt-2 w-[100vw]'>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
-        <div className={`flex-1 flex flex-col items-center justify-center w-[50%] ${fullScreen ? 'h-[40vh]' : ''} sm:h-auto`}>
+        <div className={`flex-1 flex flex-col items-center justify-center w-[50%] ${fullScreen ? 'h-[25vh] mb-[5vh]' : ''} sm:h-auto sm:mb-auto`}>
           <Seekbar
             value={appTime}
             min="0"
