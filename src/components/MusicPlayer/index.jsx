@@ -109,9 +109,9 @@ const scrollableDivRef = useRef(null);
       dispatch(setActiveSong({
         song: songData,
         data: autoAdd ? [...currentSongs, ...filteredRecommendedSongs] : [...currentSongs],
-        i: currentSongs?.length
+        i: currentSongs?.length + 1
       }));
-      }else if (repeat){
+      }else{
         dispatch(nextSong((currentIndex + 1) % currentSongs.length));
       }
       
