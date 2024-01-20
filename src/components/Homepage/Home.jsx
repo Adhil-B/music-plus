@@ -78,7 +78,7 @@ const Home = () => {
   return (
     <div>
       <OnlineStatus />
-      <h1 className='sal text-4xl font-bold mx-2 m-9 text-white flex gap-2'>"{salutation}  <GiMusicalNotes />"</h1>
+      <h1 className='sal text-[2.14rem] sm:text-4xl font-bold mx-2 m-9 text-white flex gap-2'>"{salutation}  <GiMusicalNotes />"</h1>
       { selectedHomeCategories.includes("listen") && (
       <ListenAgain />
       )}
