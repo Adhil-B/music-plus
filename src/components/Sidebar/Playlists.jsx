@@ -58,7 +58,7 @@ const Playlists = ({setShowNav, show, setShow}) => {
                     {
                         playlists?.map((playlist, index) => (
                             <div key={index} className={`${index > 0 ? "mt-[-10px]" : ""} flex gap-3 hover:text-[#00e6e6] mb-[20px] border-[#ffffff12] backdrop-blur-[40px] border-[1px] rounded-[10px] bg-[#020813a1] p-[12px] justify-between items-center px-3 w-full mx-3 cursor-pointer `}>
-                                 <Link onClick={(e)=> { showMenu ? '' : e.preventDefault() }} href={`/myPlaylists/${playlist._id}`}>
+                                 <Link href={`/myPlaylists/${playlist._id}`}>
                                 <div onClick={()=>setShowNav(false)} className='flex gap-2 items-center '>
                                 <MdPlaylistPlay size={20}/>
                                 <p className='text-xl font-semibold truncate w-32'>{playlist.name}</p>
