@@ -95,7 +95,7 @@ const scrollableDivRef = useRef(null);
       dispatch(playPause(true));
     }
   };
-  let played = [];
+  var played = [];
   const handleNextSong = async (e) => {
     e?.stopPropagation();
     dispatch(playPause(false));
