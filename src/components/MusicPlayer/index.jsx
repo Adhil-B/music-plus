@@ -117,7 +117,7 @@ const scrollableDivRef = useRef(null);
       
     } else {
       if (played.length == 0){
-        played.concat(shuffled)
+        played.concat(currentSongs)
       }else if (player.length == 1){
         let last = played.pop();
         played.concat(currentSongs);
