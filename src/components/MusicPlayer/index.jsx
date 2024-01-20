@@ -33,7 +33,7 @@ const MusicPlayer = () => {
   const { status } = useSession();
   const router = useRouter();
   const { data } = usePalette(activeSong?.image?.[1]?.link);
-
+const scrollableDivRef = useRef(null);
   useEffect(() => {
     if (currentSongs?.length) dispatch(playPause(true));
   }, [currentIndex]);
