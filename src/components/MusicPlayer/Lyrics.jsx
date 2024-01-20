@@ -21,7 +21,7 @@ const Lyrics = ({ activeSong, scrollableDivRef }) => {
 
   useEffect(() => {
     const handleScrollToTarget = () => {
-      if (targetRef.current && scrollableDivRef.current) {
+      if (targetRef.current && scrollableDivRef.current && num !== 0) {
         scrollableDivRef.current.scrollTo({
           top: targetRef.current.offsetTop,
           behavior: 'smooth',
