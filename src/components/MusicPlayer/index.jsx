@@ -123,10 +123,9 @@ const scrollableDivRef = useRef(null);
         played.concat(currentSongs);
         played.push(last);
       }
-      let randomnum = Math.floor(Math.random() * (currentSongs.length-1));
-      let index = array.indexOf(randomnum);
+      let randomnum = Math.floor(Math.random() * (played.length-1));
       dispatch(nextSong(played[randomnum]));
-      played.splice(index, 1)
+      played.splice(randomnum, 1)
       
     }
   };
