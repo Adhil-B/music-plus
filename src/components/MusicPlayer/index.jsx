@@ -108,7 +108,7 @@ const scrollableDivRef = useRef(null);
       const filteredRecommendedSongs = recommendedSongs?.filter((song) => !currentSongs?.find((s) => s?.id === song?.id));
       dispatch(setActiveSong({
         song: songData,
-        data: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs : autoAdd ? [...currentSongs, songData, ...filteredRecommendedSongs] : [...currentSongs, songData],
+        data: autoAdd ? [...currentSongs, songData, ...filteredRecommendedSongs] : [...currentSongs, songData],
         i: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs?.findIndex((s) => s?.id === songData?.id) : currentSongs?.length
       }));
       }
@@ -118,7 +118,7 @@ const scrollableDivRef = useRef(null);
         played.concat(shuffled)
       }else if (player.length == 1){
         let last = played.pop();
-        played.concat(shuffled);
+        played.concat(currentSongs);
         played.push(last);
       }
       let randomnum = Math.floor(Math.random() * (currentSongs.length-1));
