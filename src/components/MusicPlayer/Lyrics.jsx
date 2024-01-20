@@ -23,7 +23,7 @@ const Lyrics = ({ activeSong }) => {
         behavior: 'smooth',
         block: 'center',
       });
-    }
+    }}
     useEffect(() => {
         if (activeTab === 'lyrics'){
         const fetchData = async () => {
