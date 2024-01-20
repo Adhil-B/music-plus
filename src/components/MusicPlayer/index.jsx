@@ -95,7 +95,7 @@ const scrollableDivRef = useRef(null);
       dispatch(playPause(true));
     }
   };
-
+  const played = [];
   const handleNextSong = async (e) => {
     e?.stopPropagation();
     dispatch(playPause(false));
@@ -114,7 +114,26 @@ const scrollableDivRef = useRef(null);
       }
       dispatch(nextSong((currentIndex + 1) % currentSongs.length));
     } else {
-      dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
+      if (played.length == 0){
+        let shuffled = currentSongs
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+        played.concat(shuffled)
+      }else if (player.length == 1){
+        let shuffled = currentSongs
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+        let last = played.pop();
+        played.concat(shuffled);
+        played.push(last);
+
+      }
+      
+      dispatch(nextSong(played[-1]));
+      played.pop();
+      
     }
   };
 
