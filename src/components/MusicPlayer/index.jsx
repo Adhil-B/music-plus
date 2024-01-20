@@ -118,12 +118,17 @@ const scrollableDivRef = useRef(null);
       
     } else {
       if (played.length == 0){
-        let shuffled = currentSongs;
+        const indexes = Array.from({ length: currentSongs.length }, (_, i) => i); // Create an array of indexes
 
-        played.concat(shuffled);
+        // Fisher-Yates shuffle algorithm for efficient shuffling
+        for (let i = indexes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
+        }
+        played.concat(indexes);
       }
-      dispatch(nextSong(currentSongs.indexOf(played[-1])));
-      played.pop()
+      dispatch(nextSong(played[-1]));
+      played.pop();
       
     }
   };
