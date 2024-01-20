@@ -15,7 +15,9 @@ const Lyrics = ({ activeSong }) => {
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState('queue');
 
-
+    const myRef = useRef(null)
+    const executeScroll = () => myRef.current.scrollIntoView() 
+    
     useEffect(() => {
         if (activeTab === 'lyrics'){
         const fetchData = async () => {
@@ -44,10 +46,10 @@ const Lyrics = ({ activeSong }) => {
     return (
         <div onClick={(e) => { e.stopPropagation(); }} >
             <div className='flex justify-center items-center w-full mt-[-8.5vh] sm:mt-[15px]'>
-                <button onClick={() => { setActiveTab('queue') }} className={`${activeTab === 'queue' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0 font-medium `}>Queue</button>
-                <button onClick={() => { setActiveTab('lyrics') }} className={`${activeTab === 'lyrics' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0  font-medium`}>Lyrics</button>
+                <button onClick={() => { executeScroll; setActiveTab('queue') }} className={`${activeTab === 'queue' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0 font-medium `}>Queue</button>
+                <button onClick={() => { executeScroll; setActiveTab('lyrics') }} className={`${activeTab === 'lyrics' ? 'border-[#00e6e6] border-b-2' : ''} text-white text-xl m-3 sm:mt-0  font-medium`}>Lyrics</button>
             </div>
-            <div>
+            <div ref={myRef}>
                 {activeTab === 'lyrics' ? (
                     lyrics?.status === 'SUCCESS' ? (
                         <div className="text-white text-sm sm:text-base p-4 sm:p-0 mt-5 md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar">
