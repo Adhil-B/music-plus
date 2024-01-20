@@ -111,8 +111,10 @@ const scrollableDivRef = useRef(null);
         data: autoAdd ? [...currentSongs, ...filteredRecommendedSongs] : [...currentSongs],
         i: currentSongs?.length
       }));
+      }else if (repeat){
+        dispatch(nextSong((currentIndex + 1) % currentSongs.length));
       }
-      dispatch(nextSong((currentIndex + 1) % currentSongs.length));
+      
     } else {
       if (played.length == 0){
         played.concat(shuffled)
