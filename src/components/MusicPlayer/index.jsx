@@ -101,15 +101,15 @@ const scrollableDivRef = useRef(null);
     dispatch(playPause(false));
 
     if (!shuffle) {
-      if (currentIndex === (currentSongs.length - 1)){
+      if (currentIndex === (currentSongs.length - 1) && !repeat){
         const songData = activeSong;
         const recommendedSongs = await getRecommendedSongs(songData?.primaryArtistsId?.split(",")[0], songData?.id, songData?.language);
       // remove duplicate songs in recommendedSongs array and currentSongs array
       const filteredRecommendedSongs = recommendedSongs?.filter((song) => !currentSongs?.find((s) => s?.id === song?.id));
       dispatch(setActiveSong({
         song: songData,
-        data: autoAdd ? [...currentSongs, songData, ...filteredRecommendedSongs] : [...currentSongs, songData],
-        i: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs?.findIndex((s) => s?.id === songData?.id) : currentSongs?.length
+        data: autoAdd ? [...currentSongs, ...filteredRecommendedSongs] : [...currentSongs],
+        i: currentSongs?.length
       }));
       }
       dispatch(nextSong((currentIndex + 1) % currentSongs.length));
