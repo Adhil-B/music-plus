@@ -14,12 +14,15 @@ const Lyrics = ({ activeSong }) => {
     const [lyrics, setLyrics] = useState(null);
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState('queue');
-    const targetRef = useRef(null);
+ 
   const [num, setNum] = useState(0);
+  const targetRef = useRef(null);
+  const scrollableDivRef = useRef(null); // Reference to the scrollable div
+
   useEffect(() => {
     const handleScrollToTarget = () => {
-      if (targetRef.current) {
-        window.scrollTo({
+      if (targetRef.current && scrollableDivRef.current) {
+        scrollableDivRef.current.scrollTo({
           top: targetRef.current.offsetTop,
           behavior: 'smooth',
         });
