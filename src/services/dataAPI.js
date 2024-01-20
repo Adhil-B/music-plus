@@ -595,6 +595,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       `https://jiosaavn-api-ts.vercel.app/song/recommend?id=${sondId}`
     );
     const data = await response.json();
+    data?.data["primaryArtists"] = data?.data?.artist_map?.primary_artists?.map((artist) => artist?.name).join(', ')
     return data?.data;
     }
   } catch (error) {
