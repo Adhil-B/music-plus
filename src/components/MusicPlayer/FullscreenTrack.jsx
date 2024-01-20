@@ -27,10 +27,10 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
           <img src={activeSong?.image?.[2].link} alt="cover art" className="h-[100%] object-contain rounded-lg" />
         </div>
         <div onClick={(e) => e.stopPropagation()} className=" w-full select-none cursor-pointer text-center my-5">
-          <p className="truncate text-white font-bold text-2xl mx-[25px] mb-1">
+          <p className="truncate text-white font-bold text-2xl mx-[25px] mb-1 px-3">
             {activeSong?.name ? activeSong?.name.replace("&#039;", "'").replace("&amp;", "&").replaceAll('&quot;','"') : 'Song'}
           </p>
-          <p className="truncate text-gray-300 mx-[25px]">
+          <p className="truncate text-gray-300 mx-[25px] px-3">
             {activeSong?.primaryArtists ? (
               activeSong?.primaryArtists?.split(",")?.map((artist, index) => (
                 <React.Fragment key={index}>
