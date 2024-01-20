@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import {setAutoAdd } from '@/redux/features/playerSlice';
 
 
-const Lyrics = ({ activeSong }) => {
+const Lyrics = ({ activeSong, scrollableDivRef }) => {
     const dispatch = useDispatch();
     const { currentSongs, autoAdd } = useSelector(state => state.player);
     const [lyrics, setLyrics] = useState(null);
