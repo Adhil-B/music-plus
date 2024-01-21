@@ -42,7 +42,7 @@ const SongCard = ({ song, isPlaying, activeSong }) => {
 //lg:w-[205px] lg:[220px]
   //lg:h-[178px]
   return (
-    <div key={song?.id} className=" flex flex-col p-2.5 bg-white/5 bg-opacity-80 backdrop-blur-sm rounded-lg cursor-pointer">
+    <div key={song?.id} className=" flex flex-col p-2 sm:p-2.5 bg-white/5 bg-opacity-80 backdrop-blur-sm rounded-lg cursor-pointer">
       <Link onClick={(e) => {
         if (song?.type == 'song' || song?.type == "") {
           e.preventDefault()
@@ -66,7 +66,7 @@ const SongCard = ({ song, isPlaying, activeSong }) => {
             className={`${song.type === 'playlist' && song?.subtitle === 'JioSaavn' ? 'rounded-full' : 'rounded-lg'} w-full h-full object-cover aspect-square`} />
         </div>
 
-        <div className=" mt-2 lg:mt-4 flex flex-col">
+        <div className=" mt-2 lg:mt-4 flex flex-col p-[0.1rem] sm:p-0">
           <p className={`font-semibold text-xs lg:text-sm text-white truncate w-full ${song?.subtitle === 'JioSaavn' ? 'text-center' : ''}`}>
             {song?.name?.replaceAll("&#039;", "'")?.replaceAll("&amp;", "&")?.replaceAll('&quot;','"') || song?.title}
           </p>
