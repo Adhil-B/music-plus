@@ -16,7 +16,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener('install', async (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage,"style.css","script-2.js","browser-file-storage.min.js","icon-192x192.png","icon-256x256.png","icon-384x384.png","icon-512x512.png"))
+      .then((cache) => cache.add([offlineFallbackPage,"style.css","script-2.js","browser-file-storage.min.js","icon-192x192.png","icon-256x256.png","icon-384x384.png","icon-512x512.png"]))
   );
 });
 
