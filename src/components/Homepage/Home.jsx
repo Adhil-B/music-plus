@@ -30,6 +30,13 @@ const Home = () => {
   const {homeCategories} = useSelector((state) => state.homeCategories);
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
   const homel = [];
+
+  useEffect(() => {
+    if (homelang !== languages){
+      const lang1 = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
+      setHomelang(lang1);
+    }
+  }, [languages]);
   
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
@@ -80,7 +87,7 @@ const Home = () => {
 
     fetchData();
     
-  }, [languages]);
+  }, [homelang]);
 
   return (
     <div>
