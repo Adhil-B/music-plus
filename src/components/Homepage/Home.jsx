@@ -58,6 +58,8 @@ const Home = () => {
       const songHis = localStorage?.getItem("songHistory") ? JSON.parse(localStorage.getItem("songHistory")).slice(0, 6) : [];   
       const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
       if (lang !== homelang){
+      console.log(lang);
+      console.log(homelang);
       dispatch(setProgress(70))
       setHomelang(lang);
       //setSongR(songHistory);
