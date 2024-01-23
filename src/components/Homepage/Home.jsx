@@ -52,31 +52,35 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataa = async () => {
       const songHis = localStorage?.getItem("songHistory") ? JSON.parse(localStorage.getItem("songHistory")).slice(0, 6) : [];   
+      const [res2,res3] = await Promise.all([homePageData2(),homePageData3(songHis)]);
+      setData2(res2);
+      setSongR2(res2 ? res2["recommendations"] : []);        
+      setData3(res3);
+      setSongR(res3 ? res3["recommendations"] : []);        
+      setLoading2(false);
+      
+    };
+
+    fetchDataa();
+    
+  }, []);
+  
+  useEffect(() => {
+    const fetchData = async () => {  
       const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
       dispatch(setProgress(70))
       const res = await homePageData(lang);
       setData(res);
       dispatch(setProgress(100))
-      setLoading(false);
-      const [res2,res3] = await Promise.all([homePageData2(),homePageData3(songHis)]);
-      if (songR2?.length == 0){
-      setData2(res2);
-      setSongR2(res2 ? res2["recommendations"] : []);        
-      }
-      if (songR?.length == 0){
-      setData3(res3);
-      setSongR(res3 ? res3["recommendations"] : []);        
-      }
-      dispatch(setProgress(100))
-      setLoading2(false);
-      
+      setLoading(false);    
     };
-
     fetchData();
     
   }, [languages]);
+  
+  
 
   return (
     <div>
