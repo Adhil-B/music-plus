@@ -21,10 +21,10 @@ const ListenAgainCard = ({song, index, SongData}) => {
             onClick={() => {
                 handlePlayClick(song,index);
             }}
-             className={`flex w-40 md:w-80 bg-[hsla(0,0%,100%,.05)] rounded-[10px] backdrop-blur-[4px] items-center mt-5 cursor-pointer group border-[0px] border-gray-400 justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
-                <div className="flex items-center gap-5 mt-[8px]">
+             className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[1px] border-gray-400 justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
+                <div className="flex items-center gap-5">
               <div className=" relative mb-2">
-                <img src={song?.image?.[2]?.link} alt={song?.name} width={50} height={50} className="aspect-square object-cover ml-[8px] rounded-[6px]"
+                <img src={song?.image?.[2]?.link} alt={song?.name} width={50} height={50} className="aspect-square object-cover"
                 />
                 {
                   activeSong?.id === song?.id ? (
@@ -38,7 +38,7 @@ const ListenAgainCard = ({song, index, SongData}) => {
                 }
                
               </div>
-              <div className="mt-[-8px] w-24 md:w-64">
+              <div className=" w-24 md:w-64">
                 <p className="text-sm lg:text-lg font-semibold truncate">{
                     song?.name?.replace("&#039;", "'")?.replace("&amp;", "&")?.replaceAll('&quot;','"')
                 }</p>
