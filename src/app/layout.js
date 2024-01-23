@@ -34,7 +34,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
       <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
-      
+      <Script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+          navigator.serviceWorker.register('sw.js')
+      }
+      </Script>
       <body className={`${poppins.className} overscroll-y-contain`}>
         <PassiveListner />
         <Providers>
