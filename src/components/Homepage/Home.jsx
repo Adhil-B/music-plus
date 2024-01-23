@@ -21,7 +21,6 @@ const Home = () => {
   const [data3, setData3] = useState("");
   const [songR, setSongR] = useState([]);
   const [songR2, setSongR2] = useState([]);
-  const [homelang, setHomelang] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loading2, setLoading2] = useState(true);
   const dispatch = useDispatch();
@@ -29,14 +28,6 @@ const Home = () => {
   const { languages } = useSelector((state) => state.languages);
   const {homeCategories} = useSelector((state) => state.homeCategories);
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
-  const homel = [];
-
-  useEffect(() => {
-    if (homelang !== languages){
-      const lang1 = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
-      setHomelang(lang1);
-    }
-  }, [languages]);
   
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
@@ -64,22 +55,20 @@ const Home = () => {
     const fetchData = async () => {
       const songHis = localStorage?.getItem("songHistory") ? JSON.parse(localStorage.getItem("songHistory")).slice(0, 6) : [];   
       const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
-      if (lang !== homel){
-      console.log(lang);
-      console.log(homel);
       dispatch(setProgress(70))
-      homel.concat(lang);
-      //setSongR(songHistory);
       const res = await homePageData(lang);
       setData(res);
       dispatch(setProgress(100))
       setLoading(false);
       const [res2,res3] = await Promise.all([homePageData2(),homePageData3(songHis)]);
+      if (songR2?.length == 0){
       setData2(res2);
-      setSongR2(res2 ? res2["recommendations"] : []);
-      //const res3 = await homePageData3(songHistory);
+      setSongR2(res2 ? res2["recommendations"] : []);        
+      }
+      if (songR?.length == 0){
       setData3(res3);
-      setSongR(res3 ? res3["recommendations"] : []);
+      setSongR(res3 ? res3["recommendations"] : []);        
+      }
       dispatch(setProgress(100))
       setLoading2(false);
       }
@@ -87,7 +76,7 @@ const Home = () => {
 
     fetchData();
     
-  }, [homelang]);
+  }, [languages]);
 
   return (
     <div>
