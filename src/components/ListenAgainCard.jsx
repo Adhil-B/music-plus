@@ -24,7 +24,7 @@ const ListenAgainCard = ({song, index, SongData}) => {
              className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff38] justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
                 <div className="flex items-center gap-5">
               <div className=" relative mb-2">
-                <img src={song?.image?.[2]?.link} alt={song?.name} width={50} height={50} className="aspect-square object-cover"
+                <img src={song?.image?.[2]?.link} alt={song?.name} width={50} height={50} className="h-[50px] max-w-auto aspect-square object-cover"
                 />
                 {
                   activeSong?.id === song?.id ? (
