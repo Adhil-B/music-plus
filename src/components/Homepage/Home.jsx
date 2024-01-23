@@ -28,11 +28,7 @@ const Home = () => {
   const { languages } = useSelector((state) => state.languages);
   const {homeCategories} = useSelector((state) => state.homeCategories);
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
-  useEffect(() => {
-        const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
-        setSelectedHomeCategories(cat);
-  }, []);
-  
+
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
         setSelectedHomeCategories(cat);
