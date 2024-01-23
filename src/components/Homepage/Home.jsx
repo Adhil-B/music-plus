@@ -61,7 +61,7 @@ const Home = () => {
       console.log(lang);
       console.log(homelang);
       dispatch(setProgress(70))
-      setHomelang(lang);
+      setHomelang(localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages]);
       //setSongR(songHistory);
       const res = await homePageData(lang);
       setData(res);
