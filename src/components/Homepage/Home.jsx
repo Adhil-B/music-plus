@@ -71,7 +71,7 @@ const Home = () => {
       }
       dispatch(setProgress(100))
       setLoading2(false);
-      }
+      
     };
 
     fetchData();
