@@ -61,12 +61,10 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const lang1 = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
       const songHis = localStorage?.getItem("songHistory") ? JSON.parse(localStorage.getItem("songHistory")).slice(0, 6) : [];
-
       dispatch(setProgress(70))
       //setSongR(songHistory);
-      const res = await homePageData(lang1);
+      const res = await homePageData(homelang);
       setData(res);
       dispatch(setProgress(100))
       setLoading(false);
