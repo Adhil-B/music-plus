@@ -16,7 +16,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener('install', async (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      .then((cache) => cache.addAll([offlineFallbackPage,"style.css","script-2.js","browser-file-storage.min.js","icon-192x192.png","icon-256x256.png","icon-384x384.png","icon-512x512.png","https://fonts.googleapis.com/icon?family=Material+Icons","https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"]))
+      .then((cache) => cache.addAll([offlineFallbackPage,"https://raw.githubusercontent.com/Adhil-B/Music-Player/main/style.css","script-2.js","browser-file-storage.min.js","icon-192x192.png","icon-256x256.png","icon-384x384.png","icon-512x512.png","https://fonts.googleapis.com/icon?family=Material+Icons","https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"]))
   );
 });
 
