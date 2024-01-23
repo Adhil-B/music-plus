@@ -21,6 +21,7 @@ const Home = () => {
   const [data3, setData3] = useState("");
   const [songR, setSongR] = useState([]);
   const [songR2, setSongR2] = useState([]);
+  const [homelang, setHomelang] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loading2, setLoading2] = useState(true);
   const dispatch = useDispatch();
@@ -53,9 +54,12 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
+      if (lang !== homelang){
       dispatch(setProgress(70))
+      setHomelang(lang)
       //setSongR(songHistory);
-      const res = await homePageData(languages);
+      const res = await homePageData(lang);
       setData(res);
       dispatch(setProgress(100))
       setLoading(false);
@@ -67,8 +71,11 @@ const Home = () => {
       setSongR(res3 ? res3["recommendations"] : []);
       dispatch(setProgress(100))
       setLoading2(false);
+      }
     };
+
     fetchData();
+    
   }, [languages]);
 
   return (
