@@ -29,7 +29,7 @@ const Home = () => {
   const { languages } = useSelector((state) => state.languages);
   const {homeCategories} = useSelector((state) => state.homeCategories);
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
-  
+  const homel = [];
   
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
@@ -57,11 +57,11 @@ const Home = () => {
     const fetchData = async () => {
       const songHis = localStorage?.getItem("songHistory") ? JSON.parse(localStorage.getItem("songHistory")).slice(0, 6) : [];   
       const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
-      if (lang !== homelang){
+      if (lang !== homel){
       console.log(lang);
-      console.log(homelang);
+      console.log(homel);
       dispatch(setProgress(70))
-      setHomelang(localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages]);
+      homel.concat(lang);
       //setSongR(songHistory);
       const res = await homePageData(lang);
       setData(res);
