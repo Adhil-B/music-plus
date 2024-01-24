@@ -102,8 +102,25 @@ setDone(true)
       alert("Error " + e.target.status + " occurred while receiving the document.");
     };
     xhr.send();
-    xhr2.send();		
-                        //*/
+    xhr2.send();
+
+    allMusic = [];
+    browserFileStorage.loadAll().then((files) => {
+    for(let f in files) {
+	let file = files[f]
+	if (!file.filename.includes("img-")){
+	x={}
+	x["name"] = file.filename.replace('.'+file.extension,'');
+	x["artist"] = file.metadata["artist"];
+	x["img"]= "music-1";
+	x["src"]= file.createURL();
+	allMusic.push(x);
+    }}
+    }).catch((error) => {
+    	console.error(error)
+    }) 
+    localStorage.setItem("downloaded", allMusic);
+			//*/
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
         
