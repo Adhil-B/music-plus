@@ -100,9 +100,10 @@
 
 </body>
 <script>
+let allMusic = [];
 browserFileStorage.init('downloads').then((status) => {
 
-let allMusic = [];
+
 browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
 	let file = files[f]
@@ -156,7 +157,7 @@ function loadMusic(indexNumb){
   musicName.innerText = allMusic[indexNumb - 1].name;
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
-  mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+  mainAudio.src = `${allMusic[indexNumb - 1].src}.mp3`;
 }
 
 //play music function
