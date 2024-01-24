@@ -104,7 +104,7 @@ setDone(true)
     xhr.send();
     xhr2.send();
 
-    allMusic = [];
+    let allMusic = [];
     browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
 	let file = files[f]
