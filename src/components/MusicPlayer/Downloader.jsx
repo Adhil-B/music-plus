@@ -11,8 +11,8 @@ const Downloader = ({activeSong, icon}) => {
     const artists = activeSong?.featuredArtists;
   return (
     <div onClick={(e)=>{e.stopPropagation();
-        download(songUrl, filename);
-       /* document.getElementById("xhr1").classList.add('download-button','flex', 'justify-center', 'items-center');              
+        //download(songUrl, filename);
+        document.getElementById("xhr1").classList.add('download-button','flex', 'justify-center', 'items-center');              
         browserFileStorage.init('downloads').then((status) => {
         if(status.initial) {}
         }).catch((error) => {
