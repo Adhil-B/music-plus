@@ -11,6 +11,7 @@ const Downloader = ({activeSong, icon}) => {
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
     const [done, setDone] = useState(false);
+    setDone(false)
 
   useEffect(() => {
 	  try{
@@ -44,11 +45,11 @@ setDone(true)
     })*/
 
     var xhr = new XMLHttpRequest();
-    var xhr1 = new XMLHttpRequest();
+    var xhr2 = new XMLHttpRequest();
     xhr.open('GET', songUrl, true);
-    xhr1.open('GET', imageUrl, true);
+    xhr2.open('GET', imageUrl, true);
     xhr.responseType = 'blob';
-    xhr1.responseType = 'blob';
+    xhr2.responseType = 'blob';
     xhr.onload = function(e) {
       if (this.status == 200) {
         
@@ -61,7 +62,7 @@ setDone(true)
         })
       }
     };
-    xhr1.onload = function(e) {
+    xhr2.onload = function(e) {
       if (this.status == 200) {
         
         var blob = this.response;
@@ -102,6 +103,7 @@ setDone(true)
       alert("Error " + e.target.status + " occurred while receiving the document.");
     };
     xhr.send();
+    xhr2.send();		
                         //*/
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
