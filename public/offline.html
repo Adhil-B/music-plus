@@ -99,16 +99,10 @@
 
 </body>
 <script>
-browserFileStorage.init('downloads').then((status) => {
-        if(status.initial) {}
-        }).catch((error) => {
-        if(!error.supported) {}
-        if(error.alreadyInit) {}
-        if(error.dbError) {
-            console.error(error.error)
-        }
-    });
 let allMusic = [];
+browserFileStorage.init('downloads').then((status) => {
+if(status.initial) {
+	
 browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
 	let file = files[f]
@@ -124,6 +118,11 @@ browserFileStorage.loadAll().then((files) => {
 }).catch((error) => {
     console.error(error)
 })
+	
+}
+}).catch((error) => {});
+
+
 
 	
     let now_playing = document.querySelector('.now-playing');
