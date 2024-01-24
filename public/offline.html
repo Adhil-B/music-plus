@@ -177,16 +177,11 @@ function loadMusic(indexNumb){
 }).catch((error) => {
     console.error(error)
 })
-  browserFileStorage.load(allMusic[indexNumb - 1].name+'.mp3').then((file) => {
-    let url = file.createURL()
-    mainAudio.src = url;
-}).catch((error) => {
-    console.error(error)
-})
+
   musicName.innerText = allMusic[indexNumb - 1].name;
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   //musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
-  //mainAudio.src = `${allMusic[indexNumb - 1].src}`;
+  mainAudio.src = `${allMusic[indexNumb - 1].src}`;
 }
 
 //play music function
