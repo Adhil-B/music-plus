@@ -10,11 +10,9 @@ const Downloader = ({activeSong, icon}) => {
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
     const [done, setDone] = useState(false);
-  return (
-    <div onClick={(e)=>{e.stopPropagation();
-        //download(songUrl, filename);
-        document.getElementById("xhr1").classList.add('download-button','flex', 'justify-center', 'items-center');              
-        browserFileStorage.init('downloads').then((status) => {
+
+  useEffect(() => {
+   browserFileStorage.init('downloads').then((status) => {
         if(status.initial) {}
         }).catch((error) => {
         if(!error.supported) {}
@@ -23,6 +21,24 @@ const Downloader = ({activeSong, icon}) => {
             console.error(error.error)
         }
     })
+    browserFileStorage.load(filename).then((file) => {
+    setDone(true)
+}).catch((error) => {})
+  }, []);
+    
+  return (
+    <div onClick={(e)=>{e.stopPropagation();
+        //download(songUrl, filename);
+        document.getElementById("xhr1").classList.add('download-button','flex', 'justify-center', 'items-center');              
+        /*browserFileStorage.init('downloads').then((status) => {
+        if(status.initial) {}
+        }).catch((error) => {
+        if(!error.supported) {}
+        if(error.alreadyInit) {}
+        if(error.dbError) {
+            console.error(error.error)
+        }
+    })*/
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', songUrl, true);
