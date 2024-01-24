@@ -13,11 +13,11 @@ const Downloader = ({activeSong, icon}) => {
     const [done, setDone] = useState(false);
 
   useEffect(() => {
-
+try{
 browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {}
 }).catch((error) => {});
-
+}catch(err) {}
 setDone(localStorage.getItem("downloaded").includes(filename));
 
   }, []);
