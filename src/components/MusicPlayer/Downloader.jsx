@@ -65,7 +65,7 @@ setDone(true)
       if (this.status == 200) {
         
         var blob = this.response;
-        browserFileStorage.save(img-filename, blob).then((file) => {
+        browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
             console.log('Saved file!', file)
         })
         .catch((error) => {
