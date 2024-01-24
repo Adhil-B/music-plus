@@ -112,7 +112,30 @@ const wrapper = document.querySelector(".wrapper");
 const player = document.querySelector(".player");
 const ulTag1 = wrapper.querySelector("ul");
 const closebtn = document.getElementById("close");
+let now_playing = document.querySelector('.now-playing');
+const musicImg = wrapper.querySelector(".img-area img"),
+musicName = wrapper.querySelector(".song-details .name"),
+musicArtist = wrapper.querySelector(".song-details .artist"),
+playPauseBtn = wrapper.querySelector(".play-pause"),
+prevBtn = wrapper.querySelector("#prev"),
+nextBtn = wrapper.querySelector("#next"),
+mainAudio = wrapper.querySelector("#main-audio"),
+progressArea = wrapper.querySelector(".progress-area"),
+progressBar = progressArea.querySelector(".progress-bar"),
+musicList = wrapper.querySelector(".music-list"),
+headerr = wrapper.querySelector(".headerr"),
+moreMusicBtn = wrapper.querySelector("#more-music"),
+downtxt = document.getElementById('downtxt'),
 
+closemoreMusic = musicList.querySelector("#close");
+
+let recent_volume = document.querySelector('#volume');
+let volume_show = document.querySelector('#volume_show');
+let wave = document.getElementById('wave');
+
+ 
+let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
+isMusicPaused = true;
 
 const allMusic = [];
 browserFileStorage.init('downloads').then((status) => {
@@ -141,43 +164,21 @@ browserFileStorage.loadAll().then((files) => {
         ulTag1.insertAdjacentHTML("beforeend", liTag);
 
     }}
-}).catch((error) => {
-    console.error(error)
-})
-}).catch((error) => {});
-	
-let now_playing = document.querySelector('.now-playing');
-const musicImg = wrapper.querySelector(".img-area img"),
-musicName = wrapper.querySelector(".song-details .name"),
-musicArtist = wrapper.querySelector(".song-details .artist"),
-playPauseBtn = wrapper.querySelector(".play-pause"),
-prevBtn = wrapper.querySelector("#prev"),
-nextBtn = wrapper.querySelector("#next"),
-mainAudio = wrapper.querySelector("#main-audio"),
-progressArea = wrapper.querySelector(".progress-area"),
-progressBar = progressArea.querySelector(".progress-bar"),
-musicList = wrapper.querySelector(".music-list"),
-headerr = wrapper.querySelector(".headerr"),
-moreMusicBtn = wrapper.querySelector("#more-music"),
-downtxt = document.getElementById('downtxt'),
-
-closemoreMusic = musicList.querySelector("#close");
-
-let recent_volume = document.querySelector('#volume');
-let volume_show = document.querySelector('#volume_show');
-let wave = document.getElementById('wave');
-
- 
-let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
-isMusicPaused = true;
-
-window.addEventListener("load", ()=>{
   loadMusic(musicIndex);
   playingSong(); 
   musicList.classList.toggle("show");
   wrapper.querySelector(".music-list ul").style.maxHeight="90%";
   musicList.style.top="0px";
   musicList.classList.toggle("initial");
+}).catch((error) => {
+    console.error(error)
+})
+}).catch((error) => {});
+	
+
+
+window.addEventListener("load", ()=>{
+  
 });
 
 function loadMusic(indexNumb){
