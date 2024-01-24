@@ -110,7 +110,7 @@ browserFileStorage.loadAll().then((files) => {
     let i=0;
     for(let f in files) {
 	let file = files[f]
-	if (!file.filename.include("img-")){
+	if (!file.filename.includes("img-")){
 	i++;
 	x={}
 	x["name"] = file.filename.replace('.'+file.extension,'');
