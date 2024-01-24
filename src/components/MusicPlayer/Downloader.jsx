@@ -11,6 +11,21 @@ const Downloader = ({activeSong, icon}) => {
     const artists = activeSong?.primaryArtists;
     const [done, setDone] = useState(false);
 
+  useEffect(() => {
+	  try{
+browserFileStorage.init('downloads').then((status) => {
+if(status.initial) {
+	
+browserFileStorage.load(filename).then((file) => {
+setDone(true)
+}).catch((error) => {
+    console.error(error)
+})
+	
+}
+}).catch((error) => {});
+	  } catch (error) {}
+  }, []);
     
   return (
     <div onClick={(e)=>{e.stopPropagation();
@@ -76,21 +91,6 @@ const Downloader = ({activeSong, icon}) => {
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
         
-    <script>
-browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {
-	
-browserFileStorage.load('background.png').then((file) => {
-    // Assign image source
-setDone(true)
-}).catch((error) => {
-    console.error(error)
-})
-	
-}
-}).catch((error) => {});
-
-    </script>
         
     <div title={isInProgress ?'Downloading' : 'Download'} id="xhr1" className={isInProgress ? 'download-button flex justify-center items-center':''}>
         {
