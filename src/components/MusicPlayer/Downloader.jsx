@@ -13,20 +13,13 @@ const Downloader = ({activeSong, icon}) => {
     const [done, setDone] = useState(false);
 
   useEffect(() => {
-	  try{
+
 browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {
-	
-browserFileStorage.load(filename).then((file) => {
-console.log("found!");
-setDone(true)
-}).catch((error) => {
-    console.error(error)
-})
-	
-}
+if(status.initial) {}
 }).catch((error) => {});
-	  } catch (error) {}
+
+//setDone(localStorage.getItem("downloaded"))
+
   }, []);
     
   return (
@@ -90,20 +83,7 @@ setDone(true)
     node.appendChild( div ); 
 
     }else{
-        document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
-        node.appendChild( div1 ); 
-        setDone(true)
-    }    }       
-                        
-    xhr.addEventListener('load', function() {
-
-    });                    
-    xhr.onerror = function(e) {
-      alert("Error " + e.target.status + " occurred while receiving the document.");
-    };
-    xhr.send();
-    xhr2.send();
-
+	    
     const allMusic = [];
     browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
@@ -122,6 +102,23 @@ setDone(true)
     }) 
     console.log(allMusic)
     localStorage.setItem("downloaded", allMusic);
+	    
+    document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
+    node.appendChild( div1 ); 
+    setDone(true)
+	    
+    }    }       
+                        
+    xhr.addEventListener('load', function() {
+
+    });                    
+    xhr.onerror = function(e) {
+      alert("Error " + e.target.status + " occurred while receiving the document.");
+    };
+    xhr.send();
+    xhr2.send();
+
+    
 			//*/
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
