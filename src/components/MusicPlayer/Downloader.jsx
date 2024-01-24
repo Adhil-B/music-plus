@@ -85,15 +85,14 @@ setDone(localStorage.getItem("downloaded") ? localStorage.getItem("downloaded").
     }else{
 	    
     const allMusic = [];
+	    
     browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
 	let file = files[f]
 	if (!file.filename.includes("img-")){
-	x={}
+	let x={}
 	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
-	x["img"]= "music-1";
-	x["src"]= file.createURL();
 	allMusic.push(x);
 	console.log(x)
     }}
