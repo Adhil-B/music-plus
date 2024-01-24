@@ -103,11 +103,11 @@ let allMusic = [];
 browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
 	let file = files[f]
-	x={name:""}
-	x[name] = file.filename.replace(file.extension,'');
-	x[artist] = file.metadata[artist];
-	x[img]= "music-1";
-	x[src]= file.createURL();
+	x={}
+	x["name"] = file.filename.replace(file.extension,'');
+	x["artist"] = file.metadata[artist];
+	x["img"]= "music-1";
+	x["src"]= file.createURL();
 
 	allMusic.push(x);
 	
