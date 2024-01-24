@@ -105,6 +105,15 @@ let allMusic = localStorage.getItem("downloaded");;
 const wrapper = document.querySelector(".wrapper");
 const ulTag1 = wrapper.querySelector("ul");
 
+const files = browserFileStorage.loadAll();
+const allMusic = [];
+for(let f in files) {
+    let file = files[f];
+    let x={};
+    x["name"] = filename.replace(".mp3",'');
+    x["artist"] = artists;
+    allMusic.push(x);
+}
 	
 let now_playing = document.querySelector('.now-playing');
 const musicImg = wrapper.querySelector(".img-area img"),
