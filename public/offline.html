@@ -109,8 +109,9 @@ browserFileStorage.init('downloads').then((status) => {
 browserFileStorage.loadAll().then((files) => {
     let i=0;
     for(let f in files) {
-	i++;
 	let file = files[f]
+	if (!file.filename.include("img-")){
+	i++;
 	x={}
 	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
@@ -129,7 +130,7 @@ browserFileStorage.loadAll().then((files) => {
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
 	
-    }
+    }}
 }).catch((error) => {
     console.error(error)
 })
@@ -167,9 +168,15 @@ window.addEventListener("load", ()=>{
 });
 
 function loadMusic(indexNumb){
+  browserFileStorage.load('img-'+allMusic[indexNumb - 1].name).then((file) => {
+    let url = file.createURL()
+    musicImg.src = url;
+}).catch((error) => {
+    console.error(error)
+})
   musicName.innerText = allMusic[indexNumb - 1].name;
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
-  musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
+  //musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
   mainAudio.src = `${allMusic[indexNumb - 1].src}`;
 }
 
