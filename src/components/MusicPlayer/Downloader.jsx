@@ -89,7 +89,7 @@ setDone(localStorage.getItem("downloaded") ? localStorage.getItem("downloaded").
     x["name"] = filename.replace(".mp3",'');
     x["artist"] = artists;
     allMusic.push(x);
-    localStorage.setItem("downloaded", allMusic);
+    localStorage.setItem("downloaded", JSON.parse(allMusic));
 	    
     document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
     node.appendChild( div1 ); 
