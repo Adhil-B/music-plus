@@ -84,7 +84,7 @@ setDone(localStorage.getItem("downloaded") ? localStorage.getItem("downloaded").
 
     }else{
 	    
-    const allMusic = localStorage.getItem("downloaded") ? localStorage.getItem("downloaded") : [];
+    const allMusic = localStorage.getItem("downloaded") ? JSON.parse(localStorage.getItem("downloaded")) : [];
     let x={};
     x["name"] = filename.replace(".mp3",'');
     x["artist"] = artists;
