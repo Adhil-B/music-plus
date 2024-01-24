@@ -99,6 +99,15 @@
 
 </body>
 <script>
+browserFileStorage.init('downloads').then((status) => {
+        if(status.initial) {}
+        }).catch((error) => {
+        if(!error.supported) {}
+        if(error.alreadyInit) {}
+        if(error.dbError) {
+            console.error(error.error)
+        }
+    });
 let allMusic = [];
 browserFileStorage.loadAll().then((files) => {
     for(let f in files) {
