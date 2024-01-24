@@ -87,7 +87,7 @@
             <div class="header" style="margin-bottom:20px">
                 <div class="row" style="font-size:24px">
                     <i class= "list material-icons-round" style="font-size:34px">queue_music</i>
-                    <span>Downloads</span>
+                    <span id="downtxt">Songs</span>
                 </div>
                 <i id="close" class="material-icons-round" style='display:none'>close</i>
             </div>
@@ -160,6 +160,7 @@ progressBar = progressArea.querySelector(".progress-bar"),
 musicList = wrapper.querySelector(".music-list"),
 headerr = wrapper.querySelector(".headerr"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
+downtxt = document.getElementById('downtxt'),
 
 closemoreMusic = musicList.querySelector("#close");
 
@@ -200,6 +201,7 @@ function playMusic(){
   if (musicList.classList.contains("initial")){
 	  moreMusicBtn.click();
   }
+  downtxt.innerText = 'Downloads';
   headerr.style.display = 'none';
   musicList.style.background = 'rgba(47, 47, 47, 1)';
   closebtn.style.display = 'block';
