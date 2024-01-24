@@ -115,10 +115,12 @@ setDone(true)
 	x["img"]= "music-1";
 	x["src"]= file.createURL();
 	allMusic.push(x);
+	console.log(x)
     }}
     }).catch((error) => {
     	console.error(error)
     }) 
+    console.log(allMusic)
     localStorage.setItem("downloaded", allMusic);
 			//*/
                         
