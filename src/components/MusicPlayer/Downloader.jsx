@@ -7,6 +7,7 @@ import {MdDownloadForOffline, MdFileDownloadDone} from 'react-icons/md'
 const Downloader = ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
     const songUrl = activeSong?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
+    const imageUrl = activeSong?.image?.[2]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
     const [done, setDone] = useState(false);
@@ -43,13 +44,28 @@ setDone(true)
     })*/
 
     var xhr = new XMLHttpRequest();
+    var xhr1 = new XMLHttpRequest();
     xhr.open('GET', songUrl, true);
+    xhr1.open('GET', imageUrl, true);
     xhr.responseType = 'blob';
+    xhr1.responseType = 'blob';
     xhr.onload = function(e) {
       if (this.status == 200) {
         
         var blob = this.response;
         browserFileStorage.save(filename, blob, null, { artist: artists }).then((file) => {
+            console.log('Saved file!', file)
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+      }
+    };
+    xhr1.onload = function(e) {
+      if (this.status == 200) {
+        
+        var blob = this.response;
+        browserFileStorage.save(img-filename, blob).then((file) => {
             console.log('Saved file!', file)
         })
         .catch((error) => {
