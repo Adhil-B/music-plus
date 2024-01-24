@@ -84,12 +84,6 @@ setDone(localStorage.getItem("downloaded") ? localStorage.getItem("downloaded").
 
     }else{
 	    
-    const allMusic = localStorage.getItem("downloaded") ? JSON.parse(localStorage.getItem("downloaded")) : [];
-    let x={};
-    x["name"] = filename.replace(".mp3",'');
-    x["artist"] = artists;
-    allMusic.push(x);
-    localStorage.setItem("downloaded", eval(allMusic));
 	    
     document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
     node.appendChild( div1 ); 
