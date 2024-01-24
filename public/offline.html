@@ -157,7 +157,7 @@ function loadMusic(indexNumb){
   musicName.innerText = allMusic[indexNumb - 1].name;
   musicArtist.innerText = allMusic[indexNumb - 1].artist;
   musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
-  mainAudio.src = `${allMusic[indexNumb - 1].src}.mp3`;
+  mainAudio.src = `${allMusic[indexNumb - 1].src}`;
 }
 
 //play music function
@@ -170,7 +170,7 @@ function playMusic(){
   musicList.style.top="";
   wrapper.classList.add("paused");
   playPauseBtn.querySelector("i").innerText = "pause";
-  mainAudio.load();
+
   mainAudio.play();
   wave.classList.add('loader');
   //musicImg.classList.add('rotate');
@@ -328,10 +328,10 @@ for (let i = 0; i < allMusic.length; i++) {
                   <p>${allMusic[i].artist}</p>
                 </div>
                 <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
-                <audio class="${allMusic[i].src}" src="${allMusic[i].src}.mp3"></audio>
+                <audio class="${allMusic[i].src}" src="${allMusic[i].src}"></audio>
               </li>`;
   ulTag.insertAdjacentHTML("beforeend", liTag); //inserting the li inside ul tag
-  liAudioTag.load();
+ 
   let liAudioDuartionTag = ulTag.querySelector(`#${allMusic[i].src}`);
   let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
   liAudioTag.addEventListener("loadeddata", ()=>{
