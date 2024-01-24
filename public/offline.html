@@ -123,9 +123,9 @@ browserFileStorage.loadAll().then((files) => {
 	let liTag = `<li li-index="${i + 1}" >
                 <div class="row" onclick="loadMusic(${i+1}); playMusic(); playingSong();">
                   <span><b>${x["name"]}</b></span>
-                  <p>${x["artist"]}</p>
+                  <p style="white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${x["artist"]}</p>
                 </div>
-                <span id="${x["src"]}" class="audio-duration">3:40</span>
+                <span id="${x["src"]}" class="audio-duration" style="display:none">3:40</span>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
