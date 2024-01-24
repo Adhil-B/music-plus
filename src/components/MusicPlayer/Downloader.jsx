@@ -17,6 +17,7 @@ browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {
 	
 browserFileStorage.load(filename).then((file) => {
+console.log("found!");
 setDone(true)
 }).catch((error) => {
     console.error(error)
@@ -79,8 +80,6 @@ setDone(true)
     }    }       
                         
     xhr.addEventListener('load', function() {
-
-    // Calculate percentage complete via "e" object
 
     });                    
     xhr.onerror = function(e) {
