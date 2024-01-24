@@ -78,16 +78,15 @@
 
         <div class="music-list">
 	    <div class="headerr" style="margin-top: 30px; margin-bottom: 30px;">
-                <div class="row" style="font-size: 54px;">
-                    <i class="list material-icons-round" style="font-size: 44px; ">download</i>
-                    <span style="font-size: 44px;"><b>Downloads</b></span>
+                <div class="row" style="font-size: 54px;"><center>
+                    <span style="font-size: 44px;"><b>Downloads</b></span></center>
                 </div>
                 
             </div>
             <div class="header" style="margin-bottom:20px">
                 <div class="row" style="font-size:24px">
                     <i class= "list material-icons-round" style="font-size:34px">queue_music</i>
-                    <span id="downtxt">Songs</span>
+                    <b><span id="downtxt">Songs</span></b>
                 </div>
                 <i id="close" class="material-icons-round" style='display:none'>close</i>
             </div>
@@ -203,6 +202,7 @@ function playMusic(){
   }
   downtxt.innerText = 'Downloads';
   headerr.style.display = 'none';
+  musicList.style.borderRadius = '15px';
   musicList.style.background = 'rgba(47, 47, 47, 1)';
   closebtn.style.display = 'block';
   musicList.classList.remove('initial');
@@ -740,7 +740,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: absolute;
     backdrop-filter: blur(25px);
     color: white;
-    background-color: linear-gradient(rgb(8, 135, 152), rgb(0, 8, 20) 62%);
+    background: linear-gradient(rgb(8, 135, 152), rgb(0, 8, 20) 62%);
     width: 100%;
     left: 0;
     bottom: -55%;
