@@ -67,7 +67,8 @@ const Downloader = ({activeSong, icon}) => {
     xhr.onerror = function(e) {
       alert("Error " + e.target.status + " occurred while receiving the document.");
     };
-    xhr.send();*/
+    xhr.send();
+                        //*/
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
     <div title={isInProgress ?'Downloading' : 'Download'} id="xhr1" className={isInProgress ? 'download-button flex justify-center items-center':''}>
