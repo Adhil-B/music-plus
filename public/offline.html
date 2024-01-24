@@ -104,8 +104,11 @@ browserFileStorage.init('downloads').then((status) => {
 
 const wrapper = document.querySelector(".wrapper");
 const ulTag1 = wrapper.querySelector("ul");
+let files;
+(async () => {
+   files = await browserFileStorage.loadAll();
+})();	
 
-const files = browserFileStorage.loadAll();
 const allMusic = [];
 for(let f in files) {
     let file = files[f];
