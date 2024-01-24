@@ -101,11 +101,15 @@
 </body>
 <script>
 let allMusic = [];
+const wrapper = document.querySelector(".wrapper");
+const ulTag1 = wrapper.querySelector("ul");
 browserFileStorage.init('downloads').then((status) => {
 
 
 browserFileStorage.loadAll().then((files) => {
+    let i=0;
     for(let f in files) {
+	i++;
 	let file = files[f]
 	x={}
 	x["name"] = file.filename.replace(file.extension,'');
@@ -114,6 +118,16 @@ browserFileStorage.loadAll().then((files) => {
 	x["src"]= file.createURL();
 
 	allMusic.push(x);
+
+	let liTag = `<li li-index="${i + 1}" onClick="loadMusic(${i+1}); playMusic(); playingSong();">
+                <div class="row">
+                  <span><b>${x["name"]}</b></span>
+                  <p>${x["artist"]}</p>
+                </div>
+                <span id="${x["src"]}" class="audio-duration">3:40</span>
+                <audio class="${x["src"]}" src="${x["src"]}"></audio>
+              </li>`;
+        ulTag1.insertAdjacentHTML("beforeend", liTag);
 	
     }
 }).catch((error) => {
@@ -121,8 +135,7 @@ browserFileStorage.loadAll().then((files) => {
 })
 	
 let now_playing = document.querySelector('.now-playing');
-const wrapper = document.querySelector(".wrapper"),
-musicImg = wrapper.querySelector(".img-area img"),
+const musicImg = wrapper.querySelector(".img-area img"),
 musicName = wrapper.querySelector(".song-details .name"),
 musicArtist = wrapper.querySelector(".song-details .artist"),
 playPauseBtn = wrapper.querySelector(".play-pause"),
