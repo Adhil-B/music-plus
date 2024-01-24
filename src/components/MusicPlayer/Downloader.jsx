@@ -8,7 +8,8 @@ const Downloader = ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
     const songUrl = activeSong?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
-    const artists = useRef(activeSong?.featuredArtists);
+    const artists = activeSong?.primaryArtists;
+    const [done, setDone] = useState(false);
   return (
     <div onClick={(e)=>{e.stopPropagation();
         //download(songUrl, filename);
@@ -30,7 +31,7 @@ const Downloader = ({activeSong, icon}) => {
       if (this.status == 200) {
         
         var blob = this.response;
-        browserFileStorage.save(filename, blob, null, { artist: artists.current }).then((file) => {
+        browserFileStorage.save(filename, blob, null, { artist: artists }).then((file) => {
             console.log('Saved file!', file)
         })
         .catch((error) => {
@@ -57,6 +58,7 @@ const Downloader = ({activeSong, icon}) => {
     }else{
         document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
         node.appendChild( div1 ); 
+        setDone(true)
     }    }       
                         
     xhr.addEventListener('load', function() {
@@ -76,7 +78,7 @@ const Downloader = ({activeSong, icon}) => {
             isInProgress ? 
             <div id="xhr2" className=' text-white font-extrabold text-xs m-'>{percentage}</div>
             :
-              percentage === 100 ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdDownloadForOffline  size={25} color={'#ffff'}/>
+              done ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
         }
       </div>
     </div>
