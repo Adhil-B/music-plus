@@ -103,6 +103,7 @@
 <script>
 
 const wrapper = document.querySelector(".wrapper");
+const player = document.querySelector(".player");
 const ulTag1 = wrapper.querySelector("ul");
 
 
@@ -174,6 +175,7 @@ function loadMusic(indexNumb){
   browserFileStorage.load('img-'+allMusic[indexNumb - 1].name).then((file) => {
     let url = file.createURL()
     musicImg.src = url;
+    player.style.backgroundImage = `url('${url}')`;
 }).catch((error) => {
     console.error(error)
 })
@@ -474,6 +476,7 @@ body {
 }
 
 .wrapper{
+    backdrop-filter: blur(100px),
     color: white;
     width: 450px;
     padding: 15px 30px;
@@ -724,7 +727,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: absolute;
     backdrop-filter: blur(25px);
     color: white;
-    background-color: rgba(47, 47, 47, 0.38);
+    background-color: rgba(47, 47, 47, 1);
     width: 100%;
     left: 0;
     bottom: -55%;
