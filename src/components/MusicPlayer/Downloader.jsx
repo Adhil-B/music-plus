@@ -84,22 +84,11 @@ setDone(localStorage.getItem("downloaded") ? localStorage.getItem("downloaded").
 
     }else{
 	    
-    const allMusic = [];
-	    
-    browserFileStorage.loadAll().then((files) => {
-    for(let f in files) {
-	let file = files[f]
-	if (!file.filename.includes("img-")){
-	let x={}
-	x["name"] = file.filename.replace('.'+file.extension,'');
-	x["artist"] = file.metadata["artist"];
-	allMusic.push(x);
-	console.log(x)
-    }}
-    }).catch((error) => {
-    	console.error(error)
-    }) 
-    console.log(allMusic)
+    const allMusic = localStorage.getItem("downloaded") ? localStorage.getItem("downloaded") : [];
+    let x={};
+    x["name"] = filename.replace(".mp3",'');
+    x["artist"] = artists;
+    allMusic.push(x);
     localStorage.setItem("downloaded", allMusic);
 	    
     document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
