@@ -108,7 +108,7 @@ browserFileStorage.loadAll().then((files) => {
 	let file = files[f]
 	x={}
 	x["name"] = file.filename.replace(file.extension,'');
-	x["artist"] = file.metadata[artist];
+	x["artist"] = file.metadata["artist"];
 	x["img"]= "music-1";
 	x["src"]= file.createURL();
 
