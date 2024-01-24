@@ -133,8 +133,6 @@ let recent_volume = document.querySelector('#volume');
 let volume_show = document.querySelector('#volume_show');
 let wave = document.getElementById('wave');
 
- 
-let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 isMusicPaused = true;
 
 const allMusic = [];
@@ -164,7 +162,7 @@ browserFileStorage.loadAll().then((files) => {
         ulTag1.insertAdjacentHTML("beforeend", liTag);
 
     }}
-  loadMusic(musicIndex);
+  loadMusic(Math.floor((Math.random() * allMusic.length) + 1));
   playingSong(); 
   musicList.classList.toggle("show");
   wrapper.querySelector(".music-list ul").style.maxHeight="90%";
@@ -175,7 +173,7 @@ browserFileStorage.loadAll().then((files) => {
 })
 }).catch((error) => {});
 	
-
+let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 
 window.addEventListener("load", ()=>{
   
