@@ -18,7 +18,7 @@ browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {}
 }).catch((error) => {});
 }catch(err) {}
-setDone(localStorage.getItem("downloaded").includes(filename));
+setDone(localStorage.getItem("downloaded") ? localStorage.getItem("downloaded").includes(filename) : false);
 
   }, []);
     
