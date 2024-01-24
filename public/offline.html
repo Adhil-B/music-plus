@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="player">
-    <div class="wrapper">
+    <div class="wrapper" style="height:100vh">
         <div class="main">
             <!--p id="logo"><i class="fa fa-music"></i><b>Downloaded Music</b></p-->
         </div>
@@ -27,13 +27,13 @@
             <i class="material-icons">more_horiz</i>
     </div-->
 
-        <div class="img-area">
+        <div class="img-area" style="width:20rem, height:20rem, margin-top:15vh">
             <img src="images/music-1.jpg" alt="">
         </div>
 
-        <div class="song-details">
-            <b><p class="name" style="font-weight: 700; font-size: 1.5rem; line-height: 2rem;"></p></b>
-            <p class="artist" style=""></p>
+        <div class="song-details" style="padding-left:0.75rem; padding-right:0.75rem; margin-top:1.25rem; margin-left: 25px; margin-right:25px">
+            <b><p class="name" style="font-weight: 700; font-size: 1.5rem; line-height: 2rem; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;"></p></b>
+            <p class="artist" style="white-space:nowrap; text-overflow:ellipsis; overflow:hidden;"></p>
         </div>
 
         <div class="progress-area">
@@ -57,7 +57,7 @@
             <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
             <i id="prev" class="material-icons">skip_previous</i>
             <div class="play-pause">
-                <i class="material-icons play">play_arrow</i>
+                <i class="material-icons play">play_circle</i>
         </div>
             <i id="next" class="material-icons">skip_next</i>
             <i id="more-music" class="material-icons">queue_music</i>
@@ -120,8 +120,8 @@ browserFileStorage.loadAll().then((files) => {
 
 	allMusic.push(x);
 
-	let liTag = `<li li-index="${i + 1}" onclick="loadMusic(${i+1}); playMusic(); playingSong();">
-                <div class="row">
+	let liTag = `<li li-index="${i + 1}" >
+                <div class="row" onclick="loadMusic(${i+1}); playMusic(); playingSong();">
                   <span><b>${x["name"]}</b></span>
                   <p>${x["artist"]}</p>
                 </div>
@@ -189,7 +189,7 @@ function playMusic(){
   wrapper.querySelector(".music-list ul").style.maxHeight="260px";
   musicList.style.top="";
   wrapper.classList.add("paused");
-  playPauseBtn.querySelector("i").innerText = "pause";
+  playPauseBtn.querySelector("i").innerText = "pause_circle";
 
   mainAudio.play();
   wave.classList.add('loader');
@@ -199,7 +199,7 @@ function playMusic(){
 //pause music function
 function pauseMusic(){
   wrapper.classList.remove("paused");
-  playPauseBtn.querySelector("i").innerText = "play_arrow";
+  playPauseBtn.querySelector("i").innerText = "play_circle";
   mainAudio.pause();
   wave.classList.remove('loader');
   //musicImg.classList.remove('rotate');
