@@ -77,12 +77,19 @@
     </div>
 
         <div class="music-list">
+	    <div class="headerr" style="margin-top: 30px; margin-bottom: 30px;">
+                <div class="row" style="font-size: 54px;">
+                    <i class="list material-icons-round" style="font-size: 44px; ">download</i>
+                    <span style="font-size: 44px;"><b>Downloads</b></span>
+                </div>
+                
+            </div>
             <div class="header" style="margin-bottom:20px">
                 <div class="row" style="font-size:24px">
                     <i class= "list material-icons-round" style="font-size:34px">queue_music</i>
                     <span>Downloads</span>
                 </div>
-                <i id="close" class="material-icons-round">close</i>
+                <i id="close" class="material-icons-round" style='display:none'>close</i>
             </div>
             <ul>
                 <!-- here li list are coming from js -->
@@ -105,6 +112,7 @@
 const wrapper = document.querySelector(".wrapper");
 const player = document.querySelector(".player");
 const ulTag1 = wrapper.querySelector("ul");
+const closebtn = document.getElementById("close");
 
 
 const allMusic = [];
@@ -124,11 +132,11 @@ browserFileStorage.loadAll().then((files) => {
 	allMusic.push(x);
 
 	let liTag = `<li li-index="${i}" >
-                <div class="row" onclick="loadMusic(${i}); playMusic(); playingSong();">
+                <div class="row" onclick="loadMusic(${i}); playMusic(); playingSong();" style="width:80%">
                   <span><b>${x["name"]}</b></span>
-                  <p style="white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">${x["artist"]}</p>
+                  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden;">${x["artist"]}</p>
                 </div>
-                <span id="${x["src"]}" class="audio-duration" style="display:none">3:40</span>
+                <span id="${x["src"]}" class="audio-duration">3:40</span>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
@@ -150,6 +158,7 @@ mainAudio = wrapper.querySelector("#main-audio"),
 progressArea = wrapper.querySelector(".progress-area"),
 progressBar = progressArea.querySelector(".progress-bar"),
 musicList = wrapper.querySelector(".music-list"),
+headerr = wrapper.querySelector(".headerr"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
 
 closemoreMusic = musicList.querySelector("#close");
@@ -191,6 +200,9 @@ function playMusic(){
   if (musicList.classList.contains("initial")){
 	  moreMusicBtn.click();
   }
+  headerr.style.display = 'none';
+  musicList.style.background = 'rgba(47, 47, 47, 1)';
+  closebtn.style.display = 'block';
   musicList.classList.remove('initial');
   wrapper.querySelector(".music-list ul").style.maxHeight="260px";
   musicList.style.top="";
@@ -726,7 +738,7 @@ input[type="range"]::-webkit-slider-thumb {
     position: absolute;
     backdrop-filter: blur(25px);
     color: white;
-    background-color: rgba(47, 47, 47, 1);
+    background-color: linear-gradient(rgb(8, 135, 152), rgb(0, 8, 20) 62%);
     width: 100%;
     left: 0;
     bottom: -55%;
@@ -734,7 +746,7 @@ input[type="range"]::-webkit-slider-thumb {
     pointer-events: none;
     /* z-index: 5; */
     padding: 15px 30px;
-    border-radius: 15px;
+    
     box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
     transition: all 0.15s ease-out;
 }
