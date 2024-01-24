@@ -112,14 +112,14 @@ browserFileStorage.loadAll().then((files) => {
 	i++;
 	let file = files[f]
 	x={}
-	x["name"] = file.filename.replace(file.extension,'');
+	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
 	x["img"]= "music-1";
 	x["src"]= file.createURL();
 
 	allMusic.push(x);
 
-	let liTag = `<li li-index="${i + 1}" onClick="loadMusic(${i+1}); playMusic(); playingSong();">
+	let liTag = `<li li-index="${i + 1}" onclick="loadMusic(${i+1}); playMusic(); playingSong();">
                 <div class="row">
                   <span><b>${x["name"]}</b></span>
                   <p>${x["artist"]}</p>
