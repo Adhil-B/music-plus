@@ -102,6 +102,7 @@
                 </li> -->
             </ul>
         </div>
+	<center><p id="offline" style="position: absolute;bottom: 15px;font-weight: 600;/*! align-items: center; */width: 90vw;background-color: #b702022b;padding: 5px;border-radius: 10px;left: 5vw;">You are offline!</p></center>
     </div>
 </div>
 
@@ -126,6 +127,7 @@ musicList = wrapper.querySelector(".music-list"),
 headerr = wrapper.querySelector(".headerr"),
 moreMusicBtn = wrapper.querySelector("#more-music"),
 downtxt = document.getElementById('downtxt'),
+offline = document.getElementById('offline'),
 
 closemoreMusic = musicList.querySelector("#close");
 
@@ -210,6 +212,7 @@ function playMusic(){
   }
   downtxt.innerText = 'Downloads';
   headerr.style.display = 'none';
+  offline.style.display = 'none';
   musicList.style.borderRadius = '15px';
   musicList.style.background = 'rgba(47, 47, 47, 1)';
   closebtn.style.display = 'block';
