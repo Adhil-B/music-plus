@@ -150,9 +150,7 @@ browserFileStorage.loadAll().then((files) => {
 	x["src"]= file.createURL();
 	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
     	x["img"] = imgfile.createURL();
-	}).catch((error) => {
-    	console.error(error)
-	})
+	
 
 	allMusic.push(x);
 
@@ -168,7 +166,9 @@ browserFileStorage.loadAll().then((files) => {
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
-		
+	}).catch((error) => {
+    	console.error(error)
+	})
     }}
   //loadMusic(Math.floor((Math.random() * allMusic.length) + 1));
   //playingSong(); 
