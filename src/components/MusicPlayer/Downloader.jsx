@@ -11,7 +11,7 @@ const Downloader = ({activeSong, icon}) => {
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
     const [done, setDone] = useState([false,false,0]);
-    const [allfilenames, setAllfilenames] = useState([]);
+    const [allfilenames, setAllfilenames] = useState(localStorage?.getItem("downloaded") ? JSON.parse(localStorage.getItem("downloaded")) : []);
 
 useEffect(() => {	
 setDone([percentage == 100,isInProgress,percentage])
