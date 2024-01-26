@@ -10,6 +10,7 @@ const Downloader = ({activeSong, icon}) => {
     const imageUrl = activeSong?.image?.[2]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
+    const duration = activeSong?.duration;
     const [done, setDone] = useState([false,false,0]);
     const [allfilenames, setAllfilenames] = useState([]);
 
@@ -70,7 +71,7 @@ setDone([false,done[1],done[2]]);
       if (this.status == 200) {
         
         var blob = this.response;
-        browserFileStorage.save(filename, blob, null, { artist: artists }).then((file) => {
+        browserFileStorage.save(filename, blob, null, { artist: artists, duration: duration }).then((file) => {
             console.log('Saved file!', file)
         })
         .catch((error) => {
