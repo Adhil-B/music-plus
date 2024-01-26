@@ -400,11 +400,18 @@ for (let i = 0; i < allMusic.length; i++) {
 //play particular song from the list onclick of li tag
 function playingSong(){
   const allLiTag = ulTag.querySelectorAll("li");
-  if (ulTag.querySelectorAll("li")[musicIndex-1] != wrapper.querySelector(".playing")){
+  if (wrapper.querySelector(".playing") === null){
+	  
+   ulTag.querySelectorAll("li")[musicIndex-1].classList.add("playing");
+   wrapper.querySelector(".playing").style.color = 'rgb(0, 230, 230)';
+	  
+  }else if (ulTag.querySelectorAll("li")[musicIndex-1] != wrapper.querySelector(".playing")){
+	  
   wrapper.querySelector(".playing").style.color = 'white';
   wrapper.querySelector(".playing").classList.remove("playing");
   ulTag.querySelectorAll("li")[musicIndex-1].classList.add("playing");
   wrapper.querySelector(".playing").style.color = 'rgb(0, 230, 230)';
+	  
   }
 
   /*
