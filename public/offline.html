@@ -143,9 +143,9 @@ browserFileStorage.loadAll().then((files) => {
 	let file = files[f]
 	if (!file.filename.includes("img-")){
 	i++;
-	
-	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
 	x={}
+	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
+	
     	x["img"] = imgfile.createURL();
 	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
