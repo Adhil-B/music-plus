@@ -158,14 +158,14 @@ browserFileStorage.loadAll().then((files) => {
     	x["img"] = imgfile.createURL();
 	
 	let liTag = `<li li-index="${y}" >
-                <div class="row" onclick="loadMusic(${y}); musicIndex = ${y}; playMusic(); playingSong();" style="width:80%; display:flex; align-items: center; height: 62px;">
+                <div class="row" onclick="loadMusic(${y}); musicIndex = ${y}; playMusic(); playingSong();" style="width:75%; display:flex; align-items: center; height: 62px;">
 		  <img src='${x["img"]}' id="${y}-img" style="border-radius: 2px; height: 50px; object-fit: cover; margin-right: 1.25rem; margin-left: 5px;" width="50" height="50">
-                  <span style="white-space:nowrap; width:100%; margin-right: 20px; text-overflow:ellipsis; overflow:hidden; font-size: .875rem; line-height: 1.25rem; font-weight: 600;">${file.filename.replace('.'+file.extension,'')}
+                  <span style="white-space:nowrap; width:100%; margin-right: 10px; text-overflow:ellipsis; overflow:hidden; font-size: .875rem; line-height: 1.25rem; font-weight: 600;">${file.filename.replace('.'+file.extension,'')}
 		  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .75rem; font-weight: 500; line-height: 1rem; color: rgb(255, 255, 255);">${file.metadata["artist"]}</p>
 		  </span>
                   
                 </div>
-                <span id="${x["src"]}" style="display:flex; position: fixed; right:40px; margin-left: 15px; font-weight: 500;" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}
+                <span id="${x["src"]}" style="display:flex; font-weight: 500;" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}
 		<i class= "list material-icons-round" style="font-size:25px; margin-left:8px;">more_vert</i>
                 </span>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
