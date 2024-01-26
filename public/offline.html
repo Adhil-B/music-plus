@@ -405,7 +405,7 @@ function playingSong(){
     if(allLiTag[j].classList.contains("playing")){
       allLiTag[j].classList.remove("playing");
       let adDuration = audioTag.getAttribute("t-duration");
-      audioTag.innerText = allMusic[musicIndex].duration;
+      audioTag.innerText = new Date(allMusic[musicIndex].duration * 1000).toISOString().substring(14, 19);
     }
 
     //if the li tag index is equal to the musicIndex then add playing class in it
