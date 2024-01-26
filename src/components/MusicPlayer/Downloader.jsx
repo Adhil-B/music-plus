@@ -73,19 +73,18 @@ setDone([false,done[1],done[2]]);
         var blob = this.response;
         browserFileStorage.save(filename, blob, null, { artist: artists, duration: duration }).then((file) => {
             console.log('Saved file!', file)
+	    browserFileStorage.list().then((filenames) => {
+            setAllfilenames(filenames)
+	    localStorage?.setItem("downloaded" , filenames)
+            }).catch((error) => {})    
+            setDone([true,false,100]);	
         })
         .catch((error) => {
             console.error(error)
         })
       }
 
-        browserFileStorage.list().then((filenames) => {
-        setAllfilenames(filenames)
-	localStorage?.setItem("downloaded" , filenames)
-        }).catch((error) => {})    
-    //document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
-    //node.appendChild( div1 ); 
-    setDone([true,false,100]);	    
+            
     };
     xhr2.onload = function(e) {
       if (this.status == 200) {
@@ -102,30 +101,10 @@ setDone([false,done[1],done[2]]);
    xhr.onprogress = e => {
     // Every time progress occurs
     const percent = parseInt((e.loaded / e.total)*100);
-
-    //var node = document.getElementById("xhr1");
-    //var div = document.createElement('div');
-    //var div1 = document.createElement('div1');
-    //div.id="xhr2";
-    //div.classList.add("text-white","font-extrabold","text-xs","m-");
-    //div.innerHTML=percent;
-    //div1.innerHTML = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" color="" style="color:rgb(0, 230, 230)" height="25" width="25" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zm-1-4l-1.41-1.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5z"></path></svg>`;
-    //while( node.firstChild )
-    //node.removeChild( node.firstChild );
     if (percent != 100){
     setDone([false,true,percent]);
     //node.appendChild( div ); 
 
-    }else{
-	    
-    	browserFileStorage.list().then((filenames) => {
-        setAllfilenames(filenames)
-	localStorage?.setItem("downloaded" , filenames)
-        }).catch((error) => {})    
-    //document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
-    //node.appendChild( div1 ); 
-    setDone([true,false,100]);
-	    
     }    }       
                         
     xhr.addEventListener('load', function() {
@@ -137,8 +116,6 @@ setDone([false,done[1],done[2]]);
     xhr.send();
     xhr2.send();
 
-    
-			//*/
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
         
