@@ -110,7 +110,10 @@ setDone([false,done[1],done[2]]);
 
     }else{
 	    
-	    
+    	browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+	localStorage?.setItem("downloaded" , filenames)
+        }).catch((error) => {})    
     //document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
     //node.appendChild( div1 ); 
     setDone([true,false,100]);
@@ -135,7 +138,7 @@ setDone([false,done[1],done[2]]);
     <div title={done[1] ?'Downloading' : 'Download'} id="xhr1" className={done[1] ? 'download-button flex justify-center items-center':''}>
         {
             done[1] ? 
-            <div id="xhr2" className=' text-white font-extrabold text-xs m-'>{done[2]}</div>
+            <div id="xhr2" className='w-[15px] text-white font-extrabold text-xs m-'>{done[2]}</div>
             :
               allfilenames.includes(filename) ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
         }
