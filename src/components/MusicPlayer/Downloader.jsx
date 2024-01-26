@@ -78,6 +78,14 @@ setDone([false,done[1],done[2]]);
             console.error(error)
         })
       }
+
+        browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+	localStorage?.setItem("downloaded" , filenames)
+        }).catch((error) => {})    
+    //document.getElementById("xhr1").classList.remove('download-button','flex', 'justify-center', 'items-center');
+    //node.appendChild( div1 ); 
+    setDone([true,false,100]);	    
     };
     xhr2.onload = function(e) {
       if (this.status == 200) {
