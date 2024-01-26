@@ -20,20 +20,18 @@ setDone([percentage == 100,isInProgress,percentage])
 useEffect(() => {
 try{
 browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {
-}
-}).catch((error) => {});
-}catch(err) {}
-setDone([false,done[1],done[2]]);
-}, []);
-
-useEffect(() => {
-try{
+if(status.initial) {}
+	
 browserFileStorage.list().then((filenames) => {
         setAllfilenames(filenames)
 }).catch((error) => {})
+	
+}).catch((error) => {});
 }catch(err) {}
+setDone([false,done[1],done[2]]);
 }, [done[0]]);
+
+
 
     
   return (
