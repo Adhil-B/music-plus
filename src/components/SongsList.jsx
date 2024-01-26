@@ -110,11 +110,12 @@ setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("down
                     }
 
                   </div>
-                  <div className=" w-24 md:w-64">
-                    <MdDownloadForOffline size={12} className={allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? '' : 'hidden'}/>
+                  <div className=" w-[40vw] md:w-64">
+                    <div className="flex gap-[0.2rem]">
+                    <MdDownloadForOffline size={19} className={allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? '' : 'hidden'}/>
                     <p className="text-sm lg:text-lg font-semibold truncate">{
                       song?.name?.replace("&#039;", "'")?.replaceAll("&amp;", "&")?.replaceAll('&quot;','"')
-                    }</p>
+                    }</p></div>
                     <p className="text-gray-400 truncate text-xs">{song?.primaryArtists}</p>
                   </div>
                 </div>
