@@ -225,10 +225,10 @@ function playMusic(){
 
   mainAudio.play();
   wave.classList.add('loader');
-  browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
+  browserFileStorage.load('img-'+allMusic[musicIndex]["name"]).then((imgfile) => {
 	
   img = imgfile.createURL();
-  navigator.mediaSession.metadata = new MediaMetadata({ title: allMusic["name"], artist: allMusic["artist"], album: "Music+", artwork: [    
+  navigator.mediaSession.metadata = new MediaMetadata({ title: allMusic[musicIndex]["name"], artist: allMusic[musicIndex]["artist"], album: "Music+", artwork: [    
      {
         src: img,
         sizes: "96x96",
