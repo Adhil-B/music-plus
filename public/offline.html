@@ -90,7 +90,7 @@
                 </div>
                 <i id="close" class="material-icons-round" style='display:none'>close</i>
             </div>
-            <ul>
+            <ul style="background-color: rgba(0, 0, 0, 0.17); padding: 10px; border-radius: 10px;">
                 <!-- here li list are coming from js -->
 
                 <!-- <li>
@@ -156,13 +156,13 @@ browserFileStorage.loadAll().then((files) => {
 	
 	let liTag = `<li li-index="${y}" >
                 <div class="row" onclick="loadMusic(${y}); playMusic(); playingSong();" style="width:80%; display:flex; align-items: center; height: 62px;">
-		  <img src='${x["img"]}' id="${y}-img" style="height: 50px; object-fit: cover; margin-right: 1.25rem; margin-left: 5px;" width="50" height="50">
+		  <img src='${x["img"]}' id="${y}-img" style="border-radius: 2px; height: 50px; object-fit: cover; margin-right: 1.25rem; margin-left: 5px;" width="50" height="50">
                   <span style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .875rem; line-height: 1.25rem; font-weight: 600;">${file.filename.replace('.'+file.extension,'')}
 		  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .75rem; font-weight: 500; line-height: 1rem; color: rgb(255, 255, 255);">${file.metadata["artist"]}</p>
 		  </span>
                   
                 </div>
-                <span id="${x["src"]}" style="font-weight: 600;" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}</span>
+                <span id="${x["src"]}" style="font-weight: 500; margin-right: 10px" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}</span>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
@@ -214,7 +214,7 @@ function playMusic(){
   musicList.style.background = 'rgba(47, 47, 47, 1)';
   closebtn.style.display = 'block';
   musicList.classList.remove('initial');
-  wrapper.querySelector(".music-list ul").style.maxHeight="260px";
+  wrapper.querySelector(".music-list ul").style.maxHeight="70vh";
   musicList.style.top="";
   wrapper.classList.add("paused");
   playPauseBtn.querySelector("i").innerText = "pause_circle";
