@@ -147,14 +147,18 @@ browserFileStorage.loadAll().then((files) => {
 	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
 	x["duration"] = file.metadata["duration"];
-	x["img"]= "music-1";
 	x["src"]= file.createURL();
+	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
+    	x["img"] = imgfile.createURL();
+	}).catch((error) => {
+    	console.error(error)
+	})
 
 	allMusic.push(x);
 
 	let liTag = `<li li-index="${i}" >
                 <div class="row" onclick="loadMusic(${i}); playMusic(); playingSong();" style="width:80%; display:flex;">
-		  <img src='' id="${i}-img" style="height: 50px; object-fit: cover; margin-right: 10px; margin-left: 5px;" width="50" height="50">
+		  <img src='${x["img"]}' id="${i}-img" style="height: 50px; object-fit: cover; margin-right: 10px; margin-left: 5px;" width="50" height="50">
                   <span style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden;"><b>${x["name"]}</b>
 		  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden;">${x["artist"]}</p>
 		  </span>
