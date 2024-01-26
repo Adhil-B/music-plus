@@ -11,6 +11,7 @@ const Downloader = ({activeSong, icon}) => {
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
     const [done, setDone] = useState([false,false,0]);
+    const [allfilenames, setAllfilenames] = useState([]);
 
 useEffect(() => {	
 setDone([percentage == 100,isInProgress,percentage])
@@ -19,12 +20,18 @@ setDone([percentage == 100,isInProgress,percentage])
 useEffect(() => {
 try{
 browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {}
+if(status.initial) {
+}
 }).catch((error) => {});
 }catch(err) {}
 setDone([false,done[1],done[2]]);
 }, []);
 
+useEffect(() => {
+browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+}).catch((error) => {})
+}, [done[0]]);
 
     
   return (
@@ -117,7 +124,7 @@ setDone([false,done[1],done[2]]);
             done[1] ? 
             <div id="xhr2" className=' text-white font-extrabold text-xs m-'>{done[2]}</div>
             :
-              done[0] ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
+              allfilenames.includes(filename) ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
         }
       </div>
     </div>
