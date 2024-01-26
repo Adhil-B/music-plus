@@ -91,7 +91,7 @@
                 </div>
                 <i id="close" class="material-icons-round" style='display:none'>close</i>
             </div>
-            <ul style="padding-top: 10px; padding-left: 10px; background-color: rgba(0, 0, 0, 0.17); padding-right: 10px; border-radius: 10px;">
+            <ul style="scrollbar-width: none; padding-top: 10px; padding-left: 10px; background-color: rgba(0, 0, 0, 0.17); padding-right: 10px; border-radius: 10px;">
                 <!-- here li list are coming from js -->
 
                 <!-- <li>
@@ -192,7 +192,24 @@ let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 window.addEventListener("load", ()=>{
   
 });
+function deletefile(i){
+browserFileStorage.delete(`${allMusic[i]}.mp3`).then(() => {
 
+    browserFileStorage.delete(`img-${allMusic[i]}`).then(() => {
+	    
+    browserFileStorage.list().then((filenames) => {
+	localStorage?.setItem("downloaded" , filenames)
+    }).catch((error) => {})
+    ulTag.querySelectorAll("li")[musicIndex-1].display = 'none';
+	    
+    }).catch((error) => {
+    console.error(error)
+    })
+	
+}).catch((error) => {
+    console.error(error)
+})
+}
 function loadMusic(indexNumb){
   browserFileStorage.load('img-'+allMusic[indexNumb - 1].name).then((file) => {
     let url = file.createURL()
