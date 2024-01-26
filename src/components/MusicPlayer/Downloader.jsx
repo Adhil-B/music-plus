@@ -31,6 +31,7 @@ browserFileStorage.list().then((filenames) => {
 		
 	browserFileStorage.list().then((filenames) => {
         setAllfilenames(filenames)
+	localStorage?.setItem("downloaded" , filenames)
         }).catch((error) => {})
 		
 	}
@@ -40,27 +41,6 @@ setDone([false,done[1],done[2]]);
 }, [done[0]]);
 
 
-useLayoutEffect(() => {
-try{
-browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {}
-	
-browserFileStorage.list().then((filenames) => {
-        setAllfilenames(filenames)
-}).catch((error) => {})
-	
-}).catch((error) => {
-	if(error.alreadyInit) {
-		
-	browserFileStorage.list().then((filenames) => {
-        setAllfilenames(filenames)
-        }).catch((error) => {})
-		
-	}
-});
-}catch(err) {}
-setDone([false,done[1],done[2]]);
-}, [])
 	
   return (
     <div onClick={(e)=>{e.stopPropagation();
@@ -152,7 +132,7 @@ setDone([false,done[1],done[2]]);
             done[1] ? 
             <div id="xhr2" className=' text-white font-extrabold text-xs m-'>{done[2]}</div>
             :
-              allfilenames.includes(filename) ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
+              localStorage?.getItem("downloaded").includes(filename) ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
         }
       </div>
     </div>
