@@ -12,13 +12,19 @@ import { addSongToPlaylist, deleteSongFromPlaylist, getUserPlaylists } from '@/s
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { MdOutlineDeleteOutline } from 'react-icons/md'
-
+import { MdDownloadForOffline } from "react-icons/md";
 
 const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, setSongs }) => {
   const { activeSong } = useSelector((state) => state.player);
   const [showMenu, setShowMenu] = useState(false);
   const [playlists, setPlaylists] = useState([]);
   const dispatch = useDispatch();
+  const [allfilenames, setAllfilenames] = useState([]);
+
+useEffect(() => {	
+setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [])
+}, [activeSong]);
+  
 
   const handlePlayClick = (song, index) => {
     dispatch(setActiveSong({ song, data: SongData, i: index }));
@@ -105,6 +111,7 @@ const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, s
 
                   </div>
                   <div className=" w-24 md:w-64">
+                    <MdDownloadForOffline size={12} className={`${allfilenames.includes(song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3) ? '' : 'hidden'}`}/>
                     <p className="text-sm lg:text-lg font-semibold truncate">{
                       song?.name?.replace("&#039;", "'")?.replaceAll("&amp;", "&")?.replaceAll('&quot;','"')
                     }</p>
