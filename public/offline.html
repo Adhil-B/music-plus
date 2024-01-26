@@ -165,12 +165,12 @@ browserFileStorage.loadAll().then((files) => {
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
 		
-  browserFileStorage.load('img-'+x["name"]).then((file) => {
-    let url = file.createURL()
-    document.getElementById(`${i}-img`).src = url;
-}).catch((error) => {
-    console.error(error)
-})
+  	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
+    	let imgurl = imgfile.createURL()
+    	document.getElementById(`${i}-img`).src = imgurl;
+	}).catch((error) => {
+    	console.error(error)
+	})
     }}
   //loadMusic(Math.floor((Math.random() * allMusic.length) + 1));
   //playingSong(); 
