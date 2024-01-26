@@ -156,7 +156,7 @@ browserFileStorage.loadAll().then((files) => {
                   <span><b>${x["name"]}</b></span>
                   <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden;">${x["artist"]}</p>
                 </div>
-                <span id="${x["src"]}" class="audio-duration">${file.metadata["duration"]}</span>
+                <span id="${x["src"]}" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}</span>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
