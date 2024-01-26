@@ -146,6 +146,7 @@ browserFileStorage.loadAll().then((files) => {
 	x={}
 	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
+	x["duration"] = file.metadata["duration"];
 	x["img"]= "music-1";
 	x["src"]= file.createURL();
 
@@ -395,7 +396,7 @@ function playingSong(){
     if(allLiTag[j].classList.contains("playing")){
       allLiTag[j].classList.remove("playing");
       let adDuration = audioTag.getAttribute("t-duration");
-      audioTag.innerText = adDuration;
+      audioTag.innerText = allMusic[musicIndex].duration;
     }
 
     //if the li tag index is equal to the musicIndex then add playing class in it
