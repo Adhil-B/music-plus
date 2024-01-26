@@ -144,21 +144,19 @@ browserFileStorage.loadAll().then((files) => {
 	if (!file.filename.includes("img-")){
 	i++;
 	x={}
-	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
-	
-    	x["img"] = imgfile.createURL();
 	x["name"] = file.filename.replace('.'+file.extension,'');
 	x["artist"] = file.metadata["artist"];
 	x["duration"] = file.metadata["duration"];
 	x["src"]= file.createURL();
-
-	allMusic.push(x);
-
+	browserFileStorage.load('img-'+x["name"]).then((imgfile) => {
+	
+    	x["img"] = imgfile.createURL();
+	
 	let liTag = `<li li-index="${i}" >
                 <div class="row" onclick="loadMusic(${i}); playMusic(); playingSong();" style="width:80%; display:flex; align-items: center;">
 		  <img src='${x["img"]}' id="${i}-img" style="height: 50px; object-fit: cover; margin-right: 1.25rem; margin-left: 5px;" width="50" height="50">
-                  <span style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .875rem; line-height: 1.25rem; font-weight: 600;">${x["name"]}
-		  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .75rem; line-height: 1rem;">${x["artist"]}</p>
+                  <span style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .875rem; line-height: 1.25rem; font-weight: 600;">${file.filename.replace('.'+file.extension,'')}
+		  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .75rem; line-height: 1rem;">${file.metadata["artist"]}</p>
 		  </span>
                   
                 </div>
@@ -169,6 +167,7 @@ browserFileStorage.loadAll().then((files) => {
 	}).catch((error) => {
     	console.error(error)
 	})
+	allMusic.push(x);
     }}
   //loadMusic(Math.floor((Math.random() * allMusic.length) + 1));
   //playingSong(); 
