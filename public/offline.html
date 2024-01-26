@@ -155,7 +155,7 @@ browserFileStorage.loadAll().then((files) => {
 	allMusic.push(x);
 
 	let liTag = `<li li-index="${i}" >
-                <div class="row" onclick="loadMusic(${i}); playMusic(); playingSong();" style="width:80%; display:flex;">
+                <div class="row" onclick="loadMusic(${i}); playMusic(); playingSong();" style="width:80%; display:flex; align-items: center;">
 		  <img src='${x["img"]}' id="${i}-img" style="height: 50px; object-fit: cover; margin-right: 1.25rem; margin-left: 5px;" width="50" height="50">
                   <span style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .875rem; line-height: 1.25rem; font-weight: 600;">${x["name"]}
 		  <p style="white-space:nowrap; width:95%; text-overflow:ellipsis; overflow:hidden; font-size: .75rem; line-height: 1rem;">${x["artist"]}</p>
