@@ -40,9 +40,28 @@ setDone([false,done[1],done[2]]);
 }, [done[0]]);
 
 
-setDone([true,done[1],done[2]]);
+useLayoutEffect(() => {
+try{
+browserFileStorage.init('downloads').then((status) => {
+if(status.initial) {}
+	
+browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+}).catch((error) => {})
+	
+}).catch((error) => {
+	if(error.alreadyInit) {
+		
+	browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+        }).catch((error) => {})
+		
+	}
+});
+}catch(err) {}
 setDone([false,done[1],done[2]]);
-    
+}, [])
+	
   return (
     <div onClick={(e)=>{e.stopPropagation();
         //download(songUrl, filename);
