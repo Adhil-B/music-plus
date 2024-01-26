@@ -28,9 +28,11 @@ setDone([false,done[1],done[2]]);
 }, []);
 
 useEffect(() => {
+try{
 browserFileStorage.list().then((filenames) => {
         setAllfilenames(filenames)
 }).catch((error) => {})
+}catch(err) {}
 }, [done[0]]);
 
     
