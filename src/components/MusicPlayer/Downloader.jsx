@@ -40,7 +40,8 @@ setDone([false,done[1],done[2]]);
 }, [done[0]]);
 
 
-
+setDone([true,done[1],done[2]]);
+setDone([false,done[1],done[2]]);
     
   return (
     <div onClick={(e)=>{e.stopPropagation();
@@ -126,8 +127,7 @@ setDone([false,done[1],done[2]]);
                         
     }} className={`flex  mb-1 cursor-pointer w-7`}>
         
-setDone([true,done[1],done[2]]);
-setDone([false,done[1],done[2]]);
+
     <div title={done[1] ?'Downloading' : 'Download'} id="xhr1" className={done[1] ? 'download-button flex justify-center items-center':''}>
         {
             done[1] ? 
