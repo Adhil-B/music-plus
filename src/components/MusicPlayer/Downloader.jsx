@@ -132,7 +132,7 @@ setDone([false,done[1],done[2]]);
             done[1] ? 
             <div id="xhr2" className=' text-white font-extrabold text-xs m-'>{done[2]}</div>
             :
-              localStorage?.getItem("downloaded").includes(filename) ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
+              allfilenames.includes(filename) ? <MdFileDownloadDone size={25} color={'#00e6e6'}/> : <MdOutlineFileDownload  size={25} color={'#ffff'}/>
         }
       </div>
     </div>
