@@ -14,7 +14,7 @@ const Downloader = ({activeSong, icon}) => {
     const [allfilenames, setAllfilenames] = useState([]);
 
 useEffect(() => {	
-setAllfilenames(localStorage?.getItem("downloaded") ? JSON.parse(localStorage.getItem("downloaded")) : [])
+setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [])
 }, []);	
 	
 useEffect(() => {	
