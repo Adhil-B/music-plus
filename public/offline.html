@@ -170,7 +170,7 @@ browserFileStorage.loadAll().then((files) => {
                 <span id="${x["src"]}" style="display:flex; font-weight: 500;" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}
 		<i class= "dot list material-icons-round" style="font-size:25px; margin-left:8px;" onclick="document.querySelectorAll('.menu').forEach(function(el) { el.style.display = 'none';}); document.getElementById('menu-${y}').style.display='block'; wrapper.querySelector('ul').style.overflow = 'hidden'; ">more_vert</i>
                 </span>
-		<div class="menu" id="menu-${y}" style="color:white; display: none; position: absolute;background-color: rgb(15, 15, 15); right: 48px;width: auto;height: auto;padding: 10px 15px 10px 15px;border-radius: 10px;z-index: 999;margin-top: 50px;font-weight: 600;">
+		<div class="menu" id="menu-${y}" style="color:white; display: none; position: absolute;background-color: rgb(15, 15, 15); right: 8px;width: auto;height: auto;padding: 10px 15px 10px 15px;border-radius: 10px;z-index: 999;margin-top: 50px;font-weight: 600;">
   <p style="margin-bottom: 5px;" onclick="loadMusic(${y}); musicIndex = ${y}; playMusic(); playingSong();">Play</p><hr><p style="margin-top: 5px;" onclick="deletefile(${y-1});">Delete</p>
   </div>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
@@ -928,6 +928,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .music-list ul li{
+    position: relative;
     list-style: none;
     display: flex;
     cursor: pointer;
