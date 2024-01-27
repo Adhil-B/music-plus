@@ -199,7 +199,7 @@ let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 let lastli = allMusic.length - 1;
 
 if (allMusic.length == 0){
-	document.getElementById('nosongs').style.display = 'none';
+	document.getElementById('nosongs').style.display = '';
 }
 	
 window.addEventListener("load", ()=>{
@@ -215,12 +215,14 @@ browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
     }).catch((error) => {})
     ulTag.querySelectorAll("li")[i].style.display = 'none';
     allMusic[i]['name'] = "#DELete#";
+    console.log("1");
     if (i == lastli && i-1 > -1){
+	  console.log("2");
 	  ulTag.querySelectorAll("li")[i-1].style.borderBottomWidth = '0px';
 	  lastli--;
     }
     if (allMusic.length == 0){
-	document.getElementById('nosongs').style.display = 'none';
+	document.getElementById('nosongs').style.display = '';
     }
 	    
     }).catch((error) => {
