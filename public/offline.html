@@ -337,7 +337,7 @@ function nextMusic(){
   //if musicIndex is greater than array length then musicIndex will be 1 so the first music play
   musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
 
-  if (allMusic[indexNumb - 1].name === ('#DELete#')){
+  if (allMusic[musicIndex - 1].name === ('#DELete#')){
   musicIndex++; 
   musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
   }
