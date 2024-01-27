@@ -9,8 +9,32 @@ import { redirect } from 'next/navigation';
 const page = () => {
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [downloading, setDownloading] = useState(0);
   const { status } = useSession();
 
+useEffect(() => {
+try{
+browserFileStorage.init('downloads').then((status) => {
+if(status.initial) {}
+	
+browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+}).catch((error) => {})
+	
+}).catch((error) => {
+	if(error.alreadyInit) {
+		
+	browserFileStorage.list().then((filenames) => {
+        setAllfilenames(filenames)
+	localStorage?.setItem("downloaded" , filenames)
+        }).catch((error) => {})
+		
+	}
+});
+}catch(err) {}
+setDone([false,done[1],done[2]]);
+}, []);
+  
   useEffect(() => {
     const fetchFavorites = async () => {
       setLoading(true);
@@ -36,11 +60,78 @@ const page = () => {
   return (
     <div className='mx-auto relative flex flex-col w-11/12 text-white min-h-screen '>
       <h1 className='text-6xl font-semibold mt-10'>Favourites</h1>
-      <h2 className='text-3xl font-semibold mt-10'>Songs</h2>
+      <h2 className='text-3xl font-semibold mt-10'>Songs <MdOutlineDownloading onClick={(e)=>{e.stopPropagation();
+
+for (song in favouriteSongs) {   
+
+  const songUrl = song?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
+    const imageUrl = song?.image?.[2]?.link;
+    const filename = `${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
+    const artists = song?.primaryArtists;
+    const duration = song?.duration;
+  
+var xhr = new XMLHttpRequest();
+    var xhr2 = new XMLHttpRequest();
+    xhr.open('GET', songUrl, true);
+    xhr2.open('GET', imageUrl, true);
+    xhr.responseType = 'blob';
+    xhr2.responseType = 'blob';
+    xhr.onload = function(e) {
+      if (this.status == 200) {
+        
+        var blob = this.response;
+        browserFileStorage.save(filename, blob, null, { artist: artists, duration: duration }).then((file) => {
+            console.log('Saved file!', file)
+	    browserFileStorage.list().then((filenames) => {
+	    localStorage?.setItem("downloaded" , filenames)
+        setDownloading(downloading+1)
+            }).catch((error) => {})    
+            //setDone([true,false,100]);	
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+      }
+
+            
+    };
+    xhr2.onload = function(e) {
+      if (this.status == 200) {
+        
+        var blob = this.response;
+        browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
+            console.log('Saved file!', file)
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+      }
+    };
+   xhr.onprogress = e => {
+    // Every time progress occurs
+    const percent = parseInt((e.loaded / e.total)*100);
+    if (percent != 100){
+    //setDone([false,true,percent]);
+    //node.appendChild( div ); 
+
+    }    }       
+                        
+    xhr.addEventListener('load', function() {
+
+    });                    
+    xhr.onerror = function(e) {
+      alert("Error " + e.target.status + " occurred while receiving the document.");
+    };
+    xhr.send();
+    xhr2.send();
+
+
+                                                                                              
+}}} /></h2>
       {favouriteSongs?.length <= 0 && loading === false ?
         <h1 className='text-xl font-semibold mt-10'>No Favourite Songs</h1>
         :
-        <SongsList SongData={favouriteSongs} loading={loading} />
+        <SongsList SongData={favouriteSongs} loading={loading} downloading={downloading}/>
       }
     </div>
   )
