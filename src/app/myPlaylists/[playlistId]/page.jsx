@@ -37,7 +37,7 @@ browserFileStorage.list().then((filenames) => {
 });
 }catch(err) {}
 //setDone([false,done[1],done[2]]);
-}, []);
+}, [loading]);
   
   useEffect(() => {
     const fetchFavorites = async () => {
