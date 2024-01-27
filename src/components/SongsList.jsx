@@ -23,7 +23,25 @@ const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, s
   const [allfilenames, setAllfilenames] = useState([]);
 
 useEffect(() => {	
-setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [])
+//setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [])
+try{
+browserFileStorage.init('downloads').then((status) => {
+if(status.initial) {}
+browserFileStorage.list().then((filenames) => {
+setAllfilenames(filenames)
+}).catch((error) => {})
+	
+}).catch((error) => {
+	if(error.alreadyInit) {
+		
+	browserFileStorage.list().then((filenames) => {
+  setAllfilenames(filenames)
+	localStorage?.setItem("downloaded" , filenames)
+  }).catch((error) => {})
+		
+	}
+});
+}catch(err) {}
 }, [activeSong, downloading]);
   
 
