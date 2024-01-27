@@ -63,7 +63,7 @@ browserFileStorage.list().then((filenames) => {
       <h1 className='text-6xl font-semibold mt-10'>Favourites</h1>
       <h2 className='text-3xl font-semibold mt-10'>Songs <MdOutlineDownloading onClick={(e)=>{e.stopPropagation();
 
-for (song in favouriteSongs) {   
+for (let song in favouriteSongs) {   
 
   const songUrl = song?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const imageUrl = song?.image?.[2]?.link;
@@ -128,7 +128,7 @@ var xhr = new XMLHttpRequest();
 
 
                                                                                               
-}}} /></h2>
+};}} /></h2>
       {favouriteSongs?.length <= 0 && loading === false ?
         <h1 className='text-xl font-semibold mt-10'>No Favourite Songs</h1>
         :
