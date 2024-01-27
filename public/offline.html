@@ -182,6 +182,10 @@ browserFileStorage.loadAll().then((files) => {
   //loadMusic(Math.floor((Math.random() * allMusic.length) + 1));
   //playingSong(); 
   //musicList.classList.toggle("show");
+  document.querySelector(".img-area").style.display = '';
+  document.querySelector(".controls").style.display = '';
+  document.querySelector(".song-details").style.display = '';
+  document.querySelector(".progress-area").style.display = '';
   wrapper.querySelector(".music-list ul").style.maxHeight="65vh";
   musicList.style.top="0px";
   musicList.classList.toggle("initial");
