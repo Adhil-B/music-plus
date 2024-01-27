@@ -166,8 +166,11 @@ browserFileStorage.loadAll().then((files) => {
                   
                 </div>
                 <span id="${x["src"]}" style="display:flex; font-weight: 500;" class="audio-duration">${new Date(file.metadata["duration"] * 1000).toISOString().substring(14, 19)}
-		<i class= "list material-icons-round" style="font-size:25px; margin-left:8px;">more_vert</i>
+		<i class= "list material-icons-round" style="font-size:25px; margin-left:8px;" onclick="document.getElementById('menu-${y}').style.display='block'">more_vert</i>
                 </span>
+		<div class="menu" id="menu-${y}" style="position: absolute;background-color: rgba(15, 15, 15, 0.98);right: 65px;width: auto;height: auto;padding: 10px 15px 10px 15px;border-radius: 10px;z-index: 999;margin-top: 50px;font-weight: 600;">
+  <p style="margin-bottom: 5px;" onclick="loadMusic(${y}); musicIndex = ${y}; playMusic(); playingSong();">Play</p><hr><p style="margin-top: 5px;" onclick="deletefile(${y-1});">Delete</p>
+  </div>
                 <audio class="${x["src"]}" src="${x["src"]}"></audio>
               </li>`;
         ulTag1.insertAdjacentHTML("beforeend", liTag);
@@ -210,6 +213,13 @@ browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
     console.error(error)
 })
 }
+window.onclick = function(event) {
+if (!event.target.matches('.menu')) {
+   document.querySelectorAll('.menu').forEach(function(el) {
+   el.style.display = 'none';
+});
+	
+}}
 function loadMusic(indexNumb){
   browserFileStorage.load('img-'+allMusic[indexNumb - 1].name).then((file) => {
     let url = file.createURL()
