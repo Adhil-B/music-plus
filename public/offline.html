@@ -195,7 +195,7 @@ browserFileStorage.loadAll().then((files) => {
 }).catch((error) => {});
 	
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
-
+let lastli = allMusic.length - 1;
 window.addEventListener("load", ()=>{
   
 });
@@ -209,6 +209,10 @@ browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
     }).catch((error) => {})
     ulTag.querySelectorAll("li")[i].style.display = 'none';
     allMusic[i]['name'] = "#DELete#";
+    if (i == lastli && i-1 > -1){
+	  ulTag.querySelectorAll("li")[i-1].style.borderBottomWidth = 0px;
+	  lastli--;
+    }
 	    
     }).catch((error) => {
     console.error(error)
