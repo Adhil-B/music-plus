@@ -193,14 +193,14 @@ window.addEventListener("load", ()=>{
   
 });
 function deletefile(i){
-browserFileStorage.delete(`${allMusic[i]}.mp3`).then(() => {
+browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
 
-    browserFileStorage.delete(`img-${allMusic[i]}`).then(() => {
+    browserFileStorage.delete(`img-${allMusic[i]['name']}`).then(() => {
 	    
     browserFileStorage.list().then((filenames) => {
 	localStorage?.setItem("downloaded" , filenames)
     }).catch((error) => {})
-    ulTag.querySelectorAll("li")[musicIndex-1].display = 'none';
+    ulTag.querySelectorAll("li")[i].style.display = 'none';
 	    
     }).catch((error) => {
     console.error(error)
