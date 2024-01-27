@@ -105,7 +105,10 @@ var xhr = new XMLHttpRequest();
         var blob = this.response;
         browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
             console.log('Saved file!', file)
-	    setDownloading([...downloading, song.id])
+	    browserFileStorage.list().then((filenames) => {
+	    localStorage?.setItem("downloaded" , filenames)
+            setDownloading([...downloading, song.id])
+            }).catch((error) => {}) 
         })
         .catch((error) => {
             console.error(error)
