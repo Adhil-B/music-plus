@@ -208,6 +208,7 @@ browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
 	localStorage?.setItem("downloaded" , filenames)
     }).catch((error) => {})
     ulTag.querySelectorAll("li")[i].style.display = 'none';
+    allMusic.splice(i, 1);
 	    
     }).catch((error) => {
     console.error(error)
@@ -542,6 +543,7 @@ function volume_change() {
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 *{
