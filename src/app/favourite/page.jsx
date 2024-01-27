@@ -70,7 +70,8 @@ for (let song in favouriteSongs) {
     const filename = `${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = song?.primaryArtists;
     const duration = song?.duration;
-  
+  console.log(songUrl);
+	console.log(song);
 var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
     xhr.open('GET', songUrl, true);
