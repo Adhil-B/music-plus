@@ -77,7 +77,7 @@ for (let i in songs) {
     const filename = `${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = song?.primaryArtists;
     const duration = song?.duration;
-  if (localStorage?.getItem("downloaded").includes(filename)) { continue; }
+  if (localStorage?.getItem("downloaded") ? localStorage?.getItem("downloaded").includes(filename) : false) { continue; }
 
 var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
