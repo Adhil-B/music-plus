@@ -77,7 +77,7 @@
             <span class="stroke"></span>
     </div>
 
-        <div class="music-list">
+        <div class="music-list show">
 	    <div class="headerr" style="margin-top: 30px; margin-bottom: 30px;">
                 <div class="row" style="font-size: 54px;"><center>
                     <span style="font-size: 44px;"><b>Downloads</b></span></center>
@@ -181,7 +181,7 @@ browserFileStorage.loadAll().then((files) => {
     }}
   //loadMusic(Math.floor((Math.random() * allMusic.length) + 1));
   //playingSong(); 
-  musicList.classList.toggle("show");
+  //musicList.classList.toggle("show");
   wrapper.querySelector(".music-list ul").style.maxHeight="65vh";
   musicList.style.top="0px";
   musicList.classList.toggle("initial");
