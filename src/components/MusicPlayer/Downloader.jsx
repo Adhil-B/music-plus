@@ -43,7 +43,7 @@ browserFileStorage.list().then((filenames) => {
 });
 }catch(err) {}
 setDone([false,done[1],done[2]]);
-}, [done[0]]);
+}, [done[0],activeSong]);
 
 
 	
