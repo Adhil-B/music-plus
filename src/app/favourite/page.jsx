@@ -133,7 +133,7 @@ var xhr = new XMLHttpRequest();
 
                                                                                               
 };
-	setStart(false);																										    
+																										    
 }} /></h2>
       {favouriteSongs?.length <= 0 && loading === false ?
         <h1 className='text-xl font-semibold mt-10'>No Favourite Songs</h1>
