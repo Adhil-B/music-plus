@@ -29,16 +29,16 @@
             <i class="material-icons-round">more_horiz</i>
     </div-->
 
-        <div class="img-area" style="margin-top:15vh">
+        <div class="img-area" style="margin-top:15vh; display:none; ">
             <img src="images/music-1.jpg" alt="">
         </div>
 
-        <div class="song-details" style=" margin-top:1.25rem; margin-bottom:5vh; max-width: 500px;margin-left: auto;margin-right: auto;">
+        <div class="song-details" style="display:none; margin-top:1.25rem; margin-bottom:5vh; max-width: 500px;margin-left: auto;margin-right: auto;">
             <b><p class="name" style="font-weight: 700; font-size: 1.5rem; line-height: 2rem; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;"></p></b>
             <p class="artist" style="white-space:nowrap; text-overflow:ellipsis; overflow:hidden;"></p>
         </div>
 
-        <div class="progress-area" style="max-width: 500px;margin-left: auto;margin-right: auto;">
+        <div class="progress-area" style="display:none; max-width: 500px;margin-left: auto;margin-right: auto;">
             <div class="progress-bar">
                 <audio id="main-audio" src=""></audio>
                 <span></span>
@@ -55,7 +55,7 @@
             <input type="range" min="0" max="100" value="92" onchange="volume_change()" id="volume">  
     </div-->
 
-        <div class="controls" style="max-width: 500px;margin-left: auto;margin-right: auto;">
+        <div class="controls" style="display:none; max-width: 500px;margin-left: auto;margin-right: auto;">
             <i id="repeat-plist" class="material-icons-round" title="Playlist looped">repeat</i>
             <i id="prev" class="material-icons-round">skip_previous</i>
             <div class="play-pause">
