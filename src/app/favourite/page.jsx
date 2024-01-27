@@ -11,6 +11,7 @@ const page = () => {
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState([]);
+  const [start, setStart] = useState(false);
   const { status } = useSession();
 
 useEffect(() => {
@@ -62,16 +63,17 @@ browserFileStorage.list().then((filenames) => {
     <div className='mx-auto relative flex flex-col w-11/12 text-white min-h-screen '>
       <h1 className='text-6xl font-semibold mt-10'>Favourites</h1>
       <h2 className='text-3xl font-semibold mt-10 flex items-center gap-[0.5rem]'>Songs <MdOutlineDownloading size={'1.75rem'} className={`${downloading === [] ? '' : 'text-[#00e6e6]'} group-hover:text-[#00e6e6]`} onClick={(e)=>{e.stopPropagation();
-
-for (let i in favouriteSongs) {   
+setStart(true)
+for (let i in favouriteSongs) {
  let song = favouriteSongs[i];
+
   const songUrl = song?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const imageUrl = song?.image?.[2]?.link;
     const filename = `${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = song?.primaryArtists;
     const duration = song?.duration;
-  console.log(songUrl);
-	console.log(song);
+  if (localStorage?.getItem("downloaded").includes(filename)) { continue; }
+
 var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
     xhr.open('GET', songUrl, true);
@@ -130,7 +132,9 @@ var xhr = new XMLHttpRequest();
 
 
                                                                                               
-};}} /></h2>
+};
+	setStart(false);																										    
+}} /></h2>
       {favouriteSongs?.length <= 0 && loading === false ?
         <h1 className='text-xl font-semibold mt-10'>No Favourite Songs</h1>
         :
