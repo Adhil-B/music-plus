@@ -216,10 +216,7 @@ browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
     }).catch((error) => {})
     ulTag.querySelectorAll("li")[i].style.display = 'none';
     allMusic[i]['name'] = "#DELete#";
-    if (i == lastli && i-1 > -1){
-	  ulTag.querySelectorAll("li")[i-1].style.borderBottomWidth = '0px';
-	  lastli--;
-    }
+    ulTag.querySelectorAll('li:not([style*="display: none;"])')[ulTag.querySelectorAll('li:not([style*="display: none;"])').length-1].style.borderBottomWidth = '0px';
     if (ulTag.querySelectorAll('li:not([style*="display: none;"])').length == 0){
 	document.getElementById('nosongs').style.display = '';
     }
