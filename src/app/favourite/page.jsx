@@ -10,7 +10,7 @@ import { MdOutlineDownloading } from "react-icons/md";
 const page = () => {
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [downloading, setDownloading] = useState(0);
+  const [downloading, setDownloading] = useState([]);
   const { status } = useSession();
 
 useEffect(() => {
@@ -61,7 +61,7 @@ browserFileStorage.list().then((filenames) => {
   return (
     <div className='mx-auto relative flex flex-col w-11/12 text-white min-h-screen '>
       <h1 className='text-6xl font-semibold mt-10'>Favourites</h1>
-      <h2 className='text-3xl font-semibold mt-10'>Songs <MdOutlineDownloading onClick={(e)=>{e.stopPropagation();
+      <h2 className='text-3xl font-semibold mt-10 flex items-center'>Songs <MdOutlineDownloading className={`${downloading === [] ? '' : 'text-[#00e6e6]'} group-hover:text-[#00e6e6]`} onClick={(e)=>{e.stopPropagation();
 
 for (let i in favouriteSongs) {   
  let song = favouriteSongs[i];
@@ -86,7 +86,7 @@ var xhr = new XMLHttpRequest();
             console.log('Saved file!', file)
 	    browserFileStorage.list().then((filenames) => {
 	    localStorage?.setItem("downloaded" , filenames)
-        setDownloading(downloading+1)
+            setDownloading([...downloading, song.name])
             }).catch((error) => {})    
             //setDone([true,false,100]);	
         })
@@ -103,6 +103,7 @@ var xhr = new XMLHttpRequest();
         var blob = this.response;
         browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
             console.log('Saved file!', file)
+	    setDownloading([...downloading, song.id])
         })
         .catch((error) => {
             console.error(error)
