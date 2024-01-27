@@ -322,8 +322,8 @@ function prevMusic(){
   musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
 	
   if (allMusic[musicIndex - 1].name === ('#DELete#')){
-  musicIndex--; 
-  musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex; 
+  prevMusic();
+  return;
   }
 	
   loadMusic(musicIndex);
@@ -338,8 +338,8 @@ function nextMusic(){
   musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
 
   if (allMusic[musicIndex - 1].name === ('#DELete#')){
-  musicIndex++; 
-  musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+  nextMusic();
+  return;
   }
 	
   loadMusic(musicIndex);
