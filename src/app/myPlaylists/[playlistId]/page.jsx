@@ -69,8 +69,8 @@ browserFileStorage.list().then((filenames) => {
       <h1 className='text-6xl font-semibold mt-10'>{playlist?.name}</h1>
       <h2 className='text-3xl font-semibold mt-10 flex items-center gap-[0.5rem]'>Songs <MdOutlineDownloading size={'1.75rem'} className={`cursor-pointer mt-[2px] ${start ? 'text-[#00e6e6]' : ''} hover:text-[#00e6e6]`} onClick={(e)=>{e.stopPropagation();
 setStart(true)
-for (let i in favouriteSongs) {
- let song = favouriteSongs[i];
+for (let i in songs) {
+ let song = songs[i];
 
   const songUrl = song?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const imageUrl = song?.image?.[2]?.link;
