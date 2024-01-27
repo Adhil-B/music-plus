@@ -93,7 +93,7 @@ setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("down
                 onClick={() => {
                   handlePlayClick(song, index);
                 }}
-                className={`flex items-center mt-5 cursor-pointer group border-b-[1px] border-gray-400 justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
+                className={`flex items-center mt-5 mr-[0.3rem] cursor-pointer group border-b-[1px] border-gray-400 justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
                 <div className="flex items-center gap-5">
                   <div className=" relative mb-3">
                     <img src={song?.image?.[2]?.link} alt={song?.name} width={50} height={50} className="h-[50px] object-cover"
