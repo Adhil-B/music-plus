@@ -63,8 +63,8 @@ browserFileStorage.list().then((filenames) => {
       <h1 className='text-6xl font-semibold mt-10'>Favourites</h1>
       <h2 className='text-3xl font-semibold mt-10'>Songs <MdOutlineDownloading onClick={(e)=>{e.stopPropagation();
 
-for (let song in favouriteSongs) {   
-
+for (let i in favouriteSongs) {   
+ let song = favouriteSongs[i];
   const songUrl = song?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
     const imageUrl = song?.image?.[2]?.link;
     const filename = `${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
