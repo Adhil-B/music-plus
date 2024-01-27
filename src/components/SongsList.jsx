@@ -13,8 +13,9 @@ import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { MdOutlineDeleteOutline } from 'react-icons/md'
 import { MdDownloadForOffline } from "react-icons/md";
+import { MdOutlineDownloading } from "react-icons/md";
 
-const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, setSongs }) => {
+const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, setSongs, downloading }) => {
   const { activeSong } = useSelector((state) => state.player);
   const [showMenu, setShowMenu] = useState(false);
   const [playlists, setPlaylists] = useState([]);
@@ -23,7 +24,7 @@ const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, s
 
 useEffect(() => {	
 setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [])
-}, [activeSong]);
+}, [activeSong, downloading]);
   
 
   const handlePlayClick = (song, index) => {
@@ -113,7 +114,8 @@ setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("down
                   <div className=" w-[40vw] md:w-64 mb-3">
                     <div className="flex gap-[0.2rem] items-center">
                     <MdDownloadForOffline size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px]' : 'hidden'}/>
-                    <p className="text-sm lg:text-lg font-semibold truncate">{
+                    <MdOutlineDownloading size={16} className={downloading.includes(`${song?.id}`) && !allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px]' : 'hidden'}/>
+                      <p className="text-sm lg:text-lg font-semibold truncate">{
                       song?.name?.replace("&#039;", "'")?.replaceAll("&amp;", "&")?.replaceAll('&quot;','"')
                     }</p></div>
                     <p className="text-gray-400 truncate text-xs">{song?.primaryArtists}</p>
