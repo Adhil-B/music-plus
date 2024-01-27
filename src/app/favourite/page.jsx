@@ -19,21 +19,21 @@ browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {}
 	
 browserFileStorage.list().then((filenames) => {
-        setAllfilenames(filenames)
+        //setAllfilenames(filenames)
 }).catch((error) => {})
 	
 }).catch((error) => {
 	if(error.alreadyInit) {
 		
 	browserFileStorage.list().then((filenames) => {
-        setAllfilenames(filenames)
+        //setAllfilenames(filenames)
 	localStorage?.setItem("downloaded" , filenames)
         }).catch((error) => {})
 		
 	}
 });
 }catch(err) {}
-setDone([false,done[1],done[2]]);
+//setDone([false,done[1],done[2]]);
 }, []);
   
   useEffect(() => {
