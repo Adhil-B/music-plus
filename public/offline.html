@@ -92,6 +92,7 @@
                 <i id="close" class="material-icons-round" style='display:none'>close</i>
             </div>
             <ul style="scrollbar-width: none; padding-top: 10px; padding-left: 10px; background-color: rgba(0, 0, 0, 0.17); padding-right: 10px; border-radius: 10px;">
+		    <center id="nosongs" style="display:none; padding: 10px;font-weight: 500;margin-top: 5vh;margin-bottom: 5vh;font-size: 20px;">No Songs Downloaded!</center>
                 <!-- here li list are coming from js -->
 
                 <!-- <li>
@@ -196,6 +197,11 @@ browserFileStorage.loadAll().then((files) => {
 	
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
 let lastli = allMusic.length - 1;
+
+if (allMusic.length == 0){
+	document.getElementById('nosongs').style.display = 'none';
+}
+	
 window.addEventListener("load", ()=>{
   
 });
@@ -212,6 +218,9 @@ browserFileStorage.delete(`${allMusic[i]['name']}.mp3`).then(() => {
     if (i == lastli && i-1 > -1){
 	  ulTag.querySelectorAll("li")[i-1].style.borderBottomWidth = 0px;
 	  lastli--;
+    }
+    if (allMusic.length == 0){
+	document.getElementById('nosongs').style.display = 'none';
     }
 	    
     }).catch((error) => {
