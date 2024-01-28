@@ -80,7 +80,7 @@ export async function POST(request) {
             { status: 401 }
         );
     }
-    const { lang } = await request.json();
+    const lang = await request.json();
     try {
         await dbConnect();
         const user = await User.findOne({ email: token.email });
@@ -107,8 +107,8 @@ export async function POST(request) {
         }
         // console.log('userData',userData.language);
         const langlist = JSON.parse(lang);
-        console.log(langlist);
-        await  userData.updateOne({ $set: { language: langlist } });
+        console.log(lang);
+        await  userData.updateOne({ $set: { language: lang } });
         /*if (userData.language.includes(lang)) {
             //remove from language
            await  userData.updateOne({ $pull: { language: lang } });
