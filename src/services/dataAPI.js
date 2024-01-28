@@ -497,7 +497,7 @@ export async function getLang() {
   try {
     const response = await fetch("/api/lang");
     const data = await response.json();
-    return data?.data?.favourites;
+    return data?.data?.language;
   } catch (error) {
     console.log("Get language API error", error);
   }
