@@ -52,6 +52,7 @@ const Languages = ({open, setOpen}) => {
        // if(updatedLanguages.length > 0){
             const res = await addLang(updatedLanguages);
             if (res?.success === true) {
+                onsole.log(updatedLanguages);
               console.log("Updated languages!");
             }
        // }
