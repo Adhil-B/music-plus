@@ -55,7 +55,7 @@ const Languages = ({open, setOpen}) => {
               console.log("Updated languages!");
             }
        // }
-        });
+        })();
           
         setSelectedLanguages(updatedLanguages);
         dispatch(setLanguages(updatedLanguages));
