@@ -69,9 +69,7 @@ const Home = () => {
   
   useEffect(() => {
     const fetchData = async () => { 
-      const reslang = await getLang();
-      const lang1 = reslang?.length > 0 ? reslang : [...languages];
-      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...lang1];
+      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
       dispatch(setProgress(70))
       const res = await homePageData(lang);
       setData(res);
