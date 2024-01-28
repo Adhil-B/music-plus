@@ -80,7 +80,7 @@ export async function POST(request) {
             { status: 401 }
         );
     }
-    const { id } = await request.json();
+    const { lang } = await request.json();
     try {
         await dbConnect();
         const user = await User.findOne({ email: token.email });
@@ -106,14 +106,15 @@ export async function POST(request) {
             );
         }
         // console.log('userData',userData.language);
-        if (userData.language.includes(id)) {
+        await  userData.updateOne({ $set: { language: lang } });
+        /*if (userData.language.includes(lang)) {
             //remove from language
-           await  userData.updateOne({ $pull: { language: id } });
+           await  userData.updateOne({ $pull: { language: lang } });
 
         } else {
             //add to language
-            await userData.updateOne({ $push: { language: id } });
-        }
+            await userData.updateOne({ $push: { language: lang } });
+        }*/
         // await userData.save();
         const language = await UserData.findById(user.userData);
         return NextResponse.json(
