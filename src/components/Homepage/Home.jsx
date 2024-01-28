@@ -28,7 +28,6 @@ const Home = () => {
   const { languages } = useSelector((state) => state.languages);
   const {homeCategories} = useSelector((state) => state.homeCategories);
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
-  const [acclang, setAcclang] = useState([]);
   
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
@@ -71,8 +70,8 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => { 
       const reslang = await getLang();
-      setAcclang(reslang?.length > 0 ? reslang : [...languages])
-      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...acclang];
+      const lang1 = reslang?.length > 0 ? reslang : [...languages];
+      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...lang1];
       dispatch(setProgress(70))
       const res = await homePageData(lang);
       setData(res);
