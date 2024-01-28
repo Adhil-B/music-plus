@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { setLanguages } from '@/redux/features/languagesSlice'
 import { useEffect } from 'react'
+import { addLang } from '@/services/dataAPI';
 
 const Languages = ({open, setOpen}) => {
     const dispatch = useDispatch();
@@ -46,7 +47,12 @@ const Languages = ({open, setOpen}) => {
         } else {
           updatedLanguages = selectedLanguages.filter((lang) => lang !== value);
         }
-      
+        if(updatedLanguages.length > 0){
+            const res = await addLang(updatedLanguages);
+            if (res?.success === true) {
+              console.log("Updated languages!");
+            }
+        }
         setSelectedLanguages(updatedLanguages);
         dispatch(setLanguages(updatedLanguages));
         localStorage.setItem('languages', JSON.stringify(updatedLanguages));
