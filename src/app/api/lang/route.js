@@ -106,7 +106,6 @@ export async function POST(request) {
             );
         }
         // console.log('userData',userData.language);
-        console.log(lang);
         await  userData.updateOne({ $set: { language: lang } });
         /*if (userData.language.includes(lang)) {
             //remove from language
