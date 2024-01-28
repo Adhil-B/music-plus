@@ -49,12 +49,12 @@ const Languages = ({open, setOpen}) => {
         }
 
         (async function () {  
-        if(updatedLanguages.length > 0){
+       // if(updatedLanguages.length > 0){
             const res = await addLang(updatedLanguages);
             if (res?.success === true) {
               console.log("Updated languages!");
             }
-        }
+       // }
         });
           
         setSelectedLanguages(updatedLanguages);
