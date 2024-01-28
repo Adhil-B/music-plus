@@ -475,6 +475,34 @@ export async function getFavourite() {
   }
 }
 
+// set language
+export async function addLang(lang) {
+  try {
+    const response = await fetch("/api/lang", {
+      method: "POST",
+      body: JSON.stringify(lang),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("Add language API error", error);
+  }
+}
+
+// get language
+export async function getLang() {
+  try {
+    const response = await fetch("/api/lang");
+    const data = await response.json();
+    return data?.data?.favourites;
+  } catch (error) {
+    console.log("Get language API error", error);
+  }
+}
+
 // user info
 export async function getUserInfo() {
   try {
