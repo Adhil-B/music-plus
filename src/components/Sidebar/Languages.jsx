@@ -47,12 +47,16 @@ const Languages = ({open, setOpen}) => {
         } else {
           updatedLanguages = selectedLanguages.filter((lang) => lang !== value);
         }
+
+        (async function () {  
         if(updatedLanguages.length > 0){
             const res = await addLang(updatedLanguages);
             if (res?.success === true) {
               console.log("Updated languages!");
             }
         }
+        });
+          
         setSelectedLanguages(updatedLanguages);
         dispatch(setLanguages(updatedLanguages));
         localStorage.setItem('languages', JSON.stringify(updatedLanguages));
