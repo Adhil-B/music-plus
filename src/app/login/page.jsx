@@ -10,15 +10,23 @@ import { setProgress } from '@/redux/features/loadingBarSlice';
 import { useSession } from 'next-auth/react';
 import { FaGoogle } from 'react-icons/fa';
 import { useEffect } from 'react'
+import { getLang } from '@/services/dataAPI';
 
 const page = () => {
     const { status } = useSession();
     const dispatch = useDispatch();
+    const [lang, setLang] = useState([]);
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
 
+    useEffect(() => {
+        if (lang.length > 0 && (!localStorage?.getItem("languages") || JSON.parse(localStorage.getItem("languages")).length === 0) ){
+            localStorage.setItem('languages', JSON.stringify(lang));
+        }
+    }, [lang]);
+    
     useEffect(() => {
     document.body.style.background = 'linear-gradient(180deg,rgba(8,135,152,.9),#000814 60%)';
 
@@ -42,6 +50,8 @@ const page = () => {
             });
             if (!res.error) {
                 toast.success('Logged in successfully');
+                const res = await getLang();
+                setLang(res);
             }
             else {
                 toast.error('Invalid credentials');
