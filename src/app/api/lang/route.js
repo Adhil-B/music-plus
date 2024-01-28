@@ -107,6 +107,7 @@ export async function POST(request) {
         }
         // console.log('userData',userData.language);
         const langlist = JSON.parse(lang);
+        console.log(langlist);
         await  userData.updateOne({ $set: { language: langlist } });
         /*if (userData.language.includes(lang)) {
             //remove from language
