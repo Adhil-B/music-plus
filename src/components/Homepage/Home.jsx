@@ -1,6 +1,6 @@
 "use client";
 //
-import { homePageData, homePageData2, homePageData3 } from "@/services/dataAPI";
+import { homePageData, homePageData2, homePageData3, getLang } from "@/services/dataAPI";
 import React from "react";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
@@ -28,6 +28,7 @@ const Home = () => {
   const { languages } = useSelector((state) => state.languages);
   const {homeCategories} = useSelector((state) => state.homeCategories);
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
+  const [acclang, setAcclang] = useState([]);
   
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
@@ -68,8 +69,10 @@ const Home = () => {
   }, []);
   
   useEffect(() => {
-    const fetchData = async () => {  
-      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...languages];
+    const fetchData = async () => { 
+      const reslang = await getLang();
+      setAcclang(reslang?.length > 0 ? reslang : [...languages])
+      const lang = localStorage?.getItem("languages") ? JSON.parse(localStorage.getItem("languages")) : [...acclang];
       dispatch(setProgress(70))
       const res = await homePageData(lang);
       setData(res);
