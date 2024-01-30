@@ -242,9 +242,11 @@ if (!event.target.matches('.menu') && !event.target.matches('.dot')) {
    el.style.display = 'none';
    wrapper.querySelector('ul').style.overflow = '';
 });
+}
 if (!event.target.closest('.music-list')) {
 	moreMusicBtn.click();
-}}
+}
+}
 function loadMusic(indexNumb){
 
   browserFileStorage.load('img-'+allMusic[indexNumb - 1].name).then((file) => {
