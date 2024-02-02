@@ -47,7 +47,44 @@ browserFileStorage.list().then((filenames) => {
 }catch(err) {}
 //setDone([false,done[1],done[2]]);
 }, []);
-  
+
+useEffect(() => {
+	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
+	let i = 0;
+	function downloadp(){
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', songUrl, true);
+		xhr.responseType = 'blob';
+		xhr.onload = function(e) {
+      		if (this.status == 200) {
+        
+        	var blob = this.response;
+        	browserFileStorage.save(filename, blob, null, { artist: artists, duration: duration }).then((file) => {
+            	console.log('Saved file!', file)
+	    	browserFileStorage.list().then((filenames) => {
+	    	localStorage?.setItem("downloaded" , filenames);
+		if (i !== pending.length){
+			i += 1;
+		        downloadp()
+		}
+            	
+            	}).catch((error) => {})    
+            //setDone([true,false,100]);	
+        	})
+        	.catch((error) => {
+            	console.error(error)
+        	})
+      		}
+
+            
+    		};
+		
+	}
+	
+	
+}, [pdownloading]);
+	
   return (
     <>
       <div className='h-[70px] text-white flex justify-between relative'>
