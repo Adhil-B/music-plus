@@ -50,22 +50,24 @@ browserFileStorage.list().then((filenames) => {
 
 useEffect(() => {
 	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
-	let i = 0;
+	let i = pending.length - 1;
 	function downloadp(){
-		
 		var xhr = new XMLHttpRequest();
-		xhr.open('GET', songUrl, true);
+		xhr.open('GET', pending[i].songUrl, true);
 		xhr.responseType = 'blob';
 		xhr.onload = function(e) {
       		if (this.status == 200) {
         
         	var blob = this.response;
-        	browserFileStorage.save(filename, blob, null, { artist: artists, duration: duration }).then((file) => {
+        	browserFileStorage.save(pending[i].filename, blob, null, { artist: pending[i].artist, duration: pending[i].duration }).then((file) => {
             	console.log('Saved file!', file)
 	    	browserFileStorage.list().then((filenames) => {
 	    	localStorage?.setItem("downloaded" , filenames);
-		if (i !== pending.length){
-			i += 1;
+		pending.pop();
+		localStorage?.setItem("downloading" , JSON.stringify(pending));
+		dispatch(setPdownloading(pending));
+		if (i > 0){
+			i -= 1;
 		        downloadp()
 		}
             	
@@ -80,6 +82,9 @@ useEffect(() => {
             
     		};
 		
+	}
+	if (pending.length > 0){
+		downloadp();
 	}
 	
 	
