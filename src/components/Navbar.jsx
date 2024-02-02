@@ -51,7 +51,7 @@ browserFileStorage.list().then((filenames) => {
 }, []);
 
 useEffect(() => {
-	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
+	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [];
 	let i = pending.length - 1;
 	function downloadp(){
 		var xhr = new XMLHttpRequest();
