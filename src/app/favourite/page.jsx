@@ -2,7 +2,8 @@
 import SongsList from '@/components/SongsList';
 import { getFavourite, getSongData } from '@/services/dataAPI';
 import React, { useEffect } from 'react'
-import { useState, useSelector } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux'
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
