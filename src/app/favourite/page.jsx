@@ -3,7 +3,7 @@ import SongsList from '@/components/SongsList';
 import { getFavourite, getSongData } from '@/services/dataAPI';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
@@ -107,12 +107,12 @@ for (let i in favouriteSongs) {
         var blob = this.response;
         browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
             console.log('Saved Image', file)
-	    let pending = localStorage?.getItem("downloading") ? localStorage?.getItem("downloading") : [];
+	    let pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage?.getItem("downloading")) : [];
 	    let newlist = [...pending, {filename: filename, artist: artists, duration: duration, songUrl: songUrl}];
-	    localStorage?.setItem("downloading" , newlist);
+	    localStorage?.setItem("downloading" , JSON.stringify(newlist));
 	    dispatch(setPdownloading(newlist));
 	    browserFileStorage.list().then((filenames) => {
-	    localStorage?.setItem("downloaded" , filenames)
+	    localStorage?.setItem("downloaded" , filenames);
             setDownloading([...downloading, song.id])
             }).catch((error) => {}) 
         })
