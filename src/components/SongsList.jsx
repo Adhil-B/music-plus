@@ -21,7 +21,6 @@ const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, s
   const { activeSong } = useSelector((state) => state.player);
   const [showMenu, setShowMenu] = useState(false);
   const [playlists, setPlaylists] = useState([]);
-  const dispatch = useDispatch();
   const [allfilenames, setAllfilenames] = useState([]);
 
 useEffect(() => {	
