@@ -32,7 +32,7 @@ const Navbar = () => {
 
 useEffect(() => {
 	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
-	const down = localStorage?.getItem("downloaded") ? JSON.parse(localStorage.getItem("downloaded")) : [];
+	const down = localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [];
 	
 	let i = pending.length - 1;
 	function downloadp(){
