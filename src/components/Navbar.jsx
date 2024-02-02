@@ -34,7 +34,7 @@ useEffect(() => {
 	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
 	const down = localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [];
 	
-	let i = pending.length - 1;
+	let i = 0;
 	function downloadp(){
 		setPd(pending);		
 		if (!down.includes(pending[i].filename)){
@@ -52,8 +52,8 @@ useEffect(() => {
 		//pending.splice(i, 1);
 		//localStorage?.setItem("downloading" , JSON.stringify(pending));
 		dispatch(setPdownloading(pending));
-		if (i > 0){
-			i -= 1;
+		if (i < (pending.length - 1)){
+			i += 1;
 		        downloadp()
 		}else{
 			localStorage?.setItem("downloading" , JSON.stringify([]));
@@ -72,8 +72,8 @@ useEffect(() => {
 	}else{
 		//pending.splice(i, 1);
 		//localStorage?.setItem("downloading" , JSON.stringify(pending));
-		if (i > 0){
-			i -= 1;
+		if (i < (pending.length - 1)){
+			i += 1;
 		        downloadp()
 		}	
 	}}
