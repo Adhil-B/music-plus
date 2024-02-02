@@ -33,7 +33,7 @@ browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {}
 	
 browserFileStorage.list().then((filenames) => {
-        //setAllfilenames(filenames)
+localStorage?.setItem("downloaded" , filenames);
 }).catch((error) => {})
 	
 }).catch((error) => {
