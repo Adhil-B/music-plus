@@ -21,8 +21,33 @@ import { setIsTyping } from '@/redux/features/loadingBarSlice';
 */
 const Navbar = () => {
   const dispatch = useDispatch();
+  const { pdownloading } = useSelector((state) => state.player);
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [showNav, setShowNav] = React.useState(false);
+  
+useEffect(() => {
+try{
+browserFileStorage.init('downloads').then((status) => {
+if(status.initial) {}
+	
+browserFileStorage.list().then((filenames) => {
+        //setAllfilenames(filenames)
+}).catch((error) => {})
+	
+}).catch((error) => {
+	if(error.alreadyInit) {
+		
+	browserFileStorage.list().then((filenames) => {
+        //setAllfilenames(filenames)
+	localStorage?.setItem("downloaded" , filenames)
+        }).catch((error) => {})
+		
+	}
+});
+}catch(err) {}
+//setDone([false,done[1],done[2]]);
+}, []);
+  
   return (
     <>
       <div className='h-[70px] text-white flex justify-between relative'>
