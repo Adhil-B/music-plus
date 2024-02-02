@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
 
-const page = async() => {
+const page = () => {
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState([]);
@@ -74,13 +74,13 @@ for (let i in favouriteSongs) {
     const duration = song?.duration;
   if (localStorage?.getItem("downloaded") ? localStorage?.getItem("downloaded").includes(filename) : false) { continue; }
 
-var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
     xhr.open('GET', songUrl, true);
     xhr2.open('GET', imageUrl, true);
     xhr.responseType = 'blob';
     xhr2.responseType = 'blob';
-    xhr.onload = await function(e) {
+    xhr.onload = function(e) {
       if (this.status == 200) {
         
         var blob = this.response;
