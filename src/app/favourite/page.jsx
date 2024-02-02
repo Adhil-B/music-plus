@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
 
-const page = () => {
+const page = async() => {
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState([]);
@@ -80,7 +80,7 @@ var xhr = new XMLHttpRequest();
     xhr2.open('GET', imageUrl, true);
     xhr.responseType = 'blob';
     xhr2.responseType = 'blob';
-    xhr.onload = function(e) {
+    xhr.onload = await function(e) {
       if (this.status == 200) {
         
         var blob = this.response;
