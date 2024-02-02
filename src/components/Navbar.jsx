@@ -38,15 +38,14 @@ useEffect(() => {
 	function downloadp(){
 		setPd(pending);
 		if (down.includes(pending[i].filename)){
-			pending.pop();
+		pending.pop();
 		localStorage?.setItem("downloading" , JSON.stringify(pending));
 		dispatch(setPdownloading(pending));
 		if (i > 0){
-			i -= 1;
-		        downloadp()
+		i -= 1;
+		 downloadp()
 		}
-			return;
-		}
+		}else{
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', pending[i].songUrl, true);
@@ -79,7 +78,7 @@ useEffect(() => {
     		};
 		xhr.send();
 		
-	}
+	}}
 	if (pending.length > 0 && pending !== pd){
 		downloadp();
 	}
