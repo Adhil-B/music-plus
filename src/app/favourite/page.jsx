@@ -13,6 +13,7 @@ const page = () => {
   const [downloading, setDownloading] = useState([]);
   const [start, setStart] = useState(false);
   const { status } = useSession();
+  const { pdownloading } = useSelector((state) => state.player);
 
 useEffect(() => {
 try{
@@ -74,13 +75,13 @@ for (let i in favouriteSongs) {
     const duration = song?.duration;
   if (localStorage?.getItem("downloaded") ? localStorage?.getItem("downloaded").includes(filename) : false) { continue; }
 
-    var xhr = new XMLHttpRequest();
+    //var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
-    xhr.open('GET', songUrl, true);
+    //xhr.open('GET', songUrl, true);
     xhr2.open('GET', imageUrl, true);
-    xhr.responseType = 'blob';
+    //xhr.responseType = 'blob';
     xhr2.responseType = 'blob';
-    xhr.onload = function(e) {
+    /*xhr.onload = function(e) {
       if (this.status == 200) {
         
         var blob = this.response;
@@ -98,13 +99,17 @@ for (let i in favouriteSongs) {
       }
 
             
-    };
+    };*/
     xhr2.onload = function(e) {
       if (this.status == 200) {
         
         var blob = this.response;
         browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
-            console.log('Saved file!', file)
+            console.log('Saved Image', file)
+	    pending = localStorage?.getItem("downloading") ? localStorage?.getItem("downloading") : [];
+	    newlist = [...pending, {filename: filename, artist: artists, duration: duration, songUrl: songUrl}];
+	    localStorage?.setItem("downloading" , newlist);
+	    dispatch(setPdownloading(newlist));
 	    browserFileStorage.list().then((filenames) => {
 	    localStorage?.setItem("downloaded" , filenames)
             setDownloading([...downloading, song.id])
@@ -115,7 +120,7 @@ for (let i in favouriteSongs) {
         })
       }
     };
-   xhr.onprogress = e => {
+   /*xhr.onprogress = e => {
     // Every time progress occurs
     const percent = parseInt((e.loaded / e.total)*100);
     if (percent != 100){
@@ -130,7 +135,7 @@ for (let i in favouriteSongs) {
     xhr.onerror = function(e) {
       alert("Error " + e.target.status + " occurred while receiving the document.");
     };
-    xhr.send();
+    xhr.send();*/
     xhr2.send();
 
 
