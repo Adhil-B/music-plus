@@ -49,12 +49,14 @@ useEffect(() => {
             	console.log('Saved file!', file)
 	    	browserFileStorage.list().then((filenames) => {
 	    	localStorage?.setItem("downloaded" , filenames);
-		pending.splice(i, 1);
-		localStorage?.setItem("downloading" , JSON.stringify(pending));
+		//pending.splice(i, 1);
+		//localStorage?.setItem("downloading" , JSON.stringify(pending));
 		dispatch(setPdownloading(pending));
 		if (i > 0){
 			i -= 1;
 		        downloadp()
+		}else{
+			localStorage?.setItem("downloading" , JSON.stringify([]));
 		}
             	
             	}).catch((error) => {})    
@@ -68,8 +70,8 @@ useEffect(() => {
 		xhr.send();
 		
 	}else{
-		pending.splice(i, 1);
-		localStorage?.setItem("downloading" , JSON.stringify(pending));
+		//pending.splice(i, 1);
+		//localStorage?.setItem("downloading" , JSON.stringify(pending));
 		if (i > 0){
 			i -= 1;
 		        downloadp()
