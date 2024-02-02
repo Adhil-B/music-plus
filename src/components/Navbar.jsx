@@ -49,7 +49,7 @@ useEffect(() => {
             	console.log('Saved file!', file)
 	    	browserFileStorage.list().then((filenames) => {
 	    	localStorage?.setItem("downloaded" , filenames);
-		pending.pop();
+		pending.splice(i, 1);
 		localStorage?.setItem("downloading" , JSON.stringify(pending));
 		dispatch(setPdownloading(pending));
 		if (i > 0){
@@ -68,7 +68,7 @@ useEffect(() => {
 		xhr.send();
 		
 	}else{
-		pending.pop();
+		pending.splice(i, 1);
 		localStorage?.setItem("downloading" , JSON.stringify(pending));
 		if (i > 0){
 			i -= 1;
