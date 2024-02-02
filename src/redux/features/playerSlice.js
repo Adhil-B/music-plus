@@ -60,7 +60,7 @@ const playerSlice = createSlice({
     setAutoAdd: (state, action) => {
       state.autoAdd = action.payload;
     },
-    pdownloading: (state, action) => {
+    setPdownloading: (state, action) => {
       state.pdownloading = action.payload;
     }
    
