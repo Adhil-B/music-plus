@@ -29,35 +29,25 @@ const Navbar = () => {
   const [pd, setPd] = React.useState([]);
   const [pdd, setPdd] = React.useState(false);
   
-useEffect(() => {
-try{
-browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {
-	setPdd(true);
-}
-browserFileStorage.list().then((filenames) => {
-localStorage?.setItem("downloaded" , filenames);
-}).catch((error) => {})
-	
-}).catch((error) => {
-	if(error.alreadyInit) {
-	browserFileStorage.list().then((filenames) => {
-        //setAllfilenames(filenames)
-	localStorage?.setItem("downloaded" , filenames)
-        }).catch((error) => {})
-		
-	}
-});
-}catch(err) {}
-//setDone([false,done[1],done[2]]);
-}, []);
 
 useEffect(() => {
 	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
+	const down = localStorage?.getItem("downloaded") ? JSON.parse(localStorage.getItem("downloaded")) : [];
 	
 	let i = pending.length - 1;
 	function downloadp(){
 		setPd(pending);
+		if (down.includes(pending[i].filename)){
+			pending.pop();
+		localStorage?.setItem("downloading" , JSON.stringify(pending));
+		dispatch(setPdownloading(pending));
+		if (i > 0){
+			i -= 1;
+		        downloadp()
+		}
+			return;
+		}
+		
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', pending[i].songUrl, true);
 		xhr.responseType = 'blob';
