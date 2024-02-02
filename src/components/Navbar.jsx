@@ -3,6 +3,7 @@ import React from 'react'
 import logo from '../assets/hayasaka.png'
 import Image from 'next/image'
 import Searchbar from './Searchbar'
+import { useEffect } from 'react';
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { setProgress } from '@/redux/features/loadingBarSlice'
