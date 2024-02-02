@@ -107,8 +107,8 @@ for (let i in favouriteSongs) {
         var blob = this.response;
         browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
             console.log('Saved Image', file)
-	    pending = localStorage?.getItem("downloading") ? localStorage?.getItem("downloading") : [];
-	    newlist = [...pending, {filename: filename, artist: artists, duration: duration, songUrl: songUrl}];
+	    let pending = localStorage?.getItem("downloading") ? localStorage?.getItem("downloading") : [];
+	    let newlist = [...pending, {filename: filename, artist: artists, duration: duration, songUrl: songUrl}];
 	    localStorage?.setItem("downloading" , newlist);
 	    dispatch(setPdownloading(newlist));
 	    browserFileStorage.list().then((filenames) => {
