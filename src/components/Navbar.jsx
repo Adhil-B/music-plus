@@ -36,17 +36,7 @@ useEffect(() => {
 	
 	let i = pending.length - 1;
 	function downloadp(){
-		setPd(pending);
-		if (down.includes(pending[i].filename)){
-		pending.pop();
-		localStorage?.setItem("downloading" , JSON.stringify(pending));
-		dispatch(setPdownloading(pending));
-		if (i > 0){
-		i -= 1;
-		 downloadp()
-		}
-		}else{
-		
+		setPd(pending);		
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', pending[i].songUrl, true);
 		xhr.responseType = 'blob';
@@ -67,18 +57,16 @@ useEffect(() => {
 		}
             	
             	}).catch((error) => {})    
-            //setDone([true,false,100]);	
         	})
         	.catch((error) => {
             	console.error(error)
         	})
       		}
-
-            
     		};
+		if (!down.includes(pending[i].filename)){
 		xhr.send();
-		
-	}}
+		}
+	}
 	if (pending.length > 0 && pending !== pd){
 		downloadp();
 	}
