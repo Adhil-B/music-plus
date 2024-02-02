@@ -9,6 +9,7 @@ import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
 
 const page = () => {
+  const dispatch = useDispatch();
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState([]);
