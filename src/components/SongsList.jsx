@@ -16,6 +16,8 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { MdOutlineDownloading } from "react-icons/md";
 
 const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, setSongs, downloading }) => {
+  const dispatch = useDispatch();
+  const { pdownloading } = useSelector((state) => state.player);
   const { activeSong } = useSelector((state) => state.player);
   const [showMenu, setShowMenu] = useState(false);
   const [playlists, setPlaylists] = useState([]);
@@ -24,7 +26,7 @@ const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, s
 
 useEffect(() => {	
 setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [])
-}, [activeSong, downloading]);
+}, [activeSong, downloading, pdownloading]);
   
 
   const handlePlayClick = (song, index) => {
