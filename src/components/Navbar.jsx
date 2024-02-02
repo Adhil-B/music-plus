@@ -83,6 +83,7 @@ useEffect(() => {
 
             
     		};
+		xhr.send();
 		
 	}
 	if (pending.length > 0){
