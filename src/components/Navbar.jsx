@@ -27,20 +27,20 @@ const Navbar = () => {
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [showNav, setShowNav] = React.useState(false);
   const [pd, setPd] = React.useState([]);
-  const [pdd, setPdd] = React.useState(0);
+  const [pdd, setPdd] = React.useState(false);
   
 useEffect(() => {
 try{
 browserFileStorage.init('downloads').then((status) => {
-if(status.initial) {}
-	setPdd(1);
+if(status.initial) {
+	setPdd(true);
+}
 browserFileStorage.list().then((filenames) => {
 localStorage?.setItem("downloaded" , filenames);
 }).catch((error) => {})
 	
 }).catch((error) => {
 	if(error.alreadyInit) {
-		setPdd(1);
 	browserFileStorage.list().then((filenames) => {
         //setAllfilenames(filenames)
 	localStorage?.setItem("downloaded" , filenames)
