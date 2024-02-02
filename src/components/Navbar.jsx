@@ -70,7 +70,7 @@ useEffect(() => {
 	    	localStorage?.setItem("downloaded" , filenames);
 		pending.pop();
 		localStorage?.setItem("downloading" , JSON.stringify(pending));
-		//dispatch(setPdownloading(pending));
+		dispatch(setPdownloading(pending));
 		if (i > 0){
 			i -= 1;
 		        downloadp()
