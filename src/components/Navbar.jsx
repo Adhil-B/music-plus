@@ -52,7 +52,7 @@ localStorage?.setItem("downloaded" , filenames);
 }, []);
 
 useEffect(() => {
-	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [];
+	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
 	
 	let i = pending.length - 1;
 	function downloadp(){
