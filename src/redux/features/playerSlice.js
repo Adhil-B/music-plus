@@ -67,6 +67,6 @@ const playerSlice = createSlice({
   },
 });
 
-export const { setActiveSong, nextSong, prevSong, playPause, setFullScreen, setAutoAdd, pdownloading } = playerSlice.actions;
+export const { setActiveSong, nextSong, prevSong, playPause, setFullScreen, setAutoAdd, setPdownloading } = playerSlice.actions;
 
 export default playerSlice.reducer;
