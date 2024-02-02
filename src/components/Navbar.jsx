@@ -26,6 +26,7 @@ const Navbar = () => {
   const { pdownloading } = useSelector((state) => state.player);
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [showNav, setShowNav] = React.useState(false);
+  const [pd, setPd] = React.useState([]);
   
 useEffect(() => {
 try{
@@ -52,8 +53,10 @@ localStorage?.setItem("downloaded" , filenames);
 
 useEffect(() => {
 	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [];
+	
 	let i = pending.length - 1;
 	function downloadp(){
+		setPd(pending);
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', pending[i].songUrl, true);
 		xhr.responseType = 'blob';
@@ -86,7 +89,7 @@ useEffect(() => {
 		xhr.send();
 		
 	}
-	if (pending.length > 0){
+	if (pending.length > 0 && pending !== pd){
 		downloadp();
 	}
 	
