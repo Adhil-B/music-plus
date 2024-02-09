@@ -433,9 +433,8 @@ video.ontimeupdate = (event) => {
 	old_element1.parentNode.replaceChild(new_element1, old_element1);
 	new_element1.addEventListener("click", function(e) {
   	e.preventDefault();
-  	const queryString1 = window.location.search;
-  	const urlParams1 = new URLSearchParams(queryString1);
-  	console.log("share:https://youtu.be/"+urlParams1.get('v'));
+  	const urlParams1 = window.location.pathname;
+  	console.log("share:https://youtube.com"+urlParams1);
 	},false);
 
       setTimeout(function(){
