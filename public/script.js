@@ -437,8 +437,7 @@ video.ontimeupdate = (event) => {
 	const observer = new MutationObserver((mutations) => {
   	for (const mutation of mutations) {
 	if (mutation.type === "attributes") {
-    	for (const addedNode of mutation.addedNodes) {
-      	if (addedNode.nodeType === Node.ELEMENT_NODE && addedNode.getAttribute("aria-label") === "Share this video") {
+
 
 	
 	if (document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null){
@@ -448,8 +447,7 @@ video.ontimeupdate = (event) => {
 	}
 
 		
-      	}
-    	}
+ 
   	}}
 	});
 
