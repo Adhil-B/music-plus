@@ -439,11 +439,16 @@ video.ontimeupdate = (event) => {
   	for (const mutation of mutations) {
     	for (const addedNode of mutation.addedNodes) {
       	if (addedNode.nodeType === Node.ELEMENT_NODE && addedNode.getAttribute("aria-label") === "Share this video") {
-        addedNode.addEventListener('click', function handleClick(event) {
+
+	var new_element = addedNode.cloneNode(true);
+	addedNode.parentNode.replaceChild(new_element, addedNode);
+	new_element.addEventListener('click', function handleClick(event) {
     	event.preventDefault();
   	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
-  	});
+  	},false);
+
+		
       	}
     	}
   	}
