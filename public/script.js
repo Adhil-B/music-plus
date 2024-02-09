@@ -426,32 +426,11 @@ video.ontimeupdate = (event) => {
       
       document.querySelectorAll('ytm-setting-single-option-menu-renderer')[2].style.display="none";
     }
-    if (newpath.includes("/shorts")){
-
-
-        const observerOptions = {
-  	attributes: true
-	};
-
-	// Create a new observer
-	const observer = new MutationObserver((mutations) => {
-  	for (const mutation of mutations) {
-	if (mutation.type === "attributes") {
-
-
-	
-	if (document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null){
+    if (document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null){
   	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
 	}
-
-		
- 
-  	}}
-	});
-
-	// Start observing the document body or specific container where the elements are added
-	observer.observe(document.body, observerOptions);
+    if (newpath.includes("/shorts")){
       	
 
       setTimeout(function(){
@@ -494,7 +473,8 @@ observer.observe(document.body, {
   characterDataOldValue: true, 
   subtree: true, 
   childList: true, 
-  characterData: true
+  characterData: true,
+  attributes: true
 })
 
 //https://gihs.adhil.ga/404
