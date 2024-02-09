@@ -455,17 +455,18 @@ let observer = new MutationObserver((mutations) => {
     let oldValue = mutation.oldValue;
     let newValue = mutation.target.textContent;
     
-        if (mutation.type === "attributes" && document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null ){
+        
+	  
+    if (oldValue !== newValue) {
+     // if window.location.pathname != ""{
+        change()
+	if (mutation.type === "attributes" && document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null && mutation.target == document.body){
 
 	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
 
   	
 	}
-	  
-    if (oldValue !== newValue) {
-     // if window.location.pathname != ""{
-        change()
         
       
         //oldpath = window.location.pathname;
