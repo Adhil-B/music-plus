@@ -449,14 +449,18 @@ console.log("javascript:(function(){ var%20script%20=%20document.createElement('
  
 
 //var oldpath = "";
+
 let observer = new MutationObserver((mutations) => {
   mutations.forEach((mutation) => {
     let oldValue = mutation.oldValue;
     let newValue = mutation.target.textContent;
+    
+        if (mutation.type === "attributes" && document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null ){
 
-        if (document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null){
-  	const urlParams1 = window.location.pathname;
+	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
+
+  	
 	}
 	  
     if (oldValue !== newValue) {
