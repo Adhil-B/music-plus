@@ -310,7 +310,7 @@ function change(){
       document.getElementById('download').style.display = "flex";
       document.getElementById('fullscreen').style.display = "flex";
 
-      var element9 = document.querySelector('[aria-label="Share"]');
+      var element9 = document.getElementsByClassName("slim_video_action_bar_renderer_button yt-spec-button-view-model")[0];
                                       
 element9.addEventListener("click", function(e) {
   e.preventDefault();
