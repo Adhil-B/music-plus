@@ -14,6 +14,14 @@ ytm-rich-section-renderer {
 .chip-bar {
     border: 0px !important;
 }
+[aria-label="Share"] bottom-sheet-layout
+{
+  display: none !important;
+}
+[aria-label="Share"] .bottom-sheet-overlay.modern-overlay
+{
+  display: none !important;
+}
 .btn-primary {
     color: #fff;
     background-color: #0d6efd;
