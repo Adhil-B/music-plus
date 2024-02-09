@@ -309,12 +309,11 @@ function change(){
       document.getElementById('pip').style.display = "flex";
       document.getElementById('download').style.display = "flex";
       document.getElementById('fullscreen').style.display = "flex";
-      setInterval(function(){
-      document.querySelector('[aria-label="Share"]').onclick=null;
-      }  , 500);
+
       var element9 = document.querySelector('[aria-label="Share"]');
                                       
 element9.addEventListener("click", function(e) {
+  e.preventDefault();
   const queryString1 = window.location.search;
   const urlParams1 = new URLSearchParams(queryString1);
   console.log("share:https://youtu.be/"+urlParams1.get('v'));
