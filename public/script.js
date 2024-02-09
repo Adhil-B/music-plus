@@ -303,7 +303,9 @@ function change(){
     document.getElementById('fullscreen-exit').style.display = "none";
     
     if (newpath.includes("/watch?v=")){
-      
+      if (document.getElementsByClassName('ytp-unmute-inner')){
+         document.getElementsByClassName('ytp-unmute-inner')[0].click();
+      }
       document.getElementById('pip').style.display = "flex";
       document.getElementById('download').style.display = "flex";
       document.getElementById('fullscreen').style.display = "flex";
