@@ -428,16 +428,29 @@ video.ontimeupdate = (event) => {
     }
     if (newpath.includes("/shorts")){
 
-        window.onclick = function(event) {
 
-	const box = document.querySelector('[aria-label="Share this video"]');
- 	box.addEventListener('click', function handleClick(event) {
+        const observerOptions = {
+  	childList: true,
+  	subtree: true
+	};
+
+	// Create a new observer
+	const observer = new MutationObserver((mutations) => {
+  	for (const mutation of mutations) {
+    	for (const addedNode of mutation.addedNodes) {
+      	if (addedNode.nodeType === Node.ELEMENT_NODE && addedNode.getAttribute("aria-label") === "Share this video") {
+        addedNode.addEventListener('click', function handleClick(event) {
     	event.preventDefault();
   	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
   	});
-	}
-    
+      	}
+    	}
+  	}
+	});
+
+	// Start observing the document body or specific container where the elements are added
+	observer.observe(document.body, observerOptions);
       	
 
       setTimeout(function(){
