@@ -428,14 +428,18 @@ video.ontimeupdate = (event) => {
     }
     if (newpath.includes("/shorts")){
 
-      	var old_element1 = document.querySelector('[aria-label="Share this video"]');
-	var new_element1 = old_element1.cloneNode(true);
-	old_element1.parentNode.replaceChild(new_element1, old_element1);
-	new_element1.addEventListener("click", function(e) {
-  	e.preventDefault();
+
+	const boxes = Array.from(document.querySelectorAll('[aria-label="Share this video"]'));
+
+	boxes.forEach(box => {
+ 	box.addEventListener('click', function handleClick(event) {
+    	event.preventDefault();
   	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
-	},false);
+  	});
+	});
+    
+      	
 
       setTimeout(function(){
       document.querySelectorAll('span.yt-core-attributed-string.yt-core-attributed-string--white-space-pre-wrap.yt-core-attributed-string--text-alignment-center.yt-core-attributed-string--word-wrapping')[1].style.display = "none";}, 10);
