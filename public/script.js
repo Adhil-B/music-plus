@@ -310,9 +310,10 @@ function change(){
       document.getElementById('download').style.display = "flex";
       document.getElementById('fullscreen').style.display = "flex";
 
-      var element9 = document.getElementsByClassName("slim_video_action_bar_renderer_button yt-spec-button-view-model")[0];
-                                      
-element9.addEventListener("click", function(e) {
+var old_element = document.querySelector('button-view-model.slim_video_action_bar_renderer_button.yt-spec-button-view-model');
+var new_element = old_element.cloneNode(true);
+old_element.parentNode.replaceChild(new_element, old_element);
+new_element.addEventListener("click", function(e) {
   e.preventDefault();
   const queryString1 = window.location.search;
   const urlParams1 = new URLSearchParams(queryString1);
