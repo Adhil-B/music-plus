@@ -310,7 +310,7 @@ function change(){
       document.getElementById('download').style.display = "flex";
       document.getElementById('fullscreen').style.display = "flex";
 
-var old_element = document.querySelector('.yt-spec-button-shape-next.yt-spec-button-shape-next--tonal.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--icon-leading');
+var old_element = document.querySelector('[aria-label="Share"]');
 var new_element = old_element.cloneNode(true);
 old_element.parentNode.replaceChild(new_element, old_element);
 new_element.addEventListener("click", function(e) {
