@@ -428,16 +428,15 @@ video.ontimeupdate = (event) => {
     }
     if (newpath.includes("/shorts")){
 
+        window.onclick = function(event) {
 
-	const boxes = Array.from(document.querySelectorAll('[aria-label="Share this video"]'));
-
-	boxes.forEach(box => {
+	const box = document.querySelector('[aria-label="Share this video"]');
  	box.addEventListener('click', function handleClick(event) {
     	event.preventDefault();
   	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
   	});
-	});
+	}
     
       	
 
