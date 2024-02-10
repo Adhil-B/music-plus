@@ -460,14 +460,12 @@ let observer = new MutationObserver((mutations) => {
     if (oldValue !== newValue) {
      // if window.location.pathname != ""{
         change()
-	if (mutation.type === "attributes" && document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null && mutation.share ? mutation.share : true){
+	if (mutation.type === "attributes" && document.querySelector('[aria-label="Share this video"].yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:active') != null && document.body.matches('[bottom-sheet-open=""]')){
 
 	const urlParams1 = window.location.pathname;
   	console.log("share:https://youtube.com"+urlParams1);
-        mutation.share = false;
+	document.body.removeAttribute('bottom-sheet-open')
   	
-	}else{
-	mutation.share = true;
 	}
         
       
