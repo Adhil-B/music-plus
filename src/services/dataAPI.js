@@ -202,9 +202,9 @@ function transformList(list) {
     
     //const x = data22[0];
     const x = data22["videoDetails"];
-    const sresponse = await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
-    const sdata22 = await sresponse.json();
-    if (sdata22['data']['results'][0]['primaryArtists'].includes(x["author"].replace('& ', '').replace(' ,', ',').split(', ').reverse()[0]) && sdata22['data']['results'][0]['name'].includes(x["title"].split(' ')[0])){
+    const sresponse = id2.length > 1 ? await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`) : [];
+    const sdata22 = id2.length > 1 ? await sresponse.json() : [];
+    if (sdata22?.data['results'][0]['primaryArtists'].includes(x["author"].replace('& ', '').replace(' ,', ',').split(', ').reverse()[0]) && sdata22?.data['results'][0]['name'].includes(x["title"].split(' ')[0])){
       const response = await fetch(`https://saavn.dev/songs?id=${sdata22['data']['results'][0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
