@@ -228,23 +228,23 @@ function transformList(list) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
         }
       ];
       result.push(x);
@@ -409,7 +409,7 @@ export async function getSearchedData(query) {
     const response1 = await fetch(`https://podz-music.vercel.app/api/search/?query=${query}`);
     const data1 = await response1.json();
     const data2 = [];
-    if (data1[0]["author"].includes("Saregama") || data1[1]["author"].includes("Saregama")){
+    if (data1[0]["author"].includes("Saregama") || data1[1]["author"].includes("Saregama") || query.includes("yt:") || query.includes("youtube")){
     for (let x of data1) {
       x["primaryArtists"] = x["author"];
       x["image"] = [{
@@ -584,23 +584,23 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "48kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "96kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "160kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "320kbps",
-          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
+          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         }
       ];
       x["primaryArtistsId"] = "9876541";
