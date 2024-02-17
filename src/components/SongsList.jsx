@@ -114,8 +114,8 @@ setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("down
                   </div>
                   <div className=" w-[40vw] md:w-64 mb-3">
                     <div className="flex gap-[0.2rem] items-center">
-                    <MdDownloadForOffline size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px]' : 'hidden'}/>
-                    <MdOutlineDownloading size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && !allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px] text-[#00e6e6]' : 'hidden'}/>
+                    <MdDownloadForOffline size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px] text-[#00e6e6]' : 'hidden'}/>
+                    <MdOutlineDownloading size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && !allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px] ' : 'hidden'}/>
                       <p className="text-sm lg:text-lg font-semibold truncate">{
                       song?.name?.replace("&#039;", "'")?.replaceAll("&amp;", "&")?.replaceAll('&quot;','"')
                     }</p></div>
