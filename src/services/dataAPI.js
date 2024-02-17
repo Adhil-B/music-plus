@@ -447,6 +447,7 @@ export async function getSearchedData(query) {
     }
   }
     data.data["songs"]["results"] = query.includes("youtube") ? [...data2.slice(0,4)] : [...data2.slice(0,4),...data?.data["songs"]["results"]];
+    data.data["albums"]["results"] = query.includes("youtube") ? [] : data.data["albums"]["results"];
     return data?.data;
   } catch (error) {
     console.log(error);
