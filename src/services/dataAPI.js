@@ -434,7 +434,7 @@ export async function getSearchedData(query) {
       x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = x["author"];
-      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60) && (x["duration"] < 1800)){
+      if (((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60) && (x["duration"] < 1800)) || query.includes("yt:") || query.includes("youtube")){
         data2.push(x);
       }
       
