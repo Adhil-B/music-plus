@@ -202,12 +202,19 @@ function transformList(list) {
     
     //const x = data22[0];
     const x = data22["videoDetails"];
+    let sresponse;
+    let sdata22;
+    let true1 = false;
+    let true2 = false;
     if (id2.length < 2) {
-    const sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
-    const sdata22 = await sresponse.json();
+    sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
+    sdata22 = await sresponse.json();
+    true1 = sdata22.data.results[0].primaryArtists.includes(x["author"].replace('& ', '').replace(' ,', ',').split(', ').reverse()[0]);
+    true2 = sdata22.data.results[0].name.includes(x["title"].split(' ')[0]);
+    }
     
     
-    if (sdata22.data.results[0].primaryArtists.includes(x["author"].replace('& ', '').replace(' ,', ',').split(', ').reverse()[0]) && sdata22.data.results[0].name.includes(x["title"].split(' ')[0])){
+    if (true1 && true2){
       const response = await fetch(`https://saavn.dev/songs?id=${sdata22['data']['results'][0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
@@ -215,7 +222,7 @@ function transformList(list) {
         song["name"] = song["name"].replaceAll('&quot;','"').replaceAll('&#039;',"'");
         result.push(song);
       }
-    }
+    
     }else{
       
       x["primaryArtists"] = x["author"];
