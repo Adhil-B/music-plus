@@ -616,7 +616,9 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         }
       ];
       x["primaryArtistsId"] = art.join();
+      if (!x["name"].includes(songName)){
       data2.push(x);
+      }
       
     }
     //}
