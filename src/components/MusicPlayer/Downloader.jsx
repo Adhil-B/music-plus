@@ -63,7 +63,7 @@ setDone([false,done[1],done[2]]);
 
     var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
-    xhr.open('GET', songUrl.replace('https://soundrex.onrender.com/api/v1/audio?id=', 'https://ytmrelay-api.onrender.com/audio?videoId='), true);
+    xhr.open('GET', songUrl, true);
     xhr2.open('GET', imageUrl, true);
     xhr.responseType = 'blob';
     xhr2.responseType = 'blob';
