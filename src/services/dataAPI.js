@@ -571,7 +571,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         art.push(arti["name"])
       }
       x["primaryArtists"] = art.join();
-      x["duration"] = x["lengthSeconds"];
+      x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
             "link": `${x["thumbnails"][0]['url']}`
@@ -619,7 +619,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       
     }
     //}
-      return data2.slice(1);
+      return data2.slice(1).slice(0, 8);
     }else{
     const response = await fetch(
       `https://jio-api-eta.vercel.app/song/recommend?id=${sondId}`
