@@ -24,7 +24,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
         <div
           {...handlers}
          className=" h-80 w-80 lg:h-[60vh] lg:w-[60vh] sm:mt-5  ">
-          <img src={activeSong?.image?.[2].link} alt="cover art" className="h-[100%] object-contain rounded-lg" />
+          <img src={activeSong?.image?.[2].link} alt="cover art" className="h-[100%] object-cover rounded-lg" />
         </div>
         <div onClick={(e) => e.stopPropagation()} className=" w-full select-none cursor-pointer text-center my-5">
           <p className="truncate text-white font-bold text-2xl mx-[25px] mb-1 px-3">
