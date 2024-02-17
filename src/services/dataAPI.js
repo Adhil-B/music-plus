@@ -205,15 +205,15 @@ function transformList(list) {
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
-            "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
+            "link": `${x["thumbnails"][0]['url']}`
           },
           {
             "quality": "150x150",
-            "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w150-h150')}`
           },
           {
             "quality": "500x500",
-            "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w500-h500')}`
           }];
       x["name"] = x["title"];
       x["duration"] = x["lengthSeconds"];
@@ -574,15 +574,15 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": x["image"]
+            "link": `${x["thumbnails"][0]['url']}`
           },
           {
             "quality": "150x150",
-            "link": x["image"]
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w150-h150')}`
           },
           {
             "quality": "500x500",
-            "link": x["image"]
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w500-h500')}`
           }];
       x["album"] = {
         "id": "13615087",
