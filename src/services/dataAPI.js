@@ -615,16 +615,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         }
       ];
       x["primaryArtistsId"] = art.join();
-      if ((x["duration"] > 60) && (x["duration"] < 1800)){
-        if (sondId.includes("Saregama")){
-          if (x["primaryArtists"].includes(sondId.split("%20")[1].replace(" new-songs",""))){
-           data2.push(x);
-          }
-        }else{
-          data2.push(x);
-        }
-        
-      }
+      data2.push(x);
       
     }
     //}
