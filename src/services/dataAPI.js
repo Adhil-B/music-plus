@@ -406,37 +406,41 @@ export async function getSearchedData(query) {
     const response = await fetch(`https://saavn.dev/search/all?query=${query}`);
     const data = await response.json();
     
-    const response1 = await fetch(`https://podz-music.vercel.app/api/search/?query=${query}`);
+    const response1 = await fetch(`https://ytmrelay-api.onrender.com/search?query=${query}&filter=songs`);
     const data1 = await response1.json();
     const data2 = [];
-    if (data1[0]["author"].includes("Saregama") || data1[1]["author"].includes("Saregama") || query.includes("yt:") || query.includes("youtube") || data.data["songs"]["results"].length < 3){
+    if (query.includes("youtube") || data.data["songs"]["results"].length < 3){
     for (let x of data1) {
-      x["primaryArtists"] = x["author"];
+      let art = [];
+      for (let arti of x["artists"]) {
+        art.push(arti["name"])
+      }
+      x["primaryArtists"] = art.join();
       x["image"] = [{
             "quality": "50x50",
-            "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
+            "link": `${x["thumbnails"][0]['url']}`
           },
           {
             "quality": "150x150",
-            "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w150-h150')}`
           },
           {
             "quality": "500x500",
-            "link": `https://i.ytimg.com/vi/${x["id"]}/hq720.jpg`
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w500-h500')}`
           }];
       x["name"] = JSON.stringify(x["title"]);
-      x["title"] = x["title"].split("-")[0].split("|")[0];
+      x["title"] = x["title"];
       x["album"] = {
         "id": "13615087",
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      x["id"] = `yt-${x["id"]}`;
+      x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = x["author"];
-      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["duration"] > 60) && (x["duration"] < 1800)){
+      x["primaryArtistsId"] = art.join();
+      //if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         data2.push(x);
-      }
+      //}
       
     }
   }
