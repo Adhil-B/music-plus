@@ -417,6 +417,7 @@ export async function getSearchedData(query) {
         art.push(arti["name"])
       }
       x["primaryArtists"] = art.join();
+      x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
             "link": `${x["thumbnails"][0]['url']}`
@@ -557,15 +558,20 @@ export async function sendResetPasswordLink(email) {
 export async function getRecommendedSongs(artistId, sondId, language) {
   try {
     if (sondId.includes("yt-")){
-      const response = await fetch(`https://podz-music.vercel.app/api/search/?query=${sondId.replace("yt-","")}`);
+      const response = await fetch(`https://ytmrelay-api.onrender.com/song?videoId=${sondId.replace("yt-","")}`);
       const data = await response.json();
-      const songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data[0]["title"];
-      const response1 = await fetch(`https://podz-music.vercel.app/api/search/?query=${songName}`);
+      const songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : videoDetails["title"];
+      const response1 = await fetch(`https://ytmrelay-api.onrender.com/search?query=${songName}&filter=songs`);
       const data1 = await response1.json();
       const data2 = [];
-    if (data1[0]["author"].includes("Saregama")){
+    //if (data1[0]["author"].includes("Saregama")){
     for (let x of data1) {
-      x["primaryArtists"] = x["author"];
+      let art = [];
+      for (let arti of x["artists"]) {
+        art.push(arti["name"])
+      }
+      x["primaryArtists"] = art.join();
+      x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
             "link": x["image"]
@@ -608,8 +614,8 @@ export async function getRecommendedSongs(artistId, sondId, language) {
           "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         }
       ];
-      x["primaryArtistsId"] = "9876541";
-      if ((!x["title"].includes("Official Trailer")) && (!x["title"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60) && (x["duration"] < 1800)){
+      x["primaryArtistsId"] = art.join();
+      if ((x["duration"] > 60) && (x["duration"] < 1800)){
         if (sondId.includes("Saregama")){
           if (x["author"].includes(sondId.split("%20")[1].replace(" new-songs",""))){
            data2.push(x);
@@ -621,7 +627,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       }
       
     }
-  }
+    //}
       return data2.slice(1);
     }else{
     const response = await fetch(
