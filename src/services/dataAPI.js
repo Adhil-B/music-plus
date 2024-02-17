@@ -216,6 +216,7 @@ function transformList(list) {
             "link": `https://i.ytimg.com/vi/${id.toString().replace("yt-","")}/hq720.jpg`
           }];
       x["name"] = x["title"];
+      x["duration"] = x["lengthSeconds"];
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = x["author"];
