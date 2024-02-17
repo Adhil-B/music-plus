@@ -228,23 +228,23 @@ function transformList(list) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${id.toString().replace("yt-","")}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${id.toString().replace("yt-","")}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${id.toString().replace("yt-","")}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${id.toString().replace("yt-","")}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${id.toString().replace("yt-","")}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         }
       ];
       result.push(x);
@@ -584,23 +584,23 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${x["id"].replace("yt-","")}}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "48kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${x["id"].replace("yt-","")}}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "96kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${x["id"].replace("yt-","")}}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "160kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${x["id"].replace("yt-","")}}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "320kbps",
-          "link": `https://ytmusic-api-nu.vercel.app/audio/${x["id"].replace("yt-","")}}`
+          "link": `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}}`
         }
       ];
       x["primaryArtistsId"] = "9876541";
