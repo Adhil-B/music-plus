@@ -590,7 +590,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
       x["name"] = x["title"].split(" -")[0].split(" |")[0];
-      x["id"] = `yt-${x["id"]}`;
+      x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
       x["downloadUrl"] = [
         {
@@ -617,7 +617,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["primaryArtistsId"] = art.join();
       if ((x["duration"] > 60) && (x["duration"] < 1800)){
         if (sondId.includes("Saregama")){
-          if (x["author"].includes(sondId.split("%20")[1].replace(" new-songs",""))){
+          if (x["primaryArtists"].includes(sondId.split("%20")[1].replace(" new-songs",""))){
            data2.push(x);
           }
         }else{
