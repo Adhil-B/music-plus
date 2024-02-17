@@ -199,8 +199,21 @@ function transformList(list) {
     //const response = await fetch(`https://api.allorigins.win/raw?url=https%3A//beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
+    
     //const x = data22[0];
     const x = data22["videoDetails"];
+    const sresponse = await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
+    const sdata22 = await sresponse.json();
+    if (sdata22['results'][0]['primaryArtists'].includes(x["author"].split(' &')[0]) && sdata22['results'][0]['name'].includes(x["name"].split(' ')[0])){
+      const response = await fetch(`https://saavn.dev/songs?id=${id.toString()}`);
+      const data = await response.json();
+    //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
+      for (let song of data?.data) {
+        song["name"] = song["name"].replaceAll('&quot;','"').replaceAll('&#039;',"'");
+        result.push(song);
+      }
+    }else{
+      
       x["primaryArtists"] = x["author"];
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
@@ -250,7 +263,7 @@ function transformList(list) {
       ];
       result.push(x);
           
-    }else{
+    }}else{
     const response = await fetch(`https://saavn.dev/songs?id=${id.toString()}`);
     const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
@@ -416,7 +429,7 @@ export async function getSearchedData(query) {
       for (let arti of x["artists"]) {
         art.push(arti["name"])
       }
-      x["primaryArtists"] = art.join();
+      x["primaryArtists"] = art.reverse().join();
       x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
@@ -439,7 +452,7 @@ export async function getSearchedData(query) {
       };
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = art.join();
+      x["primaryArtistsId"] = art.reverse().join();
       //if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         data2.push(x);
       //}
@@ -571,7 +584,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       for (let arti of x["artists"]) {
         art.push(arti["name"])
       }
-      x["primaryArtists"] = art.join();
+      x["primaryArtists"] = art.reverse().join();
       x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
@@ -615,7 +628,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
           "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
         }
       ];
-      x["primaryArtistsId"] = art.join();
+      x["primaryArtistsId"] = art.reverse().join();
       if (!x["name"].includes(songName)){
       data2.push(x);
       }
