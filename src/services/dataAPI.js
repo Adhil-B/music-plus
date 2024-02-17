@@ -205,8 +205,8 @@ function transformList(list) {
     let sresponse;
     let sdata22;
     if (id2.length > 1) {
-    sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`) : [];
-    sdata22 = await sresponse.json() : [];
+    sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
+    sdata22 = await sresponse.json();
     }
     if (sdata22.data.results[0].primaryArtists.includes(x["author"].replace('& ', '').replace(' ,', ',').split(', ').reverse()[0]) && sdata22.data.results[0].name.includes(x["title"].split(' ')[0])){
       const response = await fetch(`https://saavn.dev/songs?id=${sdata22['data']['results'][0]['id']}`);
