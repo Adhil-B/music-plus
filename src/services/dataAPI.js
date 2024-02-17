@@ -409,7 +409,7 @@ export async function getSearchedData(query) {
     const response1 = await fetch(`https://podz-music.vercel.app/api/search/?query=${query}`);
     const data1 = await response1.json();
     const data2 = [];
-    if (data1[0]["author"].includes("Saregama") || data1[1]["author"].includes("Saregama") || query.includes("yt:") || query.includes("youtube")){
+    if (data1[0]["author"].includes("Saregama") || data1[1]["author"].includes("Saregama") || query.includes("yt:") || query.includes("youtube") || data.data["songs"]["results"].length < 3){
     for (let x of data1) {
       x["primaryArtists"] = x["author"];
       x["image"] = [{
@@ -434,7 +434,7 @@ export async function getSearchedData(query) {
       x["id"] = `yt-${x["id"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = x["author"];
-      if (((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["author"].includes("Saregama")) && (x["duration"] > 60) && (x["duration"] < 1800)) || query.includes("yt:") || query.includes("youtube")){
+      if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         data2.push(x);
       }
       
