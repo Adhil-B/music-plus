@@ -12,7 +12,7 @@ import { addSongToPlaylist, deleteSongFromPlaylist, getUserPlaylists } from '@/s
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { MdOutlineDeleteOutline } from 'react-icons/md'
-import { MdDownloadForOffline } from "react-icons/md";
+import { MdOutlineDownloadForOffline } from "react-icons/md";
 import { MdOutlineDownloading } from "react-icons/md";
 
 const SongsList = ({ SongData, loading, hidePlays, isUserPlaylist, playlistID, setSongs, downloading }) => {
@@ -114,7 +114,7 @@ setAllfilenames(localStorage?.getItem("downloaded") ? localStorage.getItem("down
                   </div>
                   <div className=" w-[40vw] md:w-64 mb-3">
                     <div className="flex gap-[0.2rem] items-center">
-                    <MdDownloadForOffline size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px] text-[#00e6e6]' : 'hidden'}/>
+                    <MdOutlineDownloadForOffline size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px] text-[#00e6e6]' : 'hidden'}/>
                     <MdOutlineDownloading size={16} className={allfilenames.includes(`img-${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}`) && !allfilenames.includes(`${song?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`) ? 'min-w-[17px] ' : 'hidden'}/>
                       <p className="text-sm lg:text-lg font-semibold truncate">{
                       song?.name?.replace("&#039;", "'")?.replaceAll("&amp;", "&")?.replaceAll('&quot;','"')
