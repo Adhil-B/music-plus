@@ -560,7 +560,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
     if (sondId.includes("yt-")){
       const response = await fetch(`https://ytmrelay-api.onrender.com/song?videoId=${sondId.replace("yt-","")}`);
       const data = await response.json();
-      const songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : videoDetails["title"];
+      const songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
       const response1 = await fetch(`https://ytmrelay-api.onrender.com/search?query=${songName}&filter=songs`);
       const data1 = await response1.json();
       const data2 = [];
