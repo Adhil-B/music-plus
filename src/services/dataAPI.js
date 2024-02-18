@@ -241,6 +241,7 @@ function transformList(list) {
           }];
       x["name"] = x["title"];
       x["duration"] = x["lengthSeconds"];
+      x["playCount"] = parseInt(x["viewCount"]);
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = x["author"];
