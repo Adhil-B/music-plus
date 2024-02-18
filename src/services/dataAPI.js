@@ -195,7 +195,7 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
-    const response = await fetch(`https://ytmrelay-api.onrender.com/song?videoId=${id.toString().replace("yt-","")}`);
+    const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replace("yt-","")}`);
     //const response = await fetch(`https://api.allorigins.win/raw?url=https%3A//beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
@@ -256,23 +256,23 @@ function transformList(list) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${id.toString().replace("yt-","")}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
         }
       ];
       result.push(x);
@@ -434,7 +434,7 @@ export async function getSearchedData(query) {
     const response = await fetch(`https://saavn.dev/search/all?query=${query}`);
     const data = await response.json();
     
-    const response1 = await fetch(`https://ytmrelay-api.onrender.com/search?query=${query}&filter=songs`);
+    const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}&filter=songs`);
     const data1 = await response1.json();
     const data2 = [];
     if (query.includes("youtube") || data.data["songs"]["results"].length < 3){
@@ -586,10 +586,10 @@ export async function sendResetPasswordLink(email) {
 export async function getRecommendedSongs(artistId, sondId, language) {
   try {
     if (sondId.includes("yt-")){
-      const response = await fetch(`https://ytmrelay-api.onrender.com/song?videoId=${sondId.replace("yt-","")}`);
+      const response = await fetch(`https://ytpi.vercel.app/song?videoId=${sondId.replace("yt-","")}`);
       const data = await response.json();
       const songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
-      const response1 = await fetch(`https://ytmrelay-api.onrender.com/search?query=${songName}&filter=songs`);
+      const response1 = await fetch(`https://ytpi.vercel.app/search?query=${songName}&filter=songs`);
       const data1 = await response1.json();
       const data2 = [];
     //if (data1[0]["author"].includes("Saregama")){
@@ -623,23 +623,23 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "48kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "96kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "160kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}}`
         },
         {
           "quality": "320kbps",
-          "link": `https://soundrex.onrender.com/api/v1/audio?id=${x["id"].replace("yt-","")}}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}}`
         }
       ];
       x["primaryArtistsId"] = art.reverse().join();
