@@ -151,9 +151,9 @@ const page = ({params}) => {
           </SwiperLayout>
         </div>
             
-        <div className={`mt-10 text-gray-200 ${searchedData && searchedData?.albums?.results?.length > 0 ? "" : 'hidden'}`}>
+        <div className={`mt-10 text-gray-200 ${searchedData && searchedData?.playlists?.results?.length > 0 ? "" : 'hidden'}`}>
         <SwiperLayout title={"Playlists"}>
-        { searchedData && searchedData?.albums?.results?.length > 0 &&
+        { searchedData && searchedData?.playlists?.results?.length > 0 &&
         searchedData?.playlists?.results?.map(
             (song) =>
                 (
