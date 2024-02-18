@@ -206,6 +206,7 @@ function transformList(list) {
     let sdata22;
     let true1 = false;
     let true2 = false;
+    let true3 = false;
     if (id2.length < 2) {
     sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
