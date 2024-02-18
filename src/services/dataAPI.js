@@ -272,7 +272,7 @@ function transformList(list) {
         },
         {
           "quality": "320kbps",
-          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}&redirect=true`
         }
       ];
       result.push(x);
