@@ -209,12 +209,13 @@ function transformList(list) {
     if (id2.length < 2) {
     sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
-    true1 = sdata22.data?.results?.length < 1 ? false : sdata22.data.results[0].primaryArtists.includes(x["author"].replace('& ', '').replace(' ,', ',').split(', ').reverse()[0]);
+    true1 = sdata22.data?.results?.length < 1 ? false : x["author"].includes(sdata22.data.results[0].primaryArtists.split(', ')[0]);
     true2 = sdata22.data?.results?.length < 1 ? false : sdata22.data.results[0].name.includes(x["title"].split(' ')[0]);
+    true3 = sdata22.data?.results?.length < 1 ? false : Math.abs(parseInt(sdata22.data.results[0].duration) - parseInt(x["lengthSeconds"])) < 15;
     }
     
     
-    if (true1 && true2){
+    if (true1 && true2 && true3){
       const response = await fetch(`https://saavn.dev/songs?id=${sdata22['data']['results'][0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
