@@ -14,7 +14,6 @@ import SongBar from "./SongBar";
 import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
-import ytdl from "react-native-ytdl"
 
 
 const Home = () => {
