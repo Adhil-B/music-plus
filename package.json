@@ -34,6 +34,7 @@
     "swiper": "^10.0.4",
     "tailwindcss": "3.3.3",
     "browser-file-storage":"1.0.7",
+    "ytdl-core": "^4.11.4",
     "youtubei.js" : "8.1.0"
   }
 }
