@@ -14,7 +14,7 @@ import SongBar from "./SongBar";
 import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
-
+import ytdl from 'ytdl-core'
 
 const Home = () => {
 
@@ -64,6 +64,19 @@ const Home = () => {
       setSongR(res3 ? res3["recommendations"] : []);        
       setLoading2(false);
 
+      
+  const url = `https://www.youtube.com/watch?v=hicTBoq7UbA`
+  try {
+    const info = await ytdl.getInfo(url as string)
+    const audioFormat = ytdl.chooseFormat(info.formats, { quality: "251" })
+
+    const audioUrl = audioFormat.url
+
+    console.log(audioUrl)
+  } catch (err) {
+    console.error(err)
+  }
+      
     };
 
     fetchDataa();
