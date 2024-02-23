@@ -67,7 +67,7 @@ const Home = () => {
       
   const url = `https://www.youtube.com/watch?v=hicTBoq7UbA`
   try {
-    const info = await ytdl.getInfo(url as string)
+    const info = await ytdl.getInfo(url)
     const audioFormat = ytdl.chooseFormat(info.formats, { quality: "251" })
 
     const audioUrl = audioFormat.url
