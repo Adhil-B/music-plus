@@ -256,23 +256,23 @@ function transformList(list) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         }
       ];
       result.push(x);
