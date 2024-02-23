@@ -18,10 +18,11 @@ import ytdl from "react-native-ytdl"
 
 
 const Home = () => {
-
+  async function myFunction() {
   const youtubeURL = 'http://www.youtube.com/watch?v=04GiqLjRO3A';
 const urls = await ytdl(youtubeURL, { quality: 'highestaudio' });
-
+    return urls;
+  }
   const [data, setData] = useState("");
   const [data2, setData2] = useState("");
   const [data3, setData3] = useState("");
@@ -38,7 +39,7 @@ const urls = await ytdl(youtubeURL, { quality: 'highestaudio' });
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
         setSelectedHomeCategories(cat);
-    console.log(urls)
+    
   }, [homeCategories]);
   // salutation
   const currentTime = new Date();
@@ -67,7 +68,7 @@ const urls = await ytdl(youtubeURL, { quality: 'highestaudio' });
       setData3(res3);
       setSongR(res3 ? res3["recommendations"] : []);        
       setLoading2(false);
-      
+      console.log(await myFunction())
     };
 
     fetchDataa();
