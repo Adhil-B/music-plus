@@ -14,8 +14,14 @@ import SongBar from "./SongBar";
 import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
+import ytdl from "react-native-ytdl"
+
+
 const Home = () => {
-  
+
+  const youtubeURL = 'http://www.youtube.com/watch?v=04GiqLjRO3A';
+const urls = await ytdl(youtubeURL, { quality: 'highestaudio' });
+
   const [data, setData] = useState("");
   const [data2, setData2] = useState("");
   const [data3, setData3] = useState("");
@@ -32,6 +38,7 @@ const Home = () => {
   useEffect(() => {
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
         setSelectedHomeCategories(cat);
+    console.log(urls)
   }, [homeCategories]);
   // salutation
   const currentTime = new Date();
