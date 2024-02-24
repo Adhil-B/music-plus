@@ -63,7 +63,7 @@ setDone([false,done[1],done[2]]);
 
     var xhr = new XMLHttpRequest();
     var xhr2 = new XMLHttpRequest();
-    xhr.open('GET', songUrl, true);
+    xhr.open('GET', songUrl.replace('https://ytmrelay-api.onrender.com/audio?videoId=', `https://ytpi.vercel.app/audio?videoId=${songUrl.split('videoId=')[1]}&abr=true`), true);
     xhr2.open('GET', imageUrl, true);
     xhr.responseType = 'blob';
     xhr2.responseType = 'blob';
