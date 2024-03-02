@@ -434,7 +434,7 @@ export async function getSearchedData(query) {
     const response = await fetch(`https://saavn.dev/search/all?query=${query}`);
     const data = await response.json();
     
-    const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}&filter=songs`);
+    const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);
     const data1 = await response1.json();
     const data2 = [];
     if (query.includes("youtube") || data.data["songs"]["results"].length < 3){
