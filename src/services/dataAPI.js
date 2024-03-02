@@ -451,11 +451,11 @@ export async function getSearchedData(query) {
           },
           {
             "quality": "150x150",
-            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w150-h150')}`
+            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w150-h150')}`
           },
           {
             "quality": "500x500",
-            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w500-h500')}`
+            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w500-h500')}`
           }];
       x["name"] = JSON.stringify(x["title"]);
       x["title"] = x["title"];
