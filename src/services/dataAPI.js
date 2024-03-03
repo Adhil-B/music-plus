@@ -208,7 +208,7 @@ function transformList(list) {
     let true2 = false;
     let true3 = false;
     if (id2.length < 2) {
-    sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"]}&page=1&limit=2`);
+    sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"].split(' (')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     true1 = sdata22.data?.results?.length < 1 ? false : x["author"].replace(' ', '').includes(sdata22.data.results[0].primaryArtists.replace(' ', '').split(',')[0]);
     true2 = sdata22.data?.results?.length < 1 ? false : sdata22.data.results[0].name.includes(x["title"].split(' ')[0]);
