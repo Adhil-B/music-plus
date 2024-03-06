@@ -128,9 +128,9 @@ export async function homePageData3(songHistory) {
     */
     //
     //
-    const data2 = await getRecommendedSongs(sh[0] ? sh[0]["name"] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam");
-    const data3 = await getRecommendedSongs(sh[1] ? sh[1]["name"] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam");
-    const data4 = await getRecommendedSongs(sh[2] ? sh[2]["name"] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam");
+    const data2 = await getRecommendedSongs(sh[0] ? sh[0]["name"] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "name");
+    const data3 = await getRecommendedSongs(sh[1] ? sh[1]["name"] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "name");
+    const data4 = await getRecommendedSongs(sh[2] ? sh[2]["name"] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "name");
     const alldata0 = sh[0] ? data2 : [];
     const alldata = alldata0.slice(0,7).concat(sh[1] ? data3?.slice(0,6) : []).concat(sh[2] ? data4?.slice(0,5) : []);
 
@@ -594,11 +594,13 @@ export async function getRecommendedSongs(artistId, sondId, language) {
   try {
     if (sondId.includes("yt-")){
       let songName;
-
+      if (language == 'name'){
+      songName = artistId;  
+      }else{
       const response = await fetch(`https://ytpi.vercel.app/song?videoId=${sondId.replace("yt-","")}`);
       const data = await response.json();
       songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
-      
+      }
 
       const response1 = await fetch(`https://ytpi.vercel.app/search?query=${songName}&filter=songs`);
       const data1 = await response1.json();
