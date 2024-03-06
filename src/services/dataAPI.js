@@ -231,15 +231,15 @@ function transformList(list) {
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
-            "link": x["thumbnail"]["thumbnails"][0]['url']
+            "link": x["thumbnail"]["thumbnails"][0]['url'].replace('sddefault', 'hqdefault')
           },
           {
             "quality": "150x150",
-            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w150-h150')
+            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault')
           },
           {
             "quality": "500x500",
-            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w500-h500')
+            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault')
           }];
       x["name"] = x["title"];
       x["duration"] = x["lengthSeconds"];
