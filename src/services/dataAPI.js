@@ -23,7 +23,7 @@ export async function homePageData2() {
     const favresponse = await fetch("/api/favourite");
     const fav = await favresponse.json();
     const favsong = fav?.data?.favourites.reverse();
-    const sh = favsong.slice(0, 3).join();
+    const sh = favsong.slice(0, 3);
 
    /* const response = await fetch("/api/recommend", {
       method: "POST",
