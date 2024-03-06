@@ -64,10 +64,10 @@ export async function homePageData2() {
     //
     const data2 = await getRecommendedSongs("546878", sh[0] ? sh[0] : "1tG_QlMf", "malayalam");
     //const data2 = await response2.json();
-    const data3 = await response3.json();
-    const data4 = await response4.json();
+    const data3 = await getRecommendedSongs("546878", sh[1] ? sh[1] : "1tG_QlMf", "malayalam");
+    const data4 = await getRecommendedSongs("546878", sh[2] ? sh[2] : "1tG_QlMf", "malayalam");
     const alldata0 = sh[0] ? data2 : [];
-    const alldata = alldata0.slice(0,7).concat(sh[1] ? data3?.data.slice(0,6) : []).concat(sh[2] ? data4?.data.slice(0,5) : []);
+    const alldata = alldata0.slice(0,7).concat(sh[1] ? data3?.slice(0,6) : []).concat(sh[2] ? data4?.slice(0,5) : []);
 
     let alldata1 = alldata
     .map(value => ({ value, sort: Math.random() }))
