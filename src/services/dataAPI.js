@@ -605,15 +605,15 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": `${x["thumbnails"][0]['url']}`
+            "link": `${x["thumbnails"][0]['url'].replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "150x150",
-            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w150-h150')}`
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "500x500",
-            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w500-h500')}`
+            "link": `${x["thumbnails"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault')}`
           }];
       x["album"] = {
         "id": "13615087",
