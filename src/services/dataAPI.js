@@ -105,21 +105,21 @@ export async function homePageData3(songHistory) {
     const [response2,response3,response4] = await Promise.all([
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam"] }),
+      body: JSON.stringify({ "data": [sh[0] ? sh[0]["name"] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam"] }),
+      body: JSON.stringify({ "data": [sh[1] ? sh[1]["name"] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
    fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam"] }),
+      body: JSON.stringify({ "data": [sh[2] ? sh[2]["name"] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -593,9 +593,15 @@ export async function sendResetPasswordLink(email) {
 export async function getRecommendedSongs(artistId, sondId, language) {
   try {
     if (sondId.includes("yt-")){
+      let songName;
+      if (isInteger(artistId)){
       const response = await fetch(`https://ytpi.vercel.app/song?videoId=${sondId.replace("yt-","")}`);
       const data = await response.json();
-      const songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
+      songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
+      }else{
+      songName = artistId;
+      }
+
       const response1 = await fetch(`https://ytpi.vercel.app/search?query=${songName}&filter=songs`);
       const data1 = await response1.json();
       const data2 = [];
