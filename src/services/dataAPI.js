@@ -210,11 +210,12 @@ function transformList(list) {
     if (id2.length < 2) {
     sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"].split(' (')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
-    sdata22length = sdata22.data?.results?.length < 1 ? true;
+    if (sdata22.data?.results?.length > 0){
     artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
-    true1 = sdata22length ? false : x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
-    true2 = sdata22length ? false : sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
-    true3 = sdata22length ? false : Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
+    true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
+    true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
+    true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
+    }
     }
     
     
