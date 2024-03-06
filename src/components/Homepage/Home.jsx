@@ -1,6 +1,6 @@
 "use client";
 //
-import { homePageData, homePageData2, homePageData3, getLang } from "@/services/dataAPI";
+import { homePageData, homePageData2, homePageData3, getLang, getRecommendedSongs } from "@/services/dataAPI";
 import React from "react";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
