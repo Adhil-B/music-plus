@@ -52,7 +52,7 @@ export async function homePageData2() {
     }),
    fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[2] ? sh[2] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
