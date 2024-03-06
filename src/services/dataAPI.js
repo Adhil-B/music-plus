@@ -212,7 +212,7 @@ function transformList(list) {
     sdata22 = await sresponse.json();
     sdata22length = sdata22.data?.results?.length;
     artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
-    true1 = sdata22length < 1 ? false : x["author"].replace(' ', '').includes(artistnamelist?[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
+    true1 = sdata22length < 1 ? false : x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
     true2 = sdata22length < 1 ? false : sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
     true3 = sdata22length < 1 ? false : Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
     }
