@@ -33,7 +33,7 @@ export async function homePageData2() {
       },
     });
     const data99 = await response.json();
-    const sh = favsong ? data99?.data : [];*/
+    const sh = favsong ? data99?.data : [];
     
     const [response2,response3,response4] = await Promise.all([
     fetch("/api/recommend", {
@@ -59,7 +59,7 @@ export async function homePageData2() {
     })
     ]);
 
-    
+    */
     //
     //
     const data2 = await getRecommendedSongs("546878", sh[0] ? sh[0] : "1tG_QlMf", "malayalam");
@@ -101,7 +101,7 @@ export async function homePageData3(songHistory) {
   try {
 
     const sh = songHistory ? songHistory.slice(0, 3) : [];
-    
+    /*
     const [response2,response3,response4] = await Promise.all([
     fetch("/api/recommend", {
       method: "PUT",
@@ -125,14 +125,14 @@ export async function homePageData3(songHistory) {
       },
     })
     ]);
-    
+    */
     //
     //
-    const data2 = await response2.json();
-    const data3 = await response3.json();
-    const data4 = await response4.json();
-    const alldata0 = sh[0] ? data2?.data : [];
-    const alldata = alldata0.slice(0,7).concat(sh[1] ? data3?.data.slice(0,6) : []).concat(sh[2] ? data4?.data.slice(0,5) : []);
+    const data2 = await getRecommendedSongs(sh[0] ? sh[0]["name"] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam");
+    const data3 = await getRecommendedSongs(sh[1] ? sh[1]["name"] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam");
+    const data4 = await getRecommendedSongs(sh[2] ? sh[2]["name"] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam");
+    const alldata0 = sh[0] ? data2 : [];
+    const alldata = alldata0.slice(0,7).concat(sh[1] ? data3?.slice(0,6) : []).concat(sh[2] ? data4?.slice(0,5) : []);
 
     let alldata1 = alldata
     .map(value => ({ value, sort: Math.random() }))
