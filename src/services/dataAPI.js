@@ -594,12 +594,12 @@ export async function getRecommendedSongs(artistId, sondId, language) {
   try {
     if (sondId.includes("yt-")){
       let songName;
-      if (Number.isInteger(artistId)){
+      if (typeof artistId === "string"){
+      songName = artistId;
+      }else{
       const response = await fetch(`https://ytpi.vercel.app/song?videoId=${sondId.replace("yt-","")}`);
       const data = await response.json();
       songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
-      }else{
-      songName = artistId;
       }
 
       const response1 = await fetch(`https://ytpi.vercel.app/search?query=${songName}&filter=songs`);
