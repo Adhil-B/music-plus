@@ -38,21 +38,21 @@ export async function homePageData2() {
     const [response2,response3,response4] = await Promise.all([
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": [sh[0] ? sh[0]["primaryArtistsId"].split(", ")[0] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", sh[0] ? sh[0]["language"] : "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": [sh[1] ? sh[1]["primaryArtistsId"].split(", ")[0] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", sh[1] ? sh[1]["language"] : "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
    fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": [sh[2] ? sh[2]["primaryArtistsId"].split(", ")[0] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", sh[2] ? sh[2]["language"] : "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -105,21 +105,21 @@ export async function homePageData3(songHistory) {
     const [response2,response3,response4] = await Promise.all([
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": [sh[0] ? sh[0]["primaryArtistsId"].split(", ")[0] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", sh[0] ? sh[0]["language"] : "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": [sh[1] ? sh[1]["primaryArtistsId"].split(", ")[0] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", sh[1] ? sh[1]["language"] : "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
    fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": [sh[2] ? sh[2]["primaryArtistsId"].split(", ")[0] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", sh[2] ? sh[2]["language"] : "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
