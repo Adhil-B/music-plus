@@ -227,7 +227,7 @@ function transformList(list) {
     
     }else{
       
-      x["primaryArtists"] = x["author"];
+      x["primaryArtists"] = x["author"].replace(',', ', ');
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
@@ -469,7 +469,7 @@ export async function getSearchedData(query) {
       };
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = art.reverse().join();
+      x["primaryArtistsId"] = art.join();
       //if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         data2.push(x);
       //}
@@ -645,7 +645,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
           "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         }
       ];
-      x["primaryArtistsId"] = art.reverse().join();
+      x["primaryArtistsId"] = art.join();
       if (!x["name"].includes(songName)){
       data2.push(x);
       }
