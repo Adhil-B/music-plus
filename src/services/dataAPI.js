@@ -211,7 +211,7 @@ function transformList(list) {
     sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"].split(' (')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
-    artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
+    let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
     true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
     true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
     true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
@@ -256,7 +256,7 @@ function transformList(list) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      lengthshort = x["lengthSeconds"] < 252;
+      let lengthshort = x["lengthSeconds"] < 252;
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
