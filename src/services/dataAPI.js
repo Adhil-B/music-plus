@@ -439,7 +439,7 @@ export async function getSearchedData(query) {
     const data2 = [];
     if (query.includes("youtube") || data.data["songs"]["results"].length < 3){
     for (let x of data1) {
-      if !("Top result Songs".include(x['category']) && x['videoId'] != null) { continue; }
+      if (!("Top result Songs".include(x['category']) && x['videoId'] != null)) { continue; }
       let art = [];
       for (let arti of x["artists"]) {
         if (arti["id"] != null) {
