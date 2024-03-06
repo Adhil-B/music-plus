@@ -23,9 +23,9 @@ export async function homePageData2() {
     const favresponse = await fetch("/api/favourite");
     const fav = await favresponse.json();
     const favsong = fav?.data?.favourites.reverse();
-    const favsongs = favsong.slice(0, 3).join();
+    const sh = favsong.slice(0, 3).join();
 
-    const response = await fetch("/api/recommend", {
+   /* const response = await fetch("/api/recommend", {
       method: "POST",
       body: JSON.stringify({ "data": favsongs }),
       headers: {
@@ -33,19 +33,19 @@ export async function homePageData2() {
       },
     });
     const data99 = await response.json();
-    const sh = favsong ? data99?.data : [];
+    const sh = favsong ? data99?.data : [];*/
     
     const [response2,response3,response4] = await Promise.all([
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[0] ? sh[0] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
     }),
     fetch("/api/recommend", {
       method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam"] }),
+      body: JSON.stringify({ "data": ["546878", sh[1] ? sh[1] : "1tG_QlMf", "malayalam"] }),
       headers: {
         "Content-Type": "application/json",
       },
