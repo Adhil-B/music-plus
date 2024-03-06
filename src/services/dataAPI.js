@@ -450,15 +450,15 @@ export async function getSearchedData(query) {
       x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": `${x["thumbnails"][0]['url']}`
+            "link": `${x["thumbnails"][0]['url'].replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "150x150",
-            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w150-h150')}`
+            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "500x500",
-            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w500-h500')}`
+            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault')}`
           }];
       x["name"] = JSON.stringify(x["title"]);
       x["title"] = x["title"];
