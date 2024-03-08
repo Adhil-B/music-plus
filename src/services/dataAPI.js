@@ -444,7 +444,7 @@ export async function getSearchedData(query) {
     let lastname = ':';
     if (query.includes("youtube") || data.data["songs"]["results"].length < 3){
     for (let x of data1) {
-      if (lastname == "Top result:"+JSON.stringify(x["title"]){ data2.pop(); }
+      if (lastname == "Top result:"+JSON.stringify(x["title"])){ data2.pop(); }
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
       
       let art = [];
