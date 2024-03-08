@@ -446,7 +446,7 @@ export async function getSearchedData(query) {
       if (!("Top result Songs".includes(x['category']) && x['videoId'] != null)) { continue; }
       let art = [];
       for (let arti of x["artists"]) {
-        if (arti["id"] != null) {
+        if (!'Video'.includes(arti["name"])) {
         art.push(arti["name"])
         }
       }
