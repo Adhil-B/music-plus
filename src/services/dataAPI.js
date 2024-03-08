@@ -444,8 +444,8 @@ export async function getSearchedData(query) {
     let lastname = ':';
     const true1 = query.includes("youtube") || data.data["songs"]["results"].length < 3 || (data.data?.songs?.results[0]?.name != JSON.stringify(data1[0].title) && data.data?.songs?.results[1]?.name != JSON.stringify(data1[0].title));
     if (true1){
-    console.log(data.data?.songs?.results[0]?.name + ":" + JSON.stringify(data1[0].title))
-    console.log(data.data?.songs?.results[1]?.name + ":" + JSON.stringify(data1[0].title))
+    console.log(data.data?.songs?.results[0].name? + ":" + JSON.stringify(data1[0].title))
+    console.log(data.data?.songs?.results[1].name + ":" + JSON.stringify(data1[0].title))
     for (let x of data1) {
       if (lastname == "Top result:"+JSON.stringify(x["title"])){ data2.pop(); }
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
