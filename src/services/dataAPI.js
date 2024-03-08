@@ -450,7 +450,7 @@ export async function getSearchedData(query) {
         art.push(arti["name"])
         }
       }
-      x["primaryArtists"] = art.reverse().join();
+      x["primaryArtists"] = art.reverse().join(", ");
       x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
