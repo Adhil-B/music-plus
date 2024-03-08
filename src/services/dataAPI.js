@@ -442,7 +442,7 @@ export async function getSearchedData(query) {
     const data1 = await response1.json();
     const data2 = [];
     let lastname = ':';
-    if (query.includes("youtube") || data.data["songs"]["results"].length < 3){
+    if (query.includes("youtube") || data.data["songs"]["results"].length < 3 || data.data?.songs?.results[0]?.name != JSON.stringify(data1[0].title)){
     for (let x of data1) {
       if (lastname == "Top result:"+JSON.stringify(x["title"])){ data2.pop(); }
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
