@@ -442,14 +442,15 @@ export async function getSearchedData(query) {
     const data1 = await response1.json();
     const data2 = [];
     let lastname = ':';
-    if (query.includes("youtube") || data.data["songs"]["results"].length < 3 || data.data?.songs?.results[0]?.name != JSON.stringify(data1[0].title)){
+    const true1 = query.includes("youtube") || data.data["songs"]["results"].length < 3 || data.data?.songs?.results[0]?.name != JSON.stringify(data1[0].title) || data.data?.songs?.results[1]?.name != JSON.stringify(data1[0].title);
+    if (true1){
     for (let x of data1) {
       if (lastname == "Top result:"+JSON.stringify(x["title"])){ data2.pop(); }
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
       
       let art = [];
       for (let arti of x["artists"]) {
-        if (!'Video'.includes(arti["name"])) {
+        if (!'VideoSong'.includes(arti["name"])) {
         art.push(arti["name"])
         }
       }
@@ -483,8 +484,8 @@ export async function getSearchedData(query) {
       
     }
   }
-    data.data["songs"]["results"] = query.includes("youtube") || data.data["songs"]["results"].length < 3 ? [...data2.slice(0,4)] : [...data2.slice(0,4),...data?.data["songs"]["results"]];
-    data.data["albums"]["results"] = query.includes("youtube") || data.data["songs"]["results"].length < 3 ? [] : data.data["albums"]["results"];
+    data.data["songs"]["results"] = true1 ? [...data2.slice(0,4)] : [...data2.slice(0,4),...data?.data["songs"]["results"]];
+    data.data["albums"]["results"] = true1 ? [] : data.data["albums"]["results"];
     return data?.data;
   } catch (error) {
     console.log(error);
