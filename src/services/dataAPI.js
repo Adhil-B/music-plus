@@ -2,7 +2,7 @@
 export async function homePageData(language) {
   try {
     const response = await fetch(
-      `https://saavn.dev/modules?language=${language.toString()}`,
+      `https://jiosaavn-api-gilt.vercel.app/modules?language=${language.toString()}`,
       {
         next: {
           revalidate: 14400,
@@ -208,7 +208,7 @@ function transformList(list) {
     let true2 = false;
     let true3 = false;
     if (id2.length < 2) {
-    sresponse =  await fetch(`https://saavn.dev/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
+    sresponse =  await fetch(`https://jiosaavn-api-gilt.vercel.app/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
     let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
@@ -220,7 +220,7 @@ function transformList(list) {
     
     
     if (true1 && true2 && true3){
-      const response = await fetch(`https://saavn.dev/songs?id=${sdata22['data']['results'][0]['id']}`);
+      const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${sdata22['data']['results'][0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
       for (let song of data?.data) {
@@ -282,7 +282,7 @@ function transformList(list) {
       result.push(x);
           
     }}else{
-    const response = await fetch(`https://saavn.dev/songs?id=${id.toString()}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${id.toString()}`);
     const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
       for (let song of data?.data) {
@@ -300,7 +300,7 @@ function transformList(list) {
 // get album data
 export async function getAlbumData(id) {
   try {
-    const response = await fetch(`https://saavn.dev/albums?id=${id}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/albums?id=${id}`);
     const data = await response.json();
     return data?.data;
   } catch (error) {
@@ -311,7 +311,7 @@ export async function getAlbumData(id) {
 // get playlist data
 export async function getplaylistData(id) {
   try {
-    const response = await fetch(`https://saavn.dev/playlists?id=${id}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/playlists?id=${id}`);
     const data = await response.json();
     return data?.data;
   } catch (error) {
@@ -322,7 +322,7 @@ export async function getplaylistData(id) {
 // get Lyrics data
 export async function getlyricsData(id) {
   try {
-    const response = await fetch(`https://saavn.dev/lyrics?id=${id}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/lyrics?id=${id}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -334,7 +334,7 @@ export async function getlyricsData(id) {
 export async function getArtistData(id) {
   try {
     if (!id.includes("Saregama")){
-    const response = await fetch(`https://saavn.dev/artists?id=${id}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/artists?id=${id}`);
     const data = await response.json();
     return data?.data;
     }else{
@@ -386,7 +386,7 @@ export async function getArtistSongs(id, page) {
   try {
     if (!id.includes("Saregama")){
     const response = await fetch(
-      `https://saavn.dev/artists/${id}/songs?page=${page}`
+      `https://jiosaavn-api-gilt.vercel.app/artists/${id}/songs?page=${page}`
     );
     const data = await response.json();
     return data?.data;
@@ -412,7 +412,7 @@ export async function getArtistSongs(id, page) {
 export async function getArtistAlbums(id, page) {
   try {
     const response = await fetch(
-      `https://saavn.dev/artists/${id}/albums?page=${page}`
+      `https://jiosaavn-api-gilt.vercel.app/artists/${id}/albums?page=${page}`
     );
     const data = await response.json();
     return data?.data;
@@ -424,7 +424,7 @@ export async function getArtistAlbums(id, page) {
 //get search artist
 export async function getSearchedArtist(query) {
   try {
-    const response = await fetch(`https://saavn.dev/search/artists?query=${query}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/search/artists?query=${query}`);
     const data = await response.json();
     return data?.data;
   } catch (error) {
@@ -435,7 +435,7 @@ export async function getSearchedArtist(query) {
 // get search data
 export async function getSearchedData(query) {
   try {
-    const response = await fetch(`https://saavn.dev/search/all?query=${query}`);
+    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/search/all?query=${query}`);
     const data = await response.json();
     
     const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);
