@@ -80,7 +80,7 @@ const page = ({params}) => {
              className="flex items-center  mt-5 cursor-pointer group border-b-[1px] border-gray-400 justify-between">
                 <div className="flex items-center gap-5">
               <div className=" relative">
-                <img src={song?.image?.[2]?.link} alt={song?.title} width={50} height={50} className="mb-3 h-[50px] object-cover"
+                <img src={song?.image?.[2]?.url} alt={song?.title} width={50} height={50} className="mb-3 h-[50px] object-cover"
                 />
            <PlayPause2
               isPlaying={isPlaying}
@@ -134,7 +134,7 @@ const page = ({params}) => {
                 <SwiperSlide key={artist?.id}>
                   <Link href={`/artist/${artist?.id}`}>
                   <div className=' flex flex-col justify-center items-center'>
-                    <Image src={artist?.image?.[2]?.link} alt={artist?.name} width={200} height={200} className="rounded-full" />
+                    <Image src={artist?.image?.[2]?.url} alt={artist?.name} width={200} height={200} className="rounded-full" />
                     <p className="lg:text-base lg:w-44 w-24 text-center text-xs font-semibold mt-3 truncate">{artist?.name?.replace("&amp;","&")}</p>
                     <div>
                       {artist?.role && (
