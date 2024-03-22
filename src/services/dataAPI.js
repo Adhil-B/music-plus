@@ -424,7 +424,7 @@ export async function getArtistAlbums(id, page) {
 //get search artist
 export async function getSearchedArtist(query) {
   try {
-    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/search/artists?query=${query}`);
+    const response = await fetch(`https://saavn.dev/api/search/artists?query=${query}`);
     const data = await response.json();
     return data?.data;
   } catch (error) {
