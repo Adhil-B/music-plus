@@ -208,7 +208,7 @@ function transformList(list) {
     let true2 = false;
     let true3 = false;
     if (id2.length < 2) {
-    sresponse =  await fetch(`https://jiosaavn-api-gilt.vercel.app/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
+    sresponse =  await fetch(`https://saavn.dev/api/search?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
     let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
@@ -435,7 +435,7 @@ export async function getSearchedArtist(query) {
 // get search data
 export async function getSearchedData(query) {
   try {
-    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/search/all?query=${query}`);
+    const response = await fetch(`https://saavn.dev/api/search?query=${query}`);
     const data = await response.json();
     
     const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);
