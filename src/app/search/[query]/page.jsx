@@ -131,7 +131,7 @@ const page = ({params}) => {
         searchedArtist?.results?.map(
             (artist) =>
                 (
-                <SwiperSlide key={artist?.id}>
+                <SwiperSlide key={artist?.id} className={`${artist?.name.includes(';') || artist?.name.includes(',') || artist?.name.includes('&') ? 'hidden' : ''}`}>
                   <Link href={`/artist/${artist?.id}`}>
                   <div className=' flex flex-col justify-center items-center'>
                     <Image src={artist?.image?.[2]?.url} alt={artist?.name} width={200} height={200} className="rounded-full" />
