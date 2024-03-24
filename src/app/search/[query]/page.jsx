@@ -80,7 +80,7 @@ const page = ({params}) => {
              className="flex items-center  mt-5 cursor-pointer group border-b-[1px] border-gray-400 justify-between">
                 <div className="flex items-center gap-5">
               <div className=" relative">
-                <img src={song?.image?.[2]?.url} alt={song?.title} width={50} height={50} className="mb-3 h-[50px] object-cover"
+                <img src={song?.image?.[2]?.url ? song?.image?.[2]?.url : song?.image?.[2]?.link} alt={song?.title} width={50} height={50} className="mb-3 h-[50px] object-cover"
                 />
            <PlayPause2
               isPlaying={isPlaying}
