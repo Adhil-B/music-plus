@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['c.saavncdn.com','static.saavncdn.com','www.jiosaavn.com','musicplus-web.vercel.app'],
+        domains: ['c.saavncdn.com','static.saavncdn.com','www.jiosaavn.com','musicplus-web.vercel.app','i.ytimg.com'],
     },
 }
 
