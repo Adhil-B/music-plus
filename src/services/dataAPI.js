@@ -14,10 +14,18 @@ export async function homePageData(language) {
     const playlists = data.data.playlists;
     const charts = data.data.charts;
     const trending = data.data.trending;
-    data.data.albums = JSON.parse(albums).filter((a) => a.explicitContent == "0");
-    data.data.playlists = JSON.parse(playlists).filter((a) => a.explicitContent == "0");
-    data.data.charts = JSON.parse(charts).filter((a) => a.explicitContent == "0");
-    data.data.trending = JSON.parse(trending).filter((a) => a.explicitContent == "0");
+    data.data.albums = albums.filter(function (entry) {
+    return entry.explicitContent === '0';
+});
+    data.data.playlists = playlists.filter(function (entry) {
+    return entry.explicitContent === '0';
+});
+    data.data.charts = charts.filter(function (entry) {
+    return entry.explicitContent === '0';
+});
+    data.data.trending = trending.filter(function (entry) {
+    return entry.explicitContent === '0';
+});
     return data?.data;
   } catch (error) {
     console.log(error);
