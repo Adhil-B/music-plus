@@ -14,10 +14,10 @@ export async function homePageData(language) {
     const playlists = data.data.playlists;
     const charts = data.data.charts;
     const trending = data.data.trending;
-    data.data.albums = albums.filter(a => a.explicitContent == "0");
-    data.data.playlists = playlists.filter(a => a.explicitContent == "0");
-    data.data.charts = charts.filter(a => a.explicitContent == "0");
-    data.data.trending = trending.filter(a => a.explicitContent == "0");
+    data.data.albums = albums.filter((a) => a.explicitContent == "0");
+    data.data.playlists = playlists.filter((a) => a.explicitContent == "0");
+    data.data.charts = charts.filter((a) => a.explicitContent == "0");
+    data.data.trending = trending.filter((a) => a.explicitContent == "0");
     return data?.data;
   } catch (error) {
     console.log(error);
