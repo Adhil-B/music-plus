@@ -14,18 +14,10 @@ export async function homePageData(language) {
     const playlists = data.data.playlists;
     const charts = data.data.charts;
     const trending = data.data.trending;
-    data.data.albums = albums.filter(function (entry) {
-    return entry.explicitContent === '0';
-});
-    data.data.playlists = playlists.filter(function (entry) {
-    return entry.explicitContent === '0';
-});
-    data.data.charts = charts.filter(function (entry) {
-    return entry.explicitContent === '0';
-});
-    data.data.trending = trending.filter(function (entry) {
-    return entry.explicitContent === '0';
-});
+    data.data.albums = albums.filter((entry) => entry.explicitContent === '0');
+    data.data.playlists = playlists.filter((entry) => entry.explicitContent === '0');
+    data.data.charts = charts.filter((entry) => entry.explicitContent === '0');
+    data.data.trending = trending.filter((entry) => entry.explicitContent === '0');
     return data?.data;
   } catch (error) {
     console.log(error);
