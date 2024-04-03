@@ -10,10 +10,14 @@ export async function homePageData(language) {
       }
     );
     const data = await response.json();
-    data.data.albums = data.data.albums.filter(a => a.explicitContent == "0");
-    data.data.playlists = data.data.playlists.filter(a => a.explicitContent == "0");
-    data.data.charts = data.data.charts.filter(a => a.explicitContent == "0");
-    data.data.trending = data.data.trending.filter(a => a.explicitContent == "0");
+    const albums = data.data.albums;
+    const playlists = data.data.playlists;
+    const charts = data.data.charts;
+    const trending = data.data.trending;
+    data.data.albums = albums.filter(a => a.explicitContent == "0");
+    data.data.playlists = playlists.filter(a => a.explicitContent == "0");
+    data.data.charts = charts.filter(a => a.explicitContent == "0");
+    data.data.trending = trending.filter(a => a.explicitContent == "0");
     return data?.data;
   } catch (error) {
     console.log(error);
