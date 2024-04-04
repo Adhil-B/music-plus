@@ -50,8 +50,7 @@ useEffect(() => {
         console.log('Saved file!', filee)
 	
 	dispatch(setPdownloading(file));
-	dispatch(setPdownloading2(file));
-   	break
+
         }).catch((error) => {
         console.error(error)
         })
