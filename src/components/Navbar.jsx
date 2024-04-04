@@ -24,50 +24,66 @@ import { setIsTyping } from '@/redux/features/loadingBarSlice';
 const Navbar = () => {
   const dispatch = useDispatch();
   const { pdownloading } = useSelector((state) => state.player);
-  const { pdownloading2 } = useSelector((state) => state.player);
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [showNav, setShowNav] = React.useState(false);
   const [pd, setPd] = React.useState([]);
-  //const [pdd, setPdd] = React.useState(false);
+  const [pdd, setPdd] = React.useState(false);
   
 
 useEffect(() => {
-	let pending = []
-	browserFileStorage.list().then((filenames) => {
-    	browserFileStorage.loadAll().then((files) => {
-		
-    	for(let f in files) {
-        let file = files[f]
-	if (file.filename.includes('img-') && !(filenames.includes(file.filename.replace('img-','')+'.mp3'))){
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', file.metadata.songUrl, true);
-	xhr.responseType = 'blob';
-	xhr.onload = function(e) {
-      	if (this.status == 200) {
+
+	const pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage.getItem("downloading")) : [...pdownloading];
+	const down = localStorage?.getItem("downloaded") ? localStorage.getItem("downloaded") : [];
+	
+	let i = 0;
+	function downloadp(){
+		setPd(pending);		
+		if (!down.includes(pending[i].filename)){
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', pending[i].songUrl, true);
+		xhr.responseType = 'blob';
+		xhr.onload = function(e) {
+      		if (this.status == 200) {
         
-        var blob = this.response;
-        browserFileStorage.save(file.filename.replace('img-','')+'.mp3', blob, null, { artist: file.metadata.artist, duration: file.metadata.duration }).then((filee) => {
-        console.log('Saved file!', filee)
-	
-	dispatch(setPdownloading(file));
-
-        }).catch((error) => {
-        console.error(error)
-        })
-      	}
-    	};
+        	var blob = this.response;
+        	browserFileStorage.save(pending[i].filename, blob, null, { artist: pending[i].artist, duration: pending[i].duration }).then((file) => {
+            	console.log('Saved file!', file)
+	    	browserFileStorage.list().then((filenames) => {
+	    	localStorage?.setItem("downloaded" , filenames);
+		//pending.splice(i, 1);
+		//localStorage?.setItem("downloading" , JSON.stringify(pending));
+		dispatch(setPdownloading(pending));
+		if (i < (pending.length - 1)){
+			i += 1;
+		        downloadp()
+		}else{
+			localStorage?.setItem("downloading" , JSON.stringify([]));
+		}
+            	
+            	}).catch((error) => {})    
+        	})
+        	.catch((error) => {
+            	console.error(error)
+        	})
+      		}
+    		};
 		
-	xhr.send();
-
+		xhr.send();
+		
+	}else{
+		//pending.splice(i, 1);
+		//localStorage?.setItem("downloading" , JSON.stringify(pending));
+		if (i < (pending.length - 1)){
+			i += 1;
+		        downloadp()
+		}	
+	}}
+	if (pending.length > 0 && pending !== pd){
+		downloadp();
 	}
-    	}
-		
-	}).catch((error) => {})
-        }).catch((error) => {})
 	
 	
-	
-}, [pdownloading2]);
+}, [pdownloading, pdd]);
 	
   return (
     <>
