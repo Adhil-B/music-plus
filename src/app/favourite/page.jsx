@@ -108,7 +108,7 @@ for (let i in favouriteSongs) {
       if (this.status == 200) {
         
         var blob = this.response;
-        browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob).then((file) => {
+        browserFileStorage.save(`img-${filename.replace('.mp3','')}`, blob, null, {artist: artists, duration: duration, songUrl: songUrl}).then((file) => {
             console.log('Saved Image', file)
 	    let pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage?.getItem("downloading"))?.filter((song) => song?.filename !== filename) : [];
 	    let newlist = [...pending, {filename: filename, artist: artists, duration: duration, songUrl: songUrl}];
