@@ -17,7 +17,6 @@ const page = () => {
   const [start, setStart] = useState(false);
   const { status } = useSession();
   const { pdownloading } = useSelector((state) => state.player);
-  const { pdownloading2 } = useSelector((state) => state.player);
 
 useEffect(() => {
 try{
@@ -113,7 +112,7 @@ for (let i in favouriteSongs) {
 	    let pending = localStorage?.getItem("downloading") ? JSON.parse(localStorage?.getItem("downloading"))?.filter((song) => song?.filename !== filename) : [];
 	    let newlist = [...pending, {filename: filename, artist: artists, duration: duration, songUrl: songUrl}];
 	    localStorage?.setItem("downloading" , JSON.stringify(newlist));
-	    dispatch(setPdownloading2(newlist));
+	    dispatch(setPdownloading(newlist));
 	    browserFileStorage.list().then((filenames) => {
 	    localStorage?.setItem("downloaded" , filenames);
             setDownloading([...downloading, song.id])
