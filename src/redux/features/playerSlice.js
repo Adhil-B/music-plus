@@ -9,6 +9,7 @@ const initialState = {
   fullScreen: false,
   autoAdd: true,
   pdownloading: [],
+  pdownloading2: [],
 };
 
 const playerSlice = createSlice({
@@ -62,11 +63,14 @@ const playerSlice = createSlice({
     },
     setPdownloading: (state, action) => {
       state.pdownloading = action.payload;
+    },
+    setPdownloading2: (state, action) => {
+      state.pdownloading2 = action.payload;
     }
    
   },
 });
 
-export const { setActiveSong, nextSong, prevSong, playPause, setFullScreen, setAutoAdd, setPdownloading } = playerSlice.actions;
+export const { setActiveSong, nextSong, prevSong, playPause, setFullScreen, setAutoAdd, setPdownloading, setPdownloading2 } = playerSlice.actions;
 
 export default playerSlice.reducer;
