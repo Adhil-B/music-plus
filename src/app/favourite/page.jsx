@@ -8,10 +8,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
-import { search, get_song, set_option } from "http://esm.sh/libmuse@0.0.97";
 
-// import { search, set_option } from "https://jspm.dev/npm:libmuse@VERSION";
-// import { search, set_option } from "https://cdn.skypack.dev/libmuse@VERSION";
+
 
 const page = () => {
   const dispatch = useDispatch();
@@ -21,13 +19,10 @@ const page = () => {
   const [start, setStart] = useState(false);
   const { status } = useSession();
   const { pdownloading } = useSelector((state) => state.player);
-set_option("proxy", "https://cors-anywhere.herokuapp.com/corsdemo");
+
 	
 useEffect(() => {
-get_song("YIt4KTMPZ8Q")
-  .then((data) => {
-    console.log("song", data);
-  });
+
 try{
 browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {}
