@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { MdOutlineDownloading } from "react-icons/md";
-import { search, get_song, set_option } from "https://jspm.dev/npm:libmuse@latest";
+import { search, get_song, set_option } from "http://esm.sh/libmuse@0.0.97";
 
 // import { search, set_option } from "https://jspm.dev/npm:libmuse@VERSION";
 // import { search, set_option } from "https://cdn.skypack.dev/libmuse@VERSION";
