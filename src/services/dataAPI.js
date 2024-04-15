@@ -264,23 +264,23 @@ function transformList(list) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
         }
       ];
       result.push(x);
@@ -647,23 +647,23 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         },
         {
           "quality": "48kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         },
         {
           "quality": "96kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         },
         {
           "quality": "160kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         },
         {
           "quality": "320kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytmrelay-api.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         }
       ];
       x["primaryArtistsId"] = art.join();
