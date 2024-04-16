@@ -455,7 +455,7 @@ export async function getSearchedData(query) {
       console.log(lastname.split(":")[0],':',lastname.split(':')[1],':', JSON.stringify(x["title"]))
       console.log(lastname.split(":")[0].includes("Top result") && lastname.split(':')[1].includes(JSON.stringify(x["title"])))
       console.log(lastname.split(":")[0].includes("Top result"))
-      console.log(lastname.split(':')[1].includes(JSON.stringify(x["title"])))
+      console.log(lastname.split(':')[1].includes(x["title"]))
       if (lastname.split(":")[0].includes("Top result") && lastname.split(':')[1].includes(JSON.stringify(x["title"]))){ data2.pop(); console.log('hi');}
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
       
