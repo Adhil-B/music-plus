@@ -216,7 +216,7 @@ function transformList(list) {
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
     let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
-    true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1)) || Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 1;
+    true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
     true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
     true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
     }
