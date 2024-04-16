@@ -149,7 +149,7 @@ const allMusic = [];
 browserFileStorage.init('downloads').then((status) => {
 browserFileStorage.loadAll().then((files) => {
     let i=0;
-    for(let f in files) {
+    for(let f in files.sort(dynamicSort("lastModified"))) {
 	let file = files[f]
 	if (!file.filename.includes("img-")){
 	
