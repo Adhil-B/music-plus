@@ -4,7 +4,7 @@
   "display": "standalone",
   "version": "0.1.3",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/#",
   "name": "Music+",
   "description": "Free Music streaming and downloading platform.",
   "short_name": "Music+",
