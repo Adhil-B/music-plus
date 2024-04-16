@@ -208,22 +208,22 @@ function transformList(list) {
     const x = data22["videoDetails"];
     let sresponse;
     let sdata22;
-    let true1 = false;
+    //let true1 = false;
     let true2 = false;
     let true3 = false;
     if (id2.length < 2) {
     sresponse =  await fetch(`https://saavn.dev/api/search?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
-    let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
-    true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
+    //let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
+    //true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
     true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
-    true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
+    true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 3;
     }
     }
     
-    
-    if (true1 && true2 && true3){
+    //true1 && 
+    if (true2 && true3){
       const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${sdata22['data']['results'][0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
