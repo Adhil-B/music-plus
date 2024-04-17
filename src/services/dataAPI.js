@@ -239,7 +239,7 @@ function transformList(list) {
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
-            "link": x["thumbnail"]["thumbnails"][0]['url'].replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')
+            "link": x["thumbnail"]["thumbnails"][0]['url'].replace('hq720', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')
           },
           {
             "quality": "150x150",
@@ -634,7 +634,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       //x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": `${x["thumbnail"][0]['url'].replace('sddefault', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnail"][0]['url'].replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
           },
           {
             "quality": "150x150",
