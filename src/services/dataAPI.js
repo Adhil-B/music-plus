@@ -649,7 +649,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      x["name"] = x["title"];
+      x["name"] = x["title"].split(" -")[0].split(" |")[0].replace('Video Song', '');
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
       x["downloadUrl"] = [
