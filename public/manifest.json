@@ -33,7 +33,7 @@
   "categories": [
     "music"
   ],
-  {
+  
   "screenshots" : [
     {
       "src": "1.jpg",
@@ -55,8 +55,8 @@
       "sizes": "1280x720",
       "type": "image/jpg"
     }
-  ]
-  }
+  ],
+  
   "id": "music-plus",
   "lang": "en",
   "shortcuts": [
