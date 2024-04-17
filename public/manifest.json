@@ -33,6 +33,30 @@
   "categories": [
     "music"
   ],
+  {
+  "screenshots" : [
+    {
+      "src": "1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg"
+    },
+    {
+      "src": "2.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg"
+    },
+    {
+      "src": "3.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg"
+    },
+    {
+      "src": "4.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpg"
+    }
+  ]
+  }
   "id": "music-plus",
   "lang": "en",
   "shortcuts": [
