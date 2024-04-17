@@ -113,8 +113,8 @@ const Sidebar = ({showNav, setShowNav}) => {
     
     </div>
     </div>
-    <div className='cside mt-7 border-b border-gray-400 w-[95%]'>
-    <div className='pl-[15px] flex cursor-pointer items-center install'>
+    <div className='install hidden cside mt-7 border-b border-gray-400 w-[95%]'>
+    <div className='pl-[15px] flex cursor-pointer items-center'>
     <MdDownload title='Settings' size={25} color={'white'} className={` mb-7 `} />
     <p className=' font-semibold text-lg text-white mx-3 mb-7'>Install App</p>
     </div>
