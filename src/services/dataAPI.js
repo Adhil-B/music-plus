@@ -608,16 +608,17 @@ export async function sendResetPasswordLink(email) {
 export async function getRecommendedSongs(artistId, sondId, language) {
   try {
     if (sondId.includes("yt-")){
-      let songName;
-      if (language == 'name'){
-      songName = artistId;  
-      }else{
-      const response = await fetch(`https://ytpi.vercel.app/song?videoId=${sondId.replace("yt-","")}`);
-      const data = await response.json();
-      songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
-      }
+      //let songName;
+      //if (language == 'name'){
+      //songName = artistId;  
+      //}else{
+      //const response = await fetch(`https://ytpi.vercel.app/song?videoId=${sondId.replace("yt-","")}`);
+      //const data = await response.json();
+      //songName = sondId.includes("Saregama") ? sondId.replace("yt-","") : data['videoDetails']["title"];
+      //}
 
-      const response1 = await fetch(`https://ytpi.vercel.app/search?query=${songName}&filter=songs`);
+      //const response1 = await fetch(`https://ytpi.vercel.app/search?query=${songName}&filter=songs`);
+      const response1 = await fetch(`https://ytpi.vercel.app/browseid?songId=${sondId.replace("yt-","")}`);
       const data1 = await response1.json();
       const data2 = [];
     //if (data1[0]["author"].includes("Saregama")){
@@ -627,7 +628,8 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         art.push(arti["name"])
       }
       x["primaryArtists"] = art.reverse().join();
-      x["duration"] = x["duration_seconds"];
+      x["duration"] = (parseInt(x["length"].split(':')[0])*60) + parseInt(x["length"].split(':')[1]);
+      //x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
             "link": `${x["thumbnails"][0]['url'].replace('sddefault', 'hqdefault')}`
@@ -645,7 +647,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      x["name"] = x["title"].split(" -")[0].split(" |")[0];
+      x["name"] = x["title"];
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
       x["downloadUrl"] = [
@@ -671,7 +673,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         }
       ];
       x["primaryArtistsId"] = art.join();
-      if (!x["name"].includes(songName)){
+      if (!x["id"].includes(sondId)){
       data2.push(x);
       }
       
