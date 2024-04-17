@@ -6,13 +6,12 @@
 
 let installPrompt = null;
 const installButton = document.querySelector(".install");
-var pwaInstall = document.getElementsByTagName('pwa-install')[0];
+
 
 
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   installPrompt = event;
-  pwaInstall.install();
   installButton.classList.remove("hidden");
   //installButton.removeAttribute("hidden");
 });
