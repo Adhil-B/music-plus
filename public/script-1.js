@@ -10,7 +10,8 @@ const installButton = document.querySelector(".install");
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   installPrompt = event;
-  installButton.removeAttribute("hidden");
+  installButton.classList.remove("hidden");
+  //installButton.removeAttribute("hidden");
 });
 
 // main.js
@@ -26,7 +27,8 @@ installButton.addEventListener("click", async () => {
 
 function disableInAppInstallPrompt() {
   installPrompt = null;
-  installButton.setAttribute("hidden", "");
+  installButton.classList.add("hidden");
+  //installButton.setAttribute("hidden", "");
 }
 
 // main.js
@@ -37,5 +39,6 @@ window.addEventListener("appinstalled", () => {
 
 function disableInAppInstallPrompt() {
   installPrompt = null;
-  installButton.setAttribute("hidden", "");
+  installButton.classList.add("hidden");
+  //installButton.setAttribute("hidden", "");
 }
