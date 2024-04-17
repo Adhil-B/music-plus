@@ -107,20 +107,20 @@ const Sidebar = ({showNav, setShowNav}) => {
       </div>
 
     <div className='cside mt-7 border-b border-gray-400 w-[95%]' onClick={handleSet}>
-    <div className='pl-[6px] flex cursor-pointer items-center' onClick={()=>setShowNav(false)}>
+    <div className='pl-[15px] flex cursor-pointer items-center' onClick={()=>setShowNav(false)}>
     <IoMdSettings title='Settings' size={25} color={'white'} className={` mb-7 `} />
     <p className=' font-semibold text-lg text-white mx-3 mb-7'>Settings</p>
     
     </div>
     </div>
     <div className='cside mt-7 border-b border-gray-400 w-[95%]'>
-    <div className='pl-[6px] flex cursor-pointer items-center install'>
+    <div className='pl-[15px] flex cursor-pointer items-center install'>
     <MdDownload title='Settings' size={25} color={'white'} className={` mb-7 `} />
     <p className=' font-semibold text-lg text-white mx-3 mb-7'>Install App</p>
     </div>
     </div>
           
-    <div className=' mt-[10px] pl-[12px] text-gray-200 flex gap-3'>
+    <div className=' mt-[10px] pl-[20px] text-gray-200 flex gap-3'>
       <Link href='/dmca'>
       <p className='hover:border border-gray-200 p-1 font-medium w-fit rounded cursor-pointer text-sm'>DMCA</p>
       </Link>
