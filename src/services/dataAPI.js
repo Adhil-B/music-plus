@@ -215,7 +215,8 @@ function transformList(list) {
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
-    let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
+    let artistnamelist = sdata22.data?.results[0]?.artists?.primary?.map(function(d) { return d['name']; });
+    //let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
     true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
     true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
     true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
