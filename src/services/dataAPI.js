@@ -239,15 +239,15 @@ function transformList(list) {
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
-            "link": x["thumbnail"]["thumbnails"][0]['url'].replace('hq720', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')
+            "link": x["thumbnail"]["thumbnails"][0]['url'].replace('hq720', 'hqdefault')
           },
           {
             "quality": "150x150",
-            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')
+            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault')
           },
           {
             "quality": "500x500",
-            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')
+            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault')
           }];
       x["name"] = x["title"];
       x["duration"] = x["lengthSeconds"];
@@ -470,15 +470,15 @@ export async function getSearchedData(query) {
       x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": `${x["thumbnails"][0]['url'].replace('sddefault', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnails"][0]['url'].replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "150x150",
-            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "500x500",
-            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnails"][0]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault')}`
           }];
       x["name"] = JSON.stringify(x["title"]);
       x["title"] = x["title"];
@@ -634,15 +634,15 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       //x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": `${x["thumbnail"][0]['url'].replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnail"][0]['url']}`
           },
           {
             "quality": "150x150",
-            "link": `${x["thumbnail"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnail"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault')}`
           },
           {
             "quality": "500x500",
-            "link": `${x["thumbnail"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault').replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com')}`
+            "link": `${x["thumbnail"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault')}`
           }];
       x["album"] = {
         "id": "13615087",
