@@ -624,10 +624,10 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       const data2 = [];
     //if (data1[0]["author"].includes("Saregama")){
     for (let x of data1) {
-      let art = [];
-      for (let arti of x["artists"]) {
-        art.push(arti["name"])
-      }
+      let art = x["artists"].map(function(d) { return d['name']; });
+      //for (let arti of x["artists"]) {
+        //art.push(arti["name"])
+      //}
       x["primaryArtists"] = art.reverse().join();
       x["duration"] = (parseInt(x["length"].split(':')[0])*60) + parseInt(x["length"].split(':')[1]);
       //x["duration"] = x["duration_seconds"];
