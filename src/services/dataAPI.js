@@ -629,7 +629,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       for (let arti of x["artists"]) {
         art.push(arti["name"])
       }
-      x["primaryArtists"] = art.reverse().join(", ").replace(' & ', ', ');
+      x["primaryArtists"] = art.reverse().join(", ").replace(' & ', ', ').replace('and ','');
       x["duration"] = (parseInt(x["length"].split(':')[0])*60) + parseInt(x["length"].split(':')[1]);
       //x["duration"] = x["duration_seconds"];
       x["image"] = [{
@@ -674,7 +674,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
           "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
         }
       ];
-      x["primaryArtistsId"] = art.join();
+      x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','');
       if (!x["id"].includes(sondId)){
       data2.push(x);
       }
