@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import '@khmyznikov/pwa-install';
+import PWAPrompt from 'react-ios-pwa-prompt'
 
 const poppins = Poppins({
   weight: "500",
@@ -49,20 +49,7 @@ export default function RootLayout({ children }) {
             <div className="h-20"></div>
             <div className="fixed  bottom-0 left-0 right-0 flex backdrop-blur-[100px] rounded-t-3 z-50">
               <MusicPlayer />
-  <pwa-install
-  manual-apple="true"
-  manual-chrome="true"
-  disable-chrome="true"
-
-  install-description="Custom call to install text"
-  disable-install-description="true"
-  disable-screenshots="true"
-
-  manifest-url="/manifest.json"
-  name="PWA"
-  description="Progressive web application"         
-  icon="/icon.png">
-</pwa-install>
+<PWAPrompt />
             </div>
           </AuthProvider>
         </Providers>
