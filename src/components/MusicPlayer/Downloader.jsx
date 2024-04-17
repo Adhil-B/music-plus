@@ -7,7 +7,7 @@ import {MdDownloadForOffline, MdFileDownloadDone} from 'react-icons/md'
 const Downloader = ({activeSong, icon}) => {
     const { size, elapsed, percentage, download, error, isInProgress } =useDownloader();
     const songUrl = activeSong?.downloadUrl?.[parseInt(localStorage?.getItem("downloads") ? JSON.parse(localStorage.getItem("downloads")) : ["4"])]?.link;
-    const imageUrl = activeSong?.image?.[2]?.link.replace('https://i.ytimg.com','https://api.allorigins.win/raw?url=https://i.ytimg.com');
+    const imageUrl = activeSong?.image?.[2]?.link;
     const filename = `${activeSong?.name?.replace("&#039;","'")?.replace("&amp;","&")?.replaceAll('&quot;','"')}.mp3`
     const artists = activeSong?.primaryArtists;
     const duration = activeSong?.duration;
