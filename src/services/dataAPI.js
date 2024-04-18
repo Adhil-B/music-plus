@@ -407,7 +407,7 @@ export async function getSearchedData(query) {
         art.push(arti["name"])
         }
       }
-      x["primaryArtists"] = art.reverse().join(", ");
+      x["primaryArtists"] = art.reverse().join(", ").replace(' &',',');
       x["duration"] = x["lengthSeconds"];
       x["image"] = [{
             "quality": "50x50",
@@ -430,7 +430,7 @@ export async function getSearchedData(query) {
       };
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = art.join();
+      x["primaryArtistsId"] = art.join().replace(' & ',',');
         data2.push(x);
       
     }
