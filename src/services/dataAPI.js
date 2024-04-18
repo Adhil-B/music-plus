@@ -440,23 +440,18 @@ export async function getSearchedArtist(query) {
 // get search data
 export async function getSearchedData(query) {
   try {
-    const response = await fetch(`https://saavn.dev/api/search?query=${query}`);
-    const data = await response.json();
+    //const response = await fetch(`https://saavn.dev/api/search?query=${query}`);
+    //const data = await response.json();
+    const data = {};
     
     const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);
     const data1 = await response1.json();
     const data2 = [];
     let lastname = ':';
-    const true1 = query.includes("youtube") || data.data["songs"]["results"].length < 3;
-    //(data.data?.songs?.results[0]?.name != JSON.stringify(data1[0].title) && data.data?.songs?.results[1]?.name != JSON.stringify(data1[0].title))
+    const true1 = true;
+    //const true1 = query.includes("youtube") || data.data["songs"]["results"].length < 3;
     if (true1){
-    //console.log(data.data["songs"]["results"][0]?.toString() + ":" + JSON.stringify(data1[0].title))
-    //console.log(data.data["songs"]["results"]?.toString() + ":" + JSON.stringify(data1[0].title))
     for (let x of data1) {
-      //console.log(lastname.split(":")[0],':',lastname.split(':')[1],':', JSON.stringify(x["title"]))
-      //console.log(lastname.split(":")[0].includes("Top result") && lastname.split(':')[1].includes(JSON.stringify(x["title"])))
-      //console.log(lastname.split(":")[0].includes("Top result"))
-      //console.log(lastname.split(':')[1].includes(x["title"]))
       if (lastname.split(":")[0].includes("Top result") && lastname.split(':')[1].includes(x["title"])){ data2.pop(); console.log('hi');}
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
       
@@ -490,9 +485,7 @@ export async function getSearchedData(query) {
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
       x["primaryArtistsId"] = art.join();
-      //if ((!x["name"].includes("Official Trailer")) && (!x["name"].includes("Teaser")) && (x["duration"] > 60) && (x["duration"] < 1800)){
         data2.push(x);
-      //}
       
     }
   }
