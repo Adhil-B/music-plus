@@ -109,21 +109,25 @@ export async function getSongData(id1) {
 function transformList(list) {
   const transformedList = [];
   let currentChunk = [];
+  let currentChunk2 = [];
 
   for (const item of list) {
     if (item.startsWith("yt-")) {
       // Start a new chunk if the item begins with "yt-"
       transformedList.push(currentChunk.join(","));
-      transformedList.push(item);
+      currentChunk2.push(item);
       currentChunk = [];
     } else {
       // Add the item to the current chunk
+      transformedList.push(currentChunk2.join(","));
       currentChunk.push(item);
+      currentChunk2 = [];
     }
   }
 
   // Add the last chunk to the transformed list
   transformedList.push(currentChunk.join(","));
+  transformedList.push(currentChunk2.join(","));
 
   return transformedList;
 }
