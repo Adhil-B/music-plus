@@ -104,6 +104,7 @@ export async function homePageData3(songHistory) {
 // get song data
 export async function getSongData(id1) {
   try {
+    /*
     const id2 = id1.toString().split(",");
 //id1.toString().split(",")
 function transformList(list) {
@@ -133,7 +134,8 @@ function transformList(list) {
   return transformedList;
 }
     const id3 = transformList(id2);
-
+*/
+    const id3 = ['_N6U0zWr,rVwJ8kB0,Uoa2n2WR,t8gC-iiK,KsDPoiuL,t5kko…tjGL,2r04CimM,Tmdf_z69,7uR_94uQ,KeU9a5dO,lXXSvQ2s', 'yt-sW5AgVN4lQ4', '', 'yt-n0iPxICKG54', 'xkn8fQaX,mmRcL1PN', 'yt-SuLGu8XdR84', '062bxDzt,noryoYgX,txJzyB7r,cf_CfDKh,pkO7S73_,WjiZY…VwYr,cOWH1iB7,o6JuL_ii,cXW9WbUR,Fq4vDHEi,_fbxzoTf', 'yt-Xx6SKzOUqhQ', 'zujE-loc,GW8xjvCj,RnZdqqsk,f8nIk1xu,St3m70zH,8ZHqAZW6,lWVbxiH_', 'yt-fMTN6wxDWOU', '', 'yt-NJAv_7lHUIU', '', 'yt-Aurf-zapYng', 'v97wbkxB', 'yt-CBqHkqWNaCU', 'aSfSByV9'];
     const result = [];
     console.log(id3)
     for (let id of id3) {
