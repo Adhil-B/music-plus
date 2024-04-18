@@ -130,6 +130,7 @@ function transformList(list) {
     const id3 = transformList(id2);
 
     const result = [];
+    console.log(id3)
     for (let id of id3) {
     
     if (id === ""){
