@@ -143,7 +143,7 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
-    const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replace("yt-","")}`);
+    const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replaceAll("yt-","")}`);
     //const response = await fetch(`https://api.allorigins.win/raw?url=https%3A//beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
@@ -215,27 +215,27 @@ function transformList(list) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      let lengthshort = x["lengthSeconds"] < 252;
+      let linkurl = x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`;
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": linkurl 
         },
         {
           "quality": "48kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "96kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "160kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "320kbps",
-          "link": lengthshort ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`
+          "link": linkurl
         }
       ];
       result.push(x);
