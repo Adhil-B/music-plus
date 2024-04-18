@@ -448,7 +448,7 @@ export async function getSearchedData(query) {
 // add and remove from favourite
 export async function addFavourite(id) {
   try {
-    let songid = id;
+    /*let songid = id;
     
     if (songid.startsWith("yt-")){
     const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replace("yt-","")}`);
@@ -464,11 +464,11 @@ export async function addFavourite(id) {
     if (topsong.length > 0){
       songid = topsong[0]['id'];
     }
-    }
+    }*/
       
     const response = await fetch("/api/favourite", {
       method: "POST",
-      body: JSON.stringify(songid),
+      body: JSON.stringify(id),
       headers: {
         "Content-Type": "application/json",
       },
