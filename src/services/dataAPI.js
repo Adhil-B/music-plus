@@ -440,9 +440,9 @@ export async function getSearchedArtist(query) {
 // get search data
 export async function getSearchedData(query) {
   try {
-    //const response = await fetch(`https://saavn.dev/api/search?query=${query}`);
-    //const data = await response.json();
-    const data = {};
+    const response = await fetch(`https://saavn.dev/api/search?query=${query}`);
+    const data = await response.json();
+    //const data = {data:{songs    }};
     
     const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);
     const data1 = await response1.json();
@@ -489,8 +489,10 @@ export async function getSearchedData(query) {
       
     }
   }
-    data.data["songs"]["results"] = true1 ? [...data2.slice(0,4)] : [...data2.slice(0,4),...data?.data["songs"]["results"]];
-    data.data["albums"]["results"] = true1 ? [] : data.data["albums"]["results"];
+    data.data["songs"]["results"] = [...data2.slice(0,4)];
+    data.data["albums"]["results"] = data.data["albums"]["results"];
+    //data.data["songs"]["results"] = true1 ? [...data2.slice(0,4)] : [...data2.slice(0,4),...data?.data["songs"]["results"]];
+    //data.data["albums"]["results"] = true1 ? [] : data.data["albums"]["results"];
     return data?.data;
   } catch (error) {
     console.log(error);
