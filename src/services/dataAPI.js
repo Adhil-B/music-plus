@@ -153,7 +153,7 @@ function transformList(list) {
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"]+' '+x["author"].replace(' &', ',')}`);
     sdata22 = await sresponse.json();
     sdata99 = sdata22.data?.results?.slice(0,2)
-    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - parseInt(x["lengthSeconds"])) < 8) && (x["title"].includes(entry["name"].split(' (')[0])));
+    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - parseInt(x["lengthSeconds"])) < 8) && (entry["name"].includes(x["title"].split(' (')[0])));
     
     /*
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
