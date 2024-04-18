@@ -28,46 +28,8 @@ export async function homePageData2() {
     const fav = await favresponse.json();
     const favsong = fav?.data?.favourites.reverse();
     const sh = favsong.slice(0, 3);
-
-   /* const response = await fetch("/api/recommend", {
-      method: "POST",
-      body: JSON.stringify({ "data": favsongs }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data99 = await response.json();
-    const sh = favsong ? data99?.data : [];
-    
-    const [response2,response3,response4] = await Promise.all([
-    fetch("/api/recommend", {
-      method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[0] ? sh[0] : "1tG_QlMf", "malayalam"] }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }),
-    fetch("/api/recommend", {
-      method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[1] ? sh[1] : "1tG_QlMf", "malayalam"] }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }),
-   fetch("/api/recommend", {
-      method: "PUT",
-      body: JSON.stringify({ "data": ["546878", sh[2] ? sh[2] : "1tG_QlMf", "malayalam"] }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    ]);
-
-    */
-    //
     //
     const data2 = await getRecommendedSongs("546878", sh[0] ? sh[0] : "1tG_QlMf", "malayalam");
-    //const data2 = await response2.json();
     const data3 = await getRecommendedSongs("546878", sh[1] ? sh[1] : "1tG_QlMf", "malayalam");
     const data4 = await getRecommendedSongs("546878", sh[2] ? sh[2] : "1tG_QlMf", "malayalam");
     const alldata0 = sh[0] ? data2 : [];
@@ -105,32 +67,6 @@ export async function homePageData3(songHistory) {
   try {
 
     const sh = songHistory ? songHistory.slice(0, 3) : [];
-    /*
-    const [response2,response3,response4] = await Promise.all([
-    fetch("/api/recommend", {
-      method: "PUT",
-      body: JSON.stringify({ "data": [sh[0] ? sh[0]["name"] : "546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam"] }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }),
-    fetch("/api/recommend", {
-      method: "PUT",
-      body: JSON.stringify({ "data": [sh[1] ? sh[1]["name"] : "546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam"] }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }),
-   fetch("/api/recommend", {
-      method: "PUT",
-      body: JSON.stringify({ "data": [sh[2] ? sh[2]["name"] : "546878", sh[2] ? sh[2]["id"] : "1tG_QlMf", "malayalam"] }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    ]);
-    */
-    //
     //
     const data2 = await getRecommendedSongs("546878", sh[0] ? sh[0]["id"] : "1tG_QlMf", "malayalam");
     const data3 = await getRecommendedSongs("546878", sh[1] ? sh[1]["id"] : "1tG_QlMf", "malayalam");
