@@ -145,7 +145,7 @@ function transformList(list) {
     let sresponse;
     let sdata22;
     let sdata99;
-    let topsong;
+    let topsong = [];
     //let true1 = false;
     //let true2 = false;
     //let true3 = false;
