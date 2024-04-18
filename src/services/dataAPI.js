@@ -115,19 +115,20 @@ function transformList(list) {
     if (item.startsWith("yt-")) {
       // Start a new chunk if the item begins with "yt-"
       transformedList.push(currentChunk.join(","));
-      currentChunk2.push(item);
+      transformedList.push(item);
+      //currentChunk2.push(item);
       currentChunk = [];
     } else {
       // Add the item to the current chunk
-      transformedList.push(currentChunk2.join(","));
+      //transformedList.push(currentChunk2.join(","));
       currentChunk.push(item);
-      currentChunk2 = [];
+      //currentChunk2 = [];
     }
   }
 
   // Add the last chunk to the transformed list
   transformedList.push(currentChunk.join(","));
-  transformedList.push(currentChunk2.join(","));
+  //transformedList.push(currentChunk2.join(","));
 
   return transformedList;
 }
