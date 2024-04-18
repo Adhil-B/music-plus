@@ -169,7 +169,7 @@ function transformList(list) {
     
   //true1 && true2 && true3
     if (topsong.length > 0){
-      const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${sdata22['data']['results'][0]['id']}`);
+      const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${topsong[0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
       for (let song of data?.data) {
