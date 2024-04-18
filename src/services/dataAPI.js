@@ -146,9 +146,9 @@ function transformList(list) {
     let sdata22;
     let sdata99;
     let topsong;
-    let true1 = false;
-    let true2 = false;
-    let true3 = false;
+    //let true1 = false;
+    //let true2 = false;
+    //let true3 = false;
     if (id2.length < 2) {
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"]+' '+x["author"].replace(' &', ',')}`);
     sdata22 = await sresponse.json();
