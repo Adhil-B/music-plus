@@ -148,6 +148,12 @@ function transformList(list) {
     let true2 = false;
     let true3 = false;
     if (id2.length < 2) {
+    sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"]+' '+x["author"].replace(' &', ',')}`);
+    sdata22 = await sresponse.json();
+    sdata99 = sdata22.data?.results?.slice(0,2)
+    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - parseInt(x["lengthSeconds"])) < 8) && (x["title"].includes(entry["name"].split(' ')[0])));
+    
+    /*
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
     sdata22 = await sresponse.json();
     if (sdata22.data?.results?.length > 0){
@@ -157,10 +163,12 @@ function transformList(list) {
     true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
     true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
     }
+    */
+    
     }
     
-  
-    if (true1 && true2 && true3){
+  //true1 && true2 && true3
+    if (topsong.length > 0){
       const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${sdata22['data']['results'][0]['id']}`);
       const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
@@ -171,7 +179,7 @@ function transformList(list) {
     
     }else{
       
-      x["primaryArtists"] = x["author"].replace(',', ', ');
+      x["primaryArtists"] = x["author"].replace(',', ', ').replace(' &', ',');
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       x["image"] = [{
             "quality": "50x50",
