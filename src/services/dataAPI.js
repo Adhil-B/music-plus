@@ -200,7 +200,7 @@ function transformList(list) {
       x["playCount"] = parseInt(x["viewCount"]);
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      x["primaryArtistsId"] = x["author"];
+      x["primaryArtistsId"] = x["author"].replace(' & ', ',');
       x["language"] = "YouTube";
       x["album"] = {
         "id": "13615087",
