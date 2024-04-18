@@ -448,15 +448,35 @@ export async function getSearchedData(query) {
 // add and remove from favourite
 export async function addFavourite(id) {
   try {
+    let songid = id;
+    
+    if (songid.startsWith("yt-")){
+    const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replace("yt-","")}`);
+    const data22 = await response.json();
+    const data2 = [];
+    
+    const x = data22["videoDetails"];
+    let topsong = [];
+    const sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"]+' '+x["author"].replace(' &', ',')}`);
+    const sdata22 = await sresponse.json();
+    const sdata99 = sdata22.data?.results?.slice(0,2)
+    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - parseInt(x["lengthSeconds"])) < 8) && (entry["name"].includes(x["title"].split(' (')[0])));
+    if (topsong.length > 0){
+      songid = topsong[0]['id'];
+    }
+    }
+      
     const response = await fetch("/api/favourite", {
       method: "POST",
-      body: JSON.stringify(id),
+      body: JSON.stringify(songid),
       headers: {
         "Content-Type": "application/json",
       },
     });
     const data = await response.json();
     return data;
+
+    
   } catch (error) {
     console.log("Add favourite API error", error);
   }
