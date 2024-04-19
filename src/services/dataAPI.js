@@ -192,7 +192,10 @@ function transformList(list) {
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x[0]["snippet"]["title"]+' '+x[0]["snippet"]["channelTitle"].replace(' - Topic', '')}`);
     sdata22 = await sresponse.json();
     sdata99 = sdata22.data?.results?.slice(0,2)
-    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - (parseInt(x[0]["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 + parseInt(x[0]["contentDetails"]["duration"].split("M")[1].split("S")[0])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x[0]["snippet"]["title"].split(' (')[0]))));
+    x[0]['min'] = x["contentDetails"]["duration"].includes('M') ? parseInt(x["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 : parseInt('0');
+    x[0]['sec'] = x["contentDetails"]["duration"].includes('M') ? parseInt(x["contentDetails"]["duration"].split("M")[1].split("S")[0]) : parseInt(x["contentDetails"]["duration"].split("PT")[1].split("S")[0]);
+    x[0]["duration"] = x['min'] + x['sec'];
+    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - (x[0]["duration"])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x[0]["snippet"]["title"].split(' (')[0]))));
     
     /*
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
@@ -235,7 +238,9 @@ function transformList(list) {
             "link": `https://i.ytimg.com/vi/${y["id"]}/maxresdefault.jpg`
           }];
       y["name"] = y["snippet"]["title"];
-      y["duration"] = parseInt(y["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 + parseInt(y["contentDetails"]["duration"].split("M")[1].split("S")[0]);
+      y['min'] = y["contentDetails"]["duration"].includes('M') ? parseInt(y["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 : parseInt('0');
+      y['sec'] = y["contentDetails"]["duration"].includes('M') ? parseInt(y["contentDetails"]["duration"].split("M")[1].split("S")[0]) : parseInt(y["contentDetails"]["duration"].split("PT")[1].split("S")[0]);
+      y["duration"] = y['min'] + y['sec'];
       y["playCount"] = parseInt(y["statistics"]["viewCount"]);
       y["id"] = `yt-${y["id"]}`;
       y["type"] = "song";
