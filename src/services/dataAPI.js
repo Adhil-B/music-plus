@@ -298,7 +298,7 @@ export async function getArtistData(id) {
     const data = await response.json();
     return data?.data;
     }else{
-      const response = await fetch(`https://ytpi.vercel.app/search?query=${id}`);
+      const response = await fetch(`https://ytpi.vercel.app/search?query=${id}&filter=artists`);
       const data = await response.json();
       const data1 = {
     "id": "568707",
