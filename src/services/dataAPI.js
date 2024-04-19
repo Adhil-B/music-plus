@@ -223,7 +223,13 @@ function transformList(list) {
     
     }else{
       for (let y of x) {
-      y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(y["snippet"]['tags'].slice(1,-2)).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
+        let tags = [];
+        for (let tag of y["snippet"]['tags'].slice(1,-2)){
+          if (!(y["snippet"]["title"].includes(tag))){
+            tags.push(tag);
+          }
+        }
+      y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(tags).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       y["image"] = [{
             "quality": "50x50",
