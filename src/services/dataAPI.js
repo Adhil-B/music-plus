@@ -302,7 +302,7 @@ export async function getArtistData(id) {
       const response = await fetch(`https://ytpi.vercel.app/search?query=${id}&filter=artists`);
       const data = await response.json();
       const data1 = {
-    "id": "568707",
+    "id": data[0]['browseId'],
     "name": data[0]["artist"],
     "url": `https://music.youtube.com/channel/${data[0]['browseId']}`,
     "image": [
