@@ -102,6 +102,34 @@ export async function homePageData3(songHistory) {
   }
 }
 
+
+// get artist songs
+export async function getArtistSongs(id, page) {
+  try {
+    if (Number.isInteger(id)){
+    const response = await fetch(
+      `https://jiosaavn-api-gilt.vercel.app/artists/${id}/songs?page=${page}`
+    );
+    const data = await response.json();
+    return data?.data;
+    }else{
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q&channelId=${id}&part=id&order=date&maxResults=100`);
+    const data = await response.json();
+    const ids = [];
+    for (let x of data.items){
+      if (x['id']['videoId']){
+      ids.push(`yt-${x['id']['videoId']}`)
+      }
+    }
+    const data1 = await getSongData(ids.join(','));
+    return data1;
+
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // get song data
 export async function getSongData(id1) {
   try {
@@ -344,30 +372,7 @@ export async function getArtistData(id) {
   }
 }
 
-// get artist songs
-export async function getArtistSongs(id, page) {
-  try {
-    if (Number.isInteger(id)){
-    const response = await fetch(
-      `https://jiosaavn-api-gilt.vercel.app/artists/${id}/songs?page=${page}`
-    );
-    const data = await response.json();
-    return data?.data;
-    }else{
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q&channelId=${id}&part=id&order=date&maxResults=100`);
-    const data = await response.json();
-    const ids = [];
-    for (let x of data.items){
-      ids.push(`yt-${x['id']['videoId']}`)
-    }
-    const data1 = await getSongData(ids.join(','));
-    return data1;
 
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 // get artist albums
 export async function getArtistAlbums(id, page) {
