@@ -216,7 +216,7 @@ function transformList(list) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      let linkurl = y["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"]}` : `https://ytpi.onrender.com/audio?videoId=${y["id"]}`;
+      let linkurl = y["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
       y["downloadUrl"] = [
         {
           "quality": "12kbps",
