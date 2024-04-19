@@ -300,7 +300,7 @@ export async function getArtistData(id) {
     }else{
       const response = await fetch(`https://ytpi.vercel.app/search?query=${id}`);
       const data = await response.json();
-      const data = {
+      const data1 = {
     "id": "568707",
     "name": data[0]["artist"],
     "url": `https://music.youtube.com/channel/${data[0]['browseId']}`,
@@ -336,7 +336,7 @@ export async function getArtistData(id) {
     ],
     "isRadioPresent": true
   };
-      return data;
+      return data1;
     }
   } catch (error) {
     console.log(error);
