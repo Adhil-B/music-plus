@@ -202,7 +202,7 @@ function transformList(list) {
           },
           {
             "quality": "500x500",
-            "link": `https://i.ytimg.com/vi/${y["id"]}/sddefault.jpg`
+            "link": `https://i.ytimg.com/vi/${y["id"]}/maxresdefault.jpg`
           }];
       y["name"] = y["snippet"]["title"];
       y["duration"] = parseInt(y["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 + parseInt(y["contentDetails"]["duration"].split("M")[1].split("S")[0]);
