@@ -30,7 +30,7 @@ const page = ({ params }) => {
             console.log('details', details);
             dispatch(setProgress(60));
             setArtistDetails(details);
-            const songs = await getArtistSongs(params.artistId, songsPage);
+            const songs = await getArtistSongs(artistDetails.id, songsPage);
             dispatch(setProgress(90));
             setArtistSongs(songs);
             setLastPage(1);
