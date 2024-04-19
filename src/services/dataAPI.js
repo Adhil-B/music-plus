@@ -606,15 +606,15 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       //x["duration"] = x["duration_seconds"];
       x["image"] = [{
             "quality": "50x50",
-            "link": `${x["thumbnail"][0]['url']}`
+            "link": `https://i.ytimg.com/vi/${x["videoId"]}/mqdefault.jpg`
           },
           {
             "quality": "150x150",
-            "link": `${x["thumbnail"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault')}`
+            "link": `https://i.ytimg.com/vi/${x["videoId"]}/maxresdefault.jpg`
           },
           {
             "quality": "500x500",
-            "link": `${x["thumbnail"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault')}`
+            "link": `https://i.ytimg.com/vi/${x["videoId"]}/maxresdefault.jpg`
           }];
       x["album"] = {
         "id": "13615087",
