@@ -122,7 +122,7 @@ export async function getArtistSongs(id, page) {
       }
     }
     const data1 = await getSongData(ids.join(','));
-    return data1;
+    return data1?.data;
 
     }
   } catch (error) {
