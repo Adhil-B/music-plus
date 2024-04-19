@@ -116,14 +116,14 @@ function transformList(list) {
     if (item.startsWith("yt-")) {
       // Start a new chunk if the item begins with "yt-"
       transformedList.push(currentChunk.join(","));
-      transformedList.push(item);
-      //currentChunk2.push(item);
+      //transformedList.push(item);
+      currentChunk2.push(item);
       currentChunk = [];
     } else {
       // Add the item to the current chunk
-      //transformedList.push(currentChunk2.join(","));
+      transformedList.push(currentChunk2.join(","));
       currentChunk.push(item);
-      //currentChunk2 = [];
+      currentChunk2 = [];
     }
   }
 
@@ -131,7 +131,7 @@ function transformList(list) {
   transformedList.push(currentChunk.join(","));
   //transformedList.push(currentChunk2.join(","));
 
-  return transformedList;
+  return Object.values(transformedList).filter(entry => entry !== '');
 }
     const id3 = transformList(id2);
 
