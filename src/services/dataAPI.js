@@ -357,7 +357,7 @@ export async function getArtistSongs(id, page) {
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q&channelId=${id}&part=id&order=date&maxResults=100`);
     const data = await response.json();
     const ids = [];
-    for (let x of Object.values(data.items)){
+    for (let x of data.items){
       ids.push(`yt-${x['id']['videoId']}`)
     }
     const data1 = await getSongData(ids.join(','));
