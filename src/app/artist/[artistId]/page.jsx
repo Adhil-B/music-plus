@@ -104,7 +104,7 @@ const page = ({ params }) => {
                         <SongListSkeleton />
                     ) : (
                         <div>
-                        <SongList SongData={artistSongs?.results} />
+                        <SongList SongData={artistSongs} />
                     </div>
                     )  }
                 
