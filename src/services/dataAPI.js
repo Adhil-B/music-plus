@@ -123,7 +123,7 @@ export async function getArtistSongs(id, page) {
     }
     const data1 = await getSongData(ids.join(','));
     console.log(data1);
-    return data1?.data;
+    return data1;
 
     }
   } catch (error) {
