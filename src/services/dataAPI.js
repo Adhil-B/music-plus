@@ -129,7 +129,7 @@ function transformList(list) {
 
   // Add the last chunk to the transformed list
   transformedList.push(currentChunk.join(","));
-  //transformedList.push(currentChunk2.join(","));
+  transformedList.push(currentChunk2.join(","));
 
   return Object.values(transformedList).filter(entry => entry !== '');
 }
