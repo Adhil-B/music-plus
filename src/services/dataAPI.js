@@ -195,7 +195,7 @@ function transformList(list) {
     x[0]['min'] = x["contentDetails"]["duration"].includes('M') ? parseInt(x["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 : parseInt('0');
     x[0]['sec'] = x["contentDetails"]["duration"].includes('M') ? parseInt(x["contentDetails"]["duration"].split("M")[1].split("S")[0]) : parseInt(x["contentDetails"]["duration"].split("PT")[1].split("S")[0]);
     x[0]["duration"] = x['min'] + x['sec'];
-    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - (x[0]["duration"])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x[0]["snippet"]["title"].split(' (')[0]))));
+    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - (x[0]["duration"])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x[0]["snippet"]["title"].split(' (')[0])) );
     
     /*
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
