@@ -223,15 +223,15 @@ function transformList(list) {
     
     }else{
       for (let y of x) {
-        let tags = [];
-        let sniptag = y["snippet"]['tags'].slice(1,-2) ? y["snippet"]['tags'].slice(1,-2) : [];
-        for (let tag of sniptag){
-          if (!(y["snippet"]["title"].includes(tag))){
-            tags.push(tag);
+
+      y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(y["snippet"]['tags'].slice(1,-2)).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
+      for (let tag of y["primaryArtists"].split(", ")){
+       if (y["snippet"]["title"].includes(tag)){
+            y["primaryArtists"] = y["primaryArtists"].replace(tag, '')
           }
-        }
-      y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(tags).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
-      //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
+      }
+      
+        //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       y["image"] = [{
             "quality": "50x50",
             "link": `https://i.ytimg.com/vi/${y["id"]}/default.jpg`
