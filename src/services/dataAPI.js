@@ -226,7 +226,7 @@ function transformList(list) {
 
       y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(y["snippet"]['tags'].slice(1,-2)).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
       for (let tag of y["primaryArtists"].split(", ")){
-       if (y["snippet"]["title"].includes(tag)){
+       if (y["snippet"]["title"].includes(tag) && !(y["snippet"]['channelTitle'].includes(tag))){
             y["primaryArtists"] = y["primaryArtists"].replace(tag, '')
           }
       }
