@@ -293,34 +293,36 @@ export async function getlyricsData(id) {
 // get artist data
 export async function getArtistData(id) {
   try {
-    if (!id.includes("Saregama")){
+    if (Number.isInteger(id)){
     const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/artists?id=${id}`);
     const data = await response.json();
     return data?.data;
     }else{
+      const response = await fetch(`https://ytpi.vercel.app/search?query=${id}`);
+      const data = await response.json();
       const data = {
     "id": "568707",
-    "name": id.replace("yt-","").replace("%20"," "),
-    "url": "https://www.jiosaavn.com/artist/sia-/C4hxFiXrHws_",
+    "name": data[0]["artist"],
+    "url": `https://music.youtube.com/channel/${data[0]['browseId']}`,
     "image": [
       {
         "quality": "50x50",
-        "link": "https://musicplus-web.vercel.app/channels4_profile.jpg"
+        "link": data[0]['thumbnails'][0]['url']
       },
       {
         "quality": "150x150",
-        "link": "https://musicplus-web.vercel.app/channels4_profile.jpg"
+        "link": data[0]['thumbnails'][1]['url']
       },
       {
         "quality": "500x500",
-        "link": "https://musicplus-web.vercel.app/channels4_profile.jpg"
+        "link": data[0]['thumbnails'][1]['url']
       }
     ],
     "followerCount": "71752",
     "fanCount": "963569",
     "isVerified": false,
-    "dominantLanguage": id.includes("Music") ? "hindi" : id.split("%20")[1],
-    "dominantType": "music provider",
+    "dominantLanguage": "English",
+    "dominantType": "artist",
     "bio": [],
     "dob": "",
     "fb": "",
