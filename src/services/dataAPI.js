@@ -188,7 +188,7 @@ function transformList(list) {
     //let true1 = false;
     //let true2 = false;
     //let true3 = false;
-    if (id2.length < 2) {
+    if (id2.length < 2 && x.length < 2) {
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x[0]["snippet"]["title"]+' '+x[0]["snippet"]["channelTitle"].replace(' - Topic', '')}`);
     sdata22 = await sresponse.json();
     sdata99 = sdata22.data?.results?.slice(0,2)
