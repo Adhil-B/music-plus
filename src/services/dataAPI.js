@@ -143,13 +143,14 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
-    const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replaceAll("yt-","")}`);
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${id.toString().replaceAll("yt-","")}&key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q`);
+    //const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replaceAll("yt-","")}`);
     //const response = await fetch(`https://api.allorigins.win/raw?url=https%3A//beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
     
     //const x = data22[0];
-    const x = data22["videoDetails"];
+    const x = data22["items"];
     let sresponse;
     let sdata22;
     let sdata99;
@@ -158,10 +159,10 @@ function transformList(list) {
     //let true2 = false;
     //let true3 = false;
     if (id2.length < 2) {
-    sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"]+' '+x["author"].replace(' &', ',')}`);
+    sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x[0]["snippet"]["title"]+' '+x[0]["snippet"]["channelTitle"].replace(' - Topic', '')}`);
     sdata22 = await sresponse.json();
     sdata99 = sdata22.data?.results?.slice(0,2)
-    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - parseInt(x["lengthSeconds"])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x["title"].split(' (')[0])));
+    topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - (parseInt(x[0]["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 + parseInt(x[0]["contentDetails"]["duration"].split("M")[1].split("S")[0])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x[0]["snippet"]["title"].split(' (')[0])));
     
     /*
     sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
@@ -188,35 +189,35 @@ function transformList(list) {
       }
     
     }else{
-      
-      x["primaryArtists"] = x["author"].replace(',', ', ').replace(' &', ',');
+      for (let y of x) {
+      y["primaryArtists"] = y["snippet"]["tags"].length > 2 && y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,-2).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
       //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
-      x["image"] = [{
+      y["image"] = [{
             "quality": "50x50",
-            "link": x["thumbnail"]["thumbnails"][0]['url'].replace('hq720', 'hqdefault')
+            "link": `https://i.ytimg.com/vi/${y["id"]}/default.jpg`
           },
           {
             "quality": "150x150",
-            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w150-h150').replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault')
+            "link": `https://i.ytimg.com/vi/${y["id"]}/mqdefault.jpg`
           },
           {
             "quality": "500x500",
-            "link": x["thumbnail"]["thumbnails"][1]['url'].replace('w120-h120','w500-h500').replace('sddefault', 'hqdefault').replace('hq720', 'hqdefault')
+            "link": `https://i.ytimg.com/vi/${y["id"]}/sddefault.jpg`
           }];
-      x["name"] = x["title"];
-      x["duration"] = x["lengthSeconds"];
-      x["playCount"] = parseInt(x["viewCount"]);
-      x["id"] = `yt-${x["videoId"]}`;
-      x["type"] = "song";
-      x["primaryArtistsId"] = x["author"].replace(' & ', ',');
-      x["language"] = "YouTube";
-      x["album"] = {
+      y["name"] = y["snippet"]["title"];
+      y["duration"] = parseInt(y["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 + parseInt(y["contentDetails"]["duration"].split("M")[1].split("S")[0]);
+      y["playCount"] = parseInt(y["statistics"]["viewCount"]);
+      y["id"] = `yt-${y["id"]}`;
+      y["type"] = "song";
+      y["primaryArtistsId"] = y["primaryArtists"].replace(', ', ',');
+      y["language"] = "YouTube";
+      y["album"] = {
         "id": "13615087",
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      let linkurl = x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.toString().replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${id.toString().replace("yt-","")}`;
-      x["downloadUrl"] = [
+      let linkurl = y["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"]}` : `https://ytpi.onrender.com/audio?videoId=${y["id"]}`;
+      y["downloadUrl"] = [
         {
           "quality": "12kbps",
           "link": linkurl 
@@ -238,8 +239,8 @@ function transformList(list) {
           "link": linkurl
         }
       ];
-      result.push(x);
-          
+      result.push(y);
+    } 
     }}else{
     const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${id.toString()}`);
     const data = await response.json();
