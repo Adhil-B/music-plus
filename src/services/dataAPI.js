@@ -307,15 +307,15 @@ export async function getArtistData(id) {
     "image": [
       {
         "quality": "50x50",
-        "link": data[0]['thumbnails'][0]['url']
+        "link": data[0]['thumbnails'][1]['url'].replace('w120-h120','w50-h50')
       },
       {
         "quality": "150x150",
-        "link": data[0]['thumbnails'][1]['url']
+        "link": data[0]['thumbnails'][1]['url'].replace('w120-h120','w150-h150')
       },
       {
         "quality": "500x500",
-        "link": data[0]['thumbnails'][1]['url']
+        "link": data[0]['thumbnails'][1]['url'].replace('w120-h120','w500-h500')
       }
     ],
     "followerCount": "71752",
