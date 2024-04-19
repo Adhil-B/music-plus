@@ -224,7 +224,8 @@ function transformList(list) {
     }else{
       for (let y of x) {
         let tags = [];
-        for (let tag of y["snippet"]['tags'].slice(1,-2)){
+        let sniptag = y["snippet"]['tags'].slice(1,-2) ? y["snippet"]['tags'].slice(1,-2) : [];
+        for (let tag of sniptag)){
           if (!(y["snippet"]["title"].includes(tag))){
             tags.push(tag);
           }
