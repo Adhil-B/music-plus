@@ -33,7 +33,7 @@ const page = ({ params }) => {
             const songs = await getArtistSongs(params.artistId, songsPage);
             dispatch(setProgress(90));
             setArtistSongs(songs);
-            setLastPage(songs["lastPage"]);
+            setLastPage(1);
             const albums = await getArtistAlbums(params.artistId, 1);
             dispatch(setProgress(100));
             setArtistAlbums(albums);
