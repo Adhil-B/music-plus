@@ -60,7 +60,7 @@ const SongCard = ({ song, isPlaying, activeSong }) => {
             />
           </div>
           <img width={200} height={200} loading='lazy' alt="song_img"
-            srcSet={`${song.image?.[0]?.link ? song.image?.[0]?.link.replace('maxres','mq') : song.image?.[0]?.url.replace('maxres','mq')} 320w, ${song.image?.[1]?.link ? song.image?.[1]?.link.replace('maxres','mq') : song.image?.[1]?.url.replace('maxres','mq')} 480w, ${song.image?.[2]?.link ? song.image?.[2]?.link.replace('maxres','mq') : song.image?.[2]?.url.replace('maxres','mq')} 800w`}
+            srcSet={`${song.image?.[0]?.link ? song.image?.[0]?.link : song.image?.[0]?.url} 320w, ${song.image?.[1]?.link ? song.image?.[1]?.link : song.image?.[1]?.url} 480w, ${song.image?.[2]?.link ? song.image?.[2]?.link : song.image?.[2]?.url} 800w`}
             sizes="(max-width: 320px) 280px, (max-width: 480px) 440px, 800px"
             src={song.image?.[1]?.link}
             className={`${song.type === 'playlist' && song?.subtitle === 'JioSaavn' ? 'rounded-full' : 'rounded-lg'} w-full h-full object-cover aspect-square`} />
