@@ -234,7 +234,7 @@ function transformList(list) {
         //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
       y["image"] = [{
             "quality": "50x50",
-            "link": `https://i.ytimg.com/vi/${y["id"]}/default.jpg`
+            "link": `https://i.ytimg.com/vi/${y["id"]}/mqdefault.jpg`
           },
           {
             "quality": "150x150",
@@ -242,7 +242,7 @@ function transformList(list) {
           },
           {
             "quality": "500x500",
-            "link": `https://i.ytimg.com/vi/${y["id"]}/maxresdefault.jpg`
+            "link": `https://i.ytimg.com/vi/${y["id"]}/mqdefault.jpg`
           }];
       y["name"] = y["snippet"]["title"];
       y['min'] = y["contentDetails"]["duration"].includes('M') ? parseInt(y["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 : parseInt('0');
@@ -426,7 +426,7 @@ export async function getSearchedData(query) {
     //const true1 = query.includes("youtube") || data.data["songs"]["results"].length < 3;
     if (true1){
     for (let x of data1) {
-      if (lastname.split(":")[0].includes("Top result") && lastname.split(':')[1].includes(x["title"])){ data2.pop(); console.log('hi');}
+      if (lastname.split(":")[0].includes("Top result") && (lastname.split(':')[1].includes(x["title"]) || x["title"].includes(lastname.split(':')[1]))){ data2.pop();}
       if ("Top result Songs".includes(x['category']) && x['videoId'] != null) { lastname = x['category'] + ':' + JSON.stringify(x["title"]) }else{ continue; }
       
       let art = [];
@@ -627,11 +627,11 @@ export async function getRecommendedSongs(artistId, sondId, language) {
           },
           {
             "quality": "150x150",
-            "link": `https://i.ytimg.com/vi/${x["videoId"]}/maxresdefault.jpg`
+            "link": `https://i.ytimg.com/vi/${x["videoId"]}/mqdefault.jpg`
           },
           {
             "quality": "500x500",
-            "link": `https://i.ytimg.com/vi/${x["videoId"]}/maxresdefault.jpg`
+            "link": `https://i.ytimg.com/vi/${x["videoId"]}/mqdefault.jpg`
           }];
       x["album"] = {
         "id": "13615087",
