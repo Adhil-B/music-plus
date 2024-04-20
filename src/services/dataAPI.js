@@ -227,11 +227,12 @@ function transformList(list) {
       y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(y["snippet"]['tags'].slice(1,-2)).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
       for (let tag of y["primaryArtists"].split(", ")){
        if (y["snippet"]["title"].includes(tag) && !(y["snippet"]['channelTitle'].includes(tag))){
-            y["primaryArtists"] = y["primaryArtists"].replace(tag, '')
+            y["primaryArtists"] = y["primaryArtists"].replace(`, ${tag}`, '')
           }
       }
       
         //x["primaryArtists"] = x["channelId"].replace("UCJJhJ-jgdpikgmR632THgBQ","Saregama Malayalam");
+      let imgcode = y["snippet"]['channelTitle'].includes(' - Topic') ? 'hq720.jpg' : 'hqdefault.jpg';
       y["image"] = [{
             "quality": "50x50",
             "link": `https://i.ytimg.com/vi/${y["id"]}/mqdefault.jpg`
@@ -242,7 +243,7 @@ function transformList(list) {
           },
           {
             "quality": "500x500",
-            "link": `https://i.ytimg.com/vi/${y["id"]}/mqdefault.jpg`
+            "link": `https://i.ytimg.com/vi/${y["id"]}/${imgcode}`
           }];
       y["name"] = y["snippet"]["title"];
       y['min'] = y["contentDetails"]["duration"].includes('M') ? parseInt(y["contentDetails"]["duration"].split("PT")[1].split("M")[0])*60 : parseInt('0');
