@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
+const Pusher = require("pusher");
 
 export async function POST(req) {
-const response = await fetch(`https://musicplus.ddns.net/api/mc`);
-const Pusher = require("pusher");
 
 const pusher = new Pusher({
   appId: "1559468",
