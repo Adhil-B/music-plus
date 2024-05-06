@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-
+const Pusher = require("pusher");
 
 export async function GET(req){
-const Pusher = require("pusher");
+
 const pusher = new Pusher({
   appId: "1559468",
   key: "16cc5da1d681a2406c5f",
@@ -22,5 +22,6 @@ return NextResponse.json(
             },
             { status: 401 }
         );
+  
 }
 
