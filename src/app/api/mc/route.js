@@ -10,7 +10,7 @@ const pusher = new Pusher({
   cluster: "ap2",
   useTLS: true
 });
-pusher.trigger("my-channel", "my-event", {
+pusher.trigger("humble", "start", {
   message: "hello world"
 });
 return NextResponse.json(
