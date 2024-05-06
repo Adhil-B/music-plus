@@ -20,7 +20,7 @@ return NextResponse.json(
                 message: "User not logged in",
                 data: null
             },
-            { status: 401 }
+            { status: 200 }
         );
   
 }
