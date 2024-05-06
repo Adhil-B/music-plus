@@ -8,7 +8,7 @@ const pusher = new Pusher({
   key: "16cc5da1d681a2406c5f",
   secret: "0f3961bb2047c8f12b3d",
   cluster: "ap2",
-  useTLS: true
+  useTLS: false
 });
 
 pusher.trigger("my-channel", "my-event", {
