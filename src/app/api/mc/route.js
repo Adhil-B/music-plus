@@ -14,6 +14,15 @@ const pusher = new Pusher({
 pusher.trigger("my-channel", "my-event", {
   message: "hello world"
 });
+
+return NextResponse.json(
+            {
+                success: true,
+                message: "Starting",
+                data: null
+            },
+            { status: 200 }
+        );
   
 }
 
