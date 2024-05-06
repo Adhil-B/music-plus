@@ -37,6 +37,7 @@
     "ytdl-core": "^4.11.4",
     "youtubei.js" : "8.1.0",
     "@khmyznikov/pwa-install": "0.3.6",
-    "react-ios-pwa-prompt": "1.8.4"
+    "react-ios-pwa-prompt": "1.8.4",
+    "pusher": "5.2.0"
   }
 }
