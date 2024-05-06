@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function POST(req) {
+export async function PUT(req) {
 const Pusher = require("pusher");
 const pusher = new Pusher({
   appId: "1559468",
