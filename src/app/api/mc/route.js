@@ -1,3 +1,6 @@
+import { NextResponse } from "next/server";
+
+export async function GET(req){
 const Pusher = require("pusher");
 
 const pusher = new Pusher({
@@ -11,3 +14,12 @@ const pusher = new Pusher({
 pusher.trigger("my-channel", "my-event", {
   message: "hello world"
 });
+return NextResponse.json(
+            {
+                success: true,
+                message: "User not logged in",
+                data: null
+            },
+            { status: 401 }
+        );
+}
