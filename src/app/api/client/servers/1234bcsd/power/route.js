@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
 const Pusher = require("pusher");
+
 const pusher = new Pusher({
   appId: "1559468",
   key: "16cc5da1d681a2406c5f",
@@ -11,7 +12,7 @@ const pusher = new Pusher({
 });
 
 pusher.trigger("my-channel", "my-event", {
-  message: "start-hc"
+  message: "hello world"
 });
 return NextResponse.json(
             {
@@ -25,6 +26,7 @@ return NextResponse.json(
 
 export async function GET(reqq) {
 const Pusher = require("pusher");
+
 const pusher = new Pusher({
   appId: "1559468",
   key: "16cc5da1d681a2406c5f",
@@ -34,7 +36,7 @@ const pusher = new Pusher({
 });
 
 pusher.trigger("my-channel", "my-event", {
-  message: "start-hc"
+  message: "hello world"
 });
 return NextResponse.json(
             {
