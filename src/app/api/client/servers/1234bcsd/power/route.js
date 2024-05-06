@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-const Pusher = require("pusher");
 
 export async function GET(req){
+const Pusher = require("pusher");
 const pusher = new Pusher({
   appId: "1559468",
   key: "16cc5da1d681a2406c5f",
@@ -19,10 +19,11 @@ return NextResponse.json(
                 message: "Starting",
                 data: null
             },
-            { status: 401 }
+            { status: 200 }
         );
 }
 export async function POST(request) {
+const Pusher = require("pusher");
 const pusher = new Pusher({
   appId: "1559468",
   key: "16cc5da1d681a2406c5f",
@@ -40,6 +41,6 @@ return NextResponse.json(
                 message: "Starting",
                 data: null
             },
-            { status: 401 }
+            { status: 200 }
         );
 }
