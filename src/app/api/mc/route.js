@@ -10,19 +10,15 @@ const pusher = new Pusher({
   cluster: "ap2",
   useTLS: true
 });
-
 pusher.trigger("my-channel", "my-event", {
   message: "hello world"
 });
-
 return NextResponse.json(
             {
                 success: true,
-                message: "Starting",
+                message: "User not logged in",
                 data: null
             },
-            { status: 200 }
+            { status: 401 }
         );
-  
 }
-
