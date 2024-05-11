@@ -137,7 +137,19 @@ export async function getSongData(id1) {
     
     const id2 = id1.toString().split(",");
 //id1.toString().split(",")
+function rearrangeArray(originalArray, orderArray) {
+  const map = new Map(originalArray.map(item => [item.id, item]));
+  const rearrangedArray = [];
+  for (const id of orderArray) {
+    if (map.has(id)) {
+      rearrangedArray.push(map.get(id));
+    }
+  }
+  return rearrangedArray;
+}
+    
 function transformList(list) {
+
   const transformedList = [];
   let currentChunk = [];
   let currentChunk2 = [];
@@ -145,15 +157,15 @@ function transformList(list) {
   for (const item of list) {
     if (item.startsWith("yt-")) {
       // Start a new chunk if the item begins with "yt-"
-      transformedList.push(currentChunk.join(","));
+      //transformedList.push(currentChunk.join(","));
       //transformedList.push(item);
       currentChunk2.push(item);
-      currentChunk = [];
+      //currentChunk = [];
     } else {
       // Add the item to the current chunk
-      transformedList.push(currentChunk2.join(","));
+      //transformedList.push(currentChunk2.join(","));
       currentChunk.push(item);
-      currentChunk2 = [];
+      //currentChunk2 = [];
     }
   }
 
@@ -294,7 +306,7 @@ function transformList(list) {
       }
      
     }}
-    return result;
+    return rearrangeArray(result,id2);
   } catch (error) {
     console.log(error);
   }
