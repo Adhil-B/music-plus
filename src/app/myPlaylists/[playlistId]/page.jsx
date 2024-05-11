@@ -67,7 +67,7 @@ browserFileStorage.list().then((filenames) => {
   return (
     <div className='mx-auto relative flex flex-col w-11/12 text-white min-h-screen '>
       <h1 className='text-6xl font-semibold mt-10'>{playlist?.name}</h1>
-      <h2 className='text-3xl font-semibold mt-10 flex items-center gap-[0.5rem]'>Songs <MdOutlineDownloading size={'1.75rem'} className={`cursor-pointer mt-[2px] ${start ? 'text-[#00e6e6]' : ''} hover:text-[#00e6e6]`} onClick={(e)=>{e.stopPropagation();
+      <h2 className='mb-5 text-3xl font-semibold mt-10 flex items-center gap-[0.5rem]'>Songs <MdOutlineDownloading size={'1.75rem'} className={`cursor-pointer mt-[2px] ${start ? 'text-[#00e6e6]' : ''} hover:text-[#00e6e6]`} onClick={(e)=>{e.stopPropagation();
 setStart(true)
 for (let i in songs) {
  let song = songs[i];
