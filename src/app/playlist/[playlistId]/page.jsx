@@ -48,7 +48,7 @@ const page = async ({ params }) => {
         </div>
       </div>
       <div className="mt-10 text-gray-200">
-        <h1 className="text-3xl font-bold">Songs</h1>
+        <h1 className="mb-5 text-3xl font-bold">Songs</h1>
         <SongList SongData={playlistData?.songs} loading={false} />
       </div>
     </div>
