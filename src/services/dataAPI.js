@@ -349,7 +349,7 @@ export async function getlyricsData(id) {
 export async function getArtistData(id) {
   try {
     let name;
-    if (Number.isInteger(id)){
+    if (parseInt(id)){
     const response9 = await fetch(`https://jiosaavn-api-gilt.vercel.app/artists?id=${id}`);
     const data9 = await response9.json();
     name = data9?.data?.name;
