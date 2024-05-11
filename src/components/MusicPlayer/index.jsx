@@ -33,7 +33,7 @@ const MusicPlayer = () => {
   const dispatch = useDispatch();
   const { status } = useSession();
   const router = useRouter();
-  const { data } = usePalette(activeSong?.image?.[1]?.link);
+  const { data } = usePalette(activeSong?.image?.[0]?.link.replace("https://i.ytimg.com/","https://api.allorigins.win/raw?url=https://i.ytimg.com/"));
 const scrollableDivRef = useRef(null);
   useEffect(() => {
     if (currentSongs?.length) dispatch(playPause(true));
