@@ -348,12 +348,15 @@ export async function getlyricsData(id) {
 // get artist data
 export async function getArtistData(id) {
   try {
+    let name;
     if (Number.isInteger(id)){
-    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/artists?id=${id}`);
-    const data = await response.json();
-    return data?.data;
+    const response9 = await fetch(`https://jiosaavn-api-gilt.vercel.app/artists?id=${id}`);
+    const data9 = await response9.json();
+    name = data9?.data?.name;
     }else{
-      const response = await fetch(`https://ytpi.vercel.app/search?query=${id}&filter=artists`);
+    name = id;
+    }
+      const response = await fetch(`https://ytpi.vercel.app/search?query=${name}&filter=artists`);
       const data = await response.json();
       const data1 = {
     "id": data[0]['browseId'],
@@ -392,7 +395,7 @@ export async function getArtistData(id) {
     "isRadioPresent": true
   };
       return data1;
-    }
+    
   } catch (error) {
     console.log(error);
   }
