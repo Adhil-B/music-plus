@@ -89,7 +89,7 @@ useEffect(() => {
 
   return (
     <>
-      <div className="mt-5 aside bg-[#020813a1] pt-[3px] pr-[15px] pb-[15px] pl-[20px] rounded-lg">
+      <div className="aside bg-[#020813a1] pt-[3px] pr-[15px] pb-[15px] pl-[20px] rounded-lg">
         {
           !loading && SongData?.length > 0 ? (
             SongData?.map((song, index) => (
