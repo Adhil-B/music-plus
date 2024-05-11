@@ -11,7 +11,8 @@ html {
 body,
 .gradient {
   background: rgb(100, 201, 215);
-  background: linear-gradient(180deg, rgba(8, 135, 152, 0.9), rgba(0, 8, 20, 1) 32%);
+  background: linear-gradient(180deg, rgba(8, 135, 152, .9), #091c3f8a 32%);
+  /*background: linear-gradient(180deg, rgba(8, 135, 152, 0.9), rgba(0, 8, 20, 1) 32%);
   /*background: linear-gradient(180deg, rgba(100, 201, 215, 0.8996848739495799) 0%, rgba(0, 8, 20, 1) 32%);*/
   background-repeat: no-repeat;
   background-attachment: fixed;
