@@ -21,7 +21,7 @@ const ListenAgainCard = ({song, index, SongData}) => {
             onClick={() => {
                 handlePlayClick(song,index);
             }}
-             className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff38] sm:border-[#ffffff00] justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
+             className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
                 <div className="flex items-center gap-5">
               <div className="relative mb-2 sm:mb-0">
                 <img src={song?.image?.[1]?.link} alt={song?.name} width={50} height={50} className="max-w-none aspect-square object-cover"
