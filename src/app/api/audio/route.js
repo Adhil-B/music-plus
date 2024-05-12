@@ -1,10 +1,8 @@
-import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 
 export async function GET(req){
-  const router = useRouter();
-  const { query } = router;
-
-  const parameter1 = query.videoId;
-  return parameter1;
+  const searchParams = useSearchParams();
+  let property1 = searchParams.get("id");
+  return property1;
   
 }
