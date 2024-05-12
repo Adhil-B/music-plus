@@ -38,7 +38,6 @@
     "youtubei.js" : "8.1.0",
     "@khmyznikov/pwa-install": "0.3.6",
     "react-ios-pwa-prompt": "1.8.4",
-    "pusher": "5.2.0",
-    "next-navigation": "^1.0.6"
+    "pusher": "5.2.0"
   }
 }
