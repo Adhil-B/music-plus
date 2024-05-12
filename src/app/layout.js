@@ -17,7 +17,7 @@ const poppins = Poppins({
   subsets: ["latin-ext"],
   display: "swap",
 });
-const { fullScreen } = useSelector((state) => state.player);
+
 export const metadata = {
   title: "Music+",
   description: "Music streaming app",
@@ -31,7 +31,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
+const { fullScreen } = useSelector((state) => state.player);
   return (
     <html lang="en">
 
