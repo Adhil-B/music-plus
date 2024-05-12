@@ -39,7 +39,7 @@ const ListenAgainCard = ({song, index, SongData}) => {
                
               </div>
               <div className="w-[60vw] sm:w-24 md:w-64">
-                <p className="text-sm lg:text-lg font-semibold truncate">{
+                <p className="text-sm lg:text-[1rem] font-semibold truncate">{
                     song?.name?.replace("&#039;", "'")?.replace("&amp;", "&")?.replaceAll('&quot;','"')
                 }</p>
                 <p className="text-gray-400 truncate text-xs">{song?.primaryArtists}</p>
