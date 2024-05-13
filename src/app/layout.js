@@ -10,14 +10,15 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import { initialState } from "@/redux/features/playerSlice";
+import * from "@/redux/features/playerSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const poppins = Poppins({
   weight: "500",
   subsets: ["latin-ext"],
   display: "swap",
 });
-//const { fullScreen } = useSelector((state) => state.player);
+const { fullScreen } = useSelector((state) => state.player);
 //${fullScreen ? '' : 'sm:bottom-[1vh] sm:left-[3vw] sm:right-[3vw] sm:rounded-[10px] sm:shadow-[0px_10px_10px_10px_rgba(0, 0, 0, 0.67)]'}
 export const metadata = {
   title: "Music+",
