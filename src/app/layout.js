@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import * from "@/redux/features/playerSlice";
+import "@/redux/features/playerSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const poppins = Poppins({
