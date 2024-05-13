@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import initialState from "@/redux/features/playerSlice";
+import { initialState } from "@/redux/features/playerSlice";
 
 const poppins = Poppins({
   weight: "500",
