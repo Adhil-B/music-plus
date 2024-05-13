@@ -10,7 +10,7 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import { useSelector } from 'react-redux';
+import { initialState } from "@/redux/features/playerSlice";
 
 const poppins = Poppins({
   weight: "500",
@@ -39,7 +39,7 @@ export default function RootLayout({ children }){
     <Script type="text/javascript" src="/script-1.js"></Script> 
     <Script type="text/javascript" src="https://raw.githubusercontent.com/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js"></Script> 
 
-      <body className={`${poppins.className} overscroll-y-contain`}>
+      <body className={`${poppins.className} overscroll-y-contain ${initialState.fullScreen ? 'true' : 'false'}`}>
         <PassiveListner />
         <Providers>
           <AuthProvider>
