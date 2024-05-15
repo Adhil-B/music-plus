@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
-const page = async ({ params }) => {
-
+const page = ({ params }) => {
+    const fetchDataa = async () => {
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${params.audioId.replaceAll("yt-","")}&key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q`);
     const data22 = await response.json();
     const data2 = [];
@@ -26,6 +26,8 @@ const page = async ({ params }) => {
     }else{
     redirect(`https://ytpi.onrender.com/audio?videoId=${params.audioId.replaceAll("yt-","")}`) 
     }
+    }
+    fetchDataa()
 }
 
 export default page
