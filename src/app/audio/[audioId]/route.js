@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
-export async function GET({ params }){
+const page = async ({ params }) => {
 
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${params.audioId.replaceAll("yt-","")}&key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q`);
     const data22 = await response.json();
@@ -28,3 +28,4 @@ export async function GET({ params }){
     }
 }
 
+export default page
