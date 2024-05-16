@@ -18,7 +18,8 @@ export async function GET(req){
     if (topsong.length > 0){
     const response9 = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${topsong[0]['id']}`);
     const data9 = await response9.json();
-    redirect(data9.data[0].downloadUrl[3].url);
+    console.log(data9.data[0].downloadUrl);
+    redirect(data9.data[0].downloadUrl[4].url);
     }else{
     redirect(`https://ytpi.onrender.com/audio?videoId=${id.replace("yt-",'')}`);
     }
