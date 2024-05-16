@@ -1,12 +1,10 @@
-import { NextRequest } from "next/server";
 import { redirect } from 'next/navigation'
-import { getAudio } from "@/services/dataAPI";
+
 export async function GET(req){
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("audioId");
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${id.replaceAll("yt-","")}&key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q`);
     const data22 = await response.json();
-    const data2 = [];
     const x = data22["items"];
   
     const sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x[0]["snippet"]["title"]+' '+x[0]["snippet"]["channelTitle"].replace(' - Topic', '')}`);
