@@ -20,6 +20,6 @@ export async function GET(req){
     const data9 = await response9.json();
     redirect(data9.data[0].downloadUrl[4].url);
     }else{
-    redirect(x[0]["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${id.replace("yt-",'')}`); 
+    redirect(`https://ytpi.onrender.com/audio?videoId=${id.replace("yt-",'')}`); 
     }
 }
