@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 export async function GET(req){
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("audioId");
+    const qu = searchParams.get("q");
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${id.replaceAll("yt-","")}&key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q`);
     const data22 = await response.json();
     const x = data22["items"];
@@ -18,7 +19,7 @@ export async function GET(req){
     if (topsong.length > 0){
     const response9 = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${topsong[0]['id']}`);
     const data9 = await response9.json();
-    redirect(data9.data[0].downloadUrl[4].link);
+    redirect(data9.data[0].downloadUrl[qu].link);
     }else{
     redirect(x[0]["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${id.replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${id.replace("yt-",'')}`);
     }
