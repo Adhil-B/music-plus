@@ -185,15 +185,14 @@ function transformList(list) {
     if (id === ""){
       console.log();
     }else if (id.includes("yt-")){
+    /////////////////////
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${id.toString().replaceAll("yt-","")}&key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q`);
     //const response = await fetch(`https://ytpi.vercel.app/song?videoId=${id.toString().replaceAll("yt-","")}`);
     //const response = await fetch(`https://api.allorigins.win/raw?url=https%3A//beatbump.io/api/v1/player.json?videoId=${id.toString().replace("yt-","")}`);
     const data22 = await response.json();
     const data2 = [];
-    
-    //const x = data22[0];
     const x = data22["items"];
-    let sresponse;
+    /*let sresponse;
     let sdata22;
     let sdata99;
     let topsong = [];
@@ -208,22 +207,10 @@ function transformList(list) {
     x[0]['sec'] = x[0]["contentDetails"]["duration"].includes('M') ? parseInt(x[0]["contentDetails"]["duration"].split("M")[1].split("S")[0]) : parseInt(x[0]["contentDetails"]["duration"].split("PT")[1].split("S")[0]);
     x[0]["duration"] = x[0]['min'] + x[0]['sec'];
     topsong = Object.values(sdata99).filter(entry => (Math.abs(parseInt(entry["duration"]) - (x[0]["duration"])) < 8) && (entry["name"].replace("(", "").replace(")", "").includes(x[0]["snippet"]["title"].split(' (')[0])) );
+
+    }*/
     
-    /*
-    sresponse =  await fetch(`https://saavn.dev/api/search/songs?query=${x["title"].split(' (From')[0]}&page=1&limit=2`);
-    sdata22 = await sresponse.json();
-    if (sdata22.data?.results?.length > 0){
-    let artistnamelist = sdata22.data?.results[0]?.artists?.primary?.map(function(d) { return d['name']; });
-    //let artistnamelist = sdata22.data?.results[0]?.primaryArtists?.replace(' ', '')?.split(',');
-    true1 = x["author"].replace(' ', '').includes(artistnamelist[0]) || x["author"].replace(' ', '').includes(artistnamelist?.slice(-1));
-    true2 = sdata22.data?.results[0]?.name?.includes(x["title"].split(' ')[0]);
-    true3 = Math.abs(parseInt(sdata22.data?.results[0]?.duration) - parseInt(x["lengthSeconds"])) < 10;
-    }
-    */
-    
-    }
-    
-  //true1 && true2 && true3
+  /*
     if (topsong.length > 0){
       const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${topsong[0]['id']}`);
       const data = await response.json();
@@ -233,7 +220,7 @@ function transformList(list) {
         result.push(song);
       }
     
-    }else{
+    }else{*/
       for (let y of x) {
 
       y["primaryArtists"] = y["snippet"]['channelTitle'].includes(' - Topic') ? y["snippet"]['tags'].slice(0,1).concat(y["snippet"]['tags'].slice(1,-2)).join(", ") : y["snippet"]['channelTitle'].replace(' - Topic', '');
@@ -271,7 +258,8 @@ function transformList(list) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
+      let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${y["id"].replace("yt-",'')}`;
+      //let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
       y["downloadUrl"] = [
         {
           "quality": "12kbps",
@@ -296,7 +284,9 @@ function transformList(list) {
       ];
       result.push(y);
     } 
-    }}else{
+    //}
+      /////////////////////////
+    }else{
     const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${id.toString()}`);
     const data = await response.json();
     //data.data["name"] = data?.data["name"].replaceAll('&quot;','"');
