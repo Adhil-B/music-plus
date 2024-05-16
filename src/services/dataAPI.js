@@ -263,23 +263,23 @@ function transformList(list) {
       y["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": linkurl 
+          "link": linkurl+'&q=0'
         },
         {
           "quality": "48kbps",
-          "link": linkurl
+          "link": linkurl+'&q=1'
         },
         {
           "quality": "96kbps",
-          "link": linkurl
+          "link": linkurl+'&q=2'
         },
         {
           "quality": "160kbps",
-          "link": linkurl
+          "link": linkurl+'&q=3'
         },
         {
           "quality": "320kbps",
-          "link": linkurl
+          "link": linkurl+'&q=4'
         }
       ];
       result.push(y);
@@ -678,23 +678,23 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": linkurl
+          "link": linkurl+'&q=0'
         },
         {
           "quality": "48kbps",
-          "link": linkurl
+          "link": linkurl+'&q=1'
         },
         {
           "quality": "96kbps",
-          "link": linkurl
+          "link": linkurl+'&q=2'
         },
         {
           "quality": "160kbps",
-          "link": linkurl
+          "link": linkurl+'&q=3'
         },
         {
           "quality": "320kbps",
-          "link": linkurl
+          "link": linkurl+'&q=4'
         }
       ];
       x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','');
