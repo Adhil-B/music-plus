@@ -651,7 +651,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       for (let arti of x["artists"]) {
         art.push(arti["name"])
       }
-      x["primaryArtists"] = art.reverse().join(", ").replace(' & ', ', ').replace('and ','');
+      x["primaryArtists"] = art.reverse().join(", ").replace(' & ', ', ').replace('and ','').replace(', ,',',');
       x["duration"] = (parseInt(x["length"].split(':')[0])*60) + parseInt(x["length"].split(':')[1]);
       //x["duration"] = x["duration_seconds"];
       x["image"] = [{
@@ -697,7 +697,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
           "link": linkurl+'&q=4'
         }
       ];
-      x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','');
+      x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','').replace(', ,',',');
       if (!x["id"].includes(sondId)){
       data2.push(x);
       }
