@@ -11,6 +11,14 @@ import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
 //import { useDispatch, useSelector } from "react-redux";
+import type { Viewport } from 'next'
+ 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
 
 const poppins = Poppins({
   weight: "500",
