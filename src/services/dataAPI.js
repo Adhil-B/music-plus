@@ -674,26 +674,27 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       x["name"] = x["title"].split(" -")[0].split(" |")[0].replace('Video Song', '');
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
+      let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "48kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "96kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "160kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": linkurl
         },
         {
           "quality": "320kbps",
-          "link": x["lengthSeconds"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-","")}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-","")}`
+          "link": linkurl
         }
       ];
       x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','');
