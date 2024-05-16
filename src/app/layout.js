@@ -18,7 +18,7 @@ export const viewport = {
   userScalable: false,
   // Also supported by less commonly used
   // interactiveWidget: 'resizes-visual',
-}
+};
 
 const poppins = Poppins({
   weight: "500",
