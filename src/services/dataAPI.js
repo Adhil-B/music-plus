@@ -273,19 +273,19 @@ function transformList(list) {
         },
         {
           "quality": "48kbps",
-          "link": audiodata[1];
+          "link": audiodata[1]
         },
         {
           "quality": "96kbps",
-          "link": audiodata[2];
+          "link": audiodata[2]
         },
         {
           "quality": "160kbps",
-          "link": audiodata[3];
+          "link": audiodata[3]
         },
         {
           "quality": "320kbps",
-          "link": audiodata[4];
+          "link": audiodata[4]
         }
       ];
       result.push(y);
@@ -690,19 +690,19 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         },
         {
           "quality": "48kbps",
-          "link": audiodata[1];
+          "link": audiodata[1]
         },
         {
           "quality": "96kbps",
-          "link": audiodata[2];
+          "link": audiodata[2]
         },
         {
           "quality": "160kbps",
-          "link": audiodata[3];
+          "link": audiodata[3]
         },
         {
           "quality": "320kbps",
-          "link": audiodata[4];
+          "link": audiodata[4]
         }
       ];
       x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','').replace(', ,',',');
