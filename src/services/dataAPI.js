@@ -262,7 +262,7 @@ function transformList(list) {
       };
       //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${y["id"].replace("yt-",'')}`;
       //let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
-      let audiodata = await getAudio(`yt-${y["videoId"]}`);
+      let audiodata = await getAudio(`yt-${y["id"]}`);
       y['id'] = audiodata[5];
       //x["id"] = `yt-${x["videoId"]}`;
       //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
