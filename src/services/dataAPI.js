@@ -331,7 +331,7 @@ export async function getAudio(id) {
     const data9 = await response9.json();
     return([data9.data[0].downloadUrl[0].link,data9.data[0].downloadUrl[1].link,data9.data[0].downloadUrl[2].link,data9.data[0].downloadUrl[3].link,data9.data[0].downloadUrl[4].link,topsong[0]['id']])
     }else{
-    return([`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,id) 
+    return([`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,id]) 
     }
 }
 
