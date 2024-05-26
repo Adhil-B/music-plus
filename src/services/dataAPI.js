@@ -251,7 +251,7 @@ function transformList(list) {
       y['sec'] = y["contentDetails"]["duration"].includes('M') ? parseInt(y["contentDetails"]["duration"].split("M")[1].split("S")[0]) : parseInt(y["contentDetails"]["duration"].split("PT")[1].split("S")[0]);
       y["duration"] = y['min'] + y['sec'];
       y["playCount"] = parseInt(y["statistics"]["viewCount"]);
-      y["id"] = `yt-${y["id"]}`;
+      //y["id"] = `yt-${y["id"]}`;
       y["type"] = "song";
       y["primaryArtistsId"] = y["primaryArtists"].replace(', ', ',');
       y["language"] = "YouTube";
@@ -260,28 +260,32 @@ function transformList(list) {
         "name": "Thunderclouds",
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
-      let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${y["id"].replace("yt-",'')}`;
+      //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${y["id"].replace("yt-",'')}`;
       //let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
+      let audiodata = await getAudio(`yt-${y["videoId"]}`);
+      y['id'] = audiodata[5];
+      //x["id"] = `yt-${x["videoId"]}`;
+      //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       y["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": linkurl+'&q=0'
+          "link": audiodata[0]
         },
         {
           "quality": "48kbps",
-          "link": linkurl+'&q=1'
+          "link": audiodata[1];
         },
         {
           "quality": "96kbps",
-          "link": linkurl+'&q=2'
+          "link": audiodata[2];
         },
         {
           "quality": "160kbps",
-          "link": linkurl+'&q=3'
+          "link": audiodata[3];
         },
         {
           "quality": "320kbps",
-          "link": linkurl+'&q=4'
+          "link": audiodata[4];
         }
       ];
       result.push(y);
@@ -325,9 +329,9 @@ export async function getAudio(id) {
     if (topsong.length > 0){
     const response9 = await fetch(`https://jiosaavn-api-gilt.vercel.app/songs?id=${topsong[0]['id']}`);
     const data9 = await response9.json();
-    return(data9.data[0].downloadUrl[4].url)
+    return([data9.data[0].downloadUrl[0].link,data9.data[0].downloadUrl[1].link,data9.data[0].downloadUrl[2].link,data9.data[0].downloadUrl[3].link,data9.data[0].downloadUrl[4].link,topsong[0]['id']])
     }else{
-    return(`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`) 
+    return([`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,`https://ytpi.onrender.com/audio?videoId=${id.replaceAll("yt-","")}`,id) 
     }
 }
 
@@ -674,29 +678,31 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
       x["name"] = x["title"].split(" -")[0].split(" |")[0].replace('Video Song', '');
-      x["id"] = `yt-${x["videoId"]}`;
+      let audiodata = await getAudio(`yt-${x["videoId"]}`);
+      x['id'] = audiodata[5];
+      //x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
+      //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": linkurl+'&q=0'
+          "link": audiodata[0]
         },
         {
           "quality": "48kbps",
-          "link": linkurl+'&q=1'
+          "link": audiodata[1];
         },
         {
           "quality": "96kbps",
-          "link": linkurl+'&q=2'
+          "link": audiodata[2];
         },
         {
           "quality": "160kbps",
-          "link": linkurl+'&q=3'
+          "link": audiodata[3];
         },
         {
           "quality": "320kbps",
-          "link": linkurl+'&q=4'
+          "link": audiodata[4];
         }
       ];
       x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','').replace(', ,',',');
