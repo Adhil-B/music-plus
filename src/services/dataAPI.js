@@ -678,31 +678,31 @@ export async function getRecommendedSongs(artistId, sondId, language) {
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
       x["name"] = x["title"].split(" -")[0].split(" |")[0].replace('Video Song', '');
-      let audiodata = await getAudio(`yt-${x["videoId"]}`);
-      x['id'] = audiodata[5];
-      //x["id"] = `yt-${x["videoId"]}`;
+      //let audiodata = await getAudio(`yt-${x["videoId"]}`);
+      //x['id'] = audiodata[5];
+      x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
+      let audiodata = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": audiodata[0]
+          "link": audiodata+'&q=0'
         },
         {
           "quality": "48kbps",
-          "link": audiodata[1]
+          "link": audiodata+'&q=1'
         },
         {
           "quality": "96kbps",
-          "link": audiodata[2]
+          "link": audiodata+'&q=2'
         },
         {
           "quality": "160kbps",
-          "link": audiodata[3]
+          "link": audiodata+'&q=3'
         },
         {
           "quality": "320kbps",
-          "link": audiodata[4]
+          "link": audiodata+'&q=4'
         }
       ];
       x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','').replace(', ,',',');
