@@ -264,7 +264,7 @@ function transformList(list) {
       //let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
       let audiodata = await getAudio(`yt-${y["id"]}`);
       //y['id'] = audiodata[5];
-      x["id"] = `yt-${x["videoId"]}`;
+      y["id"] = `yt-${y["id"]}`;
       //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       y["downloadUrl"] = [
         {
@@ -682,27 +682,28 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       //x['id'] = audiodata[5];
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      let audiodata = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
+      let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
+      //let audiodata = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       x["downloadUrl"] = [
         {
           "quality": "12kbps",
-          "link": audiodata+'&q=0'
+          "link": linkurl
         },
         {
           "quality": "48kbps",
-          "link": audiodata+'&q=1'
+          "link": linkurl
         },
         {
           "quality": "96kbps",
-          "link": audiodata+'&q=2'
+          "link": linkurl
         },
         {
           "quality": "160kbps",
-          "link": audiodata+'&q=3'
+          "link": linkurl
         },
         {
           "quality": "320kbps",
-          "link": audiodata+'&q=4'
+          "link": linkurl
         }
       ];
       x["primaryArtistsId"] = art.reverse().join(",").replace(' & ', ',').replace('and ','').replace(', ,',',');
