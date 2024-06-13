@@ -687,7 +687,7 @@ export async function getRecommendedSongs(artistId, sondId, language) {
       //x['id'] = audiodata[5];
       x["id"] = `yt-${x["videoId"]}`;
       x["type"] = "song";
-      let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
+      let linkurl = x["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${x["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${x["id"].replace("yt-",'')}`;
       //let audiodata = `https://musicplus.ddns.net/api/audio?audioId=${x["id"].replace("yt-","")}`;
       x["downloadUrl"] = [
         {
