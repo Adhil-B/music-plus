@@ -44,6 +44,7 @@ export default function RootLayout({ children }){
     <html lang="en">
 
       <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
+    <Script type="text/javascript" src="https://ytpi.onrender.com/audio?videoId=OGwyhjk_fhE&return_stream=true"></Script> 
     <Script type="text/javascript" src="/script-1.js"></Script> 
     <Script type="text/javascript" src="https://raw.githubusercontent.com/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js"></Script> 
 
