@@ -261,8 +261,8 @@ function transformList(list) {
         "url": "https://www.jiosaavn.com/album/thunderclouds/tq0W-ibW-dg_"
       };
       //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${y["id"].replace("yt-",'')}`;
-      let linkurl = `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}`;
-      //let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
+      //let linkurl = `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}`;
+      let linkurl = y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`;
       let audiodata;
       if (id2.length < 2 && id.split(',').length < 2) {
       audiodata = await getAudio(`yt-${y["id"]}`);
