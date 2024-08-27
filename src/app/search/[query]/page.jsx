@@ -63,6 +63,7 @@ const page = ({params}) => {
 
     const handlePlayClick = async (song) => {
     if (song?.type === "song") {
+        setLoading(true);
       const Data = await getSongData(song?.id);
       const songData = await Data?.[0];
       dispatch(
@@ -78,6 +79,7 @@ const page = ({params}) => {
       );
       dispatch(setFullScreen(true));
       dispatch(playPause(true));
+        setLoading(false);
     }
   };
     
