@@ -22,9 +22,9 @@ body,
   background-position: center;
   overflow-x: hidden;
 }
-.swiper-slide.swiper-slide-visible {
+/*.swiper-slide.swiper-slide-visible {
     margin-right: 10px !important;
-}
+}*/
 .aside{
   backdrop-filter: blur(40px);
 }
