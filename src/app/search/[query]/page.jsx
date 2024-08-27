@@ -37,7 +37,7 @@ const page = ({params}) => {
         fetchData();
     }, [query]);
 
-    const handlePlayClick = async (song) => {
+    /*const handlePlayClick = async (song) => {
         if (song?.type === "song") {
             setLoading(true);
           const Data = await getSongData(song?.id);
@@ -55,12 +55,32 @@ const page = ({params}) => {
              data: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs : [...currentSongs, songData],
              i: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs?.findIndex((s) => s?.id === songData?.id) : currentSongs?.length
              }));*/
-          dispatch(setFullScreen(true));
+         /* dispatch(setFullScreen(true));
           dispatch(playPause(true));
             setLoading(false);
         }
-      };
+      };*/
 
+    const handlePlayClick = async (song) => {
+    if (song?.type === "song") {
+      const Data = await getSongData(song?.id);
+      const songData = await Data?.[0];
+      dispatch(
+        setActiveSong({
+          song: songData,
+          data: currentSongs?.find((s) => s?.id === songData?.id)
+            ? currentSongs
+            : [...currentSongs, songData],
+          i: currentSongs?.find((s) => s?.id === songData?.id)
+            ? currentSongs?.findIndex((s) => s?.id === songData?.id)
+            : currentSongs?.length,
+        })
+      );
+      dispatch(setFullScreen(true));
+      dispatch(playPause(true));
+    }
+  };
+    
   return (
     <div>
         <div className="w-11/12 m-auto mt-16">
