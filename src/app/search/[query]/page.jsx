@@ -92,14 +92,14 @@ const page = ({params}) => {
         <h2 className="text-lg lg:text-4xl font-semibold">Songs</h2>
         {
             searchedData && searchedData?.songs?.results?.length > 0 ? (
-                <div className="mt-5">
+                <div className="mt-5 aside bg-[#02081363] pt-[3px] pr-[15px] pb-[8px] pl-[20px] rounded-lg">
                     {
                         searchedData?.songs?.results?.map((song, index) => (
                             <div key={index}
             onClick={() => {
                 handlePlayClick(song);
             }}
-             className="flex items-center  mt-5 cursor-pointer group border-b-[1px] border-gray-400 justify-between">
+             className=`flex items-center  mt-5 cursor-pointer group ${searchedData?.songs?.results?.length == (index + 1) ? '' : 'border-b-[2px]'} border-[#9ca3af61] justify-between`>
                 <div className="flex items-center gap-5">
               <div className=" relative">
                 <img src={song?.image?.[2]?.url ? song?.image?.[2]?.url : song?.image?.[2]?.link} alt={song?.title} width={50} height={50} className="mb-3 h-[50px] object-cover"
