@@ -378,11 +378,11 @@ export async function getlyricsData(id) {
 // get artist data
 export async function getArtistData(id) {
   try {
-    let name;
-    if (parseInt(id)){
+    //let name;
+    //if (parseInt(id)){
     const response9 = await fetch(`https://jiosaavn-api-gilt.vercel.app/artists?id=${id}`);
     const data9 = await response9.json();
-    name = data9?.data?.name;
+    /*name = data9?.data?.name;
     }else{
     name = id;
     }
@@ -424,7 +424,8 @@ export async function getArtistData(id) {
     ],
     "isRadioPresent": true
   };
-      return data1;
+      return data1;*/
+    return data9?.data;
     
   } catch (error) {
     console.log(error);
