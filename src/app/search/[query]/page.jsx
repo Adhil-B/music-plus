@@ -99,7 +99,7 @@ const page = ({params}) => {
             onClick={() => {
                 handlePlayClick(song);
             }}
-             className=`flex items-center  mt-5 cursor-pointer group ${searchedData?.songs?.results?.length == (index + 1) ? '' : 'border-b-[2px]'} border-[#9ca3af61] justify-between`>
+             className=`flex items-center  mt-5 cursor-pointer group ${searchedData?.songs?.results?.length == (index + 1) ? '' : "border-b-[2px]"} border-[#9ca3af61] justify-between`>
                 <div className="flex items-center gap-5">
               <div className=" relative">
                 <img src={song?.image?.[2]?.url ? song?.image?.[2]?.url : song?.image?.[2]?.link} alt={song?.title} width={50} height={50} className="mb-3 h-[50px] object-cover"
