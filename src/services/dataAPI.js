@@ -461,8 +461,8 @@ export async function getSearchedArtist(query) {
 // get search data
 export async function getSearchedData(query) {
   try {
-    const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/search/all?query=${query}`);
-    //const response = await fetch(`https://saavn.dev/api/search?query=${query}`);
+    //const response = await fetch(`https://jiosaavn-api-gilt.vercel.app/search/all?query=${query}`);
+    const response = await fetch(`https://saavn-new.vercel.app/api/search?query=${query}`);
     const data = await response.json();
     //const data = {data:{songs    }};
     
