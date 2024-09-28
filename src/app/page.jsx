@@ -52,7 +52,7 @@ export default function Home() {
             <div className='flex'>
             <FiSettings title='Settings' size={30} color={'white'} className={` mb-7 `} />
             <h1 class="text-2xl text-white">&nbsp;&nbsp;<b>Settings</b></h1><br/>
-            <IoCloseSharp title='Close' size={30} color={'white'} onClick={handleClose} className='cursor-pointer mb-7 absolute block right-[5%]' />
+            <IoCloseSharp title='Close' size={30} color={'white'} onClick={handleClick} className='cursor-pointer mb-7 absolute block right-[5%]' />
             </div><hr/>
             <div className='cside mt-7 border-b border-gray-400'>
            <Languages/>
