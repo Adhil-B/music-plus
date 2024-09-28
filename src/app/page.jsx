@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { IoCloseSharp } from "react-icons/io5";
 import Languages from '@/components/Sidebar/Languages'
+import { FiSettings } from "react-icons/fi";
 
 export default function Home() {
   const [showtip, setShowtip] = useState(false);
