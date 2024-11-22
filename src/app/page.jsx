@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { IoCloseSharp } from "react-icons/io5";
-import Languages from '@/components/Sidebar/Languages'
+import LanguagesS from '@/components/Sidebar/LanguagesS'
 import { FiSettings } from "react-icons/fi";
 
 export default function Home() {
@@ -55,7 +55,7 @@ export default function Home() {
             <IoCloseSharp title='Close' size={30} color={'white'} onClick={handleClick} className='cursor-pointer mb-7 absolute block right-[5%]' />
             </div><hr/>
             <div className='cside mt-7 border-b border-gray-400'>
-           <Languages/>
+           <LanguagesS/>
            </div>
             
           </div>
