@@ -5,10 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setIsTyping } from '@/redux/features/loadingBarSlice';
 
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
-
 const Searchbar = () => {
   const ref = React.useRef(null);
   const dispatch = useDispatch();
