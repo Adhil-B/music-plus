@@ -43,10 +43,8 @@ export default function Home() {
             <div className=' absolute top-2 -left-2 bg-[#3a3b3b] rotate-[50deg] w-6 h-6'></div>
           </div>
         </div>}
-  */
-  return (
-    <div>
-      {showtip && !toturialComplete &&
+        
+        {showtip && !toturialComplete &&
         <div className={`content-center fixed top-[10%] left-[5%] sm:left-[20%] w-[90%] sm:w-[60%] h-[80%] z-[99] `}>
           <div className=' relative aside shadow-[0px_0px_0px_900px_#00000040] bg-[#020813a1] p-[40px] rounded-lg h-[auto] overflow-x-auto max-h-[110%]'>
             <div className='flex'>
@@ -59,7 +57,11 @@ export default function Home() {
            </div>
             
           </div>
-        </div>  }
+        </div>  } 
+  */
+  return (
+    <div>
+       
 
       <div className=' mx-auto relative flex flex-col w-11/12 text-white '>
         <Homepage />
