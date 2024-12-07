@@ -10,7 +10,8 @@ html {
 
 body,
 .gradient {
-  background: linear-gradient(180deg, rgba(8, 135, 152, .9), #09204a8a 32%);
+  background: linear-gradient(160deg,rgba(60, 8, 152, 0.47),#09204a63 25%);
+  /*background: linear-gradient(180deg, rgba(8, 135, 152, .9), #09204a8a 32%);
   /*background: linear-gradient(180deg, rgba(8, 135, 152, .9), #0b26578a 32%);
   /*background: rgb(100, 201, 215);
   background: linear-gradient(180deg, rgba(8, 135, 152, .9), #091c3f8a 32%);
