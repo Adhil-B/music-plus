@@ -5,10 +5,12 @@ import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setIsTyping } from '@/redux/features/loadingBarSlice';
 
+
 const Searchbar = () => {
   const ref = React.useRef(null);
   const dispatch = useDispatch();
   const router = useRouter();
+  const {isTyping} = useSelector((state) => state.loadingBar);
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = (e) => {
