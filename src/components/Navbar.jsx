@@ -91,7 +91,7 @@ useEffect(() => {
         <div className=' flex'>
           <MdOutlineMenu onClick={
             () => setShowNav(true)
-          } className=' mx-4 text-2xl lg:text-3xl my-auto cursor-pointer' />
+          } className={`${isTyping ? 'hidden sm:flex' : 'flex'} mx-4 text-2xl lg:text-3xl my-auto cursor-pointer`} />
           <div className={`${isTyping ? 'hidden sm:flex' : 'flex'} flex justify-center items-center`}>
             <Link href='/' className="mhome flex flex-row gap-[0.3rem]">
               <AiFillHome aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
