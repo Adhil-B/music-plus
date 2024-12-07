@@ -51,10 +51,12 @@ const Profile = ({setShowNav}) => {
                             <div className='flex flex-col gap-1 w-full truncate'>
                                 <div className='flex justify-between items-center'>
                             <h1 className='text-lg font-semibold'>{data?.userName || user?.userName}</h1>
-                            <MdLogout size={20} onClick={()=>{
+                            <div className="bg-[hsla(0, 0%, 100%, 0.05)] p-[5px] rounded-[20px]">
+                            <MdLogout size={17} onClick={()=>{
                                 setShowNav(false);
                                 signOut();
                             }} className='cursor-pointer text-white hover:text-[#00e6e6]' />
+                            </div>
                             </div>
                             <h2 className='text-[10px] mr-[30px] truncate'>{data?.user?.email || user?.email }</h2>
                             </div>
