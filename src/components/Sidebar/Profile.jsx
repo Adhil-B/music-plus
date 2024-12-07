@@ -46,7 +46,7 @@ const Profile = ({setShowNav}) => {
                         </div>
                     ):
                     (
-                        <div className=' flex gap-4 ml-1'>
+                        <div className=' flex gap-4 ml-1 mt-[2%]'>
                             <img src={data?.imageUrl || user?.imageUrl} alt='user' width={50} height={50} className='rounded-full' />
                             <div className='flex flex-col gap-1 w-full truncate'>
                                 <div className='flex justify-between items-center'>
