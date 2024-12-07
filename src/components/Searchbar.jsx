@@ -4,7 +4,7 @@ import { FiSearch } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setIsTyping } from '@/redux/features/loadingBarSlice';
-
+import { useSelector } from 'react-redux'
 
 const Searchbar = () => {
   const ref = React.useRef(null);
