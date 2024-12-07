@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 
 
-const ListenAgainCard = ({song, index, SongData}) => {
+const ListenAgainCard = ({song, index, SongData, img}) => {
   const { activeSong } = useSelector((state) => state.player);
     const dispatch = useDispatch();
     const handlePlayClick = (song,index) => {
