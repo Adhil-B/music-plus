@@ -30,9 +30,7 @@ const Searchbar = () => {
   const handleBlur = () => {
     dispatch(setIsTyping(false));
   };
-   useLayoutEffect(() => {
-     setSuggestion(suggest(searchTerm))
-  }, [searchTerm]);
+
 /*<Autocomplete
         onFocus={handleFocus}
         onBlur={handleBlur}
