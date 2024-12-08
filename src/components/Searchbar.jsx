@@ -74,7 +74,7 @@ const Searchbar = () => {
                 <p className="text-sm lg:text-[1rem] font-semibold truncate">
                     Testing search suggestion
                 </p>
-                <p className="text-gray-400 truncate text-xs">Works</p>
+                <p className="text-gray-400 truncate text-xs">Please ignore this</p>
               </div>
               </div>
             </div>
