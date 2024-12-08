@@ -65,9 +65,9 @@ const Searchbar = () => {
       <div className={`${isTyping ? '':'hidden'} z-99 fixed top-20vh`}>
          <div
             onClick={() => {
-                handlePlayClick(song,index);
+                
             }}
-             className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between ${activeSong?.id === song?.id && " text-[#00e6e6]"}`}>
+             className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
                 <div className="flex items-center gap-5">
 
               <div className="w-[60vw] sm:w-24 md:w-64">
