@@ -43,7 +43,7 @@ const Searchbar = () => {
       <label htmlFor="search-field" className="sr-only">
         Search all files
       </label>
-      <div className="asearch flex flex-row justify-start items-center">
+      <div className="asearch z-[91] flex flex-row justify-start items-center">
         <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
         
         
@@ -79,7 +79,7 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
-    <div className={`${isTyping ? '':'hidden'} fixed blur-lg h-[100vh] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
+    <div className={`${isTyping ? '':'hidden'} fixed blur-lg h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
     </div>
     </form>
     
