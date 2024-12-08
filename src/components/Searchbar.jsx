@@ -62,7 +62,7 @@ const Searchbar = () => {
 
         
       </div>
-      <div className={`${isTyping ? '':'hidden'}`}>
+      <div className={`${isTyping ? '':'hidden'} z-99 fixed top-20vh`}>
          <div
             onClick={() => {
                 handlePlayClick(song,index);
