@@ -31,8 +31,8 @@ const Searchbar = () => {
     dispatch(setIsTyping(false));
   };
   
-   useEffect(() => {
-  router.push(`${suggest(searchTerm)}`)
+  useEffect(() => {
+  setSuggestion(`${suggest(searchTerm)}`)
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
