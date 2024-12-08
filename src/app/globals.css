@@ -62,7 +62,8 @@ margin-right: 0px !important;
 }
 .asearch{
 margin: 1px 8px 5px 5px;
-background-color: #0000002b;
+/*background-color: #0000002b;*/
+  background-color: hsla(0,0%,100%,.05);
 border-radius: 40px;
 backdrop-filter: blur(4px);
 height: 49px;
