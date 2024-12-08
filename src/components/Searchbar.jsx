@@ -72,9 +72,9 @@ const Searchbar = () => {
 
               <div className="w-[60vw] sm:w-24 md:w-64">
                 <p className="text-sm lg:text-[1rem] font-semibold truncate">
-                    hello
+                    Testing search suggestion
                 </p>
-                <p className="text-gray-400 truncate text-xs">cool</p>
+                <p className="text-gray-400 truncate text-xs">Works</p>
               </div>
               </div>
             </div>
