@@ -39,7 +39,7 @@ const Searchbar = () => {
         }/>
         */
   return (
-    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'md:shadow-[0px_0px_0px_900px_#00000090] md:bg-[#00000090]' : ''} z-90 p-2 text-gray-400 relative focus-within:text-gray-600`}>
+    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_900px_#00000090] bg-[#00000090]' : ''} z-90 p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
         Search all files
       </label>
@@ -62,7 +62,7 @@ const Searchbar = () => {
 
         
       </div>
-      <div className={`${isTyping ? '':'hidden'} z-99 fixed t-25vh asearch w-[87%] p-[10px] h-auto`}>
+      <div className={`${isTyping ? '':'hidden'} z-[99] fixed t-25vh asearch w-[87%] p-[10px] h-auto`}>
          <div
             onClick={() => {
                 
@@ -79,7 +79,7 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
-    <div className={`${isTyping ? '':'hidden'} h-[100vh] w-[100vw] z-89 bg-[hsla(0,0%,100%,.09)]`}>
+    <div className={`${isTyping ? '':'hidden'} blur-lg h-[100vh] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
     </div>
     </form>
     
