@@ -32,7 +32,7 @@ const Searchbar = () => {
   };
   
    useEffect(() => {
-  
+  router.push(`${suggest(searchTerm)}`)
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
