@@ -79,7 +79,8 @@ height: 49px;
 }
 .mhome{
 margin: 1px 5px 5px 0px;
-background-color: #0000002b;
+/*background-color: #0000002b;*/
+  background-color: hsla(0,0%,100%,.05);
 height: 49px;
 font-size: 14px;
 padding: 14px 17px 0px 0px;
