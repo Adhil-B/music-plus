@@ -73,7 +73,7 @@ const Searchbar = () => {
                 
             }}
              className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
-                <div className="flex items-center gap-5">
+                <div className="grid items-center gap-5">
 
               
                 {
@@ -83,7 +83,7 @@ const Searchbar = () => {
                   {suggested}
                 </p>
                 <p className="text-gray-400 truncate text-xs">Please ignore this</p>
-                </div><br>
+                </div>
                   ))
                 }
                 
