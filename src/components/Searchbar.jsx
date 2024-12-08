@@ -62,7 +62,7 @@ const Searchbar = () => {
 
         
       </div>
-      <div className={`${isTyping ? '':'hidden'} z-99 fixed top-20vh`}>
+      <div className={`${isTyping ? '':'hidden'} z-99 fixed top-25vh asearch width-[87%] p-[]`}>
          <div
             onClick={() => {
                 
