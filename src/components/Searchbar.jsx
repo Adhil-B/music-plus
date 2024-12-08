@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setIsTyping } from '@/redux/features/loadingBarSlice';
 import { useSelector } from 'react-redux'
+import { suggest } from '@/services/dataAPI';
 
 const Searchbar = () => {
   const ref = React.useRef(null);
@@ -28,6 +29,9 @@ const Searchbar = () => {
   const handleBlur = () => {
     dispatch(setIsTyping(false));
   };
+   useLayoutEffect(() => {
+     setSuggestion(suggest(searchTerm))
+  }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -79,7 +83,7 @@ const Searchbar = () => {
                   {suggested}
                 </p>
                 <p className="text-gray-400 truncate text-xs">Please ignore this</p>
-                </div>
+                </div><br>
                   ))
                 }
                 
