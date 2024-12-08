@@ -32,7 +32,7 @@ const Searchbar = () => {
   };
   
   useEffect(() => {
-  setSuggestion([Testing, Test])
+  setSuggestion(["Testing","Test"])
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
