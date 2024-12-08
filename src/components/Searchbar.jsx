@@ -79,7 +79,7 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
-    <div className={`${isTyping ? '':'hidden'} h-[100vh] w-[100vw] z-89`}>
+    <div className={`${isTyping ? '':'hidden'} h-[100vh] w-[100vw] z-89 bg-[hsla(0,0%,100%,.09)]`}>
     </div>
     </form>
     
