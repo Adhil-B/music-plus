@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 
 const Searchbar = () => {
   const ref = React.useRef(null);
+  const [suggestion, setSuggestion] = useState([]);
   const dispatch = useDispatch();
   const router = useRouter();
   const {isTyping} = useSelector((state) => state.loadingBar);
@@ -70,12 +71,18 @@ const Searchbar = () => {
              className={`flex w-40 md:w-80 items-center mt-5 cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
                 <div className="flex items-center gap-5">
 
-              <div className="w-[60vw] sm:w-24 md:w-64">
+              
+                {
+                suggestion?.map((suggested, index) => (
+                <div className="w-[60vw] sm:w-24 md:w-64">
                 <p className="text-sm lg:text-[1rem] font-semibold truncate">
-                    Testing search suggestion
+                  {suggested}
                 </p>
                 <p className="text-gray-400 truncate text-xs">Please ignore this</p>
-              </div>
+                </div>
+                  ))
+                }
+                
               </div>
             </div>
     </div>
