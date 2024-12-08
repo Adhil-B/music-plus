@@ -79,7 +79,7 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
-    <div className={`${isTyping ? '':'hidden'} blur-lg h-[100vh] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
+    <div className={`${isTyping ? '':'hidden'} fixed blur-lg h-[100vh] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
     </div>
     </form>
     
