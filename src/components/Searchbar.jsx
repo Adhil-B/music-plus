@@ -13,7 +13,7 @@ const Searchbar = () => {
   const router = useRouter();
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [searchTerm, setSearchTerm] = useState('');
-
+  setSuggestion(["hindi song","hindi new song","hindi songs","hindi gana"]);
   const handleSubmit = (e) => {
     if (searchTerm === '') {
       e.preventDefault();
