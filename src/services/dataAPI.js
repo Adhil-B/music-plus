@@ -1,4 +1,9 @@
-
+//search suggestion
+export async function suggest(term) {
+    const sugg = await fetch(`https://ytpi.vercel.app/search_suggestions?query=${term}`);
+    const sug = await sugg.json();
+    return sug;
+}
 // home page data
 export async function homePageData(language) {
   try {
