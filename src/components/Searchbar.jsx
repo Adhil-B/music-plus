@@ -32,8 +32,11 @@ const Searchbar = () => {
   };
   
   useEffect(() => {
+  const fetchFavorites = async () => {
   const sugg = await suggest('hi');
   setSuggestion(sugg);
+  }
+  fetchFavorites();
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
