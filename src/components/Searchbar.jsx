@@ -32,7 +32,8 @@ const Searchbar = () => {
   };
   
   useEffect(() => {
-  setSuggestion([suggest('hi').toString,"Testing","Test"])
+  const sugg = await suggest('hi');
+  setSuggestion(sugg);
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
