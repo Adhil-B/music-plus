@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 
 const Searchbar = () => {
   const ref = React.useRef(null);
-  const [suggestion, setSuggestion] = useState([]);
+  const [suggestion, setSuggestion] = useState(["hindi song","hindi new song","hindi songs","hindi gana"]);
   const dispatch = useDispatch();
   const router = useRouter();
   const {isTyping} = useSelector((state) => state.loadingBar);
