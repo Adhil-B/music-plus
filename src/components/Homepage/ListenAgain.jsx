@@ -1,6 +1,6 @@
 'use client'
 import ListenAgainCard from "../ListenAgainCard"
-import { useLayoutEffect, useState } from "react"
+import { useLayoutEffect, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { setAutoAdd } from "@/redux/features/playerSlice"
 import { setLanguages } from "@/redux/features/languagesSlice"
