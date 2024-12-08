@@ -30,7 +30,10 @@ const Searchbar = () => {
   const handleBlur = () => {
     dispatch(setIsTyping(false));
   };
-
+  
+   useEffect(() => {
+     alert(suggest(searchTerm))
+  }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
         onBlur={handleBlur}
