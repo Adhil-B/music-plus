@@ -79,6 +79,8 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
+    <div className={`${isTyping ? '':'hidden'} h-[100vh] w-[100vw] z-89`}>
+    </div>
     </form>
     
   );
