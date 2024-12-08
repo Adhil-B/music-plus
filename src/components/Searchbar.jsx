@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { suggest } from '@/services/dataAPI';
 import { useLayoutEffect, useEffect } from "react";
 
-const Searchbar = () => {
+const Searchbar = async() => {
   const ref = React.useRef(null);
   const [suggestion, setSuggestion] = useState(["hindi song","hindi new song","hindi songs","hindi gana"]);
   const dispatch = useDispatch();
@@ -32,11 +32,11 @@ const Searchbar = () => {
   };
   
   useEffect(() => {
-  const fetchFavorites = async () => {
+  //const fetchFavorites = async () => {
   const sugg = await suggest('hi');
   setSuggestion(sugg);
-  }
-  fetchFavorites();
+  //}
+  //fetchFavorites();
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
