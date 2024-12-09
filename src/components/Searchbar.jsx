@@ -47,6 +47,7 @@ const Searchbar = () => {
   //fetchFavori();
   }, [searchTerm]);
   const handleSuggClick = (suggested,index) => {
+      e.preventDefault();
       setSearchTerm(suggested);
       router.push(`/search/${suggested}`);
       };
@@ -93,13 +94,12 @@ const Searchbar = () => {
               
                 {
                 suggestion?.map((suggested, index) => (
-                <div onClick={() => console.log('Inline function clicked!')} className="text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" >
+                <div onClick={() => handleSuggClick(suggested,index)} className="text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" >
 
                 <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]"  />
                 <p className="text-gray-400 truncate text-base" >
                   {suggested}
                 </p>
-                <button onClick={() => console.log('Inline function clicked!')}>Click me</button>
 
                 </div>
                   ))
