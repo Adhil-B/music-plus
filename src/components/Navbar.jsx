@@ -87,8 +87,8 @@ useEffect(() => {
 	
   return (
     <>
-      <div className='h-[70px] text-white flex justify-between relative'>
-        <div className=' flex'>
+      <div className={`${isTyping ? 'justify-center sm:justify-between' : 'justify-between'} h-[70px] text-white flex relative`}>
+        <div className={`${isTyping ? 'hidden sm:flex' : 'flex'} flex`}>
           <MdOutlineMenu onClick={
             () => setShowNav(true)
           } className={`${isTyping ? 'hidden sm:flex' : 'flex'} mx-4 text-2xl lg:text-3xl my-auto cursor-pointer`} />
