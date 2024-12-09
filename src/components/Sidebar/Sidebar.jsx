@@ -63,7 +63,7 @@ const Sidebar = ({showNav, setShowNav}) => {
   return (
 <div>
 <PlaylistModal show={show} setShow={setShow}/>
-        <div className={`${showset ? '': 'hidden'} content-center fixed top-[10%] left-[5%] sm:left-[20%] w-[90%] sm:w-[60%] h-[80%] z-[99] `}>
+        <div className={`${showset ? '': 'hidden'} content-center fixed top-[10%] left-[5%] sm:left-[20%] w-[90%] sm:w-[60%] h-[80%] z-[100] `}>
           <div className=' relative aside shadow-[0px_0px_0px_900px_#00000040] bg-[#020813a1] p-[40px] rounded-lg h-[auto] overflow-x-auto max-h-[110%]'>
             <div className='flex'>
             <FiSettings title='Settings' size={30} color={'white'} className={` mb-7 `} />
