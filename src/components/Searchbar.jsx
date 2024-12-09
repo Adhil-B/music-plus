@@ -10,7 +10,7 @@ import { useLayoutEffect, useEffect } from "react";
 
 const Searchbar = () => {
   const ref = React.useRef(null);
-  const [suggestion, setSuggestion] = useState(["hindi song","hindi new song","hindi songs","hindi gana"]);
+  const [suggestion, setSuggestion] = useState([]);
   const dispatch = useDispatch();
   const router = useRouter();
   const {isTyping} = useSelector((state) => state.loadingBar);
@@ -87,7 +87,7 @@ const Searchbar = () => {
 
         
       </div>
-      <div className={`${isTyping ? '':'hidden'} h-auto z-[99] fixed t-25vh asearch w-[87%] p-[10px]`}>
+      <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} h-auto z-[99] fixed t-25vh asearch w-[87%] p-[10px]`}>
          <div
             onClick={() => {
                 
