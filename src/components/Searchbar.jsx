@@ -87,7 +87,7 @@ const Searchbar = () => {
 
         
       </div>
-      <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} h-auto z-[99] fixed t-25vh asearch w-[87%] p-[10px]`}>
+      <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} !rounded-[30px] !h-auto z-[99] fixed t-25vh asearch w-[87%] p-[10px] `}>
          <div
             onClick={() => {
                 
