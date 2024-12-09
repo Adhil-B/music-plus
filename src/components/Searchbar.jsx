@@ -56,17 +56,14 @@ const Searchbar = () => {
     console.log('Button clicked in class component!');
 
   }
-/*<Autocomplete
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        name="search-field"
-        id="search-field"
-        className="bsearch flex-1 bg-transparent focus:border-b border-white lg:w-64 placeholder-gray-300 outline-none text-base text-white p-4"
-        freeSolo
-        options={top100Films.map((option) => option.title)}
-        renderInput={(params) =>
-        }/>
-        */
+    useEffect(() => {
+    document.documentElement.style.overflow = isTyping ? 'hidden' : 'auto';
+
+    return () => {
+      document.documentElement.style.overflow = 'auto';
+    };
+    }, [isTyping]);
+  
   return (
     <div>
      <div className={`${isTyping ? '':'hidden'} bg-black brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
