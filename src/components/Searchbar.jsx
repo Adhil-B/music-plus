@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { suggest } from '@/services/dataAPI';
 import { useLayoutEffect, useEffect } from "react";
 
-const Searchbar = async() => {
+const Searchbar = () => {
   const ref = React.useRef(null);
   const [suggestion, setSuggestion] = useState(["hindi song","hindi new song","hindi songs","hindi gana"]);
   const dispatch = useDispatch();
@@ -32,15 +32,14 @@ const Searchbar = async() => {
   };
   
   useEffect(() => {
-  const fetchData = async () => {
-      try {
-        console.log(await suggest('ulaa'))
-        setSuggestion(["Test", "testing"]);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
   //}
+  const fetchDataaa = async () => {
+      console.log(await suggest('ulaa'))
+      setSuggestion(["Test", "testing"]);
+      
+    };
+
+    fetchDataaa();
   //fetchFavori();
   }, [searchTerm]);
 /*<Autocomplete
