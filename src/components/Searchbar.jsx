@@ -51,11 +51,6 @@ const Searchbar = () => {
       router.push(`/search/${suggested}`);
       };
 
-    handleClick() {
-
-    console.log('Button clicked in class component!');
-
-  }
     useEffect(() => {
     document.documentElement.style.overflow = isTyping ? 'hidden' : 'auto';
 
@@ -104,7 +99,7 @@ const Searchbar = () => {
                 <p className="text-gray-400 truncate text-base" >
                   {suggested}
                 </p>
-                <button onClick={this.handleClick}>Click me</button>
+                <button onClick={() => console.log('Inline function clicked!')}>Click me</button>
 
                 </div>
                   ))
