@@ -50,6 +50,12 @@ const Searchbar = () => {
       setSearchTerm(suggested);
       router.push(`/search/${suggested}`);
       };
+
+    handleClick() {
+
+    console.log('Button clicked in class component!');
+
+  }
 /*<Autocomplete
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -101,6 +107,7 @@ const Searchbar = () => {
                 <p className="text-gray-400 truncate text-base" >
                   {suggested}
                 </p>
+                <button onClick={this.handleClick}>Click me</button>
 
                 </div>
                   ))
