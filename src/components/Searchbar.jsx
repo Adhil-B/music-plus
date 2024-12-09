@@ -100,7 +100,7 @@ const Searchbar = () => {
                 suggestion?.map((suggested, index) => (
                 <div className="w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start" onClick={() => { handleSuggClick(suggested,index); }}>
                 <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
-                <p className="text-sm lg:text-[1rem] font-semibold truncate">
+                <p className="text-gray-400 truncate text-sm">
                   {suggested}
                 </p>
 
