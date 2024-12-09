@@ -62,7 +62,7 @@ const Searchbar = () => {
         */
   return (
     <div>
-     <div className={`${isTyping ? '':'hidden'} brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
+     <div className={`${isTyping ? '':'hidden'} bg-black brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
     </div>
     <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_900px_#00000090] bg-[#00000090]' : ''} z-[90] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
