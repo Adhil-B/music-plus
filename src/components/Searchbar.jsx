@@ -66,7 +66,7 @@ const Searchbar = () => {
     </div>
     <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_900px_#00000090] bg-[#00000090]' : ''} z-[90] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
-        Search all files
+        Search
       </label>
       <div className="asearch z-[91] flex flex-row justify-start items-center">
         <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
@@ -94,7 +94,10 @@ const Searchbar = () => {
               
                 {
                 suggestion?.map((suggested, index) => (
-                <div className="text-gray-400 w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" >
+                <div onClick={() => {
+                handleSuggClick(song,index);
+                }}
+                  className="text-gray-400 w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" >
                 <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]"  />
                 <p className="text-gray-400 truncate text-base" >
                   {suggested}
