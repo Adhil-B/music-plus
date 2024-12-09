@@ -32,14 +32,14 @@ const Searchbar = async() => {
   };
   
   useEffect(() => {
-  (async function() {
-  try {
-  console.log(await suggest('ulaa'))
-  setSuggestion(["Test", "testing"]);
-  } catch (e) {
-  console.error(e);
-  }
-  })();
+  const fetchData = async () => {
+      try {
+        console.log(await suggest('ulaa'))
+        setSuggestion(["Test", "testing"]);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
   //}
   //fetchFavori();
   }, [searchTerm]);
