@@ -98,9 +98,9 @@ const Searchbar = () => {
               
                 {
                 suggestion?.map((suggested, index) => (
-                <div className="w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start" onClick={() => { handleSuggClick(suggested,index); }}>
-                <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[6px]" />
-                <p className="text-gray-400 truncate text-sm">
+                <div className="text-gray-400 w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" onClick={() => { handleSuggClick(suggested,index); }}>
+                <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]" />
+                <p className="text-gray-400 truncate text-base">
                   {suggested}
                 </p>
 
