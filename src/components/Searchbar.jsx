@@ -34,14 +34,21 @@ const Searchbar = () => {
   useEffect(() => {
   //}
   const fetchDataaa = async () => {
+      if (searchTerm.length > 2){
       const sugg = await suggest(searchTerm);
       setSuggestion(sugg);
-      
+      }else{
+      setSuggestion([]);  
+      }
     };
 
     fetchDataaa();
   //fetchFavori();
   }, [searchTerm]);
+  const handleSuggClick = (suggested,index) => {
+      setSearchTerm(suggested);
+      router.push(`/search/${searchTerm}`);
+      };
 /*<Autocomplete
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -54,7 +61,10 @@ const Searchbar = () => {
         }/>
         */
   return (
-    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_900px_#00000090] bg-[#00000090]' : ''} z-90 p-2 text-gray-400 relative focus-within:text-gray-600`}>
+    <div>
+     <div className={`${isTyping ? '':'hidden'} fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
+    </div>
+    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_900px_#00000090] bg-[#00000090]' : ''} z-[90] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
         Search all files
       </label>
@@ -88,7 +98,8 @@ const Searchbar = () => {
               
                 {
                 suggestion?.map((suggested, index) => (
-                <div className="w-[60vw] sm:w-24 md:w-64">
+                <div className="w-[60vw] sm:w-24 md:w-64" onClick={() => { handleSuggClick(suggested,index); }}>
+                <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
                 <p className="text-sm lg:text-[1rem] font-semibold truncate">
                   {suggested}
                 </p>
@@ -100,10 +111,9 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
-    <div className={`${isTyping ? '':'hidden'} fixed blur-lg h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[89] bg-[hsla(0, 0%, 0%, 0.8)]`}>
-    </div>
+   
     </form>
-    
+    </div>
   );
 };
 
