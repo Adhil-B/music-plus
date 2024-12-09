@@ -86,7 +86,7 @@ const Searchbar = () => {
 
         
       </div>
-      <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} !mt-[5px] !rounded-[30px] !h-auto z-[99] fixed t-25vh asearch w-[87%] p-[10px] `}>
+      <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[99] fixed t-25vh asearch w-[87%] p-[10px] `}>
          <div             className={`flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
                 <div className="grid items-center gap-5">
 
@@ -95,7 +95,7 @@ const Searchbar = () => {
                 suggestion?.map((suggested, index) => (
                 <div onClick={() => console.log('Inline function clicked!')} className="text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" >
 
-                <FiSearch aria-hidden="true" className="w-5 h-5 ml-3 text-gray-300 min-w-[21px] mr-[8px]"  />
+                <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]"  />
                 <p className="text-gray-400 truncate text-base" >
                   {suggested}
                 </p>
