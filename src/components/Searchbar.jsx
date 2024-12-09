@@ -32,11 +32,11 @@ const Searchbar = async() => {
   };
   
   useEffect(() => {
-  const fetchFavorites = async () => {
+  const fetchFavori = async () => {
   console.log(await suggest('hi'))
-  //setSuggestion(["Test", "testing"]);
+  setSuggestion(["Test", "testing"]);
   }
-  fetchFavorites();
+  fetchFavori();
   }, [searchTerm]);
 /*<Autocomplete
         onFocus={handleFocus}
