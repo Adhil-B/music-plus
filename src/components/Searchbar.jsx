@@ -34,8 +34,8 @@ const Searchbar = () => {
   useEffect(() => {
   //}
   const fetchDataaa = async () => {
-      console.log(await suggest('ulaa'))
-      setSuggestion(["Test", "testing"]);
+      const sugg = await suggest('ulaa'))
+      setSuggestion(sugg);
       
     };
 
