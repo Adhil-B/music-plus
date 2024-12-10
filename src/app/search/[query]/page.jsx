@@ -92,7 +92,7 @@ const page = ({params}) => {
         <h2 className="text-2xl lg:text-4xl font-semibold">Songs</h2>
         {
             searchedData && searchedData?.songs?.results?.length > 0 ? (
-                <div className="mt-5 aside bg-[#02081363] pt-[3px] pr-[15px] pb-[8px] pl-[20px] rounded-lg">
+                <div className="mt-5 aside bg-[hsla(0,0%,100%,.05)] pt-[3px] pr-[15px] pb-[8px] pl-[20px] rounded-lg">
                     {
                         searchedData?.songs?.results?.map((song, index) => (
                             <div key={index}
