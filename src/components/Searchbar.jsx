@@ -7,7 +7,7 @@ import { setIsTyping } from '@/redux/features/loadingBarSlice';
 import { useSelector } from 'react-redux';
 import { suggest } from '@/services/dataAPI';
 import { useLayoutEffect, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from 'next/link';
 
 const Searchbar = () => {
   const ref = React.useRef(null);
