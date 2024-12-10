@@ -100,7 +100,6 @@ const Searchbar = () => {
   console.log(e.target.onclick); // Logs the `Pi` function
   e.stopPropagation();
 }}
-              }}
               className="flex items-center text-gray-400 w-full cursor-pointer mb-2 z-[99]"
             >
 
