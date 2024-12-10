@@ -22,6 +22,7 @@ const Searchbar = () => {
   useEffect(() => {
   const fetchDataaae = async () => {
       setSearchH(localStorage?.getItem("searchhistory") ? JSON.parse(localStorage.getItem("searchhistory")) : []);
+      console.log(searchH)
       const suggg = await suggest("hello");
     };
     fetchDataaae();
@@ -34,7 +35,7 @@ const Searchbar = () => {
     }
     e.preventDefault();
     dispatch(setIsTyping(false));
-    setSearchH(searchH.concat([searchTerm]))
+    setSearchH([searchTerm].concat(searchH))
     router.push(`/search/${searchTerm}`);
   };
   const handleFocus = () => {
@@ -46,6 +47,7 @@ const Searchbar = () => {
   const fetchDataaaee = async () => {
     if (searchH.length > 0){
     localStorage?.setItem("searchhistory" , searchH)
+    console.log('changed-'+searchH)
     }
     };
     fetchDataaaee();
@@ -115,7 +117,7 @@ const Searchbar = () => {
         key={index}
         onClick={() => {
         setSearchTerm(suggested);
-        setSearchH(searchH.concat([suggested]))
+        setSearchH([suggested].concat(searchH))
         dispatch(setIsTyping(false));
         router.push(`/search/${suggested}`);
         }}
@@ -128,7 +130,7 @@ const Searchbar = () => {
 
 
         <div className={`${searchH.length < 1 || suggestion.length > 0 ? 'hidden':''} grid items-center gap-5`}>   
-        {searchH.reverse().map((search, index) => (
+        {searchH.map((search, index) => (
         <div
         key={index}
         onClick={() => {
