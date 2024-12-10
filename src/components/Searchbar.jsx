@@ -113,7 +113,7 @@ const Searchbar = () => {
         key={index}
         onClick={() => {
         setSearchTerm(suggested);
-        setSearchH(searchH.concat([suggested]).reverse())
+        setSearchH(searchH.concat([suggested]))
         dispatch(setIsTyping(false));
         router.push(`/search/${suggested}`);
         }}
@@ -125,7 +125,7 @@ const Searchbar = () => {
         </div>
 
 
-        <div className={`${searchH.length < 1 || suggestion.length > 0 ? 'hidden':''} grid items-center gap-5`}>   
+        <div className={`${searchH.length < 1 ? 'hidden':''} grid items-center gap-5`}>   
         {searchH.map((search, index) => (
         <div
         key={index}
