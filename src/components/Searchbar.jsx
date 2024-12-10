@@ -21,7 +21,7 @@ const Searchbar = () => {
 
   useEffect(() => {
   const fetchDataaae = async () => {
-      setSearchH(localStorage?.getItem("searchhistory") ? JSON.parse(localStorage.getItem("searchhistory")) : []);
+      setSearchH(localStorage?.getItem("searchhistory") ? localStorage.getItem("searchhistory").split(',') : []);
       console.log(searchH)
       const suggg = await suggest("hello");
     };
