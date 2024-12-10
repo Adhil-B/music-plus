@@ -96,7 +96,7 @@ const Searchbar = () => {
                 suggestion?.map((suggested, index) => (
                 <div
               key={index} // Add unique key
-              onClick={() => e.stopPropagation(); handleSuggClick(suggested);}
+              onClick={() => {e.stopPropagation(); handleSuggClick(suggested);}}
               className="flex items-center text-gray-400 w-full cursor-pointer mb-2 z-[99]"
             >
 
