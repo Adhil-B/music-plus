@@ -126,7 +126,7 @@ const Searchbar = () => {
 
 
         <div className={`${searchH.length < 1 || suggestion.length > 0 ? 'hidden':''} grid items-center gap-5`}>   
-        {searchH.map((search, index) => (
+        {searchH.reverse().map((search, index) => (
         <div
         key={index}
         onClick={() => {
