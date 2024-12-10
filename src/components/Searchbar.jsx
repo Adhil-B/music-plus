@@ -72,6 +72,7 @@ const Searchbar = () => {
     <div
       key={index}
       onClick={() => {
+        console.log('testing');
         setSearchTerm(suggested);
         router.push(`/search/${suggested}`);
       }}
