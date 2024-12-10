@@ -92,25 +92,17 @@ const Searchbar = () => {
                 <div className="grid items-center gap-5">
 
               
-                {
-                suggestion?.map((suggested, index) => (
-                <div
-              key={index} // Add unique key
-                onClick={(e) => {
-  console.log(e.target.onclick); // Logs the `Pi` function
-  e.stopPropagation();
-}}
-              className="flex items-center text-gray-400 w-full cursor-pointer mb-2 z-[99]"
-            >
-
-                <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]"  />
-                <p className="text-gray-400 truncate text-base" >
-                  {suggested}
-                </p>
-
-                </div>
-                  ))
-                }
+{suggestion.map((suggested, index) => (
+  <Link
+    key={index}
+    href={`/search/${suggested}`}
+    passHref
+    className="flex items-center text-gray-400 w-full cursor-pointer mb-2"
+  >
+    <FiSearch className="w-5 h-5 ml-4 text-gray-300" />
+    <p className="truncate text-base">{suggested}</p>
+  </Link>
+))}
                 
               </div>
             </div>
