@@ -88,7 +88,7 @@ const Searchbar = () => {
       <label htmlFor="search-field" className="sr-only">
         Search
       </label>
-      <div className="asearch z-[91] flex flex-row justify-start items-center">
+      <div className={`${isTyping ? '!w-[88vw] sm:!w-auto':''} asearch z-[91] flex flex-row justify-start items-center`}>
         <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
         
         
@@ -107,7 +107,7 @@ const Searchbar = () => {
         
       </div>
 
-       <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !blur max-w-[320px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
+       <div className={`${isTyping ? '!w-[88vw] sm:!w-auto':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !blur max-w-[320px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
         <div className={`flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
         <div className={`${suggestion.length < 1 ? 'hidden':''} grid items-center gap-5`}>
 
