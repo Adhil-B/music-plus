@@ -29,6 +29,12 @@ const Searchbar = () => {
     dispatch(setIsTyping(true));
   };
   
+  useEffect(() => {
+  const fetchDataaae = async () => {
+      const suggg = await suggest("hello");
+    };
+    fetchDataaae();
+  }, []);
   
   useEffect(() => {
   //}
