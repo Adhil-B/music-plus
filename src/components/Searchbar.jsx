@@ -8,15 +8,25 @@ import { useSelector } from 'react-redux';
 import { suggest } from '@/services/dataAPI';
 import { useLayoutEffect, useEffect } from "react";
 import { Link } from 'next/link';
+import { FaHistory } from "react-icons/fa";
 
 const Searchbar = () => {
   const ref = React.useRef(null);
   const [suggestion, setSuggestion] = useState([]);
+  const [searchH, setSearchH] = useState([]);
   const dispatch = useDispatch();
   const router = useRouter();
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [searchTerm, setSearchTerm] = useState('');
 
+  useEffect(() => {
+  const fetchDataaae = async () => {
+      setSearchH(localStorage?.getItem("searchhistory") ? localStorage.getItem("searchhistory") : []);
+      const suggg = await suggest("hello");
+    };
+    fetchDataaae();
+  }, []);
+  
   const handleSubmit = (e) => {
     if (searchTerm === '') {
       e.preventDefault();
@@ -29,12 +39,15 @@ const Searchbar = () => {
     dispatch(setIsTyping(true));
   };
   
+  
   useEffect(() => {
-  const fetchDataaae = async () => {
-      const suggg = await suggest("hello");
+  const fetchDataaaee = async () => {
+    if (searchH.length > 0){
+    localStorage?.setItem("searchhistory" , searchH)
+    }
     };
-    fetchDataaae();
-  }, []);
+    fetchDataaaee();
+  }, [searchH]);
   
   useEffect(() => {
   //}
@@ -90,28 +103,42 @@ const Searchbar = () => {
         
       </div>
 
-       <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
+       <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 && searchH < 1 ? 'hidden':''} !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
         <div className={`flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
-        <div className="grid items-center gap-5">
+        <div className={`${suggestion.length < 1 ? 'hidden':''} grid items-center gap-5`}>
 
               
         {suggestion.map((suggested, index) => (
-  
         <div
         key={index}
         onClick={() => {
-        console.log('testing');
         setSearchTerm(suggested);
+        setSearchH(searchH.concat([suggested]))
         dispatch(setIsTyping(false));
         router.push(`/search/${suggested}`);
-
         }}
         className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]">
         <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]" />
         <p className="text-gray-400 truncate text-base" >{suggested}</p> 
         </div>
-        ))}
-                
+        ))}          
+        </div>
+
+
+        <div className={`${searchH < 1 ? 'hidden':''} grid items-center gap-5`}>   
+        {searchH.map((search, index) => (
+        <div
+        key={index}
+        onClick={() => {
+        setSearchTerm(search);
+        dispatch(setIsTyping(false));
+        router.push(`/search/${search}`);
+        }}
+        className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]">
+        <FaHistory aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]" />
+        <p className="text-gray-400 truncate text-base" >{search}</p> 
+        </div>
+        ))}        
         </div>
         </div>
 
