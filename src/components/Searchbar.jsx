@@ -82,7 +82,7 @@ const Searchbar = () => {
   
   return (
     <div>
-     <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} bg-black sm:bg-transparent brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
+     <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} fixed left-0 bg-black sm:bg-transparent brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
 
     <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_5000px_#00000090] sm:shadow-[0px_0px_0px_0px_#00000090] ' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
