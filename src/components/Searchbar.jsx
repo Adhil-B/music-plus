@@ -88,9 +88,7 @@ const Searchbar = () => {
         
       </div>
 
-   
-    </form>
-            <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-50vh asearch w-[87%] p-[10px] `}>
+   <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 ? 'hidden':''} !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
          <div             className={`flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
                 <div className="grid items-center gap-5">
 
@@ -111,6 +109,8 @@ const Searchbar = () => {
               </div>
             </div>
     </div>
+    </form>
+            
     </div>
   );
 };
