@@ -82,9 +82,9 @@ const Searchbar = () => {
   
   return (
     <div>
-     <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} bg-black brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
+     <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} bg-black sm:bg-transparent brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
 
-    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[5000px_5000px_5000px_5000px_#00000090] bg-[#00000090]' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
+    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_5000px_#00000090] sm:shadow-[0px_0px_0px_0px_#00000090] ' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
         Search
       </label>
@@ -107,7 +107,7 @@ const Searchbar = () => {
         
       </div>
 
-       <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
+       <div className={`${isTyping ? '':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} max-w-[320px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto z-[39] fixed t-25vh asearch w-[87%] p-[10px] `}>
         <div className={`flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
         <div className={`${suggestion.length < 1 ? 'hidden':''} grid items-center gap-5`}>
 
