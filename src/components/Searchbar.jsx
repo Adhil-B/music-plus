@@ -96,7 +96,6 @@ const Searchbar = () => {
                 suggestion?.map((suggested, index) => (
                 <div
               key={index} // Add unique key
-              onClick={() => {
                 onClick={(e) => {
   console.log(e.target.onclick); // Logs the `Pi` function
   e.stopPropagation();
