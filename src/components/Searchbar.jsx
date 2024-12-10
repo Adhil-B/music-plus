@@ -134,7 +134,8 @@ const Searchbar = () => {
         <div
         key={index}
         onClick={() => {
-        setSearchTerm([search,...searchH.filter(function(e) { return e !== search })])
+        setSearchTerm(search);
+        setSearchH([search,...searchH.filter(function(e) { return e !== search })])
         dispatch(setIsTyping(false));
         router.push(`/search/${search}`);
         }}
