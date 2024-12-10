@@ -96,8 +96,8 @@ const Searchbar = () => {
                 suggestion?.map((suggested, index) => (
                 <div
               key={index} // Add unique key
-              onClick={() => handleSuggClick(suggested)}
-              className="flex items-center text-gray-400 w-full cursor-pointer mb-2"
+              onClick={() => e.stopPropagation(); handleSuggClick(suggested);}
+              className="flex items-center text-gray-400 w-full cursor-pointer mb-2 z-[99]"
             >
 
                 <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]"  />
