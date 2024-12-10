@@ -35,7 +35,7 @@ const Searchbar = () => {
     }
     e.preventDefault();
     dispatch(setIsTyping(false));
-    setSearchH([searchTerm].concat(searchH))
+    setSearchH([searchTerm,...searchH])
     router.push(`/search/${searchTerm}`);
   };
   const handleFocus = () => {
@@ -117,7 +117,7 @@ const Searchbar = () => {
         key={index}
         onClick={() => {
         setSearchTerm(suggested);
-        setSearchH([suggested].concat(searchH))
+        setSearchH([suggested,...searchH])
         dispatch(setIsTyping(false));
         router.push(`/search/${suggested}`);
         }}
