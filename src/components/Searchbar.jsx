@@ -97,11 +97,10 @@ const Searchbar = () => {
                 <div
               key={index} // Add unique key
               onClick={() => {
-                e.stopPropagation();
-                e.preventDefault();
-                console.log(`Clicked on: ${suggested}`);
-                setSearchTerm(suggested);
-                router.push(`/search/${suggested}`);
+                onClick={(e) => {
+  console.log(e.target.onclick); // Logs the `Pi` function
+  e.stopPropagation();
+}}
               }}
               className="flex items-center text-gray-400 w-full cursor-pointer mb-2 z-[99]"
             >
