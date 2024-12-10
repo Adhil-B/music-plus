@@ -28,7 +28,7 @@ const Searchbar = () => {
   const handleFocus = () => {
     dispatch(setIsTyping(true));
   };
-
+  
   
   useEffect(() => {
   //}
@@ -59,7 +59,7 @@ const Searchbar = () => {
   
   return (
     <div>
-     <div className={`${isTyping ? '':'hidden'} bg-black brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
+     <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} bg-black brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
 
     <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_900px_#00000090] bg-[#00000090]' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
@@ -71,7 +71,6 @@ const Searchbar = () => {
         
         <input
         onFocus={handleFocus}
-        onBlur={handleBlur}
           name="search-field"
           autoComplete="off"
           id="search-field"
@@ -97,7 +96,9 @@ const Searchbar = () => {
         onClick={() => {
         console.log('testing');
         setSearchTerm(suggested);
+        dispatch(setIsTyping(false));
         router.push(`/search/${suggested}`);
+
         }}
         className="flex items-center text-gray-400 w-full cursor-pointer mb-2">
         <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]" />
