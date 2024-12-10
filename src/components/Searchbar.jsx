@@ -93,15 +93,17 @@ const Searchbar = () => {
 
               
 {suggestion.map((suggested, index) => (
-  <Link
-    key={index}
-    href={`/search/${suggested}`}
-    passHref
-    className="flex items-center text-gray-400 w-full cursor-pointer mb-2"
-  >
-    <FiSearch className="w-5 h-5 ml-4 text-gray-300" />
-    <p className="truncate text-base">{suggested}</p>
-  </Link>
+  suggested ? (
+    <Link
+      key={index}
+      href={`/search/${suggested}`}
+      passHref
+      className="flex items-center text-gray-400 w-full cursor-pointer mb-2"
+    >
+      <FiSearch className="w-5 h-5 ml-4 text-gray-300" />
+      <p className="truncate text-base">{suggested}</p>
+    </Link>
+  ) : null
 ))}
                 
               </div>
