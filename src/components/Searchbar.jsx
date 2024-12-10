@@ -96,7 +96,7 @@ const Searchbar = () => {
                 {
                 suggestion?.map((suggested, index) => (
                 <div onClick={(e) => { e.preventDefault(); handleSuggClick() }} className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]" >
-<Link to = 'https://google.com/'><button>GO GOOGLE</button></Link>
+
                 <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300 min-w-[21px] mr-[8px]"  />
                 <p className="text-gray-400 truncate text-base" >
                   {suggested}
