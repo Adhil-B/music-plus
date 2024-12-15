@@ -1,6 +1,6 @@
 import { Innertube, UniversalCache } from 'youtubei.js';
 
-const page = ({ params }) => {
+const page = async({ params }) => {
 const yt = await Innertube.create({ cache: new UniversalCache(true) });
 
 async function getVideoInfo(videoId: string) {
