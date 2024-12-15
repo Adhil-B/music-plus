@@ -16,7 +16,7 @@ async function getVideoInfo() {
 }
 
 const videoInfo = await getVideoInfo('jLTOuvBTLxA');
-return(console.info(videoInfo))
+return(videoInfo)
 
 
 
