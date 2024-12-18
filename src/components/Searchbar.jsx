@@ -9,6 +9,7 @@ import { suggest } from '@/services/dataAPI';
 import { useLayoutEffect, useEffect } from "react";
 import { Link } from 'next/link';
 import { FaHistory } from "react-icons/fa";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Searchbar = () => {
   const ref = React.useRef(null);
@@ -87,7 +88,8 @@ const Searchbar = () => {
         Search
       </label>
       <div className={`${isTyping ? '!w-[88vw] sm:!w-auto':''} asearch z-[91] flex flex-row justify-start items-center`}>
-        <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" onClick={handleFocus} />
+        <FiSearch aria-hidden="true" className={`${isTyping ? 'hidden':''} w-5 h-5 ml-4 text-gray-300`} onClick={handleFocus} />
+        <IoMdArrowRoundBack aria-hidden="true" className={`${isTyping ? '':'hidden'} w-5 h-5 ml-4 text-gray-300`} onClick={() => dispatch(setIsTyping(false))} />
         
         
         <input
