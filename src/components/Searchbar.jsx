@@ -89,7 +89,7 @@ const Searchbar = () => {
       </label>
       <div className={`${isTyping ? '!w-[88vw] sm:!w-auto':''} asearch z-[91] flex flex-row justify-start items-center`}>
         <FiSearch aria-hidden="true" className={`${isTyping ? 'hidden':''} w-5 h-5 ml-4 text-gray-300`} onClick={handleFocus} />
-        <IoMdArrowRoundBack aria-hidden="true" className={`${isTyping ? '':'hidden'} w-5 h-5 ml-4 text-gray-300`} onClick={() => dispatch(setIsTyping(false))} />
+        <IoMdArrowRoundBack aria-hidden="true" className={`${isTyping ? '':'hidden'} cursor-pointer w-5 h-5 ml-4 text-gray-300`} onClick={() => dispatch(setIsTyping(false))} />
         
         
         <input
