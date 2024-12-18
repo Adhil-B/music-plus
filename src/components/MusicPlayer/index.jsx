@@ -174,7 +174,7 @@ const scrollableDivRef = useRef(null);
 
 //sm:rounded-[10px] sm:bg-[rgba(76, 59, 12, 0.3)] sm:pt-[4px] sm:pr-[0px] sm:pl-[5vw] sm:pb-[0px]
   return (
-    <div {...bind} ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
+    <div {...bind} style={{touchAction: "manipulation"}} ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
       onClick={() => {
         if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
       }}
