@@ -70,9 +70,12 @@ height: 49px;
 }
 .bsearch{
   padding-left: 8px;
-  font-size: 14px;
+  font-size: 16px;
   width: 80% !important;
   border-bottom: 0px;
+}
+.bsearch::placeholder {
+  font-size: 14px;
 }
 .csearch{
   max-width: 40%;
