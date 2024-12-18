@@ -1,5 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
+import ReactDOM from "react-dom";
+import { useDoubleTap } from "use-double-tap";
 import { useSelector, useDispatch } from 'react-redux';
 import { nextSong, prevSong, setActiveSong, playPause, setFullScreen } from '../../redux/features/playerSlice';
 import Controls from './Controls';
@@ -35,6 +37,10 @@ const MusicPlayer = () => {
   const router = useRouter();
   const { data } = usePalette(activeSong?.image?.[0]?.link.replace("https://i.ytimg.com/","https://api.allorigins.win/raw?url=https://i.ytimg.com/"));
 const scrollableDivRef = useRef(null);
+  const bind = useDoubleTap(() => {
+    alert("Double tapped");
+  });
+  
   useEffect(() => {
     if (currentSongs?.length) dispatch(playPause(true));
   }, [currentIndex]);
@@ -168,7 +174,7 @@ const scrollableDivRef = useRef(null);
 
 //sm:rounded-[10px] sm:bg-[rgba(76, 59, 12, 0.3)] sm:pt-[4px] sm:pr-[0px] sm:pl-[5vw] sm:pb-[0px]
   return (
-    <div ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
+    <div {...bind} ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
       onClick={() => {
         if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
       }}
