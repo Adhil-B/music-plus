@@ -22,7 +22,6 @@ const Searchbar = () => {
   useEffect(() => {
   const fetchDataaae = async () => {
       setSearchH(localStorage?.getItem("searchhistory") ? localStorage.getItem("searchhistory").split(',') : []);
-      console.log(searchH)
       const suggg = await suggest("hello");
     };
     fetchDataaae();
@@ -47,7 +46,6 @@ const Searchbar = () => {
   const fetchDataaaee = async () => {
     if (searchH.length > 0){
     localStorage?.setItem("searchhistory" , searchH)
-    console.log('changed-'+searchH)
     }
     };
     fetchDataaaee();
@@ -89,7 +87,7 @@ const Searchbar = () => {
         Search
       </label>
       <div className={`${isTyping ? '!w-[88vw] sm:!w-auto':''} asearch z-[91] flex flex-row justify-start items-center`}>
-        <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" />
+        <FiSearch aria-hidden="true" className="w-5 h-5 ml-4 text-gray-300" onClick={handleFocus} />
         
         
         <input
