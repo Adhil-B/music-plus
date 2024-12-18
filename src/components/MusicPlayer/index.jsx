@@ -170,7 +170,7 @@ const scrollableDivRef = useRef(null);
   return (
     <div ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
       onClick={() => {
-        if (activeSong?.id) { dispatch(setFullScreen(!fullScreen)); }
+        if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
       }}
       style={{
         backgroundColor: data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)',
