@@ -168,24 +168,17 @@ const scrollableDivRef = useRef(null);
     }
   };
   
-  componentWillMount = props => {
-  this.clickTimeout = null
-}
+const handleClicks = (event) => {
+clearTimeout(timer);
+  
+  if (event.detail === 1) {
+    timer = setTimeout(() => {
+      console.log("SINGLE CLICK");
+      if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
+    }, 200)
 
-handleClicks = () => {
-  if (this.clickTimeout !== null) {
-    console.log('double click executes')
-    handleAddToFavourite()
-    clearTimeout(this.clickTimeout)
-    this.clickTimeout = null
-  } else {
-    console.log('single click')  
-    if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
-    this.clickTimeout = setTimeout(()=>{
-    console.log('first click executes ')
-    clearTimeout(this.clickTimeout)
-      this.clickTimeout = null
-    }, 2000)
+  } else if (event.detail === 2) {
+    console.log("DOUBLE CLICK");
   }
 }
 
@@ -193,7 +186,7 @@ handleClicks = () => {
 //sm:rounded-[10px] sm:bg-[rgba(76, 59, 12, 0.3)] sm:pt-[4px] sm:pr-[0px] sm:pl-[5vw] sm:pb-[0px]
   return (
     <div ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
-      onClick={evt => this.handleClicks}
+      onClick={e => handleClicks(e)}
       style={{
         backgroundColor: data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)',
       }}
