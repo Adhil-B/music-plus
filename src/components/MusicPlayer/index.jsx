@@ -175,6 +175,7 @@ const scrollableDivRef = useRef(null);
       onClick={() => {
         if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
       }}
+      onDoubleClickCapture={handleAddToFavourite}
       style={{
         backgroundColor: data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)',
       }}
