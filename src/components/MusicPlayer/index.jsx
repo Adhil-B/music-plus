@@ -167,7 +167,7 @@ const scrollableDivRef = useRef(null);
 
     }
   };
-  
+  let timer = '';
 const handleClicks = (event) => {
 clearTimeout(timer);
   
