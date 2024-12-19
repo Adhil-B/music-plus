@@ -175,11 +175,11 @@ clearTimeout(timer);
     timer = setTimeout(() => {
       console.log("SINGLE CLICK");
       if (activeSong?.id && fullScreen == false) { dispatch(setFullScreen(!fullScreen)); }
-    }, 300)
+    }, 100)
 
   } else if (event.detail === 2) {
     console.log("DOUBLE CLICK");
-    handleAddToFavourite();
+    //handleAddToFavourite();
   }
 }
 
