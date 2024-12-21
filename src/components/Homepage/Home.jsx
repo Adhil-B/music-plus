@@ -54,6 +54,16 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    window.location.hash = "no-back-button";
+
+    // Again because Google Chrome doesn't insert
+    // the first hash into the history
+    window.location.hash = "Again-No-back-button"; 
+
+    window.onhashchange = function(){
+        window.location.hash = "no-back-button";
+    }
+    
     const fetchDataa = async () => {
       const songHis = localStorage?.getItem("songHistory") ? JSON.parse(localStorage.getItem("songHistory")).slice(0, 6) : [];   
       const [res2,res3] = await Promise.all([homePageData2(),homePageData3(songHis)]);
