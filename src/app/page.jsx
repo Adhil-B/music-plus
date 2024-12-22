@@ -6,43 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoCloseSharp } from "react-icons/io5";
 import LanguagesS from '@/components/Sidebar/LanguagesS'
 import { FiSettings } from "react-icons/fi";
-import { useRouter } from "next/router";
 
 export default function Home() {
   const [showtip, setShowtip] = useState(false);
   const [toturialComplete, setToturialComplete] = useState(false);
 
-  const router = useRouter();
-
-  useEffect(() => {
-    // Ensure this logic runs only in the browser
-    if (typeof window !== "undefined") {
-      const handleRouteChange = (url) => {
-        if (url === "/") {
-          history.pushState(null, null, location.href);
-          window.onpopstate = function (event) {
-            history.go(1);
-          };
-        } else {
-          window.onpopstate = null; // Reset behavior for other pages
-        }
-      };
-
-    // Run on initial load
-    handleRouteChange(router.pathname);
-
-    // Listen for route changes
-    router.events.on("routeChangeComplete", handleRouteChange);
-
-    // Cleanup listener
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-      window.onpopstate = null; // Reset behavior on cleanup
-    };
-  }, [router]);
-
-
-  
 
   useLayoutEffect(() => {
     setToturialComplete(JSON.parse(localStorage.getItem('toturialComplete')));
