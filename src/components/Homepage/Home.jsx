@@ -34,8 +34,7 @@ const Home = () => {
         
  history.pushState(null, null, location.href);
   window.onpopstate = function(event) {
-     history.replace("/");
-     //history.go(1);
+     history.go(1);
   };
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
         setSelectedHomeCategories(cat);
