@@ -15,16 +15,18 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    const handleRouteChange = (url) => {
-      if (url === "/") {
-        history.pushState(null, null, location.href);
-        window.onpopstate = function (event) {
-          history.go(1);
-        };
-      } else {
-        window.onpopstate = null; // Allow normal back navigation for other pages
-      }
-    };
+    // Ensure this logic runs only in the browser
+    if (typeof window !== "undefined") {
+      const handleRouteChange = (url) => {
+        if (url === "/") {
+          history.pushState(null, null, location.href);
+          window.onpopstate = function (event) {
+            history.go(1);
+          };
+        } else {
+          window.onpopstate = null; // Reset behavior for other pages
+        }
+      };
 
     // Run on initial load
     handleRouteChange(router.pathname);
