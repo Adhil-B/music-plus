@@ -31,6 +31,11 @@ const Home = () => {
   const [selectedHomeCategories, setSelectedHomeCategories] = useState([...homeCategories]);
   
   useEffect(() => {
+        
+ history.pushState(null, null, location.href);
+  window.onpopstate = function(event) {
+     history.go(1);
+   };
         const cat = localStorage?.getItem("homeCategories") ? JSON.parse(localStorage.getItem("homeCategories")) : [...homeCategories];
         setSelectedHomeCategories(cat);
     
