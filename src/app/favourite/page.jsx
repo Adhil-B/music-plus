@@ -24,7 +24,7 @@ const page = () => {
 useEffect(() => {
 
    window.onpopstate = function(event) {
-     //history.go(1);
+     history.back(1);
    };
 	
 try{
