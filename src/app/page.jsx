@@ -6,11 +6,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoCloseSharp } from "react-icons/io5";
 import LanguagesS from '@/components/Sidebar/LanguagesS'
 import { FiSettings } from "react-icons/fi";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
   const [showtip, setShowtip] = useState(false);
   const [toturialComplete, setToturialComplete] = useState(false);
-  
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      history.pushState(null, null, location.href);
+      window.onpopstate = function (event) {
+        history.go(1);
+      };
+    } else {
+      window.onpopstate = null; // Reset behavior for other pages
+    }
+  }, [location]); // Runs whenever the location changes
+
+
   useLayoutEffect(() => {
     setToturialComplete(JSON.parse(localStorage.getItem('toturialComplete')));
 
