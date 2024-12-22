@@ -23,6 +23,11 @@ const page = () => {
 	
 useEffect(() => {
 
+ history.pushState(null, null, location.href);
+   window.onpopstate = function(event) {
+     //history.go(1);
+   };
+	
 try{
 browserFileStorage.init('downloads').then((status) => {
 if(status.initial) {}
