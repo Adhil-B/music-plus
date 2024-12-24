@@ -115,7 +115,7 @@ const page = ({ params }) => {
                 
             </div>
 
-            <div className="mt-10 text-gray-200">
+            <div className={`${ artistAlbums?.results.length < 1 ? 'hidden' : ''} mt-10 text-gray-200`}>
                 <SwiperLayout title={"Albums"}>
                     {
                         artistAlbums?.results?.map((album, index) => (
