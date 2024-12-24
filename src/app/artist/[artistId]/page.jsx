@@ -32,8 +32,7 @@ const page = ({ params }) => {
             setArtistDetails(details);
             const albums = await getArtistAlbums(params.artistId, 1);
             dispatch(setProgress(90));
-            setArtistAlbums(albums);
-            setLoading(false);
+            setArtistAlbums(albums);           
         };
         fetchData();
     }, []);
@@ -44,6 +43,7 @@ const page = ({ params }) => {
             dispatch(setProgress(100));
             setArtistSongs(songs.results);
             setLastPage(songs.lastPage);
+            setLoading(false);
         };
         fetchData1();
     }, [songsPage]);
