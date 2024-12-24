@@ -187,7 +187,7 @@ clearTimeout(timer);
 //sm:rounded-[10px] sm:bg-[rgba(76, 59, 12, 0.3)] sm:pt-[4px] sm:pr-[0px] sm:pl-[5vw] sm:pb-[0px]
   return (
     <div className={`fixed ${fullScreen ? 'bottom-0 left-0 right-0 rounded-0' : 'bottom-[1vw] sm:bottom-0 left-[2vw] sm:left-0 right-[2vw] sm:right-0 rounded-[10px] sm:rounded-0'} flex backdrop-blur-[100px] rounded-t-3 z-50`}>
-    <div ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-100 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'w-full h-20 px-8 bg-black '}`}
+    <div ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-150 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'rounded-[10px] sm:rounded-0 w-full h-20 px-8 bg-black '}`}
       onClick={e => handleClicks(e)}
       style={{
         backgroundColor: data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)',
