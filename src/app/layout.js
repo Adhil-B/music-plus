@@ -57,7 +57,7 @@ export default function RootLayout({ children }){
             <Toaster />
             {children}
             <div className="h-20"></div>
-            <div className={`fixed bottom-0 left-0 right-0 flex backdrop-blur-[100px] rounded-t-3 z-50`}>
+            <div className={`fixed bottom-[1vw] left-[2vw] right-[2vw] flex backdrop-blur-[100px] rounded-[10px] rounded-t-3 z-50`}>
               <MusicPlayer />
 
             </div>
