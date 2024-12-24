@@ -118,7 +118,7 @@ export async function getArtistSongs(id, page) {
       `https://jiosaavn-api-gilt.vercel.app/artists/${id}/songs?page=${page}`
     );
     const data = await response.json();
-    return data?.data?.results;
+    return data?.data;
     /*}else{
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q&channelId=${id}&part=id&order=date&maxResults=100`);
     const data = await response.json();
