@@ -113,13 +113,13 @@ export async function homePageData3(songHistory) {
 // get artist songs
 export async function getArtistSongs(id, page) {
   try {
-    if (Number.isInteger(id)){
+    //if (Number.isInteger(id)){
     const response = await fetch(
       `https://jiosaavn-api-gilt.vercel.app/artists/${id}/songs?page=${page}`
     );
     const data = await response.json();
     return data?.data;
-    }else{
+    /*}else{
     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyBq-PREFcZjvCMMTqf4WAFbjBgrnLDdS3Q&channelId=${id}&part=id&order=date&maxResults=100`);
     const data = await response.json();
     const ids = [];
@@ -132,7 +132,7 @@ export async function getArtistSongs(id, page) {
     console.log(data1);
     return data1;
 
-    }
+    }*/
   } catch (error) {
     console.log(error);
   }
