@@ -30,18 +30,23 @@ const page = ({ params }) => {
             console.log('details', details);
             dispatch(setProgress(60));
             setArtistDetails(details);
-            const songs = await getArtistSongs(params.artistId, songsPage);
-            dispatch(setProgress(90));
-            setArtistSongs(songs);
-            setLastPage(1);
             const albums = await getArtistAlbums(params.artistId, 1);
-            dispatch(setProgress(100));
+            dispatch(setProgress(90));
             setArtistAlbums(albums);
             setLoading(false);
         };
         fetchData();
-    }, [songsPage]);
+    }, []);
 
+    useEffect(() => {
+        const fetchData1 = async () => {
+            const songs = await getArtistSongs(params.artistId, songsPage);
+            dispatch(setProgress(100));
+            setArtistSongs(songs.results);
+            setLastPage(songs.lastPage);
+        };
+        fetchData1();
+    }, [songsPage]);
     const songNext = () => {
         if (!lastPage){
             setSongsPage(songsPage + 1);
