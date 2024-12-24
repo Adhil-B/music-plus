@@ -96,11 +96,11 @@ const page = ({ params }) => {
                 <div className=" flex justify-between">
       <h1 className=" text-3xl font-bold mt-4 mb-4">Songs</h1>
         <div className=" flex gap-1">
-        <div onClick={songPrv} className={` m-4 mb-5 border ${songsPage !== 1 ? 'border-white' : 'border-[rgba(255, 255, 255, 0.5)]'} rounded-full cursor-pointer`}>
-      <MdNavigateBefore size={35}  className={`${songsPage !== 1 ? 'text-white' : 'text-[rgba(255, 255, 255, 0.5)]'} text-xl`} />
+        <div onClick={songPrv} className={` m-4 mb-5 border ${songsPage !== 1 ? 'border-white' : 'border-gray'} rounded-full cursor-pointer`}>
+      <MdNavigateBefore size={35}  className={`${songsPage !== 1 ? 'text-white' : 'text-gray'} text-xl`} />
       </div>
-      <div onClick={songNext} className={` m-4 mb-5 border ${!lastPage ? 'border-white' : 'border-[rgba(255, 255, 255, 0.5)]'} rounded-full cursor-pointer`}>
-      <MdNavigateNext size={35}  className={`${!lastPage ? 'text-white' : 'text-[rgba(255, 255, 255, 0.5)]'} text-xl`} />
+      <div onClick={songNext} className={` m-4 mb-5 border ${!lastPage ? 'border-white' : 'border-gray'} rounded-full cursor-pointer`}>
+      <MdNavigateNext size={35}  className={`${!lastPage ? 'text-white' : 'text-gray'} text-xl`} />
       </div>
       </div>
       </div>
@@ -115,7 +115,7 @@ const page = ({ params }) => {
                 
             </div>
 
-            <div className={`${ artistAlbums?.results.length < 1 ? 'hidden' : ''} mt-10 text-gray-200`}>
+            <div className={`${ artistAlbums?.results?.length < 1 ? 'hidden' : ''} mt-10 text-gray-200`}>
                 <SwiperLayout title={"Albums"}>
                     {
                         artistAlbums?.results?.map((album, index) => (
