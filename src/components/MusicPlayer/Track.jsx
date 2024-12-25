@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Track = ({ isPlaying, isActive, activeSong, fullScreen }) => (
-  <div className={`lg:flex-1 w-[60%] sm:w-auto flex items-center justify-start ${fullScreen ? 'hidden':''}`}>
+  <div className={`lg:flex-1 sm:w-auto flex items-center justify-start ${fullScreen ? 'hidden w-[60%]':'w-[55%] sm:w-[60%] '}`}>
     <div className={`${isPlaying && isActive ? 'animate-[spin_15s_linear_infinite]' : ''} hidden sm:block ml-4 h-16 w-16`}>
       <img src={activeSong?.image?.[2].link || 'https://musicplus-web.vercel.app/Music.png'} alt="cover art" className="h-[100%] object-cover rounded-full"/>
     </div>
