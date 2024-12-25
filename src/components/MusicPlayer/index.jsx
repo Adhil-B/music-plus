@@ -186,7 +186,7 @@ clearTimeout(timer);
 
 //sm:rounded-[10px] sm:bg-[rgba(76, 59, 12, 0.3)] sm:pt-[4px] sm:pr-[0px] sm:pl-[5vw] sm:pb-[0px]
   return (
-    <div className={`fixed drop-shadow-2xl ${fullScreen ? 'bottom-0 left-0 right-0 rounded-none' : 'bottom-[1vw] sm:bottom-0 left-[3vw] sm:left-0 right-[3vw] sm:right-0 rounded-[10px] sm:rounded-none'} flex backdrop-blur-[100px] rounded-t-3 z-50`}>
+    <div className={`fixed ${fullScreen ? 'bottom-0 left-0 right-0 rounded-none' : 'drop-shadow-2xl bottom-[1vw] sm:bottom-0 left-[3vw] sm:left-0 right-[3vw] sm:right-0 rounded-[10px] sm:rounded-none'} flex backdrop-blur-[100px] rounded-t-3 z-50`}>
     <div ref={scrollableDivRef} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-150 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'rounded-[10px] sm:rounded-none w-full h-20 px-8 bg-black '}`}
       onClick={e => handleClicks(e)}
       style={{
