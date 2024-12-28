@@ -1,4 +1,4 @@
-'use client'
+ 'use client'
 import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
@@ -35,6 +35,10 @@ const Searchbar = () => {
     }
     e.preventDefault();
     dispatch(setIsTyping(false));
+    try{
+    let el = document.querySelector( ':focus' );
+    if( el ) el.blur();
+    }
     setSearchH([searchTerm.filter(e => e !== searchH),...searchH])
     router.push(`/search/${searchTerm}`);
   };
@@ -73,10 +77,7 @@ const Searchbar = () => {
 
     useEffect(() => {
     document.documentElement.style.overflow = isTyping ? 'hidden' : 'auto';
-    if (!isTyping){
-    let el = document.querySelector( ':focus' );
-    if( el ) el.blur();
-    }
+    
     return () => {
       document.documentElement.style.overflow = 'auto';
     };
