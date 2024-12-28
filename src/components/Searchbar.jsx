@@ -73,7 +73,10 @@ const Searchbar = () => {
 
     useEffect(() => {
     document.documentElement.style.overflow = isTyping ? 'hidden' : 'auto';
-
+    if (!isTyping){
+    let el = document.querySelector( ':focus' );
+    if( el ) el.blur();
+    }
     return () => {
       document.documentElement.style.overflow = 'auto';
     };
