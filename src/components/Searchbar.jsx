@@ -35,10 +35,6 @@ const Searchbar = () => {
     }
     e.preventDefault();
     dispatch(setIsTyping(false));
-    try{
-    let el = document.querySelector( ':focus' );
-    if( el ) el.blur();
-    }
     setSearchH([searchTerm.filter(e => e !== searchH),...searchH])
     router.push(`/search/${searchTerm}`);
   };
