@@ -96,9 +96,7 @@ const Searchbar = () => {
         
         
         <input
-        onFocus={() => {
-          if (isTyping){handleFocus()}else{this.blur()}
-        }}
+        onFocus={handleFocus}
           name="search-field"
           autoComplete="off"
           id="search-field"
