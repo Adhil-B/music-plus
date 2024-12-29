@@ -26,12 +26,13 @@ const SongCard = ({ song, isPlaying, activeSong }) => {
       setLoading(true);
       const Data = await getSongData(song?.id);
       const songData = await Data?.[0]
-      const recommendedSongs = await getRecommendedSongs(songData?.primaryArtistsId?.split(",")[0], songData?.id, songData?.language);
+      ///const recommendedSongs = await getRecommendedSongs(songData?.primaryArtistsId?.split(",")[0], songData?.id, songData?.language);
       // remove duplicate songs in recommendedSongs array and currentSongs array
-      const filteredRecommendedSongs = recommendedSongs?.filter((song) => !currentSongs?.find((s) => s?.id === song?.id));
+      ///const filteredRecommendedSongs = recommendedSongs?.filter((song) => !currentSongs?.find((s) => s?.id === song?.id));
+      ///...filteredRecommendedSongs
       dispatch(setActiveSong({
         song: songData,
-        data: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs : autoAdd ? [...currentSongs, songData, ...filteredRecommendedSongs] : [...currentSongs, songData],
+        data: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs : autoAdd ? [...currentSongs, songData] : [...currentSongs, songData],
         i: currentSongs?.find((s) => s?.id === songData?.id) ? currentSongs?.findIndex((s) => s?.id === songData?.id) : currentSongs?.length
       }));
       dispatch(setFullScreen(true));
