@@ -193,6 +193,10 @@ clearTimeout(timer);
     useEffect(() => {
     console.log(scrollPosition.scrollTop)
   }, [scrollPosition]);
+
+  const onDoubleClickHandler = () => {
+        console.log("You have Clicked Twice");
+    };
   
 
 
@@ -211,7 +215,7 @@ clearTimeout(timer);
           dispatch(setFullScreen(!fullScreen));
         }
       } className={` absolute top-10 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
-      <FullscreenTrack onDoubleClick={handleAddToFavourite} handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs} scrollPosition={scrollPosition}/>
+      <FullscreenTrack onDoubleClick={onDoubleClickHandler} handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs} scrollPosition={scrollPosition}/>
       <div className={` flex items-center justify-between ${fullScreen ? 'pt-2 w-[100vw]' : 'pt-[0.7rem] sm:pt-2 w-[89vw] sm:w-[100vw]'}`}>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
         <div className={`flex-1 flex flex-col items-center justify-center  ${fullScreen ? 'w-[50%] h-[25vh] mb-[5vh]' : 'w-[40%] sm:w-[50%] mr-[10px] sm:mr-auto'} sm:h-auto sm:mb-auto`}>
