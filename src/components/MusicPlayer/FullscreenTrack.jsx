@@ -6,22 +6,23 @@ import { useDispatch } from 'react-redux'
 import { setFullScreen } from '@/redux/features/playerSlice'
 import { useSwipeable } from 'react-swipeable'
 
-const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef, currentSongs }) => {
+const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef, currentSongs, scrollPosition }) => {
   const dispatch = useDispatch();
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNextSong(),
     onSwipedRight: () => handlePrevSong(),
-    onSwipedDown: () => dispatch(setFullScreen(false)),
+    onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
     trackMouse: true
   })
   const handlers1 = useSwipeable({
-    onSwipedDown: () => dispatch(setFullScreen(false)),
+    onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
     trackMouse: true
   })
+
 
 
   return (
