@@ -13,14 +13,16 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
     onSwipedRight: () => handlePrevSong(),
     onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
     preventDefaultTouchmoveEvent: true,
-    preventScrollOnSwipe: true,
-    trackMouse: true
+    preventScrollOnSwipe: false,
+    trackMouse: true,
+    delta: 50
   })
   const handlers1 = useSwipeable({
     onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
     preventDefaultTouchmoveEvent: true,
-    preventScrollOnSwipe: true,
-    trackMouse: true
+    preventScrollOnSwipe: false,
+    trackMouse: true,
+    delta: 50
   })
 
 
