@@ -36,6 +36,7 @@ const MusicPlayer = () => {
   const router = useRouter();
   const { data } = usePalette(activeSong?.image?.[0]?.link.replace("https://i.ytimg.com/","https://api.allorigins.win/raw?url=https://i.ytimg.com/"));
 const scrollableDivRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState({ scrollTop: 0, scrollLeft: 0 });
 
   
   useEffect(() => {
@@ -183,6 +184,14 @@ clearTimeout(timer);
   }
 }
 
+  const handleScroll = () => {
+    if (scrollableDivRef.current) {
+      const { scrollTop, scrollLeft } = scrollableDivRef.current;
+      setScrollPosition({ scrollTop, scrollLeft });
+    }
+  };
+
+
 
 //sm:rounded-[10px] sm:bg-[rgba(76, 59, 12, 0.3)] sm:pt-[4px] sm:pr-[0px] sm:pl-[5vw] sm:pb-[0px]
   return (
@@ -199,7 +208,7 @@ clearTimeout(timer);
           dispatch(setFullScreen(!fullScreen));
         }
       } className={` absolute top-10 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
-      <FullscreenTrack handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs}/>
+      <FullscreenTrack handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs} scrollPosition={scrollPosition}/>
       <div className={` flex items-center justify-between ${fullScreen ? 'pt-2 w-[100vw]' : 'pt-[0.7rem] sm:pt-2 w-[89vw] sm:w-[100vw]'}`}>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
         <div className={`flex-1 flex flex-col items-center justify-center  ${fullScreen ? 'w-[50%] h-[25vh] mb-[5vh]' : 'w-[40%] sm:w-[50%] mr-[10px] sm:mr-auto'} sm:h-auto sm:mb-auto`}>
