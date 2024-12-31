@@ -39,6 +39,7 @@ const Searchbar = () => {
     dispatch(setIsTyping(false));
     setSearchH([searchTerm,...searchH])
     inputRef.current.focus()
+    inputRef.current.blur()
     router.push(`/search/${searchTerm}`);
   };
   const handleFocus = () => {
@@ -110,8 +111,8 @@ const Searchbar = () => {
           name="dumbysearch-field"
           autoComplete="off"
           id="dumby-search-field"
-          className=" bsearch flex-1 bg-transparent focus:border-b border-white w-[0px] h-[0px] placeholder-gray-300 outline-none text-base text-white p-4"
-          placeholder="Search"
+          className="fixed top-[0px] bsearch flex-1 bg-transparent focus:border-b border-white w-[0px] h-[0px] placeholder-gray-300 outline-none text-base text-white p-4"
+          placeholder=""
           ref={inputRef}
           type="search"
           value=''
@@ -133,6 +134,7 @@ const Searchbar = () => {
         setSearchH([suggested,...searchH])
         dispatch(setIsTyping(false));
         inputRef.current.focus();
+        inputRef.current.blur();
         router.push(`/search/${suggested}`);
         }}
         className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]">
@@ -152,6 +154,7 @@ const Searchbar = () => {
         setSearchH([search,...searchH.filter(function(e) { return e !== search })])
         dispatch(setIsTyping(false));
         inputRef.current.focus();
+        inputRef.current.blur();
         router.push(`/search/${search}`);
         }}
         className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]">
