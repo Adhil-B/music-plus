@@ -67,7 +67,7 @@ const Lyrics = ({ activeSong, scrollableDivRef, currentSongs }) => {
             <div ref={targetRef} className="target-div">
                 {activeTab === 'lyrics' ? (
                     lyrics?.status === 'SUCCESS' ? (
-                        <div className="text-white text-sm sm:text-base p-4 sm:p-0 mt-5 md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar">
+                        <div className="aside bg-[#02081363] w-[90vw] p-[20px] mb-[15px] sm:mb-[0px]   rounded-lg text-white text-sm sm:text-base p-4 sm:p-0 mt-5 md:w-[100%] md:h-[66.4vh] overflow-y-scroll hideScrollBar">
                             {lyrics?.data?.lyrics}
                         </div>
                     ) : (
