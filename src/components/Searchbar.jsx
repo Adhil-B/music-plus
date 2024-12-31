@@ -111,7 +111,7 @@ const Searchbar = () => {
           name="dumbysearch-field"
           autoComplete="off"
           id="dumby-search-field"
-          className="fixed !w-[0px] top-[0px] bsearch flex-1 bg-transparent focus:border-b border-white !w-[0px] h-[0px] placeholder-gray-300 outline-none text-base text-white p-4"
+          className="fixed w-[0px] top-[0px] flex-1 bg-transparent focus:border-b border-white h-[0px] placeholder-gray-300 outline-none text-base text-white"
           placeholder=""
           ref={inputRef}
           type="search"
