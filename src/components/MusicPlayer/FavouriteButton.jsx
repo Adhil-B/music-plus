@@ -8,7 +8,7 @@ const FavouriteButton = ({favouriteSongs, activeSong, loading, handleAddToFavour
     { favouriteSongs?.length>0 && favouriteSongs?.includes(activeSong.id) ?
         <button disabled={loading} onClick={(e)=>{
          handleAddToFavourite(activeSong)}} className={`cursor-pointer`}>
-           <AiFillHeart title='Favourite' size={25} color={'#00e6e6'} className={`${style} motion-preset-confetti motion-duration-1500`} />
+           <AiFillHeart title='Favourite' size={25} color={'#00e6e6'} className={`${style} motion-preset-confetti -motion-translate-y-in-150`} />
              </button>
           :
           <button disabled={loading} onClick={(e)=>{
