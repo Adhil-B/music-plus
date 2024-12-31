@@ -9,7 +9,7 @@ import Downloader from './Downloader';
 import FavouriteButton from './FavouriteButton';
 
 
-const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongs, handlePlayPause, handlePrevSong, handleNextSong, activeSong, fullScreen, handleAddToFavourite, favouriteSongs, loading }) => {
+const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongs, handlePlayPause, handlePrevSong, handleNextSong, activeSong, fullScreen, handleAddToFavourite, favouriteSongs, loading, swipe }) => {
   return (
     <div className={`flex items-center justify-around md:w-80 text-lg lg:w-80 2xl:w-80 gap-4 ${fullScreen ? 'sm:gap-0' : ''}`}>
       <FavouriteButton favouriteSongs={favouriteSongs} activeSong={activeSong} loading={loading} handleAddToFavourite={handleAddToFavourite} divstyle={" sm:block hidden"} />
@@ -27,7 +27,7 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
       
        fullScreen ? (
         <>
-        <FaCirclePause size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer block sm:hidden" />
+        <FaCirclePause size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className={`${swipe} cursor-pointer block sm:hidden`} />
         <BsFillPauseFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block " />
         </>
         ) : (
@@ -40,7 +40,7 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
       
         fullScreen ? (
         <>
-        <FaCirclePlay size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className="cursor-pointer block sm:hidden" />
+        <FaCirclePlay size={fullScreen ? 55 : 45} color={'white'} onClick={handlePlayPause} className={`${swipe} cursor-pointer block sm:hidden`} />
         <BsFillPlayFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block" />
         </>
         ) : (
