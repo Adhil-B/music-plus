@@ -190,9 +190,6 @@ clearTimeout(timer);
       setScrollPosition({ scrollTop, scrollLeft });
     }
   };
-    useEffect(() => {
-    console.log(scrollPosition.scrollTop)
-  }, [scrollPosition]);
 
   const onDoubleClickHandler = () => {
         console.log("You have Clicked Twice");
