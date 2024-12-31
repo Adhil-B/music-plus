@@ -114,7 +114,7 @@ const Searchbar = () => {
           placeholder="Search"
           ref={inputRef}
           type="search"
-          value='dumby search'
+          value=''
         />
 
         
