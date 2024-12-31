@@ -31,6 +31,7 @@ const MusicPlayer = () => {
   const [favouriteSongs, setFavouriteSongs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [played, setPlayed] = useState([]);
+  const [swipe, setSwipe] = useState('');
   const dispatch = useDispatch();
   const { status } = useSession();
   const router = useRouter();
@@ -92,6 +93,8 @@ const scrollableDivRef = useRef(null);
 
   const handlePlayPause = (e) => {
     e?.stopPropagation();
+    setSwipe('motion-preset-compress motion-duration-500');
+    setTimeout(() => {setSwipe('');}, 250);
     if (!isActive) return;
 
     if (isPlaying) {
@@ -230,6 +233,7 @@ clearTimeout(timer);
             isPlaying={isPlaying}
             isActive={isActive}
             repeat={repeat}
+            swipe={swipe}
             setRepeat={setRepeat}
             shuffle={shuffle}
             setShuffle={setShuffle}
