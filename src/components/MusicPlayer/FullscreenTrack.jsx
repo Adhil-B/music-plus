@@ -15,14 +15,14 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
     trackMouse: true,
-    delta: { up: 30, down: 30, left: 40, right: 40 }
+    delta: { up: 30, down: 30, left: 50, right: 50 }
   })
   const handlers1 = useSwipeable({
     onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
     trackMouse: true,
-    delta: { up: 30, down: 30, left: 40, right: 40 }
+    delta: { up: 30, down: 30, left: 50, right: 50 }
   })
   const onDoubleClickHandler = () => {
         console.log("You have Clicked Twice");
