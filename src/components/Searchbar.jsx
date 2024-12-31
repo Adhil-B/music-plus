@@ -121,7 +121,7 @@ const Searchbar = () => {
         
       </div>
 
-       <div className={`${isTyping ? ' !w-[88vw] sm:!w-auto':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !backdrop-blur-[8px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto fixed t-25vh asearch w-[87%] sm:w-[320px] p-[10px] ${isTyping ? ' motion-preset-slide-down motion-delay-100 motion-duration-100' : ''}`}>
+       <div className={`${isTyping ? ' !w-[88vw] sm:!w-auto':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !backdrop-blur-[8px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto fixed t-25vh asearch w-[87%] sm:w-[320px] p-[10px] ${isTyping ? ' motion-preset-slide-down motion-duration-100' : ''}`}>
         <div className={` flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
         <div className={`${suggestion.length < 1 ? 'hidden':''} grid items-center gap-5`}>
 
