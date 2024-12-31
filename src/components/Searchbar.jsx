@@ -87,7 +87,7 @@ const Searchbar = () => {
     <div>
      <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} fixed left-0 bg-black sm:bg-transparent brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
 
-    <form onSubmit={handleSubmit} autoComplete="off" className={`motion-preset-slide-left motion-duration-100 ${isTyping ? 'shadow-[0px_0px_0px_5000px_#00000090] sm:shadow-[0px_0px_0px_0px_#00000090] bg-[#00000090] sm:bg-transparent' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
+    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'motion-preset-slide-left motion-duration-100 shadow-[0px_0px_0px_5000px_#00000090] sm:shadow-[0px_0px_0px_0px_#00000090] bg-[#00000090] sm:bg-transparent' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
         Search
       </label>
