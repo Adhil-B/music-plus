@@ -206,7 +206,7 @@ clearTimeout(timer);
     <div ref={scrollableDivRef} onScroll={handleScroll} className={`overflow-y-scroll overflow-x-hidden relative items-center lg:items-stretch lg:overflow-visible hideScrollBar sm:px-12  flex flex-col transition-all duration-150 ${fullScreen ? 'h-[100vh] w-[100vw]' : 'rounded-[10px] sm:rounded-none w-full h-20 px-8 bg-black '}`}
       onClick={e => handleClicks(e)}
       style={{
-        background: `linear-gradient(90deg,${data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)'},#09204a00 ${appTime})`,
+        background: fullScreen ? data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)' : `linear-gradient(90deg,${data.darkVibrant ? `rgba(${parseInt(data?.darkVibrant?.slice(1, 3), 16)}, ${parseInt(data?.darkVibrant?.slice(3, 5), 16)}, ${parseInt(data?.darkVibrant?.slice(5, 7), 16)}, 0.3)` : 'rgba(0,0,0,0.2)'},#09204a00 ${(appTime/duration)*100})`,
       }}
     >
       <HiOutlineChevronDown onClick={
