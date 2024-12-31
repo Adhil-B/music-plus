@@ -33,7 +33,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
 
 
   return (
-    <div {...handlers1} onDoubleClick={onDoubleClickHandler} className={`${fullScreen ? 'block' : 'motion-preset-slide-down hidden'} w-[100%] flex lg:flex-row lg:w-[100vw] mx-auto flex-col  lg:justify-between sm:mt-10`}>
+    <div {...handlers1} onDoubleClick={onDoubleClickHandler} className={`${fullScreen ? 'block motion-preset-slide-up' : 'motion-preset-slide-down hidden'} w-[100%] flex lg:flex-row lg:w-[100vw] mx-auto flex-col  lg:justify-between sm:mt-10`}>
       <div className="flex flex-col items-center lg:w-[50%] h-[55vh] sm:h-auto mt-[15vh] sm:mt-auto" >
         <div
           {...handlers}
