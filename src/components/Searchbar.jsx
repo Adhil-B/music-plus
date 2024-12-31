@@ -87,7 +87,7 @@ const Searchbar = () => {
     <div>
      <div onClick={() => dispatch(setIsTyping(false))} className={`${isTyping ? '':'hidden'} fixed left-0 bg-black sm:bg-transparent brightness-50 fixed blur-[900px] h-[100vh] t-[0px] ml-[-10px] w-[100vw] z-[30] bg-[hsla(0, 0%, 0%, 0.8)]`}></div>
 
-    <form onSubmit={handleSubmit} autoComplete="off" className={`${isTyping ? 'shadow-[0px_0px_0px_5000px_#00000090] sm:shadow-[0px_0px_0px_0px_#00000090] bg-[#00000090] sm:bg-transparent' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
+    <form onSubmit={handleSubmit} autoComplete="off" className={`motion-preset-slide-left motion-duration-100 ${isTyping ? 'shadow-[0px_0px_0px_5000px_#00000090] sm:shadow-[0px_0px_0px_0px_#00000090] bg-[#00000090] sm:bg-transparent' : ''} z-[35] p-2 text-gray-400 relative focus-within:text-gray-600`}>
       <label htmlFor="search-field" className="sr-only">
         Search
       </label>
@@ -121,7 +121,7 @@ const Searchbar = () => {
         
       </div>
 
-       <div className={`${isTyping ? 'motion-preset-slide-down motion-duration-200 !w-[88vw] sm:!w-auto':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !backdrop-blur-[8px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto fixed t-25vh asearch w-[87%] sm:w-[320px] p-[10px] `}>
+       <div className={`${isTyping ? 'motion-preset-slide-down motion-delay-100 motion-duration-100 !w-[88vw] sm:!w-auto':'hidden'} ${suggestion.length < 1 && searchH.length < 1 ? 'hidden':''} !backdrop-blur-[8px] !pl-[0px] !mt-[5px] !rounded-[30px] !h-auto fixed t-25vh asearch w-[87%] sm:w-[320px] p-[10px] `}>
         <div className={`flex w-40 md:w-80 items-center mt-[10px] cursor-pointer group border-b-[2px] border-[#ffffff00] justify-between`}>
         <div className={`${suggestion.length < 1 ? 'hidden':''} grid items-center gap-5`}>
 
