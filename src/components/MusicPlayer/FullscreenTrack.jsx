@@ -11,10 +11,9 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
   const dispatch = useDispatch();
   const [swipe, setSwipe] = useState('');
   const handlers = useSwipeable({
-    onSwipedLeft: () => {setSwipe('motion-preset-slide-right'); setTimeout(() => {handleNextSong()}, 800); },
-    onSwipedRight: () => {setSwipe('motion-preset-slide-left'); setTimeout(() => {handlePrevSong()}, 800); },
+    onSwipedLeft: () => {setSwipe('motion-preset-slide-right'); setTimeout(() => {handleNextSong()}, 500); },
+    onSwipedRight: () => {setSwipe('motion-preset-slide-left'); setTimeout(() => {handlePrevSong()}, 500); },
     onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
-    onSwiping: () => {setSwipe('motion-preset-wobble')},
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
     trackMouse: true,
