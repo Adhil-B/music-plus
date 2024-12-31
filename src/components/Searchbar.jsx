@@ -37,8 +37,8 @@ const Searchbar = () => {
     }
     e.preventDefault();
     dispatch(setIsTyping(false));
-    inputRef.current.focus()
     setSearchH([searchTerm,...searchH])
+    inputRef.current.focus()
     router.push(`/search/${searchTerm}`);
   };
   const handleFocus = () => {
@@ -110,7 +110,7 @@ const Searchbar = () => {
           name="dumbysearch-field"
           autoComplete="off"
           id="dumby-search-field"
-          className="hidden bsearch flex-1 bg-transparent focus:border-b border-white lg:w-64 placeholder-gray-300 outline-none text-base text-white p-4"
+          className=" bsearch flex-1 bg-transparent focus:border-b border-white w-[0px] h-[0px] placeholder-gray-300 outline-none text-base text-white p-4"
           placeholder="Search"
           ref={inputRef}
           type="search"
