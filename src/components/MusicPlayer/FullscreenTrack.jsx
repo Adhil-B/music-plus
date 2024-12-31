@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { setFullScreen } from '@/redux/features/playerSlice'
 import { useSwipeable } from 'react-swipeable'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef, currentSongs, scrollPosition, handleAddToFavourite }) => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
         <div
           {...handlers}
          className=" h-80 w-80 lg:h-[60vh] lg:w-[60vh] sm:mt-5  ">
+          <DotLottieReact className={`fixed top-[30vh] right-[30vw]`} src="https://lottie.host/257f6a66-b067-45af-95e0-2dc4464c13df/39rp38XZEn.lottie" loop autoplay />
           <img onDoubleClick={onDoubleClickHandler} src={activeSong?.image?.[2].link} alt="cover art" className="h-[100%] object-cover rounded-lg" />
         </div>
         <div onClick={(e) => e.stopPropagation()} className=" w-full select-none cursor-pointer text-center my-5">
