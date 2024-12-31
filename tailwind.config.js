@@ -12,5 +12,5 @@ module.exports = {
       lg: '1024px',
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-motion')],
 }
