@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { setFullScreen } from '@/redux/features/playerSlice'
 import { useSwipeable } from 'react-swipeable'
 
-const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef, currentSongs, scrollPosition }) => {
+const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef, currentSongs, scrollPosition, handleAddToFavourite }) => {
   const dispatch = useDispatch();
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNextSong(),
@@ -25,6 +25,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
     delta: {left: 50, right: 50 }
   })
   const onDoubleClickHandler = () => {
+        handleAddToFavourite(activeSong);
         console.log("You have Clicked Twice");
     };
 
