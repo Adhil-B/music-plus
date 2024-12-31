@@ -31,7 +31,7 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
         <BsFillPauseFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block " />
         </>
         ) : (
-        <BsFillPauseFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className={`${fullScreen ? '' : 'motion-opacity-in-0 motion-duration-800'} cursor-pointer`} />
+        <BsFillPauseFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className={` cursor-pointer`} />
         )
       
       
@@ -44,7 +44,7 @@ const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSo
         <BsFillPlayFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className="cursor-pointer hidden sm:block" />
         </>
         ) : (
-        <BsFillPlayFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className={`${fullScreen ? '' : 'motion-opacity-in-0 motion-duration-800'} cursor-pointer`} />
+        <BsFillPlayFill size={45} color={'#00e6e6'} onClick={handlePlayPause} className={` cursor-pointer`} />
         )
       
       
