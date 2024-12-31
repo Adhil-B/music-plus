@@ -214,7 +214,7 @@ clearTimeout(timer);
           e.stopPropagation();
           dispatch(setFullScreen(!fullScreen));
         }
-      } className={` absolute top-10 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
+      } className={`z-[1] absolute top-10 md:top-10 right-7 text-white text-3xl cursor-pointer ${fullScreen ? '' : 'hidden'}`} />
       <FullscreenTrack handleAddToFavourite={handleAddToFavourite} onDoubleClick={onDoubleClickHandler} handleNextSong={handleNextSong} handlePrevSong={handlePrevSong} activeSong={activeSong} fullScreen={fullScreen} scrollableDivRef={scrollableDivRef} currentSongs={currentSongs} scrollPosition={scrollPosition}/>
       <div className={` flex items-center justify-between ${fullScreen ? 'pt-2 w-[100vw]' : 'pt-[0.7rem] sm:pt-2 w-[89vw] sm:w-[100vw]'}`}>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong} fullScreen={fullScreen} />
