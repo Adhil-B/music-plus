@@ -11,8 +11,8 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
   const dispatch = useDispatch();
   const [swipe, setSwipe] = useState('');
   const handlers = useSwipeable({
-    onSwipedLeft: () => {setSwipe('motion-preset-slide-right'); setTimeout(() => {handleNextSong(); setSwipe('');}, 270); },
-    onSwipedRight: () => {setSwipe('motion-preset-slide-left'); setTimeout(() => {handlePrevSong(); setSwipe('');}, 270); },
+    onSwipedLeft: () => {setSwipe('motion-preset-slide-right'); setTimeout(() => {handleNextSong(); setSwipe('');}, 260); },
+    onSwipedRight: () => {setSwipe('motion-preset-slide-left'); setTimeout(() => {handlePrevSong(); setSwipe('');}, 260); },
     onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
@@ -40,7 +40,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
          className={` h-80 w-80 lg:h-[60vh] lg:w-[60vh] sm:mt-5 ${swipe} `}>
           <img src={activeSong?.image?.[2].link} alt="cover art" className="h-[100%] object-cover rounded-lg" />
         </div>
-        <div onClick={(e) => e.stopPropagation()} className=" w-full select-none cursor-pointer text-center my-5">
+        <div onClick={(e) => e.stopPropagation()} className={`${swipe} w-full select-none cursor-pointer text-center my-5`}>
           <p className="truncate text-white font-bold text-2xl mx-[25px] mb-1 px-3">
             {activeSong?.name ? activeSong?.name.replace("&#039;", "'").replace("&amp;", "&").replaceAll('&quot;','"') : 'Song'}
           </p>
