@@ -5,13 +5,16 @@ import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { setFullScreen } from '@/redux/features/playerSlice'
 import { useSwipeable } from 'react-swipeable'
+import { useState } from 'react';
 
 const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSong, scrollableDivRef, currentSongs, scrollPosition, handleAddToFavourite }) => {
   const dispatch = useDispatch();
+  const [swipe, setSwipe] = useState('');
   const handlers = useSwipeable({
-    onSwipedLeft: () => handleNextSong(),
-    onSwipedRight: () => handlePrevSong(),
+    onSwipedLeft: () => {setSwipe('motion-preset-slide-left') setTimeout(() => {handleNextSong()}, 800); },
+    onSwipedRight: () => {setSwipe('motion-preset-slide-right ') setTimeout(() => {handlePrevSong()}, 800); },
     onSwipedDown: () => { if (scrollPosition.scrollTop < 1) {dispatch(setFullScreen(false))} },
+    onSwiping: () => {setSwipe('motion-preset-wobble')},
     preventDefaultTouchmoveEvent: true,
     preventScrollOnSwipe: true,
     trackMouse: true,
@@ -35,7 +38,7 @@ const FullscreenTrack = ({ fullScreen, activeSong, handlePrevSong, handleNextSon
       <div className="flex flex-col items-center lg:w-[50%] h-[55vh] sm:h-auto mt-[15vh] sm:mt-auto" >
         <div
           {...handlers}
-         className=" h-80 w-80 lg:h-[60vh] lg:w-[60vh] sm:mt-5  ">
+         className={` h-80 w-80 lg:h-[60vh] lg:w-[60vh] sm:mt-5 ${swipe} `}>
           <img src={activeSong?.image?.[2].link} alt="cover art" className="h-[100%] object-cover rounded-lg" />
         </div>
         <div onClick={(e) => e.stopPropagation()} className=" w-full select-none cursor-pointer text-center my-5">
