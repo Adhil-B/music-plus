@@ -19,6 +19,8 @@ const Searchbar = () => {
   const router = useRouter();
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [searchTerm, setSearchTerm] = useState('');
+  const inputRef = useRef(null);
+
 
   useEffect(() => {
   const fetchDataaae = async () => {
@@ -35,6 +37,7 @@ const Searchbar = () => {
     }
     e.preventDefault();
     dispatch(setIsTyping(false));
+    inputRef.current.focus()
     setSearchH([searchTerm,...searchH])
     router.push(`/search/${searchTerm}`);
   };
@@ -103,6 +106,16 @@ const Searchbar = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
+       <input
+          name="dumbysearch-field"
+          autoComplete="off"
+          id="dumby-search-field"
+          className="hidden bsearch flex-1 bg-transparent focus:border-b border-white lg:w-64 placeholder-gray-300 outline-none text-base text-white p-4"
+          placeholder="Search"
+          ref={inputRef}
+          type="search"
+          value={dumbysearchTerm}
+        />
 
         
       </div>
@@ -119,6 +132,7 @@ const Searchbar = () => {
         setSearchTerm(suggested);
         setSearchH([suggested,...searchH])
         dispatch(setIsTyping(false));
+        inputRef.current.focus();
         router.push(`/search/${suggested}`);
         }}
         className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]">
@@ -137,6 +151,7 @@ const Searchbar = () => {
         setSearchTerm(search);
         setSearchH([search,...searchH.filter(function(e) { return e !== search })])
         dispatch(setIsTyping(false));
+        inputRef.current.focus();
         router.push(`/search/${search}`);
         }}
         className="items-center text-gray-400 w-[80vw] sm:w-[60vw] sm:w-24 md:w-64 flex flex-row justify-start mb-[5px]">
