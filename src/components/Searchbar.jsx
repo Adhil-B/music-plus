@@ -1,5 +1,5 @@
  'use client'
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
