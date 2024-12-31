@@ -93,7 +93,7 @@ const scrollableDivRef = useRef(null);
 
   const handlePlayPause = (e) => {
     e?.stopPropagation();
-    setSwipe('motion-preset-compress motion-duration-500');
+    setSwipe('motion-preset-expand motion-duration-500');
     setTimeout(() => {setSwipe('');}, 250);
     if (!isActive) return;
 
