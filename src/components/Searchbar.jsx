@@ -113,7 +113,7 @@ const Searchbar = () => {
           className="fixed w-[0px] top-[0px] flex-1 bg-transparent focus:border-b border-white h-[0px] placeholder-gray-300 outline-none text-base text-white"
           placeholder=""
           ref={inputRef}
-          type="search"
+          type=""
           value=''
         />
 
