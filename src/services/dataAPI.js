@@ -268,7 +268,7 @@ function transformList(list) {
       //let linkurl = `https://musicplus.ddns.net/api/audio?audioId=${y["id"].replace("yt-",'')}`;
       //let linkurl = `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}`;
       //y["duration"] < 252 ? `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}` : `https://ytpi.onrender.com/audio?videoId=${y["id"].replace("yt-",'')}`
-      let linkurl = `https://ytpi.vercel.app/audio?videoId=${y["id"].replace("yt-",'')}`;
+      let linkurl = `https://audio.root27.dev/watch?v=${y["id"].replace("yt-",'')}`;
       let audiodata;
       if (id2.length < 2 && id.split(',').length < 2) {
       audiodata = await getAudio(`yt-${y["id"]}`);
@@ -471,7 +471,7 @@ export async function getSearchedData(query) {
     const data = await response.json();
     //const data = {data:{songs    }};
     
-    /*const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);
+    const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);//
     const data1 = await response1.json();
     const data2 = [];
     let lastname = ':';
