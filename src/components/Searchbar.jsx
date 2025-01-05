@@ -38,8 +38,7 @@ const Searchbar = () => {
     e.preventDefault();
     dispatch(setIsTyping(false));
     setSearchH([searchTerm,...searchH])
-    inputRef.current.focus()
-    inputRef.current.blur()
+
     router.push(`/search/${searchTerm}`);
   };
   const handleFocus = () => {
