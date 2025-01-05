@@ -471,7 +471,7 @@ export async function getSearchedData(query) {
     const data = await response.json();
     //const data = {data:{songs    }};
     
-    const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);//
+    /*const response1 = await fetch(`https://ytpi.vercel.app/search?query=${query}`);//
     const data1 = await response1.json();
     const data2 = [];
     let lastname = ':';
