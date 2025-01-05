@@ -20,7 +20,7 @@ const Searchbar = () => {
   const {isTyping} = useSelector((state) => state.loadingBar);
   const [searchTerm, setSearchTerm] = useState('');
   const inputRef = useRef(null);
-
+  const searchRef = useRef(null);
 
   useEffect(() => {
   const fetchDataaae = async () => {
