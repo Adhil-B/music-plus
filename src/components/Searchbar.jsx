@@ -38,6 +38,7 @@ const Searchbar = () => {
     e.preventDefault();
     dispatch(setIsTyping(false));
     setSearchH([searchTerm,...searchH])
+    searchRef.current.blur()
     inputRef.current.focus()
     inputRef.current.blur()
     router.push(`/search/${searchTerm}`);
@@ -103,6 +104,7 @@ const Searchbar = () => {
           id="search-field"
           className="bsearch flex-1 bg-transparent focus:border-b border-white lg:w-64 placeholder-gray-300 outline-none text-base text-white p-4"
           placeholder="Search"
+          ref={searchRef}
           type="search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
