@@ -33,8 +33,10 @@ l.appendChild(s);
 
   return (
 
-    <div className='flex justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px]' id="ad-container">
-
+    <div className='flex justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px] mb-[15px]' id="ad-container" >
+    <div className='absolute z-[-1] top-[47px]'>
+    <center>Advertisement</center>
+    </div>
     </div>
   );
 };
