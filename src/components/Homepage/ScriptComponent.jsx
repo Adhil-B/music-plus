@@ -31,11 +31,9 @@ l.parentNode.insertBefore(s, l);
   }, []);
 
   return (
-    <div>
-    <div id="ad-cont"></div>
+
     <div id="ad-container">
       {/* Placeholder for the ad */}
-    </div>
     </div>
   );
 };
