@@ -33,7 +33,7 @@ l.appendChild(s);
 
   return (
 
-    <div className='flex justify-center' id="ad-container">
+    <div className='flex justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] w-[80vw]' id="ad-container">
       {/* Placeholder for the ad */}
     </div>
   );
