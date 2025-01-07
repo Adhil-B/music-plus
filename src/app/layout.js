@@ -42,6 +42,7 @@ export const metadata = {
 export default function RootLayout({ children }){
   return (
     <html lang="en">
+    <meta name="6a284b6e13a81890261165a130bd09ebb9a528a0" content="6a284b6e13a81890261165a130bd09ebb9a528a0" />
       <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
     <Script type="text/javascript" src="/script-1.js"></Script> 
     <Script type="text/javascript" src="https://raw.githubusercontent.com/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js"></Script> 
