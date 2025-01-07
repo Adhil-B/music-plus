@@ -10,7 +10,8 @@ const ScriptComponent = () => {
 (function(rwr){
 var d = document,
     s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
+    l = document.getElementById('ad-container');
+    //l = d.scripts[d.scripts.length - 1];
 s.settings = rwr || {};
 s.src = "\/\/infantilecombination.com\/bKX_V.sgdAG\/lT0UYtWcdUicYtW\/5UuQZ\/X\/It\/se\/mH9zuYZUUllskTP\/T\/U\/5wOJTxce3\/Nuz\/YStTNBTRkt5gNVz\/cC3LNtwv";
 s.async = true;
