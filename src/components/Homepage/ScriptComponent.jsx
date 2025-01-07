@@ -18,6 +18,17 @@ s.async = true;
 s.referrerPolicy = 'no-referrer-when-downgrade';
 l.parentNode.insertBefore(s, l);
 })({})
+(function(fpyi){
+var d = document,
+    s = d.createElement('script'),
+    l = document.getElementById('ad-container');
+    //l = d.scripts[d.scripts.length - 1];
+s.settings = fpyi || {};
+s.src = "\/\/infantilecombination.com\/b\/X-VSszd.GWl\/0VYQWmcX\/me_m\/9BuZZjU\/lekaPPT-U\/5BOQTGct4VMqTEknt\/NcTzkw5ZNdzXguydMpAL";
+s.async = true;
+s.referrerPolicy = 'no-referrer-when-downgrade';
+l.parentNode.insertBefore(s, l);
+})({})
     `;
 
     container.appendChild(script);
