@@ -139,13 +139,7 @@ const Home = () => {
 )}
   <Helmet>
   <script type="text/javascript">
-	atOptions = {
-		'key' : 'ebeb566c60bd1f2f59dfbd5d18edd05d',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
+	atOptions = {'key' : 'ebeb566c60bd1f2f59dfbd5d18edd05d','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};
 </script>
 <script type="text/javascript" src="//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js"></script>
   </Helmet>
