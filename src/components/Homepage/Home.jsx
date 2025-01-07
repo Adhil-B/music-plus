@@ -15,6 +15,7 @@ import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
 import {Helmet} from "react-helmet";
+import Safe from "react-safe"
 
 const Home = () => {
 
@@ -137,8 +138,8 @@ const Home = () => {
         }
       </SwiperLayout>
 )}
-  <Helmet>
-<script>
+
+<Safe.script>
 (function(upszm){
 var d = document,
     s = d.createElement('script'),
@@ -149,8 +150,8 @@ s.async = true;
 s.referrerPolicy = 'no-referrer-when-downgrade';
 l.parentNode.insertBefore(s, l);
 })({})
-</script>
-  </Helmet>
+</Safe.script>
+
       {/* New Releases */}
       {  selectedHomeCategories.includes("releases") && (
       <SwiperLayout title={"New Releases"}>
