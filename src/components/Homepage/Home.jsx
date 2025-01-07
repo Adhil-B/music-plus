@@ -138,7 +138,6 @@ const Home = () => {
       </SwiperLayout>
 )}
 
-<ScriptComponent />
 
       {/* New Releases */}
       {  selectedHomeCategories.includes("releases") && (
@@ -232,6 +231,7 @@ const Home = () => {
         }
       </SwiperLayout>
 )}
+    <ScriptComponent />
     </div>
   );
 }; 
