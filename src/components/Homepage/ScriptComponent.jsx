@@ -10,13 +10,14 @@ const ScriptComponent = () => {
 (function(rwr){
 var d = document,
     s = d.createElement('script'),
-    l = document.getElementById('ad-cont');
+    l = document.getElementById('ad-container');
     //l = d.scripts[d.scripts.length - 1];
 s.settings = rwr || {};
 s.src = "\/\/infantilecombination.com\/bKX_V.sgdAG\/lT0UYtWcdUicYtW\/5UuQZ\/X\/It\/se\/mH9zuYZUUllskTP\/T\/U\/5wOJTxce3\/Nuz\/YStTNBTRkt5gNVz\/cC3LNtwv";
 s.async = true;
 s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
+l.appendChild(s);
+//l.parentNode.insertBefore(s, l);
 })({})
     `;
 
