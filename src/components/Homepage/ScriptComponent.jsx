@@ -10,7 +10,7 @@ const ScriptComponent = () => {
 (function(rwr){
 var d = document,
     s = d.createElement('script'),
-    l = document.getElementById('ad-container');
+    l = document.getElementById('ad-cont');
     //l = d.scripts[d.scripts.length - 1];
 s.settings = rwr || {};
 s.src = "\/\/infantilecombination.com\/bKX_V.sgdAG\/lT0UYtWcdUicYtW\/5UuQZ\/X\/It\/se\/mH9zuYZUUllskTP\/T\/U\/5wOJTxce3\/Nuz\/YStTNBTRkt5gNVz\/cC3LNtwv";
@@ -31,7 +31,8 @@ l.parentNode.insertBefore(s, l);
   }, []);
 
   return (
-    <div className="flex items-center">
+    <div>
+    <div id="ad-cont"></div>
     <div id="ad-container">
       {/* Placeholder for the ad */}
     </div>
