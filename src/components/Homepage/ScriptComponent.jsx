@@ -16,8 +16,7 @@ s.settings = rwr || {};
 s.src = "\/\/infantilecombination.com\/bKX_V.sgdAG\/lT0UYtWcdUicYtW\/5UuQZ\/X\/It\/se\/mH9zuYZUUllskTP\/T\/U\/5wOJTxce3\/Nuz\/YStTNBTRkt5gNVz\/cC3LNtwv";
 s.async = true;
 s.referrerPolicy = 'no-referrer-when-downgrade';
-l.appendChild(s);
-//l.parentNode.insertBefore(s, l);
+l.parentNode.insertBefore(s, l);
 })({})
     `;
 
