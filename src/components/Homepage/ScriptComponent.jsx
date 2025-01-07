@@ -33,7 +33,7 @@ l.appendChild(s);
 
   return (
 
-    <div id="ad-container">
+    <div className='flex justify-center' id="ad-container">
       {/* Placeholder for the ad */}
     </div>
   );
