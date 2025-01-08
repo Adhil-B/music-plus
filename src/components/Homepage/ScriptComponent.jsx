@@ -38,7 +38,7 @@ useEffect(() => {
 
     script.innerHTML = `
 	atOptions = {
-		'key' : ${adkey},
+		'key' : '${adkey}',
 		'format' : 'iframe',
 		'height' : ${height},
 		'width' : ${width},
