@@ -180,6 +180,7 @@ const Home = () => {
         </div>
       </div>
 )}
+      <ScriptComponent />
 
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
