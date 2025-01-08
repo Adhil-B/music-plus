@@ -44,7 +44,6 @@ useEffect(() => {
 		'width' : 320,
 		'params' : {}
 	};
-<script type="text/javascript" src="//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js"></script>
 `
   script.type='text/javascript';
   script2.type='text/javascript';
