@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 const ScriptComponent = () => {
-  useEffect(() => {
+  /*useEffect(() => {
     // Dynamically create the script element
     const script = document.createElement('script');
     const container = document.getElementById('ad-container');
@@ -29,8 +29,36 @@ l.appendChild(s);
         container.removeChild(container.firstChild);
       }
     };
+  }, []);*/
+useEffect(() => {
+    // Dynamically create the script element
+    const script = document.createElement('script');
+    const script2 = document.createElement('script');
+    const container = document.getElementById('ad-container');
+
+    script.innerHTML = `
+	atOptions = {
+		'key' : 'ebeb566c60bd1f2f59dfbd5d18edd05d',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+<script type="text/javascript" src="//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js"></script>
+`
+  script.type='text/javascript';
+  script2.type='text/javascript';
+  script2.src='//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js'
+  container.appendChild(script);
+  ontainer.appendChild(script2);
+
+    // Cleanup function to remove the script if the component unmounts
+    return () => {
+      
+    };
   }, []);
 
+  
   return (
 
     <div className='flex sm:hidden justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px] mb-[15px] min-h-[100px]' id="ad-container" >
