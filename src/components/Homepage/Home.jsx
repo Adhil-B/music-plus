@@ -15,7 +15,7 @@ import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
 import ScriptComponent from './ScriptComponent';
-import SquareBannerH from './SquareBanner_home';
+import AdBanner from './AdBanner';
 
 const Home = () => {
 
@@ -181,7 +181,7 @@ const Home = () => {
         </div>
       </div>
 )}
-      <ScriptComponent adkey={`ebeb566c60bd1f2f59dfbd5d18edd05d`} height={50} width={320} adno={1} />
+      <AdBanner adno={2}/>
 
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
@@ -235,11 +235,7 @@ const Home = () => {
 )}
     <SwiperLayout title={"Advertisement"} >
       
-    <div onload="ad2()" className='flex sm:hidden justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px] mb-[15px] min-h-[60px]' id={`ad-container-9`} >
-    <div className='absolute z-[-1]'>
-    <center>Advertisement</center>
-    </div>
-    </div>
+    <AdBanner adno={9}/>
       
     </SwiperLayout>
     </div>
