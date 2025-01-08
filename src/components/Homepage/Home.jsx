@@ -182,7 +182,7 @@ const Home = () => {
         </div>
       </div>
 )}
- <AdBanner adno={2}/>     
+       <ScriptComponent adkey={`ebeb566c60bd1f2f59dfbd5d18edd05d`} height={50} width={320} adno={1} />
 
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
@@ -236,7 +236,7 @@ const Home = () => {
 )}
     <SwiperLayout title={"Advertisement"} >
       
-    <AdBanner adno={9}/>
+    <ScriptComponent adkey={`6472e9e96fda1f44ecc5f08fd44fc5af`} height={250} width={300} adno={2} />
       
     </SwiperLayout>
     </div>
