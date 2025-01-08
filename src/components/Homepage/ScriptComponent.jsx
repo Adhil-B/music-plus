@@ -32,6 +32,7 @@ l.appendChild(s);
   }, []);*/
 useEffect(() => {
     // Dynamically create the script element
+setTimeout(function() {
     const script = document.createElement('script');
     const script2 = document.createElement('script');
     const container = document.getElementById(`ad-container-${adno}`);
@@ -57,6 +58,7 @@ useEffect(() => {
         container.removeChild(container.firstChild);
       }
     };
+}, 75*adno);
   }, []);
 
   
