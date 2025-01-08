@@ -15,6 +15,7 @@ import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
 import ScriptComponent from './ScriptComponent';
+import SquareBannerH from './SquareBanner_home';
 
 const Home = () => {
 
@@ -232,7 +233,7 @@ const Home = () => {
         }
       </SwiperLayout>
 )}
-    <ScriptComponent />
+    <SquareBannerH />
     </div>
   );
 }; 
