@@ -234,7 +234,7 @@ const Home = () => {
       </SwiperLayout>
 )}
     <SwiperLayout title={"Advertisement"} >
-    <ScriptComponent adkey={`6472e9e96fda1f44ecc5f08fd44fc5af`} height={250} width={300} adno={2} />
+
     </SwiperLayout>
     </div>
   );
