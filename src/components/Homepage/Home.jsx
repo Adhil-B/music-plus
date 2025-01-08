@@ -236,7 +236,7 @@ const Home = () => {
 )}
     <SwiperLayout title={"Advertisement"} >
       
-    <AdBanner adno={3}/>
+    <AdBanner adno={9}/>
       
     </SwiperLayout>
     </div>
