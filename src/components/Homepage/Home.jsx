@@ -181,7 +181,7 @@ const Home = () => {
         </div>
       </div>
 )}
-      <ScriptComponent key='ebeb566c60bd1f2f59dfbd5d18edd05d' height={320} width={50} adno={1} />
+      <ScriptComponent key={'ebeb566c60bd1f2f59dfbd5d18edd05d'} height={320} width={50} adno={1} />
 
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
@@ -233,7 +233,9 @@ const Home = () => {
         }
       </SwiperLayout>
 )}
+    <SwiperLayout title={"Advertisement"} >
     <SquareBannerH />
+    </SwiperLayout>
     </div>
   );
 }; 
