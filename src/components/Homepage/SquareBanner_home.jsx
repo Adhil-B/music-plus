@@ -3,11 +3,11 @@ const SquareBannerH = () => {
   
 useEffect(() => {
     // Dynamically create the script element
-    const script = document.createElement('script');
     const script2 = document.createElement('script');
-    const container = document.getElementById('ad-container-1');
+    const script22 = document.createElement('script');
+    const container2 = document.getElementById('ad-container-1');
 
-    script.innerHTML = `
+    script2.innerHTML = `
 	atOptions = {
 		'key' : 'ebeb566c60bd1f2f59dfbd5d18edd05d',
 		'format' : 'iframe',
@@ -16,16 +16,16 @@ useEffect(() => {
 		'params' : {}
 	};
 `
-  script.type='text/javascript';
   script2.type='text/javascript';
-  script2.src='//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js'
-  container.appendChild(script);
-  container.appendChild(script2);
+  script22.type='text/javascript';
+  script22.src='//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js'
+  container2.appendChild(script2);
+  container2.appendChild(script22);
 
     // Cleanup function to remove the script if the component unmounts
     return () => {
-      while (container.firstChild) {
-        container.removeChild(container.firstChild);
+      while (container2.firstChild) {
+        container2.removeChild(container2.firstChild);
       }
     };
   }, []);
