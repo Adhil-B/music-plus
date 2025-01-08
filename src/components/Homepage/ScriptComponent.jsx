@@ -49,11 +49,13 @@ useEffect(() => {
   script2.type='text/javascript';
   script2.src='//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js'
   container.appendChild(script);
-  //container.appendChild(script2);
+  container.appendChild(script2);
 
     // Cleanup function to remove the script if the component unmounts
     return () => {
-      
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
     };
   }, []);
 
