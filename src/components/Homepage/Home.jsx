@@ -234,7 +234,13 @@ const Home = () => {
       </SwiperLayout>
 )}
     <SwiperLayout title={"Advertisement"} >
-    <ScriptComponent adkey={`6472e9e96fda1f44ecc5f08fd44fc5af`} height={250} width={300} adno={2} />
+      
+    <div onload="ad2()" className='flex sm:hidden justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px] mb-[15px] min-h-[60px]' id={`ad-container-9`} >
+    <div className='absolute z-[-1]'>
+    <center>Advertisement</center>
+    </div>
+    </div>
+      
     </SwiperLayout>
     </div>
   );
