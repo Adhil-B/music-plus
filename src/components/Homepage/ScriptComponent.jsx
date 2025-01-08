@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const ScriptComponent = () => {
+const ScriptComponent = ({key, height, width, adno}) => {
   /*useEffect(() => {
     // Dynamically create the script element
     const script = document.createElement('script');
@@ -34,20 +34,20 @@ useEffect(() => {
     // Dynamically create the script element
     const script = document.createElement('script');
     const script2 = document.createElement('script');
-    const container = document.getElementById('ad-container');
+    const container = document.getElementById(`ad-container-${adno}`);
 
     script.innerHTML = `
 	atOptions = {
-		'key' : 'ebeb566c60bd1f2f59dfbd5d18edd05d',
+		'key' : '${key}',
 		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
+		'height' : ${height},
+		'width' : ${width},
 		'params' : {}
 	};
 `
   script.type='text/javascript';
   script2.type='text/javascript';
-  script2.src='//www.highperformanceformat.com/ebeb566c60bd1f2f59dfbd5d18edd05d/invoke.js'
+  script2.src=`//www.highperformanceformat.com/${key}/invoke.js`
   container.appendChild(script);
   container.appendChild(script2);
 
@@ -62,7 +62,7 @@ useEffect(() => {
   
   return (
 
-    <div className='flex sm:hidden justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px] mb-[15px] min-h-[60px]' id="ad-container" >
+    <div className='flex sm:hidden justify-center rounded-lg bg-[hsla(0,0%,100%,.05)] p-[10px] sm:p-[0px] mb-[15px] min-h-[60px]' id={`ad-container-${adno}`} >
     <div className='absolute z-[-1]'>
     <center>Advertisement</center>
     </div>
