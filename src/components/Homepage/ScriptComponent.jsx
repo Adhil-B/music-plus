@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const ScriptComponent = ({key, height, width, adno}) => {
+const ScriptComponent = ({adkey, height, width, adno}) => {
   /*useEffect(() => {
     // Dynamically create the script element
     const script = document.createElement('script');
@@ -38,7 +38,7 @@ useEffect(() => {
 
     script.innerHTML = `
 	atOptions = {
-		'key' : ${key},
+		'key' : ${adkey},
 		'format' : 'iframe',
 		'height' : ${height},
 		'width' : ${width},
@@ -47,7 +47,7 @@ useEffect(() => {
 `
   script.type='text/javascript';
   script2.type='text/javascript';
-  script2.src=`//www.highperformanceformat.com/${key}/invoke.js`
+  script2.src=`//www.highperformanceformat.com/${adkey}/invoke.js`
   container.appendChild(script);
   container.appendChild(script2);
 
