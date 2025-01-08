@@ -178,11 +178,11 @@ const Home = () => {
                 ))
             )
           }
-          <AdBanner adno={2}/>
+          
         </div>
       </div>
 )}
-      
+ <AdBanner adno={2}/>     
 
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
