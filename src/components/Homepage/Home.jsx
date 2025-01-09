@@ -182,7 +182,7 @@ const Home = () => {
         </div>
       </div>
 )}
-       <ScriptComponent adkey={`ebeb566c60bd1f2f59dfbd5d18edd05d`} height={50} width={320} adno={1} />
+       <ScriptComponent adkey={`ebeb566c60bd1f2f59dfbd5d18edd05d`} height={50} width={320} adno={0} />
 
       {/* trending */}
       { selectedHomeCategories.includes("trending") && (
