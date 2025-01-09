@@ -32,6 +32,7 @@ l.appendChild(s);
   }, []);*/
 useEffect(() => {
     // Dynamically create the script element
+const time = adno*100;
 setTimeout(function() {
     const script = document.createElement('script');
     const script2 = document.createElement('script');
@@ -58,7 +59,7 @@ setTimeout(function() {
         container.removeChild(container.firstChild);
       }
     };
-}, 75*adno);
+}, time);
   }, []);
 
   
