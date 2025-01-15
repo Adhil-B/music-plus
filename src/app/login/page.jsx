@@ -28,7 +28,7 @@ const page = () => {
     }, [lang]);
     
     useEffect(() => {
-    document.body.style.background = 'linear-gradient(180deg,rgba(8,135,152,.9),#09204a8a 60%)';
+    document.body.style.background = 'linear-gradient(160deg,rgba(60, 8, 152, 0.47),#09204a63 60%)';
 
     return () => {
       document.body.style.background = '';
