@@ -10,8 +10,8 @@ import { Toaster } from "react-hot-toast";
 import AuthProvider from "./AuthProvider";
 import { Poppins } from "next/font/google";
 import Script from "next/script";
-import AdBanner from '../../app/AdBanner';
-//import { useDispatch, useSelector } from "react-redux";
+import AdBanner from './AdBanner';
+///import { useDispatch, useSelector } from "react-redux";
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
