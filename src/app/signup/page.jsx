@@ -98,7 +98,7 @@ const page = () => {
                             <input onChange={onchange} value={formData.password} name='password' type="password" placeholder="Password" required className='!pl-[20px] bg-[#fff0] correctwidth appearance-none border-b border-white focus:outline-none text-base lg:text-lg' />
                         </div>
                         <div className=" w-full flex justify-center mt-[20px]">
-                            <button type='submit' className="correctwidth font-semibold hover:border-[#00e6e6] relative inline-block px-4 py-2 font-medium group">
+                            <button type='submit' className="correctwidth font-semibold hover:border-[#00e6e6] relative inline-block px-4 py-2 group">
                                 
                                 <span className="absolute inset-0 w-full h-full group-hover:bg-"></span>
                                 <span className="relative text-white group-hover:text-cyan-400">Sign Up</span>

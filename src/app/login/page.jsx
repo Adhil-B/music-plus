@@ -93,7 +93,7 @@ const page = () => {
                         <p className=' text-xs text-[#00e6e6] mt-[5px] mb-[10px] ml-[6px]'>Forgot Password?</p>
                         </Link>
                         <div className=" w-full flex justify-center">
-                            <button type='submit' className="correctwidth font-semibold hover:border-[#00e6e6] w-[100px] mt-[8px] relative inline-block px-4 py-2 font-medium group">
+                            <button type='submit' className="correctwidth font-semibold hover:border-[#00e6e6] w-[100px] mt-[8px] relative inline-block px-4 py-2 group">
                                 
                                 <span className="absolute inset-0 w-full h-full group-hover:bg-"></span>
                                 <span className="relative text-white group-hover:text-cyan-400">Login</span>
