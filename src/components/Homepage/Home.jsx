@@ -15,7 +15,7 @@ import OnlineStatus from "./OnlineStatus";
 import ListenAgain from "./ListenAgain";
 import { setHomeCategories } from '@/redux/features/homeCategoriesSlice'
 import ScriptComponent from './ScriptComponent';
-import AdBanner from './AdBanner';
+
 
 const Home = () => {
 
@@ -235,7 +235,7 @@ const Home = () => {
       </SwiperLayout>
 )}
     <SwiperLayout title={"Advertisement"} >
-    <AdBanner /> 
+ 
     <ScriptComponent adkey={`6472e9e96fda1f44ecc5f08fd44fc5af`} height={250} width={300} adno={9} />
       
     </SwiperLayout>
